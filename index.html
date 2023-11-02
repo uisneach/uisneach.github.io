@@ -47,11 +47,15 @@
     .column-title {
         text-align: center;
     }
+
+    .link-to-page {
+        cursor: pointer;
+    }
 </style>
 <script>
-  function go() {
+  function go(url) {
     sessionStorage.setItem("one", 1);
-    window.location.href = "aisling-meabhuil.html?value=" + encodeURIComponent(1);
+    window.location.href = url + "?value=" + encodeURIComponent(1);
   }
 </script>
 </head>
@@ -63,8 +67,8 @@
   <div class="columns">
   <div class="column">
             <h2 class="column-title">Filiocht</h2>
-            <p onclick="go()">Danta Aodhaghan Ua Raghaille</p>
-            <a onclick="go()" href="creachta-crich-fodla.html">Créachta Crích Fódla</a>
+            <p class="link-to-page" onclick="go('aisling-meabhuil.html')">Danta Aodhaghan Ua Raghaille</p>
+            <p class="link-to-page" onclick="go('creachta-crich-fodla.html')">Créachta Crích Fódla</p>
         </div>
         <div class="column">
             <h2 class="column-title">Aisteacht</h2>
