@@ -65,8 +65,9 @@
         var one = sessionStorage.getItem("one");
         if (one == 1)
         {
-            const element = document.getElementById("page-title");
-            element.textContent = "one";
+            const element = document.getElementByClassName("header");
+          if (element != null)
+              element.textContent = "one";
         }
         sessionStorage.clear();
     }
