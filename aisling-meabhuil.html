@@ -60,12 +60,22 @@
     }
 </style>
 <script>
-
+    function get()
+    {
+        var one = sessionStorage.getItem("one");
+        if (one == 1)
+        {
+            const element = document.getElementById("page-title");
+            element.textContent = "one";
+        }
+        sessionStorage.clear();
+    }
+    window.onload = get();
 </script>
 </head>
 <body>
   <div class="dan-datheangach">
-     <div class="header">
+     <div class="header" id="page-title">
          <h1>Dánta Aoḋaġan Ua Raġaille</h1>
      </div>
      <div class="description">
