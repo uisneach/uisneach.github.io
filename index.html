@@ -5,20 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uisneach</title>
   <style>
-      body {
-          //font-family: Times;
-          background-color: #313B4C;
-          margin: 0;
-          padding: 0;
-    	  color: white;
-      }
+    :root {
+    	--gold: #DFB200
+    }
+    
+    body {
+        //font-family: Times;
+        background-color: #313B4C;
+        margin: 0;
+        padding: 0;
+    	color: white;
+    }
 
-      .header {
-         text-align: center;
-         padding: 20px;
-     }
+    .header {
+        text-align: center;
+        padding: 20px;
+    }
      
-     .content {
+    .content {
         margin: auto;
         width: 90%;
         height: 90%;
@@ -27,42 +31,43 @@
     }
 
 
- .description {
-     text-align: center;
-     padding: 20px;
-     font-size: 18px;
- }
+ 	.description {
+     	text-align: center;
+     	padding: 20px;
+     	font-size: 18px;
+ 	}
 
- #text-container {
-  display: flex;
-  justify-content: 30px;
-  align: center;
-  column-gap: 40px; /* Set the distance between the columns */
-  height: 2000px; /* Set the height of the container to create vertical scrolling */
-}
+ 	#text-container {
+  		display: flex;
+  		justify-content: 30px;
+		align: center;
+  		column-gap: 40px; 
+  		//height: 2000px;
+    	border: 2px solid var(--gold);
+	}
 
-.column {
-  font-size: 16px;
-  line-height: 1.5;
-  width: 50%;
-  padding: 20px; /* Add some padding to each column */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
+	.column {
+  		font-size: 16px;
+  		line-height: 1.5;
+  		width: 50%;
+  		padding: 20px; /* Add some padding to each column */
+  		box-sizing: border-box; /* Include padding and border in the element's total width and height */
+	}
 
-.column-title {
- font-size: 20px;
- margin-bottom: 10px;
-    text-align: center;
-}
+	.column-title {
+ 		font-size: 20px;
+ 		margin-bottom: 10px;
+    	text-align: center;
+	}
 </style>
 </head>
 <body>
   <div class="content">
      <div class="header">
-         <h1>Danta Aoḋaghan Ua Raghaille</h1>
+         <h1>Dánta Aoḋaġan Ua Raġaille</h1>
      </div>
      <div class="description">
-         <p>Danta Aoḋaghan Ua Raghaille</p>
+         <p>Dánta Aoḋaġan Ua Raġaille</p>
      </div>
      <div id="text-container">
        <div class="column" id="gaeilge">
@@ -75,8 +80,8 @@
             Mars gan bhanna dearcaim, seabhac leabhair lannach leabhair-ghníomh tréan,<br>
             Bracach asgnaimh, coileach catha, d'aicme Raithleann sean ghríb Gaedheal;<br>
             Críthid flaithis, bailte, daingin, ranna, mara, is campaoi a g-céin,<br>
-            D'fheartaibh arm-ghairge an aicil gheallas ceart an t-seanrígh phléidh.
-          </p>
+        D'fheartaibh arm-ghairge an aicil gheallas ceart an t-seanrígh phléidh.
+            </p>
     </div>
     <div class="column" id = "bearla"> 
         <h2 class="column-title">Bearla</h2>
@@ -89,7 +94,7 @@
             A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael;<br>
             The heavens tremble, towns, strongholds, continents, seas, and camps in the distance<br>
             At the feats of martial valour of the hero who undertook to fight for the rights of the old king.
-        </p>
+          </p>
     </div>
 </div>
 </div>
