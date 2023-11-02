@@ -59,21 +59,6 @@
         text-align: center;
     }
 </style>
-<script>
-    function get()
-    {
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-        var value = urlParams.get("value");
-
-        if (value == 1)
-        {
-            document.getElementById("pagetitle").innerHTML = "one";
-        }
-        sessionStorage.clear();
-    }
-    window.onload = get();
-</script>
 </head>
 <body>
   <div class="dan-datheangach">
@@ -119,5 +104,20 @@
             6. bratach asgnaimh, “banner of progress or marching.” asgnaimh, from asgnaim, “I go, march.” M, brotach aisnimh. A, also, aisnimh. <i>Ibid.</i> Raithleann was foster-mother of Corc of Cashel, and daughter of Dathe the strong. Corc being the first king of Cashel, descent from the Cashel kings is spoken of as descent from Raithleann.<br>
             8. pléidh generally means “to litigate, to contend ”; here it is used of battle.</p>
 </div>
+<script>
+    function get()
+    {
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        var value = urlParams.get("value");
+
+        if (value == 1)
+        {
+            document.getElementById("pagetitle").innerHTML = "one";
+        }
+        sessionStorage.clear();
+    }
+    window.onload = get();
+</script>
 </body>
 </html>
