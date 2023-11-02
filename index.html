@@ -6,78 +6,93 @@
   <title>Uisneach</title>
   <style>
       body {
-          font-family: Arial, sans-serif;
-          background-color: #0f0f0f;
+          font-family: Times;
+          background-color: #0004A0;
           margin: 0;
           padding: 0;
       }
 
       .header {
-       text-align: center;
-       padding: 20px;
-       background: #333;
-       color: white;
-   }
+         text-align: center;
+         padding: 20px;
+         color: white;
+     }
+     
+     .content {
+        margin: auto;
+        width: 90%;
+        height: 90%;
+        border: 5% solid black;
+        background: white;
+    }
 
-   .header img {
-       width: 100px;
-       height: 100px;
-   }
+    .header img {
+     width: 100px;
+     height: 100px;
+ }
 
-   .description {
-       text-align: center;
-       padding: 20px;
-       font-size: 18px;
-   }
+ .description {
+     text-align: center;
+     padding: 20px;
+     font-size: 18px;
+ }
 
-   #text-container {
-      display: flex;
-      justify-content: space-between;
-      column-gap: 40px; /* Set the distance between the columns */
-      height: 2000px; /* Set the height of the container to create vertical scrolling */
-  }
+ #text-container {
+  display: flex;
+  justify-content: 30px;
+  column-gap: 40px; /* Set the distance between the columns */
+  height: 2000px; /* Set the height of the container to create vertical scrolling */
+}
 
-  #column1, #column2 {
-      width: 45%;
-      font-size: 16px;
-      line-height: 1.5;
-      padding: 20px; /* Add some padding to each column */
-      box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
+#column1, #column2 {
+  background: #333;
+  width: 45%;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 20px; /* Add some padding to each column */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
 
-  .column-title {
-   font-size: 20px;
-   margin-bottom: 10px;
+.column-title {
+ font-size: 20px;
+ margin-bottom: 10px;
 }
 </style>
 </head>
 <body>
-   <div class="header">
-       <img src="custom-image.jpg" alt="Custom Image">
-       <h1>Large Title</h1>
-   </div>
-   <div class="description">
-       <p>Short, horizontally centered description.</p>
-   </div>
-   <div id="text-container">
-     <div>
-      <h2 class="column-title">Column 1 Title</h2>
-      <p id="column1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-  </div>
-  <div> 
-    <h2 class="column-title">Column 2 Title</h2>
-    <p id="column2">
-        An illusive vision troubled my soul for a time, leaving me without vigour, lean, spiritless, and prostrate:<br>
-        Showers of ships crossing the sea from the south, mightily and in due order,<br>
-        Nimble soldiers in the battle-front, in splendid arms—the graceful race of Cian—<br>
-        Upsetting and wounding the foreigners, and wide their plains at the extremity of the regions of Niall.<br>
-        I beheld a Mars without censure, a warrior of the sword, of nimble deeds, mighíy,<br>
-        A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael;<br>
-        The heavens tremble, towns, strongholds, continents, seas, and camps in the distance<br>
-        At the feats of martial valour of the hero who undertook to fight<br>
-        for the rights of the old king
+  <div class="content">
+     <div class="header">
+         <h1>Large Title</h1>
+     </div>
+     <div class="description">
+         <p>Short, horizontally centered description.</p>
+     </div>
+     <div id="text-container">
+       <div>
+          <h2 class="column-title">Column 1 Title</h2>
+          <p id="column1">Cirhna meabual o'aicill m'anam, real san capa preana cím cnéis;<br>
+            Frara canb cnarna mana as ceaéc anoeapr so ceann paoi ném;<br>
+            Orprasan meana a o-coprac caéa a n-anm $neansa. an c-Teana c-príol Céin,<br>
+            Leascó an áallab aca iÍ baragó, ir ePeanann epanmnna a s-ceann cníoc Néill.<br>
+            THRanr san banna oeancam, preabac leaban lannac leabain-óníom cnéan,<br>
+            bracac apanaimh, coileac caéa, o'aicme Raióleann prean Spíb óaeóeal;<br>
+            Cprício pPlaici?, bailce, oanain, nanna, mghna, ir campaoi a s-céin,<br>
+        O'peancab anm-sapase an acil seallap ceanc an c-reannís pléi</p>
     </div>
+    <div> 
+        <h2 class="column-title">Column 2 Title</h2>
+        <p id="column2">
+            An illusive vision troubled my soul for a time, leaving me without vigour, lean, spiritless, and prostrate:<br>
+            Showers of ships crossing the sea from the south, mightily and in due order,<br>
+            Nimble soldiers in the battle-front, in splendid arms—the graceful race of Cian—<br>
+            Upsetting and wounding the foreigners, and wide their plains at the extremity of the regions of Niall.<br>
+            I beheld a Mars without censure, a warrior of the sword, of nimble deeds, mighíy,<br>
+            A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael;<br>
+            The heavens tremble, towns, strongholds, continents, seas, and camps in the distance<br>
+            At the feats of martial valour of the hero who undertook to fight<br>
+        for the rights of the old king </p>
+    </div>
+</div>
 </div>
 </body>
 </html>
-
