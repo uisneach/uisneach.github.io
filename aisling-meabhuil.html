@@ -66,8 +66,7 @@
         var urlParams = new URLSearchParams(queryString);
         var value = urlParams.get("value");
 
-        var one = sessionStorage.getItem("one");
-        if (one == 1)
+        if (value == 1)
         {
             const element = document.getElementById("page-title");
             if (element != null)
