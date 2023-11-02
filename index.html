@@ -1,35 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Uisneach</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uisneach</title>
   <style>
-   body {
- font-family: Arial, sans-serif;
- background-color: #f0f0f0;
-}
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #00046b;
+          margin: 0;
+          padding: 0;
+      }
 
-#text-container {
- display: flex;
- justify-content: space-between;
-}
+   .header {
+         text-align: center;
+         padding: 20px;
+         background: #333;
+         color: white;
+     }
 
-#column1, #column2 {
- width: 45%;
- font-size: 16px;
- line-height: 1.5;
-}
+   .header img {
+         width: 100px;
+         height: 100px;
+     }
 
+   .description {
+         text-align: center;
+         padding: 20px;
+         font-size: 18px;
+     }
+
+      #text-container {
+          display: flex;
+          justify-content: space-between;
+          column-gap: 40px; /* Set the distance between the columns */
+          height: 2000px; /* Set the height of the container to create vertical scrolling */
+      }
+
+      #column1, #column2 {
+          width: 45%;
+          font-size: 16px;
+          line-height: 1.5;
+          padding: 20px; /* Add some padding to each column */
+          box-sizing: border-box; /* Include padding and border in the element's total width and height */
+      }
+
+   .column-title {
+         font-size: 20px;
+         margin-bottom: 10px;
+     }
   </style>
- </head>
- <body>
-   <h1>Welcome to My Website</h1>
-   <p>This is a paragraph of dummy content. You can replace this with your actual content.</p>
+</head>
+<body>
+ <div class="header">
+     <img src="custom-image.jpg" alt="Custom Image">
+     <h1>Large Title</h1>
+ </div>
+ <div class="description">
+     <p>Short, horizontally centered description.</p>
+ </div>
   <div id="text-container">
-     <p id="column1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-     <p id="column2">Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-  </div>
-
- </body>
+   <div>
+      <h2 class="column-title">Column 1 Title</h2>
+      <p id="column1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+   </div>
+   <div> 
+    <h2 class="column-title">Column 2 Title</h2>
+    <p id="column2">An illusive vision troubled my soul for a time, leaving me without vigour, lean, spiritless, and prostrate:<br>Showers of ships crossing the sea from the south, mightily and in due order,<br>
+Nimble soldiers in the battle-front, in splendid arms—the graceful race of Cian—<br>Upsetting and wounding the foreigners, and wide their plains at the extremity of the regions of Niall.<br>
+I beheld a Mars without censure, a warrior of the sword, of nimble deeds, mighíy,<br>A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael;<br>
+The heavens tremble, towns, strongholds, continents, seas, and camps in the distance<br>At the feats of martial valour of the hero who undertook to fight<br>
+for the rights of the old king
+   </div>
+   </div>
+</body>
 </html>
+
