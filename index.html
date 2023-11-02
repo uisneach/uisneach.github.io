@@ -5,88 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uisneach</title>
   <style>
-      body {
-          font-family: Times;
+    body {
+          //font-family: Times;
           background-color: #0004A0;
           margin: 0;
           padding: 0;
       }
 
-      .header {
-       text-align: center;
-       padding: 20px;
-       color: black;
-       border: 2px solid black;
-       padding: 5px;
-   }
-
-   .content {
-    margin: auto;
-    width: 90%;
-    height: 90%;
-    border: 5% solid black;
-    background: white;
-}
+.header {
+         text-align: center;
+         padding: 20px;
+         color: black;
+         border: 2px solid black;
+         padding: 5px;
+     }
+     
+.content {
+        margin: auto;
+        width: 90%;
+        height: 90%;
+        border: 5% solid black;
+        background: white;
+    }
 
 
 .description {
-   text-align: center;
-   padding: 20px;
-   font-size: 18px;
-}
+     text-align: center;
+     padding: 20px;
+     font-size: 18px;
+ }
 
 #text-container {
   display: flex;
   justify-content: 30px;
+    align: center;
   column-gap: 40px; /* Set the distance between the columns */
   height: 2000px; /* Set the height of the container to create vertical scrolling */
 }
 
-#gaeilge, #bearla {
+.column {
   font-size: 16px;
   line-height: 1.5;
+    float: left;
+    border: 2px solid black;
   padding: 20px; /* Add some padding to each column */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .column-title {
-   font-size: 20px;
-   margin-bottom: 10px;
+ font-size: 20px;
+ margin-bottom: 10px;
+    text-align: center;
 }
 </style>
 </head>
 <body>
   <div class="content">
-   <div class="header">
-       <h1>Danta Aodhaghan Ua Raghaille</h1>
-   </div>
-   <div class="description">
-       <p>Danta Aodhaghan Ua Raghaille</p>
-   </div>
-   <div id="text-container">
-     <div>
-      <h2 class="column-title">Column 1 Title</h2>
-      <p id="gaeilge">Cirhna meabual o'aicill m'anam, real san capa preana cím cnéis;<br>
-        Frara canb cnarna mana as ceaéc anoeapr so ceann paoi ném;<br>
-        Orprasan meana a o-coprac caéa a n-anm $neansa. an c-Teana c-príol Céin,<br>
-        Leascó an áallab aca iÍ baragó, ir ePeanann epanmnna a s-ceann cníoc Néill.<br>
-        THRanr san banna oeancam, preabac leaban lannac leabain-óníom cnéan,<br>
-        bracac apanaimh, coileac caéa, o'aicme Raióleann prean Spíb óaeóeal;<br>
-        Cprício pPlaici?, bailce, oanain, nanna, mghna, ir campaoi a s-céin,<br>
+     <div class="header">
+         <h1>Danta Aoḋaghan Ua Raghaille</h1>
+     </div>
+     <div class="description">
+         <p>Danta Aoḋaghan Ua Raghaille</p>
+     </div>
+     <div id="text-container">
+       <div class="column" id="gaeilge">
+          <h2 class="column-title">Gaeilge</h2>
+          <p>Cirhna meabual o'aicill m'anam, real san capa preana cím cnéis;<br>
+            Frara canb cnarna mana as ceaéc anoeapr so ceann paoi ném;<br>
+            Orprasan meana a o-coprac caéa a n-anm $neansa. an c-Teana c-príol Céin,<br>
+            Leascó an áallab aca iÍ baragó, ir ePeanann epanmnna a s-ceann cníoc Néill.<br>
+            THRanr san banna oeancam, preabac leaban lannac leabain-óníom cnéan,<br>
+            bracac apanaimh, coileac caéa, o'aicme Raióleann prean Spíb óaeóeal;<br>
+            Cprício pPlaici?, bailce, oanain, nanna, mghna, ir campaoi a s-céin,<br>
         O'peancab anm-sapase an acil seallap ceanc an c-reannís pléi</p>
-</div>
-<div> 
-    <h2 class="column-title">Column 2 Title</h2>
-    <p id="bearla">
-        An illusive vision troubled my soul for a time, leaving me without vigour, lean, spiritless, and prostrate:<br>
-        Showers of ships crossing the sea from the south, mightily and in due order,<br>
-        Nimble soldiers in the battle-front, in splendid arms—the graceful race of Cian—<br>
-        Upsetting and wounding the foreigners, and wide their plains at the extremity of the regions of Niall.<br>
-        I beheld a Mars without censure, a warrior of the sword, of nimble deeds, mighíy,<br>
-        A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael;<br>
-        The heavens tremble, towns, strongholds, continents, seas, and camps in the distance<br>
-        At the feats of martial valour of the hero who undertook to fight for the rights of the old king </p>
-</div>
+    </div>
+    <div class="column" id = "bearla"> 
+        <h2 class="column-title">Bearla</h2>
+        <p>
+            An illusive vision troubled my soul for a time, leaving me without vigour, lean, spiritless, and prostrate:<br>
+            Showers of ships crossing the sea from the south, mightily and in due order,<br>
+            Nimble soldiers in the battle-front, in splendid arms—the graceful race of Cian—<br>
+            Upsetting and wounding the foreigners, and wide their plains at the extremity of the regions of Niall.<br>
+            I beheld a Mars without censure, a warrior of the sword, of nimble deeds, mighíy,<br>
+            A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael;<br>
+            The heavens tremble, towns, strongholds, continents, seas, and camps in the distance<br>
+            At the feats of martial valour of the hero who undertook to fight for the rights of the old king </p>
+    </div>
 </div>
 </div>
 </body>
