@@ -68,9 +68,9 @@
 
         if (value == 1)
         {
-            const element = document.getElementById("page-title");
+            const element = document.getElementById("pagetitle");
             if (element != null)
-                element.textContent = "one";
+                element.innerHTML = "one";
         }
         sessionStorage.clear();
     }
@@ -80,7 +80,7 @@
 <body>
   <div class="dan-datheangach">
      <div class="header">
-         <h1 id="page-title">Dánta Aoḋaġan Ua Raġaille</h1>
+         <h1 id="pagetitle">Dánta Aoḋaġan Ua Raġaille</h1>
      </div>
      <div class="description">
          <p></p>
