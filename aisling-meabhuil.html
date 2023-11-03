@@ -79,7 +79,7 @@
             Mars gan bhanna dearcaim, seabhac leabhair lannach leabhair-ghníomh tréan,<br>
             Bracach asgnaimh, coileach catha, d'aicme Raithleann sean ghríb Gaedheal;<br>
             Críthid flaithis, bailte, daingin, ranna, mara, is campaoi a g-céin,<br>
-        D'fheartaibh arm-ghairge an aicil gheallas ceart an t-seanrígh phléidh.
+            D'fheartaibh arm-ghairge an aicil gheallas ceart an t-seanrígh phléidh.
             </p>
     </div>
     <div class="column" id = "bearla"> 
@@ -109,13 +109,19 @@
     {
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
-        var value = urlParams.get("value");
-
-        if (value == 1)
-        {
-            document.getElementById("pagetitle").innerHTML = "one";
-        }
+        var poemName = urlParams.get("poem");
+        populatePoem(poemName);
         sessionStorage.clear();
+    }
+
+    function populatePoem(name)
+    {
+      readFromFile("data.json", name);
+    }
+
+    function readFromFile(filename, poemName)
+    {
+      fetch(filename).then((response) => response.json()).then((data) => console.log(data));
     }
     window.onload = get();
 </script>
