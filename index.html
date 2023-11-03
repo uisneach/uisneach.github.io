@@ -55,14 +55,6 @@
 </style>
 <script>
   function go(url) {
-    var dict = {"one" : [15, 4.5],
-            "two" : [34, 3.3],
-            "three" : [67, 5.0],
-            "four" : [32, 4.1]};
-    var jsondata = JSON.stringify(dict);
-    var fs = require('fs');
-    fs.writeFile("data.json", dictstring);
-    sessionStorage.setItem("one", 1);
     window.location.href = url + ".html";
   }
 </script>
