@@ -124,10 +124,6 @@
     {
       var data;
       fetch(filename).then((response) => response.json())
-        .then((text) => const object = text[poemName];
-                        if (object) {
-                            data = object;
-                        }
         .then((data) => console.log(data));
     }
     window.onload = get();
