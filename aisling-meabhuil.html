@@ -110,7 +110,7 @@
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
         var poemName = urlParams.get("poem");
-        console.log(poemname);
+        console.log(poemName);
         populatePoem(poemName);
         sessionStorage.clear();
     }
