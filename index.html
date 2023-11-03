@@ -54,8 +54,8 @@
     }
 </style>
 <script>
-  function go(url) {
-    window.location.href = url + ".html";
+  function go(name) {
+    window.location.href = name + ".html?poem=" + encodeURIComponent(name);
   }
 </script>
 </head>
