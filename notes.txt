@@ -1,0 +1,10 @@
+Template HTML:
+
+For Bilingual Poetry (mostly Aodhaghan Ua Raghaille)
+
+Poem {
+"author" : "Aodhaghan Ua Raghaille",
+"irish_text" : "...Irish Text...",
+"english_text" : "...English text...",
+"footnotes" : "...footnotes text..."
+}
