@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uisneach</title>
-  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     :root {
         --gold: #DFB200
@@ -54,8 +53,8 @@
     }
 </style>
 <script>
-  function go(name) {
-    window.location.href = name + ".html?poem=" + encodeURIComponent(name);
+  function go(poemName) {
+    window.location.href = "filiocht-datheangach.html?poem=" + encodeURIComponent(poemName);
   }
 </script>
 </head>
@@ -67,8 +66,8 @@
   <div class="columns">
   <div class="column">
             <h2 class="column-title">Filiocht</h2>
-            <p class="link-to-page" onclick="go('aisling-meabhuil')">Aisling Meabhuil</p>
-            <p class="link-to-page" onclick="go('creachta-crich-fodla')">Créachta Crích Fódla</p>
+            <p class="link-to-page" onclick="go('aisling-meabhuil.html')">Aisling Meabhuil</p>
+            <p class="link-to-page" onclick="go('creachta-crich-fodla.html')">Créachta Crích Fódla</p>
         </div>
         <div class="column">
             <h2 class="column-title">Aisteacht</h2>
