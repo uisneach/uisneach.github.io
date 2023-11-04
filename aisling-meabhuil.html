@@ -123,7 +123,7 @@
     function readFromFile(filename, poemName)
     {
       var data;
-      fetch('https://github.com/uisneach/uisneach.github.io/blob/main/data.json')
+      fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
         .then(res => res.json())
         .then(json => console.log(JSON.stringify(json)));
     }
