@@ -1,118 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uisneach</title>
-  <style>
-    :root {
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Uisneach</title>
+        <style>
+        :root {
         --gold: #DFB200
-    }
-    
-    body {
+        }
+        
+        body {
         background-color: #313B4C;
         margin: 0;
         padding: 0;
         color: white;
-    }
+        }
 
-    .header {
+        .header {
         text-align: center;
         padding: 20px;
-    }
-     
-    .dan-datheangach {
+        }
+        
+        .dan-datheangach {
         margin: auto;
         width: 90%;
         height: 90%;
         background: #313B4C;
         padding: 2%;
-    }
+        }
 
-
-    .description {
+        .description {
         text-align: center;
         padding: 20px;
         font-size: 18px;
-    }
+        }
 
-    #text-container {
+        #text-container {
         display: flex;
         justify-content: 30px;
         align: center;
-        column-gap: 40px; 
-        //height: 2000px;
+        column-gap: 40px;
         border: 2px solid var(--gold);
-    }
+        }
 
-    .column {
+        .column {
         font-size: 16px;
         line-height: 1.5;
         width: 50%;
         padding: 20px; /* Add some padding to each column */
         box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    }
+        }
 
-    .column-title {
+        .column-title {
         font-size: 20px;
         margin-bottom: 10px;
         text-align: center;
-    }
-</style>
-</head>
-<body>
-  <div class="dan-datheangach">
-     <div class="header">
-         <h1 id="page-title"></h1>
-         <h3 id="author-title"></h3>
-     </div>
-     <div class="description">
-         <p></p>
-     </div>
-     <div id="text-container">
-       <div class="column" id="gaeilge">
-          <h2 class="column-title" id="irish-title"></h2>
-          <p id="irish-text"></p>
-    </div>
-    <div class="column" id = "bearla"> 
-        <h2 class="column-title" id="english-title"></h2>
-        <p id="english-text"></p>
-    </div>
-</div>
-          <p class="footnotes" id="footnote-text"></p>
-</div>
-<script>
-    function get()
-    {
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-        var poemName = trimHTMLTag(urlParams.get("poem"));
-        console.log(poemName);
-        populatePoem(poemName);
-    }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="dan-datheangach">
+            <div class="header">
+                <h1 id="page-title"></h1>
+                <h3 id="author-title"></h3>
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+            <div id="text-container">
+                <div class="column" id="gaeilge">
+                    <h2 class="column-title" id="irish-title"></h2>
+                    <p id="irish-text"></p>
+                </div>
+                <div class="column" id = "bearla">
+                    <h2 class="column-title" id="english-title"></h2>
+                    <p id="english-text"></p>
+                </div>
+            </div>
+            <p class="footnotes" id="footnote-text"></p>
+        </div>
+        <script>
+        function get()
+        {
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+            var poemName = trimHTMLTag(urlParams.get("poem"));
+            console.log(poemName);
+            populatePoem(poemName);
+        }
 
-    function populatePoem(poemName)
-    {
-      fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
-        .then(res => res.json())
-        .then(json => {
-            document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-title"]));
-            document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["poems"][poemName]["author"]));
-            document.getElementById("irish-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-title"]));
-            document.getElementById("english-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["english-title"]));
-            document.getElementById("irish-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-text"]));
-            document.getElementById("english-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["english-text"]));
-            document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["footnotes"]));
-        });
-    }
+        function populatePoem(poemName)
+        {
+            fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
+                .then(res => res.json())
+                .then(json => {
+                    document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-title"]));
+                    document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["poems"][poemName]["author"]));
+                    document.getElementById("irish-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-title"]));
+                    document.getElementById("english-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["english-title"]));
+                    document.getElementById("irish-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-text"]));
+                    document.getElementById("english-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["english-text"]));
+                    document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["footnotes"]));
+                });
+        }
 
-    function trimHTMLTag(string)
-    {return string.split(".")[0];}
+        function trimHTMLTag(string)
+        {return string.split(".")[0];}
+        
+        function trimQuotes(string)
+        {return string.substring(1).substring(0, string.length - 2).replaceAll("\\", "");}
+        
+        window.onload = get();
 
-    function trimQuotes(string)
-    {return string.substring(1).substring(0, string.length - 2).replaceAll("\\", "");}
-
-    window.onload = get();
-</script>
-</body>
+        </script>
+    </body>
 </html>
