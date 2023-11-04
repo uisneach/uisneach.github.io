@@ -123,10 +123,9 @@
     function readFromFile(filename, poemName)
     {
       var data;
-      $.getJSON("https://bioinfobot.github.io/data/2017-05.json")
-        .done(function( data ) {
-        console.log(data)
-        });
+      fetch('https://github.com/uisneach/uisneach.github.io/blob/main/data.json')
+        .then(res => res.json())
+        .then(json => console.log(json)});
     }
     window.onload = get();
 </script>
