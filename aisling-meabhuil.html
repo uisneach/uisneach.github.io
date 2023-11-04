@@ -123,8 +123,10 @@
     function readFromFile(filename, poemName)
     {
       var data;
-      fetch(filename).then((response) => response.json())
-        .then((data) => console.log(data));
+      $.getJSON("https://bioinfobot.github.io/data/2017-05.json")
+        .done(function( data ) {
+        console.log(data)
+        });
     }
     window.onload = get();
 </script>
