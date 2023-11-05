@@ -52,11 +52,6 @@
         cursor: pointer;
     }
 </style>
-<script>
-  function go(poemName) {
-    window.location.href = "filiocht-datheangach.html?poem=" + encodeURIComponent(poemName);
-  }
-</script>
 </head>
 <body>
 <h1 class="title">Index</h1>
@@ -66,6 +61,9 @@
   <div class="columns">
     <div class="column">
         <h2 class="column-title">Filiocht</h2>
+            <ol id="filiocht-list">
+            <p></p>
+            </ol>
             <p class="link-to-page" onclick="go('aisling-meabhuil.html')">Aisling Meabhuil</p>
             <p class="link-to-page" onclick="go('creachta-crich-fodla.html')">Créachta Crích Fódla</p>
     </div>
@@ -82,5 +80,57 @@
             <p>Some text..</p>
     </div>
   </div>
+  <script>
+
+    function go(poemName) {
+        window.location.href = "filiocht-datheangach.html?poem=" + encodeURIComponent(poemName);
+    }
+
+    function initMediaLists()
+    {
+        initFiliocht();
+    }
+
+    function initFiliocht()
+    {
+        //To init, we must fetch the titles of all poems and add them to "filiocht-list" in HTML
+        var query = "bilingual-poems";
+        var titles = [];
+        fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
+            .then(res => res.json())
+            .then(json => {
+                for (let key in json) {
+                    var poemType = json[key];
+                    if (typeof poemType === 'object' && poemType !== null)
+                        for (key2 in poemType) {
+                            var poem = poemType[key2];
+                            if (typeof poem === 'object' && poem !== null) {
+                                if (poem["irish-title"] !== undefined && poem["irish-title"] !== null && poem["irish-title"] !== "")
+                                    titles.push(poem["irish-title"]);
+                                else if (poem["english-title"] !== undefined && poem["english-title"] !== null)
+                                    titles.push(JSON.stringify(poem["english-title"]));
+                            }
+                        }
+                }
+            });
+        let list = document.getElementById("filiocht-list");
+        for (let i = 0; i < titles.length; i++)
+        {
+            // Create a new <li> element
+             let listItem = document.createElement("li");
+
+            // Set the text of the <li> element
+             listItem.textContent = titles[i];
+
+            // Append the <li> element to the <ol> element
+            list.appendChild(listItem);
+        }
+    }
+
+    function trimQuotes(string)
+    {return string.substring(1).substring(0, string.length - 2).replaceAll("\\", "");}
+
+    window.onload = initMediaLists();
+  </script>
 </body>
 </html>
