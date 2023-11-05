@@ -80,12 +80,11 @@
             <p class="footnotes" id="footnote-text"></p>
         </div>
         <script>
-        function get()
+        function getData()
         {
             var queryString = window.location.search;
             var urlParams = new URLSearchParams(queryString);
             var poemName = trimHTMLTag(urlParams.get("poem"));
-            console.log(poemName);
             populatePoem(poemName);
         }
 
@@ -94,13 +93,17 @@
             fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
                 .then(res => res.json())
                 .then(json => {
-                    document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-title"]));
-                    document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["author"]));
-                    document.getElementById("irish-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-title"]));
-                    document.getElementById("english-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["english-title"]));
-                    document.getElementById("irish-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-text"]));
-                    document.getElementById("english-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["english-text"]));
-                    document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["footnotes"]));
+                    if (json['bilingual-poems'][poemName] !== undefined) {
+                        document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-title"]));
+                        document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["author"]));
+                        document.getElementById("irish-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-title"]));
+                        document.getElementById("english-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["english-title"]));
+                        document.getElementById("irish-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-text"]));
+                        document.getElementById("english-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["english-text"]));
+                        document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["footnotes"]));
+                    }
+                    else
+                        console.error("ERROR: JSON level is undefined for PoemName = " + poemName);
                 });
         }
 
@@ -110,7 +113,7 @@
         function trimQuotes(string)
         {return string.substring(1).substring(0, string.length - 2).replaceAll("\\", "");}
         
-        window.onload = get();
+        window.onload = getData();
 
         </script>
     </body>

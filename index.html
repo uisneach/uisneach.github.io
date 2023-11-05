@@ -20,6 +20,18 @@
         padding: 0;
         color: white;
     }
+
+    ol {
+        list-style-type:none
+    }
+
+    li {
+        cursor: pointer;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 50px;
+    }
     
     .title {
         text-align: center;
@@ -64,8 +76,6 @@
             <ol id="filiocht-list">
             <p></p>
             </ol>
-            <p class="link-to-page" onclick="go('aisling-meabhuil.html')">Aisling Meabhuil</p>
-            <p class="link-to-page" onclick="go('creachta-crich-fodla.html')">Créachta Crích Fódla</p>
     </div>
     <div class="column">
         <h2 class="column-title">Aisteacht</h2>
@@ -94,37 +104,38 @@
     function initFiliocht()
     {
         //To init, we must fetch the titles of all poems and add them to "filiocht-list" in HTML
+        let list = document.getElementById("filiocht-list");
         var query = "bilingual-poems";
-        var titles = [];
+        let titles = [];
+        let titleLinks = [];
         fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
             .then(res => res.json())
             .then(json => {
                 for (let key in json) {
                     var poemType = json[key];
-                    if (typeof poemType === 'object' && poemType !== null)
+                    if ((key == "bilingual-poems" || key == "monolinual-poems") && typeof poemType === 'object' && poemType !== null)
                         for (key2 in poemType) {
                             var poem = poemType[key2];
+                                console.log(poem);
                             if (typeof poem === 'object' && poem !== null) {
-                                if (poem["irish-title"] !== undefined && poem["irish-title"] !== null && poem["irish-title"] !== "")
-                                    titles.push(poem["irish-title"]);
-                                else if (poem["english-title"] !== undefined && poem["english-title"] !== null)
-                                    titles.push(JSON.stringify(poem["english-title"]));
+                                titles.push(poem["irish-title"]);
+                                titleLinks.push(key2);
                             }
                         }
                 }
+                for (let i = 0; i < titles.length; i++)
+                {
+                    // Create a new <li> element
+                     let listItem = document.createElement("li");
+
+                    // Set the text of the <li> element
+                     listItem.textContent = titles[i];
+                     listItem.onclick = function() {go(titleLinks[i])};
+
+                    // Append the <li> element to the <ol> element
+                    list.appendChild(listItem);
+                }
             });
-        let list = document.getElementById("filiocht-list");
-        for (let i = 0; i < titles.length; i++)
-        {
-            // Create a new <li> element
-             let listItem = document.createElement("li");
-
-            // Set the text of the <li> element
-             listItem.textContent = titles[i];
-
-            // Append the <li> element to the <ol> element
-            list.appendChild(listItem);
-        }
     }
 
     function trimQuotes(string)
