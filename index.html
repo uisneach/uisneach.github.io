@@ -26,12 +26,9 @@
         cursor: pointer;
         margin-bottom: 35px;
     }
-
-    }
     
-    .page-title {
+    .title {
         text-align: center;
-        border: 2px solid white;
     }
     
     .columns {
@@ -63,7 +60,7 @@
 </style>
 </head>
 <body>
-    <h1 class="page-title">Index</h1>
+        <h1 class="title">Index</h1>
     <center>
         <img src="https://i.pinimg.com/originals/63/07/0e/63070e11e2246b64b2cc552a997b4fcd.png" style='height: 10%; width: 10%; object-fit: contain'/>
     </center>
@@ -89,8 +86,16 @@
     </div>
   <script>
 
-    function go(poemName) {
-        window.location.href = "filiocht-datheangach.html?poem=" + encodeURIComponent(poemName);
+    function go(mediaName, mediaType) { // media name !== title. Ex: aisling-meabhuil !== Aisling Meabhuil
+        if (mediaType == "filiocht-datheangach")
+            window.location.href = "filiocht-datheangach.html?name=" + encodeURIComponent(mediaName);
+        else if (mediaType == "filiocht-aonteangach")
+            window.location.href = "filiocht-aonteangach.html?name=" + encodeURIComponent(mediaName);
+        else if (mediaType == "aisteacht-datheangach")
+            window.location.href = "aisteacht-datheangach.html?name=" + encodeURIComponent(mediaName);
+        else if (mediaType == "aisteacht-aonteangach")
+            window.location.href = "aisteacht-aonteangach.html?name=" + encodeURIComponent(mediaName);
+
     }
 
     function initMediaLists()
@@ -102,13 +107,13 @@
     function initFiliocht()
     {
         //To init, we must fetch the titles of all poems and add them to "filiocht-list" in HTML
-        let list = document.getElementById("filiocht-list");
-        var query = "bilingual-poems";
-        let titles = [];
-        let titleLinks = [];
         fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
             .then(res => res.json())
             .then(json => {
+                let list = document.getElementById("filiocht-list");
+                let titles = [];
+                let titleLinks = [];
+                let isBilingual = [];
                 for (let key in json) {
                     var poemType = json[key];
                     if ((key == "bilingual-poems" || key == "monolinual-poems") && typeof poemType === 'object' && poemType !== null)
@@ -117,6 +122,7 @@
                             if (typeof poem === 'object' && poem !== null) {
                                 titles.push(poem["irish-title"]);
                                 titleLinks.push(key2);
+                                isBilingual.push(key == "bilingual-poems");
                             }
                         }
                 }
@@ -128,32 +134,34 @@
                     // Set the text of the <li> element
                      listItem.textContent = titles[i];
                      listItem.className = "media-title";
-                     listItem.onclick = function() {go(titleLinks[i])};
+                     listItem.onclick = function() {go(titleLinks[i], (isBilingual[i]) ? "filiocht-datheangach" : "filiocht-aonteangach")};
 
                     // Append the <li> element to the <ol> element
                     list.appendChild(listItem);
                 }
             });
+
     }
 
     function initAisteacht()
     {
         //To init, we must fetch the titles of all essays and add them to "aisteacht-list" in HTML
         let list = document.getElementById("aisteacht-list");
-        var query = "aisteacht";
         let titles = [];
         let titleLinks = [];
+        let isBilingual = [];
         fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
             .then(res => res.json())
             .then(json => {
                 for (let key in json) {
                     var essayType = json[key];
-                    if (key == "essays" && typeof essayType === 'object' && essayType !== null)
+                    if ((key == "bilingual-essays" || key == "monolinual-essays") && typeof essayType === 'object' && essayType !== null)
                         for (key2 in essayType) {
                             var essay = essayType[key2];
                             if (typeof essay === 'object' && essay !== null) {
                                 titles.push(essay["title"]);
                                 titleLinks.push(key2);
+                                isBilingual.push(key == "bilingual-essays");
                             }
                         }
                 }
@@ -165,7 +173,7 @@
                     // Set the text of the <li> element
                      listItem.textContent = titles[i];
                      listItem.className = "media-title";
-                     listItem.onclick = function() {go(titleLinks[i])};
+                     listItem.onclick = function() {go(titleLinks[i], (isBilingual[i]) ? "aisteacht-datheangach" : "aisteacht-aonteangach");};
 
                     // Append the <li> element to the <ol> element
                     list.appendChild(listItem);

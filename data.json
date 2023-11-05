@@ -41,9 +41,21 @@
             }
           },
   "monolingual-poems" : {
-            "poem1" : null
+            "a-rann-i-made" : {
+              "title" : "A Rann I Made",
+              "language" : "irish",
+              "author" : "Pádraig mac Piaras",
+              "date" : {
+                "author-born" : "1879",
+                "author-died" : "1916",
+                "date-composed" : "1914"
+              },
+              "text" : "A eann I made within my heart<br>To the rider, to the high king,<br>A rann I m ade to my love,<br>To the king of kings, ancient death.<br>Brighter to me than the light of day<br>The dark of thy  house, tho' black clay;<br>Sweeter to me than the music of trumpets<br>The quiet of thy house and its eternal silence.",
+              "footnotes" : ""
+
+            }
           },
-  "essays" : {
+  "monolingual-essays" : {
     "the-passing-of-the-clan-uilliam" : {
       "title" : "The Passing of the Clan Uilliam",
       "author" : "P. G. Smyth",
