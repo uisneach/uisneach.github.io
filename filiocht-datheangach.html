@@ -6,56 +6,77 @@
         <title>Uisneach</title>
         <style>
         :root {
-        --gold: #DFB200
+            --gold: #DFB200
+        }
+        html, body {
+            width:  100%;
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: hidden;
         }
         
         body {
-        background-color: #313B4C;
-        margin: 0;
-        padding: 0;
-        color: white;
+            background-color: #313B4C;
+            margin: 0;
+            padding: 0;
+            color: white;
         }
 
         .header {
-        text-align: center;
-        padding: 20px;
+            text-align: center;
+            padding: 20px;
         }
         
         .dan-datheangach {
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        background: #313B4C;
-        padding: 2%;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            background: #313B4C;
+            padding: 2%;
         }
 
         .description {
-        text-align: center;
-        padding: 20px;
-        font-size: 18px;
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .text-wrapper {
+            margin: 0 auto;
+            align: center;
+            width: 100%;
         }
 
         #text-container {
-        display: flex;
-        justify-content: 30px;
-        align: center;
-        column-gap: 40px;
-        border: 2px solid var(--gold);
+            display: flex;
+            justify-content: 30px;
+            margin: 0 auto;
+            align: center;
+            width: fit-content;
+            column-gap: 40px;
+            border: 2px solid var(--gold);
         }
 
         .column {
-        font-size: 16px;
-        line-height: 1.5;
-        width: 50%;
-        padding: 20px; /* Add some padding to each column */
-        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            font-size: 16px;
+            line-height: 1.5;
+            width: fit-content;
+            //width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .column-title {
-        font-size: 20px;
-        margin-bottom: 10px;
-        text-align: center;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
         }
+
+        .footnotes {
+            position: absolute;
+        }
+
         </style>
     </head>
     <body>
@@ -67,17 +88,21 @@
             <div class="description">
                 <p></p>
             </div>
-            <div id="text-container">
-                <div class="column" id="gaeilge">
-                    <h2 class="column-title" id="irish-title"></h2>
-                    <p id="irish-text"></p>
+            <div class="text-wrapper" id="text-wrapper">
+                <div id="text-container">
+                    <div class="column" id="gaeilge">
+                        <h2 class="column-title" id="irish-title"></h2>
+                        <p id="irish-text"></p>
+                    </div>
+                    <div class="column" id = "bearla">
+                        <h2 class="column-title" id="english-title"></h2>
+                        <p id="english-text"></p>
+                    </div>
                 </div>
-                <div class="column" id = "bearla">
-                    <h2 class="column-title" id="english-title"></h2>
-                    <p id="english-text"></p>
+                <div>
+                    <p class="footnotes" id="footnote-text"></p>
                 </div>
             </div>
-            <p class="footnotes" id="footnote-text"></p>
         </div>
         <script>
         function getData()
@@ -105,7 +130,29 @@
                     }
                     else
                         console.error("ERROR: JSON level is undefined for PoemName = " + poemName);
+
+                    adjustElements();
                 });
+        }
+
+        function adjustElements()
+        {
+            //Resize footnotes to match text-container width
+            let text = document.getElementById("text-container");
+            let footnotes = document.getElementById("footnote-text");
+            let rect1 = footnotes.getBoundingClientRect();
+
+            let rect = text.getBoundingClientRect();
+            let width = rect.width;
+
+            let textWidth = text.offsetWidth;
+            let textLeft = text.offsetLeft;
+            let footLeft = footnotes.offsetLeft;
+
+            footnotes.style.width = textWidth + "px";
+
+            //Reposition footnotes to align with left border of text container
+            footnotes.style.left = (rect.left + 0) + "px";
         }
 
         function trimHTMLTag(string)
