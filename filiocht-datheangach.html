@@ -94,13 +94,13 @@
             fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
                 .then(res => res.json())
                 .then(json => {
-                    document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-title"]));
-                    document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["poems"][poemName]["author"]));
-                    document.getElementById("irish-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-title"]));
-                    document.getElementById("english-title").textContent = trimQuotes(JSON.stringify(json["poems"][poemName]["english-title"]));
-                    document.getElementById("irish-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["irish-text"]));
-                    document.getElementById("english-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["english-text"]));
-                    document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["poems"][poemName]["footnotes"]));
+                    document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-title"]));
+                    document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["author"]));
+                    document.getElementById("irish-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-title"]));
+                    document.getElementById("english-title").textContent = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["english-title"]));
+                    document.getElementById("irish-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["irish-text"]));
+                    document.getElementById("english-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["english-text"]));
+                    document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-poems"][poemName]["footnotes"]));
                 });
         }
 
