@@ -36,26 +36,18 @@
         }
 
         #text-container {
-        display: flex;
-        justify-content: 30px;
         align: center;
-        column-gap: 40px;
+        width: fit-content;
+        max-width: 80%;
+        padding: 10px;
+        margin: auto;
         border: 2px solid var(--gold);
         }
 
-        .column {
-        font-size: 16px;
-        line-height: 1.5;
-        width: 50%;
-        padding: 20px; /* Add some padding to each column */
-        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        #text {
+            width: fit-content;
         }
 
-        .column-title {
-        font-size: 20px;
-        margin-bottom: 10px;
-        text-align: center;
-        }
         </style>
     </head>
     <body>
@@ -68,14 +60,7 @@
                 <p></p>
             </div>
             <div id="text-container">
-                <div class="column" id="gaeilge">
-                    <h2 class="column-title" id="irish-title"></h2>
-                    <p id="irish-text"></p>
-                </div>
-                <div class="column" id = "bearla">
-                    <h2 class="column-title" id="english-title"></h2>
-                    <p id="english-text"></p>
-                </div>
+                    <p id="text"></p>
             </div>
             <p class="footnotes" id="footnote-text"></p>
         </div>
