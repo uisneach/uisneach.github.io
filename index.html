@@ -10,8 +10,8 @@
     }
     
     a {
-    color: white;
-    text-decoration: none;
+        color: white;
+        text-decoration: none;
     }
     
     body {
@@ -21,16 +21,10 @@
         color: white;
     }
 
-    ol {
-        list-style-type:none
-    }
-
-    li {
+    .poem-title {
+        text-align: center;
         cursor: pointer;
-    }
-
-    li:not(:last-child) {
-        margin-bottom: 50px;
+        margin-bottom: 35px;
     }
     
     .title {
@@ -48,7 +42,7 @@
         float: left;
         width: 25%;
         padding: 10px;
-        //border: 2px solid white;
+        border: 2px solid white;
         box-sizing: border-box;
         text-align: center;
         display: flex;
@@ -73,9 +67,8 @@
   <div class="columns">
     <div class="column">
         <h2 class="column-title">Filiocht</h2>
-            <ol id="filiocht-list">
-            <p></p>
-            </ol>
+        <div id="filiocht-list">
+        </div>
     </div>
     <div class="column">
         <h2 class="column-title">Aisteacht</h2>
@@ -126,10 +119,11 @@
                 for (let i = 0; i < titles.length; i++)
                 {
                     // Create a new <li> element
-                     let listItem = document.createElement("li");
+                     let listItem = document.createElement("p");
 
                     // Set the text of the <li> element
                      listItem.textContent = titles[i];
+                     listItem.className = "poem-title";
                      listItem.onclick = function() {go(titleLinks[i])};
 
                     // Append the <li> element to the <ol> element
