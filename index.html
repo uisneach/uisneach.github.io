@@ -116,11 +116,11 @@
                 let isBilingual = [];
                 for (let key in json) {
                     var poemType = json[key];
-                    if ((key == "bilingual-poems" || key == "monolinual-poems") && typeof poemType === 'object' && poemType !== null)
+                    if ((key == "bilingual-poems" || key == "monolingual-poems") && typeof poemType === 'object' && poemType !== null)
                         for (key2 in poemType) {
                             var poem = poemType[key2];
                             if (typeof poem === 'object' && poem !== null) {
-                                titles.push(poem["irish-title"]);
+                                titles.push((key == "bilingual-poems" ? poem["irish-title"] : poem["title"]));
                                 titleLinks.push(key2);
                                 isBilingual.push(key == "bilingual-poems");
                             }
@@ -155,7 +155,7 @@
             .then(json => {
                 for (let key in json) {
                     var essayType = json[key];
-                    if ((key == "bilingual-essays" || key == "monolinual-essays") && typeof essayType === 'object' && essayType !== null)
+                    if ((key == "bilingual-essays" || key == "monolingual-essays") && typeof essayType === 'object' && essayType !== null)
                         for (key2 in essayType) {
                             var essay = essayType[key2];
                             if (typeof essay === 'object' && essay !== null) {
