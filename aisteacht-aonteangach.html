@@ -84,27 +84,24 @@
         {
             var queryString = window.location.search;
             var urlParams = new URLSearchParams(queryString);
-            var poemName = trimHTMLTag(urlParams.get("name"));
+            var essayName = trimHTMLTag(urlParams.get("name"));
 
-            populatePoem(poemName);
+            populatePoem(essayName);
         }
 
-        function populatePoem(poemName)
+        function populatePoem(essayName)
         {
             fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
                 .then(res => res.json())
                 .then(json => {
-                    if (json['bilingual-essays'][poemName] !== undefined) {
-                        document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["bilingual-essays"][poemName]["irish-title"]));
-                        document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["bilingual-essays"][poemName]["author"]));
-                        document.getElementById("irish-title").textContent = trimQuotes(JSON.stringify(json["bilingual-essays"][poemName]["irish-title"]));
-                        document.getElementById("english-title").textContent = trimQuotes(JSON.stringify(json["bilingual-essays"][poemName]["english-title"]));
-                        document.getElementById("irish-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-essays"][poemName]["irish-text"]));
-                        document.getElementById("english-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-essays"][poemName]["english-text"]));
-                        document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["bilingual-essays"][poemName]["footnotes"]));
+                    if (json['monolingual-essays'][essayName] !== undefined) {
+                        document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["title"]));
+                        document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["author"]));
+                        document.getElementById("text").innerHTML = trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["text"]));
+                        document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["footnotes"]));
                     }
                     else
-                        console.error("ERROR: JSON level is undefined for PoemName = " + poemName);
+                        console.error("ERROR: JSON level is undefined for EssayName = " + essayName);
                 });
         }
 
