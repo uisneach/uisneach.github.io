@@ -81,7 +81,7 @@
                 .then(res => res.json())
                 .then(json => {
                     if (json['monolingual-essays'][essayName] !== undefined) {
-                        document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["title"]));
+                        document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["page-title"]));
                         document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["author"]));
                         document.getElementById("text").innerHTML = trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["text"]));
                         document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["monolingual-essays"][essayName]["footnotes"]));
