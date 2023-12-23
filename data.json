@@ -57,7 +57,8 @@
           },
   "monolingual-essays" : {
     "the-passing-of-the-clan-uilliam" : {
-      "title" : "The Passing of the Clan Uilliam*",
+      "index-title" : "The Passing of the Clan Uilliam",
+      "page-title" : "The Passing of the Clan Uilliam*",
       "author" : "P. G. Smyth",
       "source-publication" : "The Gael - Monthly Journal",
       "publication-date" : "February, 1903",
