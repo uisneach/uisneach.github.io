@@ -21,6 +21,12 @@
             margin: 0;
             padding: 0;
             color: white;
+
+            /*Disable vertical scrollbar in Edge and IE*/
+            -ms-overflow-style: none;
+
+            /* Disable it in Firefox*/
+            scrollbar-width: none;
         }
 
         .header {
@@ -77,6 +83,7 @@
             position: absolute;
         }
 
+        /* Disable vertical scrollbar for Webkit browsers (Chrome, Brave) */
         ::-webkit-scrollbar {
             display: none;
         }
