@@ -159,7 +159,7 @@
                         for (key2 in essayType) {
                             var essay = essayType[key2];
                             if (typeof essay === 'object' && essay !== null) {
-                                titles.push(essay["title"]);
+                                titles.push(essay["index-title"]);
                                 titleLinks.push(key2);
                                 isBilingual.push(key == "bilingual-essays");
                             }
