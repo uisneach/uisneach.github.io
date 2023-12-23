@@ -76,7 +76,7 @@
             fetch('https://raw.githubusercontent.com/uisneach/uisneach.github.io/main/data.json')
                 .then(res => res.json())
                 .then(json => {
-                    document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["monolingual-poems"][poemName]["title"]));
+                    document.getElementById("page-title").textContent = trimQuotes(JSON.stringify(json["monolingual-poems"][poemName]["page-title"]));
                     document.getElementById("author-title").textContent = "le " + trimQuotes(JSON.stringify(json["monolingual-poems"][poemName]["author"]));
                     document.getElementById("text").innerHTML = trimQuotes(JSON.stringify(json["monolingual-poems"][poemName]["text"]));
                     document.getElementById("footnote-text").innerHTML = trimQuotes(JSON.stringify(json["monolingual-poems"][poemName]["footnotes"]));
