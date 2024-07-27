@@ -15,14 +15,20 @@
     "hexo": "^7.3.0",
     "hexo-asset-link": "^2.2.3",
     "hexo-deployer-git": "^4.0.0",
+    "hexo-footnotes": "^1.0.2",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^4.0.0",
+    "hexo-generator-redirect": "^1.4.0",
     "hexo-generator-tag": "^2.0.0",
+    "hexo-pdf": "^1.1.1",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^6.3.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0"
+  },
+  "devDependencies": {
+    "hexo-broken-links-checker": "^2.1.0"
   }
 }

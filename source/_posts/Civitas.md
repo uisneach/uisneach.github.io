@@ -1,7 +1,8 @@
 ---
 title: Civitas
 date: 2022-06-28 17:46:00
-tags:
+author: GoF
+category: Philosophy
 ---
 
 ![Gondolin by spartank42 on DevianArt](Civitas/Gondolin.jpg)
