@@ -17,13 +17,13 @@ There are at least two Old English text types in which code-switching between La
 (1) Phoenix:
 
 {% blockquote %}
-    Hafað us alyfed&nbsp;&nbsp;&nbsp;lucis auctor
-	Þæt we motum her&nbsp;&nbsp;&nbsp;mereri,
-    goddædum begietan&nbsp;&nbsp;&nbsp;gaudia in celo.
+Hafað us alyfed&nbsp;&nbsp;&nbsp;lucis auctor
+Þæt we motum her&nbsp;&nbsp;&nbsp;mereri,
+goddædum begietan&nbsp;&nbsp;&nbsp;gaudia in celo.
 
-    [‘(He) has granted us&nbsp;&nbsp;&nbsp;The author of light
-    that we may here&nbsp;&nbsp;&nbsp;merit,
-    with good deeds obtain,&nbsp;&nbsp;&nbsp;the joys in heaven.’]
+[‘(He) has granted us&nbsp;&nbsp;&nbsp;The author of light
+that we may here&nbsp;&nbsp;&nbsp;merit,
+with good deeds obtain,&nbsp;&nbsp;&nbsp;the joys in heaven.’]
 {% endblockquote %}
 
 A similarly regular pattern of switching between the Old English first half-line and the Latin second half-line is found in the 31 lines of the Old English Macaronic Poem; as in the Phoenix, the two half-lines are also linked by alliteration.
