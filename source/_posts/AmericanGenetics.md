@@ -275,6 +275,8 @@ Finally, we are given admixture analyses for all groups at all levels of detail.
 ![Tweet Image](https://pbs.twimg.com/media/FRmlBEXXwAASpCo.jpg)
 <figcaption>Supp. Fig. 11: "Admixture proportions in stable subsets identified from spectral analysis. Filled circles correspond to mean admixture proportions, and error bars give [0.05,0.95] credible intervals."</figcaption>
 
+### Conclusion
+
 I truly recommend coming back to the three charts above to prove or disprove any racial admixture in the American population, they're quite good. And once again I urge you to read the paper itself, either to get a better understanding of the results, or to find one of the many extra groups in the Supplementary Material which I haven't covered. We've discussed a lot of smaller races, but again I'd like to reiterate that, as shown above, the predominant substrate in American Whites is England, Wales, Scotland. Secondary admixtures: Irish, German, Scandinavian, French. Many people who came over after the Revolution were of the same original race as the earliest settlers, and blended in completely in a short time. I personally don't take "length of time in America" as a determinant factor towards Americanness from a genetics standpoint.
 
 Fin
