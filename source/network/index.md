@@ -16,6 +16,7 @@ Thuletide's Blog : https://thuletide.wordpress.com/
 
 Grey Goose Chronicles by Stone Age Herbalist : https://www.stoneageherbalist.com/
 
+
 ## Esotericism
 
 Soma.cx : https://soma.cx/
@@ -26,6 +27,17 @@ Geocities : https://geocities.restorativland.org/, a project of https://restorat
 
 Don's Directory : https://dons.directory/
 
+
 ## Translators
 
 Ormulus : https://ormulus.substack.com/
+
+Amphora by Leo Caesaris : https://amphora.substack.com/
+
+The Oswald Spengler Project by Spergler Acolyte : https://spergler.substack.com/
+
+Flesh, Then Soil by 1147x1147 : https://elevenfortyseven.substack.com/
+
+## Archives
+
+Chadnet : https://chadnet.org/

@@ -14,6 +14,8 @@ author: Aoḋaġan Ua Raġaille
 | Dragain mheara a d-tosahc cata a n-airm ghreanta an t-seang t-síol[^3] Chéin, | Nimble soldiers in the battle-front, in splendid arms—the graceful race of Cian— |
 | Leagadh air ghallaibh aca is bargadh, is fearann fairsing a g-ceann críoch Néill. | Upsetting and wounding the foreigners, and wide their plains at the extremity of the regions of Niall. |
 |  |  |
+<br>
+|  |  |
 | Mars gan bhanna dearcaim, seabhac leabhair lannach leabhair-ghníomh tréan, | I beheld a Mars without censure, a warrior of the sword, of nimble deeds, mighíy, |
 | Bracach asgnaimh,[^4] coileach catha, d'aicme Raithleann sean ghríb Gaedheal; | A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael; |
 | Críthid flaithis, bailte, daingin, ranna, mara, is campaoi a g-céin, | The heavens tremble, towns, strongholds, continents, seas, and camps in the distance |

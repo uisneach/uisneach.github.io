@@ -14,31 +14,42 @@ author: Aoḋaġan Ua Raġaille
 | Na cranna baḋ ṫréine[^3] ag déanaṁ dín dóiḃ sin | The trees that were strongest in affordine them shelter |
 | Do gearraḋ a ngéaga[^4] ‘r a b-préaṁa crín-feoiġte. | Have their branches lopped off and their roots withering in decay. |
 |  |  |
+<br>
+|  |  |
 | Cé fada ḋuit, 'Éire,[^5] ṁaorḋa, ṁín-nósṁar, | Long though thou hast been, O majestic, gentle-mannered Erin, |
 | Ad’ ḃanaltrain t-séiṁ le féile is fíor-eólus, | A fair nursing-mother with hospitality and true knowledge; |
 | Beir feasda ad’ ṁéirdrig fé gaċ críon-ċóisir, | Henceforth shalt thou be an unwilling handmaid to every withered band, |
 | ‘S gaċ ladrann coṁaiṫeaċ[^6] b’éis do ċlí ḋeóltaḋ. | While every foreign boor shall have sucked thy breasts. |
+|  |  |
+<br>
 |  |  |
 | Is mar ḃarra air mo ṁéala, feuċ gur díol deóra, | And to crown my sorrow, behold it is a fit subject for tears, |
 | Go ngaḃann gaċ récs don réim sin Roinn Eoruip[^7] | That every King of the dynasties who divide Europe amongst them  |
 | A ḃairrḟionn tais féin go saoġalta síṫeóilte, | Possesses his own fair, gentle spouse in prosperity and peace, |
 | Aċt banba a b-péin gan céile is í posda! | While Banba is in pain without a consort, wedded though she be. |
 |  |  |
+<br>
+|  |  |
 | Ċailleamar préim-ṡlioċt Néill is síol Eogain, | We have lost the root-stock of Niall and the seed of Eoghan, |
 | Is na fearaċoin tréana, laoċraḋ ríoġaċt Bóirṁe, | And the bold champions, the warriors of the kingdom of Borumha; |
 | Don Ċaraṫ’ ḟuil ḟéil, mo léun, ní’l puinn béo aguinn! | Of the hospitable race of Carthach, woe is me! we have not many alive, |
 | Is fada sinn tréiṫ fá léir-sgrios buiḋin Leópald. | And long have we been helpless under the devastation of Leopold’s band. |
+|  |  |
+<br>
 |  |  |
 | Is dearḃ gur b’é gaċ éigion íogcóra, | In sooth it is every violence of injustice on our part, |
 | Ganguid is éiṫeaċ, claon is díoṫ-ċóṁall, | Deceit and falsehood and treachery and dishonesty, |
 | Gan ceangal le ċéile, aċt raobaḋ rínn-sgórnaċ, | Our want of union, and, instead, the tearing of each other’s throats, |
 | Do ṫarraing go faoḃraċ fraoċ an Ríoġ ċoṁaċtaig. | That have drawn down on us keenly the rage of the Mighty King. |
 |  |  |
+<br>
 |  |  |
 | Ó ċailleamar Éire is méad ár mío-ċoṁṫrom, | Since we have lost Erin, and because of the extent of our misfortunes, |
 | Is treasgairt na laoċ mear, treun, nár ṁí-ṫreóraċ, | And because of the overthrow of the nimble, strong warriors, who were not wanting in vigour, |
 | Air Arad-Ṁac Dé ‘s air ṫreun na Tríonóide | We entreat the noble Son of God and the Might of the Trinity, |
 | Go mairfiḋ bá n-éir an mead so ḋíoḃ beó aguinn. | That those of them who are alive with us may thrive after them. |
+|  |  |
+<br>
 |  |  |
 | Ċailleadar Gaoḋail a d-tréiṫe caoin córaċ, | The Gaels have lost their gentle, comely qualities; |
 | Carṫanaċt, féile, beusa, is bínn-ċeólta; | Charity, hospitality, manners, and sweet music; |
