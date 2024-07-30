@@ -26,3 +26,7 @@ author: Aoḋaġan Ua Raġaille
 [^3]: t-seang t-síol. A t-seang-síol.
 [^4]: bratach asgnaimh, “banner of progress or marching.” asgnaimh, from asgnaim, “I go, march.” M, brotach aisnimh. A, also, aisnimh. Ibid. Raithleann was foster-mother of Corc of Cashel, and daughter of Dathe the strong. Corc being the first king of Cashel, descent from the Cashel kings is spoken of as descent from Raithleann.
 [^5]: pléidh generally means “to litigate, to contend ”; here it is used of battle.
+
+<hr>
+
+Taken from *Dánta Aoḋagáin Uí Raṫaille* "The Poems of Egan O'Rahilly", Translated by Patrick Dinneen and Taḋg O'Donoġue, 2nd ed., 1911

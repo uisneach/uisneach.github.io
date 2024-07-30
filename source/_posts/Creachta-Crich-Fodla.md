@@ -12,12 +12,12 @@ author: Aoḋaġan Ua Raġaille
 | Is atuirseaċ gear liom créaċta críċ Fódla[^1] | Woeful and bitter to me are the wounds of the land of Fodla, |
 | Fá sgamall[^2] go daor ‘sa gaolta clí-ḃreóiġte; | Who is sorely under a cloud whilst her Kinsfolk are heartsick; |
 | Na cranna baḋ ṫréine[^3] ag déanaṁ dín dóiḃ sin | The trees that were strongest in affordine them shelter |
-| Do gearraḋ a ngéaga[^4] ‘r a b-préaṁa crín-feoiġte. | Have their branches lopped off and their roots withering in decay. |
+| Do gearraḋ a ngéaga[^4] ‘r a bpréaṁa crín-feoiġte. | Have their branches lopped off and their roots withering in decay. |
 |  |  |
 <br>
 |  |  |
 | Cé fada ḋuit, 'Éire,[^5] ṁaorḋa, ṁín-nósṁar, | Long though thou hast been, O majestic, gentle-mannered Erin, |
-| Ad’ ḃanaltrain t-séiṁ le féile is fíor-eólus, | A fair nursing-mother with hospitality and true knowledge; |
+| Ad’ ḃanaltrain tséiṁ le féile is fíor-eólus, | A fair nursing-mother with hospitality and true knowledge; |
 | Beir feasda ad’ ṁéirdrig fé gaċ críon-ċóisir, | Henceforth shalt thou be an unwilling handmaid to every withered band, |
 | ‘S gaċ ladrann coṁaiṫeaċ[^6] b’éis do ċlí ḋeóltaḋ. | While every foreign boor shall have sucked thy breasts. |
 |  |  |
@@ -33,7 +33,7 @@ author: Aoḋaġan Ua Raġaille
 | Do Ċailleamar préim-ṡlioċt Néill is síol Eogain, | We have lost the root-stock of Niall and the seed of Eoghan, |
 | Is na fearaċoin[^8] tréana, laoċra ríoġaċt Bóirṁe, | And the bold champions, the warriors of the kingdom of Boruṁa; |
 | Den Ċaraṫ-ḟuil[^9] ḟéil, mo léan, ní’l puinn béo aguinn! | Of the hospitable race of Carthach, woe is me! we have not many alive, |
-| Ná ṁaiṫe na nGaeḋeal do b'éaċtaċ gníoṁ coṁraic.[^10] | |
+| Ná ṁaiṫe na nGaeḋeal do b'éaċtaċ gníoṁ coṁraic.[^10] | Nor of the chieftains of the Gael who were of renowned feats in battle. |
 |  |  |
 <br>
 |  |  |
@@ -51,7 +51,7 @@ author: Aoḋaġan Ua Raġaille
 |  |  |
 <br>
 |  |  |
-| Ċailleadar Gaoḋail a d-tréiṫe caoin córaċ, | The Gaels have lost their gentle, comely qualities; |
+| Ċailleadar Gaoḋail a dtréiṫe caoin córaċ, | The Gaels have lost their gentle, comely qualities; |
 | Carṫanaċt, féile, beusa, is bínn-ċeólta; | Charity, hospitality, manners, and sweet music; |
 | Alla-tuirc[^14] claon do ṫraoċ sinn faoi ṁór-smaċt; | Wicked, alien boars it was that forced us under great oppression; |
 | Agallaim Aon-Ṁac Dé air Gaoiḋil[^15] d’fóirṫin. | I beseech the Only Son of God to grant relief to the Gaels. |
@@ -75,3 +75,7 @@ author: Aoḋaġan Ua Raġaille
 The form of "wishing" in lines 23-4 is general in Irish; cf. the following from *Donnċaḋ Caoċ Ó Maṫġaṁna*: *\'S an té do ġairm díom Splinc, ar Ċríost nár ḟeiciḋ sé splannc*\'.
 [^15]: *Alla-ṫuirc* = *all-ṫuirc*.
 [^16]: *Gaoiḋil*, nom. for dat.
+
+<hr>
+
+Taken from *Dánta Aoḋagáin Uí Raṫaille* "The Poems of Egan O'Rahilly", Translated by Patrick Dinneen and Taḋg O'Donoġue, 2nd ed., 1911

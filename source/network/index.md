@@ -16,6 +16,8 @@ Thuletide's Blog : https://thuletide.wordpress.com/
 
 Grey Goose Chronicles by Stone Age Herbalist : https://www.stoneageherbalist.com/
 
+Aryan Anthropology : https://aryan-anthropology.blogspot.com/?m=0
+
 
 ## Esotericism
 
@@ -27,6 +29,8 @@ Geocities : https://geocities.restorativland.org/, a project of https://restorat
 
 Don's Directory : https://dons.directory/
 
+Zygote : https://zyg.edith.reisen/
+
 
 ## Translators
 
@@ -37,6 +41,7 @@ Amphora by Leo Caesaris : https://amphora.substack.com/
 The Oswald Spengler Project by Spergler Acolyte : https://spergler.substack.com/
 
 Flesh, Then Soil by 1147x1147 : https://elevenfortyseven.substack.com/
+
 
 ## Archives
 
