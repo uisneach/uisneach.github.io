@@ -1,9 +1,9 @@
 ---
 title: Dánta Aonġus Fionn O'Dálaiġ
 author: Aonġus Fionn O'Dálaiġ
-date: 1919-01-01 01:01:01
+date: 1590-01-01 01:01:01
 categories: [Library, Poetry, Gaeilge]
-tags:
+tags: [Bilingual, Ogmanac]
 ---
 
 
