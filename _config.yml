@@ -104,5 +104,5 @@ deploy:
   type: git
   repo: 
     github:
-      url: https://github.com/uisneach/Uisneach
+      url: https://github.com/uisneach/uisneach.github.io
       branch: master
