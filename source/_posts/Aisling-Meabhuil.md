@@ -7,19 +7,29 @@ tags:
 author: Aoḋaġan Ua Raġaille
 ---
 
-| Aisling Meabhuil | An Illusive Vision |
-| ---------------- | ------------------ |
-| Aisling meabhuil d'aicill mh'anam,[^1] seal gan tapa seang tím tréith; | An illusive vision troubled my soul for a time, leaving me without vigour, lean, spiritless, and prostrate: |
-| Frasa carb trasna mara ag[^2] teacht andeas go ceann faoi réim; | Showers of ships crossing the sea from the south, mightily and in due order, |
-| Dragain mheara a d-tosahc cata a n-airm ghreanta an t-seang t-síol[^3] Chéin, | Nimble soldiers in the battle-front, in splendid arms—the graceful race of Cian— |
-| Leagadh air ghallaibh aca is bargadh, is fearann fairsing a g-ceann críoch Néill. | Upsetting and wounding the foreigners, and wide their plains at the extremity of the regions of Niall. |
-|  |  |
-<br>
-|  |  |
-| Mars gan bhanna dearcaim, seabhac leabhair lannach leabhair-ghníomh tréan, | I beheld a Mars without censure, a warrior of the sword, of nimble deeds, mighíy, |
-| Bracach asgnaimh,[^4] coileach catha, d'aicme Raithleann sean ghríb Gaedheal; | A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael; |
-| Críthid flaithis, bailte, daingin, ranna, mara, is campaoi a g-céin, | The heavens tremble, towns, strongholds, continents, seas, and camps in the distance |
-| D'fheartaibh arm-ghairge an aicil gheallas ceart an t-seanrígh phléidh.[^5] | At the feats of martial valour of the hero who undertook to fight for the rights of the old king. |
+{% bilingual poem %}
+Aisling Meabhuil
+Aisling meabhuil d'aicill mh'anam,[^1] seal gan tapa seang tím tréith;
+Frasa carb trasna mara ag[^2] teacht andeas go ceann faoi réim;
+Dragain mheara a d-tosahc cata a n-airm ghreanta an t-seang t-síol[^3] Chéin,
+Leagadh air ghallaibh aca is bargadh, is fearann fairsing a g-ceann críoch Néill.
+
+Mars gan bhanna dearcaim, seabhac leabhair lannach leabhair-ghníomh tréan,
+Bracach asgnaimh,[^4] coileach catha, d'aicme Raithleann sean ghríb Gaedheal;
+Críthid flaithis, bailte, daingin, ranna, mara, is campaoi a g-céin,
+D'fheartaibh arm-ghairge an aicil gheallas ceart an t-seanrígh phléidh.[^5]
+--
+An Illusive Vision
+An illusive vision troubled my soul for a time, leaving me without vigour, lean, spiritless, and prostrate:
+Showers of ships crossing the sea from the south, mightily and in due order,
+Nimble soldiers in the battle-front, in splendid arms—the graceful race of Cian—
+Upsetting and wounding the foreigners, and wide their plains at the extremity of the regions of Niall.
+
+I beheld a Mars without censure, a warrior of the sword, of nimble deeds, mighíy,
+A marching banner, a battle cock, of the race of Raithlean, parent oí the warriors of the Gael;
+The heavens tremble, towns, strongholds, continents, seas, and camps in the distance
+At the feats of martial valour of the hero who undertook to fight for the rights of the old king.
+{% endbilingual %}
 
 [^1]: "m'anam". This aspiration is common in the spoken language. aicill, from aiciollaim, “I vex." O.R. writes it aigiollaim: d'aicill mh'anam gan tapa, "vexed my soul, leaving it, or rather me, without vigour."
 [^2]: ag. In MSS. freguently aig.

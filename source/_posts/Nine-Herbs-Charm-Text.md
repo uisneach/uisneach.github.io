@@ -1,10 +1,10 @@
 ---
-title: Nine Herbs Charm Text
+title: Nine Herbs Charm
+author: Anonymous
 date: 1866-01-01 19:12:12
 categories: [Library, Source]
 tags: [Germanic, Anglo-Saxon]
 ---
-
 
 | Old English, Cockayne's Transcription | Cockayne's Translation |
 |--- | --- |
@@ -135,6 +135,3 @@ Extracted from Thomas Cockayne's [*Leechdoms, wortcunning, and starcraft of earl
 [^8]: The crab apple.
 [^9]: The seven spheres in which the seven planets revolve, the earth being the center of observation.
 [^10]: Glory banished ones; devils. The alliterative measure continues, which some error at North.
-
-
-<!-- {% pdf 'Nine Herbs Charm - Leechdoms and Wortcunning.pdf#view=TwoPage' %}

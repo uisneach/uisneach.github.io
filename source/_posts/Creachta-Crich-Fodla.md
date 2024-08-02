@@ -7,54 +7,79 @@ tags:
 author: Aoḋaġan Ua Raġaille
 ---
 
-| Créaċta Críċ Fódla[^0] | The Wounds of Fodla |
-| ---------------- | ------------------ |
-| Is atuirseaċ gear liom créaċta críċ Fódla[^1] | Woeful and bitter to me are the wounds of the land of Fodla, |
-| Fá sgamall[^2] go daor ‘sa gaolta clí-ḃreóiġte; | Who is sorely under a cloud whilst her Kinsfolk are heartsick; |
-| Na cranna baḋ ṫréine[^3] ag déanaṁ dín dóiḃ sin | The trees that were strongest in affordine them shelter |
-| Do gearraḋ a ngéaga[^4] ‘r a bpréaṁa crín-feoiġte. | Have their branches lopped off and their roots withering in decay. |
-|  |  |
-<br>
-|  |  |
-| Cé fada ḋuit, 'Éire,[^5] ṁaorḋa, ṁín-nósṁar, | Long though thou hast been, O majestic, gentle-mannered Erin, |
-| Ad’ ḃanaltrain tséiṁ le féile is fíor-eólus, | A fair nursing-mother with hospitality and true knowledge; |
-| Beir feasda ad’ ṁéirdrig fé gaċ críon-ċóisir, | Henceforth shalt thou be an unwilling handmaid to every withered band, |
-| ‘S gaċ ladrann coṁaiṫeaċ[^6] b’éis do ċlí ḋeóltaḋ. | While every foreign boor shall have sucked thy breasts. |
-|  |  |
-<br>
-|  |  |
-| Is mar ḃarra air mo ṁéala, feuċ gur díol deóra, | And to crown my sorrow, behold it is a fit subject for tears, |
-| Go ngaḃann gaċ récs don réim sin Roinn Eoruip[^7] | That every King of the dynasties who divide Europe amongst them  |
-| A ḃairrḟionn tais féin go saoġalta síṫeóilte, | Possesses his own fair, gentle spouse in prosperity and peace, |
-| Aċt Banba a bpéin gan céile is í posta! | While Banba is in pain without a consort, wedded though she be. |
-|  |  |
-<br>
-|  |  |
-| Do Ċailleamar préim-ṡlioċt Néill is síol Eogain, | We have lost the root-stock of Niall and the seed of Eoghan, |
-| Is na fearaċoin[^8] tréana, laoċra ríoġaċt Bóirṁe, | And the bold champions, the warriors of the kingdom of Boruṁa; |
-| Den Ċaraṫ-ḟuil[^9] ḟéil, mo léan, ní’l puinn béo aguinn! | Of the hospitable race of Carthach, woe is me! we have not many alive, |
-| Ná ṁaiṫe na nGaeḋeal do b'éaċtaċ gníoṁ coṁraic.[^10] | Nor of the chieftains of the Gael who were of renowned feats in battle. |
-|  |  |
-<br>
-|  |  |
-| Is dearḃ gurab é gaċ éigion íogcóra,[^11] | In sooth it is every violence of injustice on our part, |
-| Ganguid is éiṫeaċ, claon is díoṫ-ċóṁall, | Deceit and falsehood and treachery and dishonesty, |
-| Gan ceangal le ċéile, aċt raobaḋ rínn-sgórnaċ, | Our want of union, and, instead, the tearing of each other’s throats, |
-| Do ṫarraing ar Éirinn[^12] fraoċ an Ríoġ ċoṁaċtaig. | That have drawn down on Erin keenly the rage of the Mighty King. |
-|  |  |
-<br>
-|  |  |
-| Dó ċailleamar Éire is méad ár mío-ċoṁṫrom, | Since we have lost Erin, and because of the extent of our misfortunes, |
-| Is treasgairt na laoċ mear, treun, nár ṁí-ṫreóraċ, | And because of the overthrow of the nimble, strong warriors, who were not wanting in vigour, |
-| Air Arad-Ṁac[^13] Dé ‘s air ṫreun na Tríonóide | We entreat the noble Son of God and the Might of the Trinity, |
-| Go mairfiḋ bá n-éir an mead so ḋíoḃ beó aguinn. | That those of them who are alive with us may thrive after them. |
-|  |  |
-<br>
-|  |  |
-| Ċailleadar Gaoḋail a dtréiṫe caoin córaċ, | The Gaels have lost their gentle, comely qualities; |
-| Carṫanaċt, féile, beusa, is bínn-ċeólta; | Charity, hospitality, manners, and sweet music; |
-| Alla-tuirc[^14] claon do ṫraoċ sinn faoi ṁór-smaċt; | Wicked, alien boars it was that forced us under great oppression; |
-| Agallaim Aon-Ṁac Dé air Gaoiḋil[^15] d’fóirṫin. | I beseech the Only Son of God to grant relief to the Gaels. |
+{% bilingual  poem %}
+Créaċta Críċ Fódla[^0]
+Is atuirseaċ gear liom créaċta críċ Fódla[^1]
+Fá sgamall[^2] go daor ‘sa gaolta clí-ḃreóiġte;
+Na cranna baḋ ṫréine[^3] ag déanaṁ dín dóiḃ sin
+Do gearraḋ a ngéaga[^4] ‘r a bpréaṁa crín-feoiġte.
+
+Cé fada ḋuit, 'Éire,[^5] ṁaorḋa, ṁín-nósṁar,
+Ad’ ḃanaltrain tséiṁ le féile is fíor-eólus,
+Beir feasda ad’ ṁéirdrig fé gaċ críon-ċóisir,
+‘S gaċ ladrann coṁaiṫeaċ[^6] b’éis do ċlí ḋeóltaḋ.
+
+Is mar ḃarra air mo ṁéala, feuċ gur díol deóra,
+Go ngaḃann gaċ récs don réim sin Roinn Eoruip[^7]
+A ḃairrḟionn tais féin go saoġalta síṫeóilte,
+Aċt Banba a bpéin gan céile is í posta!
+
+Do Ċailleamar préim-ṡlioċt Néill is síol Eogain,
+Is na fearaċoin[^8] tréana, laoċra ríoġaċt Bóirṁe,
+Den Ċaraṫ-ḟuil[^9] ḟéil, mo léan, ní’l puinn béo aguinn!
+Ná ṁaiṫe na nGaeḋeal do b'éaċtaċ gníoṁ coṁraic.[^10]
+
+Is dearḃ gurab é gaċ éigion íogcóra,[^11]
+Ganguid is éiṫeaċ, claon is díoṫ-ċóṁall,
+Gan ceangal le ċéile, aċt raobaḋ rínn-sgórnaċ,
+Do ṫarraing ar Éirinn[^12] fraoċ an Ríoġ ċoṁaċtaig.
+
+Dó ċailleamar Éire is méad ár mío-ċoṁṫrom,
+Is treasgairt na laoċ mear, treun, nár ṁí-ṫreóraċ,
+Air Arad-Ṁac[^13] Dé ‘s air ṫreun na Tríonóide
+Go mairfiḋ bá n-éir an mead so ḋíoḃ beó aguinn.
+
+Ċailleadar Gaoḋail a dtréiṫe caoin córaċ,
+Carṫanaċt, féile, beusa, is bínn-ċeólta;
+Alla-tuirc[^14] claon do ṫraoċ sinn faoi ṁór-smaċt;
+Agallaim Aon-Ṁac Dé air Gaoiḋil[^15] d’fóirṫin.
+--
+The Wounds of Fodla
+Woeful and bitter to me are the wounds of the land of Fodla,
+Who is sorely under a cloud whilst her Kinsfolk are heartsick;
+The trees that were strongest in affordine them shelter
+Have their branches lopped off and their roots withering in decay.
+
+Long though thou hast been, O majestic, gentle-mannered Erin,
+A fair nursing-mother with hospitality and true knowledge;
+Henceforth shalt thou be an unwilling handmaid to every withered band,
+While every foreign boor shall have sucked thy breasts.
+
+And to crown my sorrow, behold it is a fit subject for tears,
+That every King of the dynasties who divide Europe amongst them
+Possesses his own fair, gentle spouse in prosperity and peace,
+While Banba is in pain without a consort, wedded though she be.
+
+We have lost the root-stock of Niall and the seed of Eoghan,
+And the bold champions, the warriors of the kingdom of Boruṁa;
+Of the hospitable race of Carthach, woe is me! we have not many alive,
+Nor of the chieftains of the Gael who were of renowned feats in battle.
+
+In sooth it is every violence of injustice on our part,
+Deceit and falsehood and treachery and dishonesty,
+Our want of union, and, instead, the tearing of each other’s throats,
+That have drawn down on Erin keenly the rage of the Mighty King.
+
+Since we have lost Erin, and because of the extent of our misfortunes,
+And because of the overthrow of the nimble, strong warriors, who were not wanting in vigour,
+We entreat the noble Son of God and the Might of the Trinity,
+That those of them who are alive with us may thrive after them.
+
+The Gaels have lost their gentle, comely qualities;
+Charity, hospitality, manners, and sweet music;
+Wicked, alien boars it was that forced us under great oppression;
+I beseech the Only Son of God to grant relief to the Gaels.
+{% endbilingual %}
 
 
 [^0]: Of this poem there are several partial copies. There is a copy containing all the stanzas given here in vol. 69 of the Renehan MSS. in Maynooth College. The piece, however, seems naturally to end with the sixth stanza. 23.C.8, p.99, gives as heading: "An fear céadna cct. iar mbrise na gcoinġoill do Ġallaiḃ do ro Ġealladar i Luimneach 1692." In 23.D.8. styled "Marna na hĖireann."
