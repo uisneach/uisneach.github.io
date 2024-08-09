@@ -2,7 +2,10 @@
 title: Bruiḋean Ċaorṫainn - The Hostel of Rowan
 author: Anonymous
 date: 1500-01-01 15:15:15
-categories: [Library, Source, Gaeilge]
+categories:
+	- [Library]
+	- [Source]
+	- [Gaeilge]
 tags: Bilingual
 ---
 

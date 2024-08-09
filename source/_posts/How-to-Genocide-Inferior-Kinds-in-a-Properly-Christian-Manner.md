@@ -1,8 +1,10 @@
 ---
 title: How to Genocide Inferior Kinds in a Properly Christian Manner
-categories: [Library, External]
-date: 2015-11-30 09:12:00
 author: Jim
+date: 2015-11-30 09:12:00
+categories: 
+    - [Library]
+    - [External]
 tags:
 ---
 

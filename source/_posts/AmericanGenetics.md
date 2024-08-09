@@ -1,9 +1,11 @@
 ---
 title: American Genetics
-date: 2022-04-30 11:11:00
-categories: [Genetics, Original]
-tags:
 author: GoF
+date: 2022-04-30 11:11:00
+categories: 
+	- [Genetics]
+	- [Original]
+tags:
 ---
 
 # The Genetic Makeup of the Great American Race

@@ -2,9 +2,9 @@
 title: In Shadow
 author: Charles J. O'Malley
 categories:
-  - Library
-  - Poetry
-  - Irish
+  - [Library]
+  - [Poetry]
+  - [Irish]
 date: 1893-06-01 18:00:57
 tags:
 ---

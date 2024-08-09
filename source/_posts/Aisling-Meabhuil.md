@@ -1,10 +1,13 @@
 ---
 title: Aisling Meabhuil
-categories: [Library, Poetry, Gaeilge]
+author: Aoḋaġan Ua Raġaille
 date: 1714-01-02 00:00:01
+categories: 
+  - [Library]
+  - [Poetry]
+  - [Gaeilge]
 tags:
   - Bilingual
-author: Aoḋaġan Ua Raġaille
 ---
 
 {% bilingual poem %}

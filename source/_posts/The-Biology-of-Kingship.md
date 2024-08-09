@@ -2,7 +2,10 @@
 title: The Biology of Kingship
 author: Bronze Age Pervert
 date: 2021-09-01 01:01:01
-categories: [Library, Essay]
+categories:
+	- [Library]
+	- [Essay]
+	- [Philosophy]
 tags:
 ---
 

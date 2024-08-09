@@ -1,8 +1,10 @@
 ---
 title: Hec sunt prata to wassingwellan - Aspects of Code-Switching in Old English Charters
-date: 2005-06-01 01:01:01
 author: Herbert Schendl
-categories: [Library, External]
+date: 2005-06-01 01:01:01
+categories:
+	- [Library]
+	- [External]
 tags:
 ---
 

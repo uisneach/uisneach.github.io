@@ -2,7 +2,9 @@
 title: Nygon Wyrta Galdor - Nine Herbs Charm
 author: Anonymous
 date: 1866-01-01 19:12:12
-categories: [Library, Source]
+categories: 
+	- [Library]
+	- [Source]
 tags: [Germanic, Anglo-Saxon]
 ---
 

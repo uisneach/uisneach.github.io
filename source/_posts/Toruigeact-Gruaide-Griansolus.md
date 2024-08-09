@@ -3,9 +3,9 @@ title: Tóruiġeaċt Gruaiḋe Grianṡolus
 author: Anonymous
 date: 1679-09-20 12:12:12
 categories:
-	- Library
-	- Gaeilge
-	- Source
+	- [Library]
+	- [Gaeilge]
+	- [Source]
 tags: Bilingual
 ---
 

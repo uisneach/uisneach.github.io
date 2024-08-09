@@ -2,7 +2,11 @@
 title: King Diarmuid
 author: William Buckley
 date: 1904-01-01 01:01:01
-categories: [Library, Fiction, Irish, Mythology]
+categories: 
+	- [Library]
+	- [Fiction]
+	- [Irish]
+	- [Mythology]
 tags:
 ---
 

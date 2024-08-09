@@ -1,11 +1,11 @@
 ---
 title: Aṁráin Ċearḃalláin - The Poems of Carolan
-categories:
-  - Library
-  - Poetry
-  - Gaeilge
-date: 1700-01-01 01:01:01
 author: Tomás Ó Máille
+categories:
+  - [Library]
+  - [Poetry]
+  - [Gaeilge]
+date: 1700-01-01 01:01:01
 tags: Ogmanac
 ---
 

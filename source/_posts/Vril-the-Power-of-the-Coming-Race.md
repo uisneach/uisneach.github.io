@@ -3,8 +3,8 @@ title: Vril - The Power of the Coming Race
 author: Edward Bulwer-Lytton
 date: 1871-01-01
 categories:
-	- Library
-	- Esotericism
+	- [Library]
+	- [Esotericism]
 tags:
 ---
 

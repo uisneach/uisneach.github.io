@@ -2,7 +2,9 @@
 title: The Culture of the Will
 author: W. H.
 date: 1882-01-01
-categories: [Library, Essay]
+categories: 
+	- [Library]
+	- [Essay]
 tags:
 ---
 

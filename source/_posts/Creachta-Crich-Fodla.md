@@ -1,7 +1,10 @@
 ---
 title: Créachta Crích Fódla
 date: 1692-01-01 01:01:01
-categories: [Library, Poetry, Gaeilge]
+categories: 
+  - [Library]
+  - [Poetry]
+  - [Gaeilge]
 tags:
   - Bilingual
 author: Aoḋaġan Ua Raġaille
