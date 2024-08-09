@@ -15,6 +15,7 @@
     "hexo": "^7.3.0",
     "hexo-asset-link": "^2.2.3",
     "hexo-deployer-git": "^4.0.0",
+    "hexo-feed": "^1.1.2",
     "hexo-footnotes": "^1.0.2",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
@@ -29,8 +30,5 @@
     "hexo-server": "^3.0.0",
     "hexo-tag-twitter": "^1.0.3",
     "hexo-theme-landscape": "^1.0.0"
-  },
-  "devDependencies": {
-    "hexo-broken-links-checker": "^2.1.0"
   }
 }

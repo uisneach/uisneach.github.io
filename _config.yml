@@ -107,9 +107,4 @@ deploy:
       url: https://github.com/uisneach/uisneach.github.io
       branch: master
 
-# Codepen Defaults
-codepen:
-  user_id: "your-name"
-  default_tab: "js"
-  height: 400
-  width: "100%"
+emailSubmit: true

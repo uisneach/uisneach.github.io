@@ -1,5 +1,5 @@
 ---
-title: Nine Herbs Charm
+title: Nygon Wyrta Galdor - Nine Herbs Charm
 author: Anonymous
 date: 1866-01-01 19:12:12
 categories: [Library, Source]
@@ -122,6 +122,8 @@ tags: [Germanic, Anglo-Saxon]
 <br>
 |  |  |
 | Mucgƿyrt, ƿegbrade þe eastan open sy, lombescyrse, attorlaðan, mageðan, netelan, ƿudusuræppel, fille ⁊ finul, ealde sapan. Geƿyrc ða ƿyrta to duste, mængc ƿiþ þa sapan ⁊ ƿiþ þæs æpples gor. Ƿyrc slypan of ƿætere ⁊ of axsan, genim finol, ƿyl on þære slyppan ⁊ beþe mid æggemongc, þonne he þa sealfe on do, ge ær ge æfter. Sing þæt galdor on æcre þara ƿyrta, . III . ær he hy ƿyrce and on þone æppel ealsƿa; ond singe þon men in þone muð and in þa earan buta and on ða ƿunde þæt ilce gealdor, ær he þa sealfe onde:— | Mugwort, waybread which spreadeth open towards the east, lambscress, attorlothe, maythen, nettle, crab apple, chervil, fennel, and old soap; work the worts to a dust, mingle with the soap and with the verjuice of the apple; form a slop of water and of ashes, take fennel, boil it in the slop, and foment with egg mixture, when the man puts on the salve, either before or after. Sing the charm upon each of the worts; thrice before "he" works them up, and over the apple in like manner; and sing into the man's mouth and into both his ears the same magic song, and into the wound, before he applies the salve. 
+
+<hr>
 
 Extracted from Thomas Cockayne's [*Leechdoms, wortcunning, and starcraft of early England : Being a collection of documents, for the most part never before printed, illustrating the history of science in this country before the Norman conquest*](https://archive.org/details/leechdomswortcu01pedagoog/page/30/mode/2up), 1866.
 

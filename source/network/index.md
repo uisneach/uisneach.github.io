@@ -43,8 +43,24 @@ The Oswald Spengler Project by Spergler Acolyte : https://spergler.substack.com/
 Flesh, Then Soil by 1147x1147 : https://elevenfortyseven.substack.com/
 
 
+## Magazines and Journals
+
+Asylum Magazine : https://asylummagazine.ca/
+
+The American Sun : https://theamericansun.com/ and https://theamericansun.substack.com/
+
+
 ## Archives
 
 Chadnet : https://chadnet.org/
 
 Old English Poetry in Fascimile : https://oepoetryfacsimile.org/
+
+
+## Friendly Vendors
+
+Antelope Hill : https://antelopehillpublishing.com/
+
+Legio Gloria : https://www.legiogloria.com/
+
+Dissident Soaps : https://dissidentsoaps.com/

@@ -16,15 +16,23 @@ There are at least two Old English text types in which code-switching between La
 
 (1) Phoenix:
 
-{% blockquote %}
-Hafað us alyfed&nbsp;&nbsp;&nbsp;lucis auctor
-Þæt we motum her&nbsp;&nbsp;&nbsp;mereri,
-goddædum begietan&nbsp;&nbsp;&nbsp;gaudia in celo.
-
-[‘(He) has granted us&nbsp;&nbsp;&nbsp;The author of light
-that we may here&nbsp;&nbsp;&nbsp;merit,
-with good deeds obtain,&nbsp;&nbsp;&nbsp;the joys in heaven.’]
-{% endblockquote %}
+{% bilingual color=rgb(204,255,182) %}
+Manuscript
+Hafað us alyfed
+lucis auctor
+Þæt we motum her
+mereri,
+goddædum begietan
+gaudia in celo.
+-&-
+Translation
+(He) has granted us
+The author of light
+that we may here
+merit,
+with good deeds obtain,
+the joys in heaven.
+{% endbilingual %}
 
 A similarly regular pattern of switching between the Old English first half-line and the Latin second half-line is found in the 31 lines of the Old English Macaronic Poem; as in the Phoenix, the two half-lines are also linked by alliteration.
 
@@ -44,67 +52,81 @@ This section will analyse and illustrate some aspects of language choice and lan
 The writs (both royal and non-royal) seem to have been exclusively monolingual in the vernacular: none of the 120 writs in Harmer’s edition (1952) shows any Latin elements (see also Whitelock 1955:346), though, on the other hand, some of the (often later) Latin versions of these vernacular writs have the legal terms for the granted privileges in Old English; cf. the early twelfth century Latin translation of an eleventh-century vernacular writ by King Edward under (2):[^6]
 
  (2) Latin translation of a writ by King Edward, c 1052-66 (Harmer 1952, nr 34)
-{% blockquote %}
-    Ego Eadwardus gratio Dei rex Anglorum omnibus episcopus, ducibus, comitibus ... amicabiliter salutem. Notum vobis facio me concessisse Stigando archiepiscopo 7 monachis ecclesie Christi Cant’ omnes terras quas habuerunt tempore patris mei 7 omnium antecessorum meorum. Et saca 7 socne on stronde 7 streame, on wode, on felde, tolles an[d] teames, griðbreche 7 hamsocne 7 forstalles 7 infangeneþefes 7 flemenfremthe supra suos homines infra urbes 7 extra, in tantum 7 tam plenarie sicuti proprii ministri mei exquirere deberent, et etiam super tot thegnes quot habent. [continued in Latin]
+{% bilingual color=rgb(204,255,182) %}
+Manuscript
+Ego Eadwardus gratio Dei rex Anglorum omnibus episcopus, ducibus, comitibus ... amicabiliter salutem. Notum vobis facio me concessisse Stigando archiepiscopo 7 monachis ecclesie Christi Cant’ omnes terras quas habuerunt tempore patris mei 7 omnium antecessorum meorum. Et saca 7 socne on stronde 7 streame, on wode, on felde, tolles an[d] teames, griðbreche 7 hamsocne 7 forstalles 7 infangeneþefes 7 flemenfremthe supra suos homines infra urbes 7 extra, in tantum 7 tam plenarie sicuti proprii ministri mei exquirere deberent, et etiam super tot thegnes quot habent. [continued in Latin]
+-&-
+Translation
+I, Edward, by the grace of God king of England send friendly greetings to all my bishops and all my earls and all my sheriffs ... And I inform you that I have granted Archbishop Stigand and the community at Christ Church, Canterbury, that they be entitled to all the lands that they had in the time of my predecessors and in my time. And to sake and soke, on strand and in stream, in woodland and in open country, to toll and to team, to grithbreach and to hamsocn, to foresteall and to infangenetheof and to flymenafyrmth, over their own men within boroughs and without, as fully and completely as my own officers would exercise it, and over as many thegns as they have.
+{% endbilingual %}
 
-    [‘I, Edward, by the grace of God king of England send friendly greetings to all my bishops and all my earls and all my sheriffs ... And I inform you that I have granted Archbishop Stigand and the community at Christ Church, Canterbury, that they be entitled to all the lands that they had in the time of my predecessors and in my time. And to sake and soke, on strand and in stream, in woodland and in open country, to toll and to team, to grithbreach and to hamsocn, to foresteall and to infangenetheof and to flymenafyrmth, over their own men within boroughs and without, as fully and completely as my own officers would exercise it, and over as many thegns as they have.’]
-{% endblockquote %}
 While code-switching is not attested in the vernacular writs, there are quite a number of switches to Latin in predominantly vernacular non-royal ‘charters’. About 10% of the 135 texts in Robertson’s vernacular Anglo-Saxon Charters (2nd ed. 1956) have at least one Latin phrase or sentence, some even show a considerable amount of Latin. Some typical Latin passages in otherwise vernacular documents are listed under (3), though even these elements are frequently found in the vernacular. They occur typically, though not exclusively, in the invocation, dating clause and witness lists and are predominantly of a formulaic nature.
 
 (3) Selected formulaic Latin sentences in Old English vernacular writs and charters
-{% blockquote %}
-*Invocation:*
-&nbsp;
+
+{% bilingual color=rgb(204,255,182) %}
+Manuscript
+<em>Invocation:</em>
 In nomine patris et filii et spiritus sancti
 In nomine domini (et saluatoris nostri Ihesu Christi)
-&nbsp;
 Regnante in perpetuum domino nostro Ihesu Christo
-&nbsp;
-*Dispositive section:*
-&nbsp;
+
+<em>Dispositive section:</em>
 Disponente regi regum cuncta cæli secreta necnon quæ sub cæli culmine apud homines notantur miro ordine gubernante cujus incarnationis humanæ anno DCCCCXXII indictione x hæc donatio quæ in ista cartula saxonicis sermonibus apparet confirmata ac donata erat.
-&nbsp;
-[‘In the year 922 of the incarnation of the King of kings, who governs all the secret things of heaven and likewise controls in marvellous order those which are recorded among men under the dome of heaven, and in the tenth Indiction, this grant which appears in this charter in the Saxon speech was Confirmed and given.’] (Robertson 1956:42, nr. 21)
-&nbsp;
-*Dating clause:*
-&nbsp;
+
+<em>Dating clause:</em>
 Anno uero dominice incarnationis .DCCCLII. Indictione .xv. hoc factum est
-&nbsp;
-[‘This has been done in the year of the incarnation of the Lord 852 and in the fifteenth Indiction’]
-&nbsp;
-*Witness list:*
-&nbsp;
+
+<em>Witness list:</em>
 hii sunt nomina et uocabula qui in synodali concilio fuerunt congregati;
+(Robertson 1956:42, nr. 21)
+-&-
+Translation
 &nbsp;
-[‘Here are the names and designations of those who were assembled at the council meeting’]
-{% endblockquote %}
+&nbsp;
+&nbsp;
+&nbsp;
+
+&nbsp;
+In the year 922 of the incarnation of the King of kings, who governs all the secret things of heaven and likewise controls in marvellous order those which are recorded among men under the dome of heaven, and in the tenth Indiction, this grant which appears in this charter in the Saxon speech was Confirmed and given.
+
+&nbsp;
+This has been done in the year of the incarnation of the Lord 852 and in the fifteenth Indiction
+
+&nbsp;
+Here are the names and designations of those who were assembled at the council meeting
+
+{% endbilingual %}
+
 Other typical switches into Latin consist of quotations from the bible or of a statement that the land being granted is free from any burdens except the church dues.
 
 A more balanced use of Latin and Old English is, however, found in grants or leases of land issued by the bishops of Worcester, especially by St Oswald, dating from the second half of the 10th century. The example under (4) shows a slight predominance of Old English over Latin, with an obvious functional distribution of the two languages: the conditions for the lease and the boundary of the estate are in Old English, as is a – possibly later – statement by the receiver of the grant, Ælfric, while the more formulaic elements are in Latin. Except for the place names, all the switches are intersentential, i.e. they occur between sentences or independent clauses.
 
 (4) Lease of three lives by Oswald, Bishop of Worcester, of land at Cotheridge, Worcestershire, A.D. 963 (MS Cotton Tiberius, A. xiii, f. 63; Robertson 1956, nr 35)
 
-{% blockquote %}
+{% bilingual color=rgb(204,255,182) %}
+Manuscript
 Ego Osuuald ergo Christi krismate pręsul iudicatus dominicę . Incarnationis anno . DCCCLXIII annuente regi Anglorum . EADGARO . Ælfereque Merciorum comite nec non et familiae Wiogornensis ecclesiae . quandam ruris particulam unam uidelicet mansam in loco qui celebri a solicolis nuncupatur ÆT CODDAN HRYCCE uocabulo cuidam ministro meo nomine . Ælfric . perpetua largitus sum heredidate et post uite suę terminum duobus tantum heredibus immunem derelinquat quibus defunctis ecclesiae dei in Uuigorna ceastre restituatur.
-&nbsp;
+
 On þæt gerad þe he ælce geare of þam lande ge erige twegen æceras 7 þær on his circ sceat gesawe 7 þæt æft ge ripe 7 in ge bringe . 7 ic an him ælce geare on minum wudu . XII . foþre wudas butan ceape .
-&nbsp;
+
 Đis sindan þa land ge mæru to coddan hrycge . ærest up ón temedan and lang biscopes gemæres norð rihte ón ætinc weg of ætinc wege in coddan hrycges bece and lang beces tó bricge burnan fordes þanan and lang stræte þæt hit cymeð beneoþan oban treow þanan suð rihte and lang þære hege ræwe in rixuc andlang rixuc ón hihtes gehæg þanan suð rihte in þa stræte and lang stræte þ in bregnes ford up and lang temedan þæt eft on biscopes gemære.
-&nbsp;
+
 Scripta est hæc carta is testibus consentientibus quorum inferius nomina notantur. [List of 15 witnesses]
-&nbsp;
+
 Ic Ælfric cyþe minan leofe hlaforde þæt ic ón Æþelsige minan suna þæs landes þe ic to gearnode æfter minan dæge to habbanne his dæg 7 æfter his dæge to syllanne þæm þe him leofast seo 7 þæt sio on þa spere hand.
-<hr>
-[‘I, Oswald, having been ordained bishop by the chrism of Christ, in the year of our Lord’s incarnation 963, with the consent of Edgar, king of the English, and of Ælfhere, ealdorman of the Mercians, and also of the community of the church of Worcester, have granted in eternal inheritance a certain portion of land, namely one hide in the place which is called by the inhabitants by the well-known name of Cotheridge, to a certain thegn of mine by name of Ælfric; and after the end of his life he is to leave it unburdened to two heirs only, and when they are dead it is to be restored to the church of God in Worcester.
-<br><br>
+-&-
+Translation
+I, Oswald, having been ordained bishop by the chrism of Christ, in the year of our Lord’s incarnation 963, with the consent of Edgar, king of the English, and of Ælfhere, ealdorman of the Mercians, and also of the community of the church of Worcester, have granted in eternal inheritance a certain portion of land, namely one hide in the place which is called by the inhabitants by the well-known name of Cotheridge, to a certain thegn of mine by name of Ælfric; and after the end of his life he is to leave it unburdened to two heirs only, and when they are dead it is to be restored to the church of God in Worcester.
+
 On condition that each year he plough two acres of that land and sow therein his church-scot, and afterwards reap and garner it. And I grant him each year twelve loads of wood in my woodland without payment.
-<br><br>
+
 These are the boundaries to Cotheridge: First up the Teme and due north along the bishop’s boundary to the Atchen way; from the Atchen way to Cotheridge stream, and along the stream to Bridgeburnan ford, thence along the paved road until it comes below Oba’s tree, thence due south along the Hedgerow to the Rixuc, along the Rixuc to Hihtesgehaeg, thence due south to the paved road, and then along the paved road to Bransford, up along the Teme, then back to the bishop’s boundary.
-<br><br>
+
 This charter was written with these witnesses consenting whose names are noted below.
-<br><br>
-I, Ælfric, make known to my dear lord that I grant to my son Æthelsige the land which I acquired of you, after my death to have for his lifetime and after his death to give to whom may be most pleasing to him, and that is to be in the male line.’]
-{% endblockquote %}
+
+I, Ælfric, make known to my dear lord that I grant to my son Æthelsige the land which I acquired of you, after my death to have for his lifetime and after his death to give to whom may be most pleasing to him, and that is to be in the male line.
+{% endbilingual %}
 
 So much for a brief illustration of some tendencies of code-switching in writs and non-royal charters. Now to the royal charters (or ‘diplomas’), which are often claimed to be monolingual in Latin (see Keynes 1999:99), but which are linguistically much more complex than usually claimed. The first of these clearly structured royal documents, which normally grant land to a person or religious house, date from the last quarter of the seventh century and have survived from various parts of England. Even in these early documents we sometimes find a brief description of the boundaries of the granted land, and up to the end of the eighth century, these boundary clauses were, like the rest of the charter, generally in Latin. However, according to Stenton, around the middle of the eighth century, “detailed perambulations begin to appear, particularly in Wessex, set out at first in Latin and English” (Stenton 1955:56, my emphasis).
 
@@ -114,34 +136,56 @@ Of particular interest in (5), however, is the switching of the governing prepos
 
 (5) Grant by Cædwalla, king of Wessex, to Bishop Wilfrid of land at Pagham, &c. A.D. 680 (BL Cottton MS Augustus ii, 86, 10th c. copy; Barker, 1947, nr 1)
 
-{% blockquote %}
-Si quis vero quod absit contra hæc decreta firmiter statuta contraire et ea solvere conatus fuerit, noverit se ante tribunal examinis christi rationem redditurum et habere partem cum iuda traditore domini nostri ihesu christi in inferno inferiore. hæc sunt territoria ad pecgan ham pertinentia primitus ab occidente uedringmutha. per illum portum ad locum qui dicitur holan horan fleot et sic ducitur in lang port. inde ad aquilonem to unning londe. sic ad orientem on fleot super illud quod dicitur in ufes ford. inde in locum qui dicitur cynges uuic. et sic ad locum qui dicitur langan ersc. inde on loxan leage. ... inde in pontem thelbrycg. et sic ad aquilonem juxta palustria loca. super hoc ad locum qui dicitur hylsan seohtra et sic ad orientem in uuærmundes hamm. Hinc in uuadan hlæu. Ab illo loco in fisc mere. et sic in brynes fleot. sicque dirigitur in mare. Sed et hi sunt termini pertinentibus ad tang mere. primitus of hleap mere per viam puplicam ad terram heantunensem ad angulum circianum. inde in locum horsa gehæg. ... hinc ad ælrithe. ab ipso rivo ad fraxinum unum. et sic ad locum cealc mere. hinc ad headan screaf. ab illo loco to lulan treouue. et sic in tatan ham. sic ad risc mere. ab illo loco to hleap mere. Et sunt pascua ovium in meos dune pertinentia ad tangmere.
-<hr>
-[‘And (may it not be) if anyone attempts to go against and nullify this firmly established decree, let him know that he will have to render account before the judgement seat of Christ, and will take his place with Judas, the betrayer of our Lord Jesus Christ, in the depths of Hell. These are the lands belonging to Pagham, firstly from the west of Withering, by that harbour to the place which is called Honer stream, and thus it leads to (the) long village, thence northwards to Unna’s land, so eastward to the stream and over it at the place called (in) Ufa’s ford, thence to the place called the king’s farm, and thence to the place called Lagness, thence to Loxley, ... thence to the bridge (at) Elbridge, and thus northwards beside the marshy places, over this to the stream called (Aldingbourne Rife) and thence east to Wærmund’s enclosure. Thence to Wada’s barrow. From that place to (the) fish pond, from there to (Ryfebank Rife), and so the line runs to the sea. And these are bounds belonging to Tangmere, firstly from Leapmares along the highway to the Easthampnett land, to the bend, thence to the (place) horse paddock, ... thence to (the) eel brook, from that brook to the single ash-tree, and thus to the place (called the) chalky pool, thence to the (?) deep cave, from that place to Lula’s tree, and thus to Tata’s farm, thus to (the) rushy pool, and from there to Leapmares. And there are sheep pastures belonging to Tangmere.’]
-{% endblockquote %}
+{% bilingual color=rgb(204,255,182) %}
+Manuscript
+Si quis vero quod absit contra hæc decreta firmiter statuta contraire et ea solvere conatus fuerit, noverit se ante tribunal examinis christi rationem redditurum et habere partem cum iuda traditore domini nostri ihesu christi in inferno inferiore.
+hæc sunt territoria ad pecgan ham pertinentia primitus ab occidente uedringmutha. per illum portum ad locum qui dicitur holan horan fleot et sic ducitur in lang port. inde ad aquilonem to unning londe. sic ad orientem on fleot super illud quod dicitur in ufes ford. inde in locum qui dicitur cynges uuic. et sic ad locum qui dicitur langan ersc. inde on loxan leage. ... inde in pontem thelbrycg. et sic ad aquilonem juxta palustria loca. super hoc ad locum qui dicitur hylsan seohtra et sic ad orientem in uuærmundes hamm.
+Hinc in uuadan hlæu.
+Ab illo loco in fisc mere. et sic in brynes fleot. sicque dirigitur in mare.
+Sed et hi sunt termini pertinentibus ad tang mere. primitus of hleap mere per viam puplicam ad terram heantunensem ad angulum circianum. inde in locum horsa gehæg. ... hinc ad ælrithe. ab ipso rivo ad fraxinum unum. et sic ad locum cealc mere. hinc ad headan screaf. ab illo loco to lulan treouue. et sic in tatan ham. sic ad risc mere. ab illo loco to hleap mere. Et sunt pascua ovium in meos dune pertinentia ad tangmere.
+-&-
+Translation
+And (may it not be) if anyone attempts to go against and nullify this firmly established decree, let him know that he will have to render account before the judgement seat of Christ, and will take his place with Judas, the betrayer of our Lord Jesus Christ, in the depths of Hell.
+These are the lands belonging to Pagham, firstly from the west of Withering, by that harbour to the place which is called Honer stream, and thus it leads to (the) long village, thence northwards to Unna’s land, so eastward to the stream and over it at the place called (in) Ufa’s ford, thence to the place called the king’s farm, and thence to the place called Lagness, thence to Loxley, ... thence to the bridge (at) Elbridge, and thus northwards beside the marshy places, over this to the stream called (Aldingbourne Rife) and thence east to Wærmund’s enclosure.
+Thence to Wada’s barrow.
+From that place to (the) fish pond, from there to (Ryfebank Rife), and so the line runs to the sea.
+And these are bounds belonging to Tangmere, firstly from Leapmares along the highway to the Easthampnett land, to the bend, thence to the (place) horse paddock, ... thence to (the) eel brook, from that brook to the single ash-tree, and thus to the place (called the) chalky pool, thence to the (?) deep cave, from that place to Lula’s tree, and thus to Tata’s farm, thus to (the) rushy pool, and from there to Leapmares. And there are sheep pastures belonging to Tangmere.
+{% endbilingual %}
 
 This mixture of Latin and the vernacular within the boundary clause is also frequently found in West Saxon charters from the late eighth century (cf. also Stenton 1955:26), as in Cynewulf’s grant to Bica from the year 778 under (6). The general insensitivity to this type of code-switching in traditional research is illustrated by the fact that the language of this charter is given as Latin in Sawyer’s list of charters (Sawyer 1968, nr 264), i.e. no explicit mention is made of the Old English prepositional phrases denoting direction to the various places, such as to bradan leage ‘to Bradley‘ in the otherwise Latin text (this is the more interesting since the citation form or nominative of place names often has the form æt + noun, e.g. æt bradan leage).
 
 (6) Grant by Cynewulf, King of the Saxons, to Bica, Earl, of land at Bedwyn, A.D. 778 (Birch, nr 225)
 
-{% blockquote %}
-[…] et sic in affricum vergens in longum illius septi tendit ad peadan stigele deinde per iddem sept[um] in filiðleage . australem partem inde in longum prædicti septi in quoddam vallu in . haradene . ... et extenso tramite ejusdem septi . to holhrygc gete . et eodem septo to hadfeld geate . et eodem septo to baggan gete . et sic in illud septum . to bradan leage . transitque . illo septo bradanleage intrans in . standene . et in longum ejus in quoddam vallum ejusque . valli serie in . puttan ... ealh . et sic in longum aggeris to bulcan pytte.
-{% endblockquote %}
+> […] et sic in affricum vergens in longum illius septi tendit ad peadan stigele deinde per iddem sept[um] in filiðleage . australem partem inde in longum prædicti septi in quoddam vallu in . haradene . ... et extenso tramite ejusdem septi . to holhrygc gete . et eodem septo to hadfeld geate . et eodem septo to baggan gete . et sic in illud septum . to bradan leage . transitque . illo septo bradanleage intrans in . standene . et in longum ejus in quoddam vallum ejusque . valli serie in . puttan ... ealh . et sic in longum aggeris to bulcan pytte.
 
 Such mixed boundary clauses seem to represent an intermediate stage between the early monolingual Latin texts and the later monolingual vernacular ones, which first appear in the early part of the ninth century. However, there was evidently some temporal overlap between the various types: even in the middle of the ninth century we still find examples like the one under (7): in this original charter issued by Ethelberht of Kent, code-switching also occurs within the boundaries, with a number of Old English prepositional phrases denoting place names inserted into the Latin text; furthermore, some of the other goods and privileges granted in the charter are also given in the vernacular within the otherwise Latin text, such as I . sealtern 7 II . wena gang mid cyninges wenum to blean ðem wiada 7 . IIII . oxnum gers mid cyninges oxnum ‘and one salthouse and [the right for] two wagons to go with the king’s wagons to Blean wood, and pasture for four oxen with the king’s oxen’. Other grants, however, are in Latin, such as II.que molina ad illam eandem terram pertinentia ‘and two mills belonging to the same land’, etc. That switching here (as in general) is not due to lack of words is illustrated by the alternate use of ab aquilone and be norðan, both meaning ‘in the north’. (For this type of variation in the choice of language, see also the discussion of PPs in example (5).)
 
 (7) Grant by King Ethelberht of Kent to Wullaf, of land at Wassingwell, in exchange for land at Merham, A.D. 858 (MS Cotton, Augustus II, 66; original charter; Birch, nr 496)
-{% blockquote %}
-Regnante in perpetuum domino Deo nostro omnipotenti sabaot ego EĐELBEARHT rex cum consensu ac licentia meorum secularium optimatum divinorumque personarum liventi animo dabo et concedo meo fideli ministro WULLAFE aliquam partem terre juris mei hoc est . V . aratra in illa loco ubi WASNGWELLE nominatur in bicissitudinem alterius terre hoc est et mersaham hanc terram supranominatam et wassingwellan ego Eðelbearht ab omni servitute regali operis eternaliter liverabo sicut ante fuerat illa prenominata terra et mersaham hec sunt etenim marisci que ad eandem terram rite ac recte pertinent quos ‘h’ega ante abuerat id est an wiwarawic quae ante subjecta erat to wii 7 to leanaham 7 et febresham . I . sealtern 7 . II . wena gang mid cyninges wenum to blean ðem wiada 7 . IIII . oxnum gers mid cyninges oxnum an wiwarawic . XXX . statera kasei et item . X . statera in alia wiwarawic 7 . XX . lamba 7 . X . fehta hec autem terra suprascripta et wassingwellan his notissimis terminibus antiquitus circum jacentibus ab occidente cyninges folcland quod abet wighelm 7 wulflaf ab aquilone cuðrices dun heregeðeland ab oriente wighelmes land a meritie biscepes land to cert . II.que molina ad illam eandem terram pertinentia una an wassinwellan alia an hwiteceldan hec sunt pascua porcorum quot nostra lingua denbera nominamus hoc est lamburnanden orricesden teligden stanehtandenn et illa silva sandhyrst nominatur que pertinet to wassingwellan hancque livertatem huic eodem agel`l´ulo illoque wullafe similiter et wassingwellan cum consensu ac licentia meorum optimatum liventer largitus sum ut omnium regalium tributum et vi exactorum operum et penalium rerum principali dominatione furisque conprehensione et cuncta seculari gravidine absque expeditione sola et pontium structura et arcium munitionibus secura et inmunis permaneat ...
-&nbsp;
-Hec sunt prata to wassingwellan stocmed healf be norðan hegforde be sturemeda sue ðer to limpað. [List of 23 witnesses]
-<hr>
-[‘Our Lord Almighty God of Hosts reigning for ever.
+{% bilingual color=rgb(204,255,182) %}
+Manuscript
+Regnante in perpetuum domino Deo nostro omnipotenti sabaot
 
-I, King Ethelbert, with the consent and permission of my secular nobles and religious dignitaries, with willing heart will give and concede to my faithful thegn Wulflaf some portion of land of my rightful possession, namely five ploughlands in the place which is called Wassingwell, in exchange for other land, namely at Mersham. I, Ethelbert, will free eternally this above-mentioned land at Wassingwell from all liability to royal service just as the afore-mentioned land at Mersham was before. These indeed are the marshes which duly and rightly belong to the same land, which marshes Hega had before: i.e. one dairy-farm of the people of Wye, which before was subject to Wye and to Lenham, and one salthouse at Faversham, and [the right for] two wagons to go with the king’s wagons to Blean wood, and pasture for four oxen with the king’s oxen; in the dairy-farm of the people of Wye 30 weys of cheese, and also 10 weys in the other dairy-farm of the people of Wye, and 20 lambs and 10 fleeces. And the above-written land at Wassingwell [has] from of old these well-known boundaries lying round it: in the west, the king’s folkland, which Wighelm and Wulflaf hold; in the north, Cuthric’s down, Heregetheland; in the east, Wighhelm’s land; in the south, (the) bishop’s land at Chart; and two mills belonging to the same land, one in Wassingwell, the other in Hwitecelde. These are the swine-pastures which we call in our language denbera, namely Lamburnanden, Orricesden, Tilden, Stanehtanden, and the wood called Stanhurst which belongs to Wassingwell. And I have willingly granted this privilege to this same piece of land at Wassingwell and likewise to the said Wulflaf, with the consent and permission of my chief men, that it may remain free and immune from all royal tribute, and services exacted by force and penal matters, from the domination of the ealdorman and the capturing of a thief and every secular burden, except military service only, and the building of bridges and fortification of fortresses. ...
-<br>
-These are the meadows belonging to Wassingwell: half Stocmead, north of Hegford, by Stour mead, as belong thereto.’]
-{% endblockquote %}
+ego EĐELBEARHT rex cum consensu ac licentia meorum secularium optimatum divinorumque personarum liventi animo dabo et concedo meo fideli ministro WULLAFE aliquam partem terre juris mei hoc est . V . aratra in illa loco ubi WASNGWELLE nominatur in bicissitudinem alterius terre hoc est et mersaham
+hanc terram supranominatam et wassingwellan ego Eðelbearht ab omni servitute regali operis eternaliter liverabo sicut ante fuerat illa prenominata terra et mersaham
+hec sunt etenim marisci que ad eandem terram rite ac recte pertinent quos ‘h’ega ante abuerat id est an wiwarawic quae ante subjecta erat to wii 7 to leanaham 7 et febresham . I . sealtern 7 . II . wena gang mid cyninges wenum to blean ðem wiada 7 . IIII . oxnum gers mid cyninges oxnum an wiwarawic . XXX . statera kasei et item . X . statera in alia wiwarawic 7 . XX . lamba 7 . X . fehta 
+hec autem terra suprascripta et wassingwellan his notissimis terminibus antiquitus circum jacentibus ab occidente cyninges folcland quod abet wighelm 7 wulflaf ab aquilone cuðrices dun heregeðeland ab oriente wighelmes land a meritie biscepes land to cert . II . que molina ad illam eandem terram pertinentia una an wassinwellan alia an hwiteceldan
+hec sunt pascua porcorum quot nostra lingua denbera nominamus hoc est lamburnanden orricesden teligden stanehtandenn et illa silva sandhyrst nominatur que pertinet to wassingwellan hancque livertatem
+huic eodem agel`l´ulo illoque wullafe similiter et wassingwellan cum consensu ac licentia meorum optimatum liventer largitus sum ut omnium regalium tributum et vi exactorum operum et penalium rerum principali dominatione furisque conprehensione et cuncta seculari gravidine absque expeditione sola et pontium structura et arcium munitionibus secura et inmunis permaneat ...
+
+Hec sunt prata to wassingwellan stocmed healf be norðan hegforde be sturemeda sue ðer to limpað. [List of 23 witnesses]
+-&-
+Translation
+Our Lord Almighty God of Hosts reigning for ever.
+
+I, King Ethelbert, with the consent and permission of my secular nobles and religious dignitaries, with willing heart will give and concede to my faithful thegn Wulflaf some portion of land of my rightful possession, namely five ploughlands in the place which is called Wassingwell, in exchange for other land, namely at Mersham.
+I, Ethelbert, will free eternally this above-mentioned land at Wassingwell from all liability to royal service just as the afore-mentioned land at Mersham was before.
+These indeed are the marshes which duly and rightly belong to the same land, which marshes Hega had before: i.e. one dairy-farm of the people of Wye, which before was subject to Wye and to Lenham, and one salthouse at Faversham, and [the right for] two wagons to go with the king’s wagons to Blean wood, and pasture for four oxen with the king’s oxen; in the dairy-farm of the people of Wye 30 weys of cheese, and also 10 weys in the other dairy-farm of the people of Wye, and 20 lambs and 10 fleeces.
+And the above-written land at Wassingwell [has] from of old these well-known boundaries lying round it: in the west, the king’s folkland, which Wighelm and Wulflaf hold; in the north, Cuthric’s down, Heregetheland; in the east, Wighhelm’s land; in the south, (the) bishop’s land at Chart; and two mills belonging to the same land, one in Wassingwell, the other in Hwitecelde.
+These are the swine-pastures which we call in our language denbera, namely Lamburnanden, Orricesden, Tilden, Stanehtanden, and the wood called Stanhurst which belongs to Wassingwell.
+And I have willingly granted this privilege to this same piece of land at Wassingwell and likewise to the said Wulflaf, with the consent and permission of my chief men, that it may remain free and immune from all royal tribute, and services exacted by force and penal matters, from the domination of the ealdorman and the capturing of a thief and every secular burden, except military service only, and the building of bridges and fortification of fortresses. ...
+
+These are the meadows belonging to Wassingwell: half Stocmead, north of Hegford, by Stour mead, as belong thereto.
+{% endbilingual %}
 
 By the tenth century, the monolingual Old English boundary clause had become a typical feature of charters. Thus we see a diachronic development from the monolingual Latin charter to a charter showing switching within a subtext of the charter, namely the boundary clause, and finally to charters showing switching between the Latin main text of the charter and the fully vernacular boundary clause. As mentioned above, there is, however, a certain amount of overlap in this development, a fact which is also attested in the diachronic development of other text types in the Middle English period, such as letters (see Schendl 2002b) and sermons (see Wenzel 1994). Furthermore, other elements of the charter may also be switched to a certain degree, which is again compatible with current code-switching research.
 
@@ -149,40 +193,53 @@ Example (8), a charter by King Æthelstan from the early tenth century, is a goo
 
 (8) King Æthelstan confirms five hides at Chalgrave and Tebworth, Bedfordshire, to Ealdred, minister, A.D. 926 (BL Cotton Claud. B. vi, 23v-24r: copy s. xiii; Kelly 2000:88f.)
 
-{% blockquote %}
+{% bilingual color=rgb(204,255,182) %}
+Manuscript
 In nomine Domini nostri Iesu Christi. ... Quapropter ego Æthelstanus Angulsaxonum rex non modica infulatus, sublimatus dignitate, superno instigatus desiderio, fideli meo Ealdredo ministro terram que nuncupatur Cealhgræfan et Teobban wyrþe .v. manentium quam propria condignaque pecunia, id est .x. libras inter aurum et argentum, a paganis emerat, iubente Eadwardo rege necnon et duce Æþeredo, cum ceteris comitibus atque ministris, in iuris hereditarii libertatem concedens donabo, habendam possidendamque quamdiu uixerit et post obitum suum quibuscumque sibi placitis heredibus dare uoluerit. Hii sunt termini huius prefate terre.
-&nbsp;
+
 Đær se dic sceot in Wæclinga stræte, anlanges Wæxlinga stræte ðæt on ðane ford, þæt anlang broces in þanne oðerne ford, þonne of ðæm forde up on þane welle, 7 þanan in ðæt dell, þanan of ðæm delle in ðone dic, of ðæm dice in ðone oþerne dic, þone of ðæm dice in þone broc, þonne of þam broce to Cynburge wellan, þanne anlang dices to east coten, þæt þanan in þane ealdan broc, up of þæm ealdan broce on æfem ðæt riþig, þæt up rihte in ðiod weg, æftær ðiod wege in þone dic, æfter dice in Wæxlingga strate.
-&nbsp;
-Si autem hec prefata terre donatio ab omni seculari honore libera, preter expeditionem et arcis pontisue construccionem, pro competenti pecuni quam ego accepi, id est .cl. mancas de puro auro. Si quis uero hanc largitionis munificentiam, arrepto procacitatis stimulo, infringere uel mutare aut minuere temptauerit, sciat se in illa magni examinis die cum poli cardines terreque fundamenta simul et infernorum ima pauitando contremescent latibula, qua uniuscuisque patebit opus et conscientiam siue bonum siue malum quod gesserit, si non prius satisfaccione emendauerit. Anni ab incarnatione Domini nostri Iesu Christi .dccccxxvi., indiccione .xiiii.
-&nbsp;
+
+Si autem hec prefata terre donatio ab omni seculari honore libera, preter expeditionem et arcis pontisue construccionem, pro competenti pecuni quam ego accepi, id est .cl. mancas de puro auro.
+
+Si quis uero hanc largitionis munificentiam, arrepto procacitatis stimulo, infringere uel mutare aut minuere temptauerit, sciat se in illa magni examinis die cum poli cardines terreque fundamenta simul et infernorum ima pauitando contremescent latibula, qua uniuscuisque patebit opus et conscientiam siue bonum siue malum quod gesserit, si non prius satisfaccione emendauerit.
+
+Anni ab incarnatione Domini nostri Iesu Christi .dccccxxvi., indiccione .xiiii.
+
 Þis sind þa land þe Æthelstan cyng gebocade Ealdred wið his clæne feo on ðas gewitnesse þe her on sind.
-&nbsp;
-\+ Ego Æþelstanus rex fundamine sancte crucis subarraui [List of 22 witnesses]
-<hr>
-[‘In the name of our Lord Jesus Christ. ... Therefore I, Athelstan, king of the Anglo-Saxons, adorned and elevated with no small dignity, prompted by desire from on high, will grant to my faithful thegn Ealdred the land of five hides which is called Chalgrave and Tebworth, which he bought with sufficient money of his own, namely ten pounds of gold and silver, from the pagans by the order of King Edward and also of Ealdorman Ethelred along with the other ealdormen and thegns ; conceding with it the freedom of hereditary right, to have and possess as long as he lives, and to give after his death to whatever heirs, acceptable to himself, he shall wish.
-<br>
-These are the boundaries of the aforesaid land: Where the dyke runs into Watling Street, along Watling Street to the ford, then along the brook to the other ford, then from that ford up to the spring, and thence into the valley, thence from the valley to the dyke, from the dyke to the second dyke, then from that dyke to the brook, then from the brook to Kimberwell, then along the dyke to Eastcote, then thence to the old brook, up from the old brook parallel with the little stream, then straight up to the highway, along the highway to the dyke, along the dyke to Watling Street.
-<br>
+
++ Ego Æþelstanus rex fundamine sancte crucis subarraui
+
+[List of 22 witnesses]
+-&-
+Translation
+In the name of our Lord Jesus Christ. ... Therefore I, Athelstan, king of the Anglo-Saxons, adorned and elevated with no small dignity, prompted by desire from on high, will grant to my faithful thegn Ealdred the land of five hides which is called Chalgrave and Tebworth, which he bought with sufficient money of his own, namely ten pounds of gold and silver, from the pagans by the order of King Edward and also of Ealdorman Ethelred along with the other ealdormen and thegns; conceding with it the freedom of hereditary right, to have and possess as long as he lives, and to give after his death to whatever heirs, acceptable to himself, he shall wish. These are the boundaries of the aforesaid land:
+
+Where the dyke runs into Watling Street, along Watling Street to the ford, then along the brook to the other ford, then from that ford up to the spring, and thence into the valley, thence from the valley to the dyke, from the dyke to the second dyke, then from that dyke to the brook, then from the brook to Kimberwell, then along the dyke to Eastcote, then thence to the old brook, up from the old brook parallel with the little stream, then straight up to the highway, along the highway to the dyke, along the dyke to Watling Street.
+
 And the donation of the aforesaid land is to be free from every secular burden except military service and the construction of bridges and fortresses, in return for an adequate sum of money which I have received from him, i.e. 150 mancuses of pure gold.
-<br>
+
 If anyone, indeed, incited by impudence, shall try to infringe or change or diminish this generous munificence, let him know that, on the day of the great Judgment, when the hinges of the pole and the foundation of the earth as well as the deepest dens of hell shall quake and tremble, on which each shall reveal his work and conscience, what he did, good or ill, if he have not previously made emends with compensation.
-<br>
+
 In the year of the incarnation of our Lord Jesus Christ 926, the fourteen indiction.
-<br>
+
 These are the estates which King Athelstan granted by charter to Ealdred in return for his pure money, in the witness which is herein.
-<br>
-+ I, King Athelstan, have inscribed below with the sign of the Holy Cross. [Translation Whitelock 1955:503f.]
-{% endblockquote %}
+
++ I, King Athelstan, have inscribed below with the sign of the Holy Cross.
+
+[Translation Whitelock 1955:503f.]
+{% endbilingual %}
 
 In (8), the introductory sentence before the actual boundaries is in Latin (Hii sunt termini huius prefate terre), though it may also be in the vernacular, having a form like Đis sindon þa land gemæru ‘These are the land boundaries’. In a few cases, the statement is first given in Latin and then paraphrased in the vernacular, as in (9):
 
 (9)
 
-{% blockquote %}
+{% bilingual color=rgb(204,255,182) %}
+Manuscript
 Istis terminibus predictum cingitur nemus. Þis syndan ðæs dennes landgemæru to hæsel ersc.
-[‘The aforesaid grove is surrounded by these bounds. These are the forest boundaries of Hazelhurst.’]
-{% endblockquote %}
+-&-
+Translation
+The aforesaid grove is surrounded by these bounds. These are the forest boundaries of Hazelhurst.
+{% endbilingual %}
 
 This repetition may be due to the fact that land boundaries sometimes seem to have been inserted into the Latin text only later, possibly on the basis of notes written by local scribes (cf. Kitson 1995:48); though this is an interesting aspect of the actual process of text production, it does not affect the result, namely the fact that for the readers of such charters they show code-switching in the same way as texts produced in one continuous writing process.
 
@@ -276,4 +333,4 @@ Whitelock, D. 1955. English historical documents c. 500-1042. Oxford: Oxford Uni
 
 <hr>
 
-Essay Originally Posted at https://let.leidenuniv.nl/hsl_shl/code%20switching%20in%20oe.htm
+Essay Originally Posted at https://let.leidenuniv.nl/hsl_shl/code%20switching%20in%20oe.htm.
