@@ -23,7 +23,7 @@ Aryan Anthropology : https://aryan-anthropology.blogspot.com/?m=0
 
 Soma.cx : https://soma.cx/
 
-Somachat - Hyper-Realtime Chat : [https://chat.soma.cx/general](chat.soma.cx/general)
+Somachat - Hyper-Realtime Chat : [https://chat.soma.cx/general](https://chat.soma.cx/general)
 
 Geocities : https://geocities.restorativland.org/, a project of https://restorativland.org/
 

@@ -9,4 +9,6 @@ categories:
 tags: Bilingual
 ---
 
-{% pdf ./'Tóruigheacht Gruaidhe Griansholus - The Pursuit of Gruaidhe Griansholus.pdf' Tóruigheacht Gruaidhe Griansholus - The Pursuit of Gruaidhe Griansholus.pdf %}
+<div>
+	<iframe src="/PDFjs/web/viewer.html?file=../../1679/09/20/Toruigeact-Gruaide-Griansolus/Tóruigheacht Gruaidhe Griansholus - The Pursuit of Gruaidhe Griansholus.pdf" width="100%" height="800px" frameborder="0"></iframe>
+</div>
