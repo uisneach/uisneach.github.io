@@ -56,4 +56,4 @@ Associated with this advance of democracy and the transfer of power from the hig
 
 <hr>
 
-This essay is the first chapter of Madison Grant's book titled [The Passing of the Great Race, or, the Racial Bias of European History] (https://archive.org/details/passinggreatrac02osbogoog/page/n10/mode/1up?view=theater ).
+This essay is the first chapter of Madison Grant's book titled [The Passing of the Great Race, or, the Racial Bias of European History](https://archive.org/details/passinggreatrac02osbogoog/page/n10/mode/1up?view=theater).

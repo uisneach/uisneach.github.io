@@ -284,3 +284,7 @@ I truly recommend coming back to the three charts above to prove or disprove any
 Fin
 
 ![Tweet Image](https://pbs.twimg.com/media/FRmkx8lXwAEo9KR.jpg)
+
+<hr>
+
+Originally Posted to [Twitter](https://x.com/ogmios/status/1520420553189957632).

@@ -41,3 +41,7 @@ The beginnings of a family village, one which can cultivate a noble line and act
 This leads to the greatest point on the nature of the civic virtue: the core unit of civitas, without which it cannot function, is friendship between men. This is what binds the Indo-European *kóryos* as well as the city-state. It is another reason men have come under attack today. A city inhabited by men who feel loyalty to each other and to their city is much harder to manipulate than a city of atomized individuals. The training of the city’s young boys was of the utmost importance, and every city of note in the Classical and Christian eras alike instituted rituals to initiate their boys into patriotic manhood. This is the purpose of the famous Spartan agoge, for instance. The great bureaucracies of today want men without friends, without a permanent home, without roots, and without the courage to fight. If the Greeks could see modern men, who allow their cities to be uprooted, humiliated, and defiled without consequences, they would be filled with existential grief.
 
 All the virtues in life tie into one another. Loyalty, friendship, and civitas stand side by side. When you cultivate one, you encourage the others. Therefore if we want to see the rise of new and powerful cities, we must first show loyalty to friends, and courage towards our ideal. You are the city. Without this, the world will remain an undifferentiated grey mass.
+
+<hr>
+
+Originally posted to [Twitter](https://x.com/ogmios/status/1541900763705872385).

@@ -18,6 +18,10 @@ Grey Goose Chronicles by Stone Age Herbalist : https://www.stoneageherbalist.com
 
 Aryan Anthropology : https://aryan-anthropology.blogspot.com/?m=0
 
+Dan Davis on Youtube : https://www.youtube.com/@dandavishistory
+
+Irish and Breton Carolingian Texts - Manuscript Source : https://ircabritt.nuigalway.ie/
+
 
 ## Esotericism
 
@@ -30,6 +34,13 @@ Geocities : https://geocities.restorativland.org/, a project of https://restorat
 Don's Directory : https://dons.directory/
 
 Zygote : https://zyg.edith.reisen/
+
+
+## Spiritualism
+
+Esoteric Traditionalism : https://esoterictraditionalism.wordpress.com/
+
+Germanic Christianity : https://healend.org/
 
 
 ## Translators
@@ -56,6 +67,8 @@ Chadnet : https://chadnet.org/
 
 Old English Poetry in Fascimile : https://oepoetryfacsimile.org/
 
+Irish Books on Telegram : https://t.me/IrishBooks
+
 
 ## Friendly Vendors
 
@@ -64,3 +77,16 @@ Antelope Hill : https://antelopehillpublishing.com/
 Legio Gloria : https://www.legiogloria.com/
 
 Dissident Soaps : https://dissidentsoaps.com/
+
+
+## Irish Language
+
+Discover Irish : http://raymondhickey.com/index_(DI).html
+
+An Cartlann : https://cartlann.org/
+
+Historical Irish Corpus : http://corpas.ria.ie/index.php?fsg_function=1
+
+Doegen - Spoken Irish Records : https://doegen.ie/
+
+Léaṁ - Learn Early Modern Irish : https://léamh.org/
