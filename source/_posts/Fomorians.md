@@ -46,6 +46,10 @@ slew the mighty of the earth.
 
 47. He won three battles against the Fomoiri, i.e., the sea-rovers [*loigsig na fairgi* in the [manuscript](https://archive.org/details/leborgablare03macauoft/leborgablare03macauoft/page/122/mode/2up?q=fomo)]: the battle of Bodbgna in Connacht, the battle of Cnamros among the Laigin, the battle of Murbolg in Dal Riata. After that Nemed died of pestilence in Ailen Arda Nemid, in the territory of the Ui Liathain.
 
+<<<<<<< Updated upstream
 <hr>
 
 This collection is a work in progress.
+=======
+48. Nemed's descendants experienced great hardship after he was gone, from More son of Dela and from Conann son of Febor, after whom is named Conann's Tower (i.e., Torinis Cheitne today). The great fleet of the Fomoiri was inside it. Two thirds of the children and grain and milk of the men of Ireland were brought to them in Mag Ceitne every Samain night. 
+>>>>>>> Stashed changes
