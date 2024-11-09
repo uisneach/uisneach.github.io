@@ -9,6 +9,8 @@ date: 2024-07-26 21:14:51
 
 Exo Science by N'golo Tesla : [https://exo-science.com/](exoscience.com)
 
+Soliloquy.bio by Anabology : https://soliloquy.bio/
+
 
 ## History & Anthropology
 
@@ -53,6 +55,8 @@ The Oswald Spengler Project by Spergler Acolyte : https://spergler.substack.com/
 
 Flesh, Then Soil by 1147x1147 : https://elevenfortyseven.substack.com/
 
+Ystorfa by Brenin Cymru : https://ystorfa.wordpress.com/
+
 
 ## Magazines and Journals
 
@@ -90,3 +94,5 @@ Historical Irish Corpus : http://corpas.ria.ie/index.php?fsg_function=1
 Doegen - Spoken Irish Records : https://doegen.ie/
 
 Léaṁ - Learn Early Modern Irish : https://léamh.org/
+
+Abair - Irish Speech-to-Text : https://abair.ie/
