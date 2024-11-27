@@ -11,6 +11,8 @@ Exo Science by N'golo Tesla : [https://exo-science.com/](exoscience.com)
 
 Soliloquy.bio by Anabology : https://soliloquy.bio/
 
+Archive of Fringe Science : http://www.tuks.nl/pdf/Reference_Material/
+
 
 ## History & Anthropology
 
@@ -23,6 +25,10 @@ Aryan Anthropology : https://aryan-anthropology.blogspot.com/?m=0
 Dan Davis on Youtube : https://www.youtube.com/@dandavishistory
 
 Irish and Breton Carolingian Texts - Manuscript Source : https://ircabritt.nuigalway.ie/
+
+Linear A Inscription Archive : https://lineara.xyz/
+
+Luwian Studies : https://luwianstudies.org/
 
 
 ## Esotericism
@@ -82,6 +88,8 @@ Legio Gloria : https://www.legiogloria.com/
 
 Dissident Soaps : https://dissidentsoaps.com/
 
+Europa Apparel : https://europaproud.com/
+
 
 ## Irish Language
 
@@ -96,3 +104,7 @@ Doegen - Spoken Irish Records : https://doegen.ie/
 Léaṁ - Learn Early Modern Irish : https://léamh.org/
 
 Abair - Irish Speech-to-Text : https://abair.ie/
+
+Logaimn.ie - Irish Place Names : https://www.logainm.ie/ga/
+
+Phouka Irish Lessons : http://phouka.com/index_learn.html

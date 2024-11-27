@@ -2,6 +2,7 @@
 title: Créachta Crích Fódla
 date: 1692-01-01 01:01:01
 author: Aoḋaġan Ua Raġaille
+library_page: true
 ---
 
 {% bilingual  poem %}

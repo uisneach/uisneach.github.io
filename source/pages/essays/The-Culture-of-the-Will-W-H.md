@@ -2,6 +2,7 @@
 title: The Culture of the Will
 author: W. H.
 date: 1882-01-01
+library_page: true
 ---
 
 The cultivation of the intellect has many patrons and advocates in our day. The materials of human knowledge in many departments of thought are accumulating. The lapse of time by the nature of the case is adding to the stores of history. Physical science is every day opening up new regions for investigation; mathematicians are making new deductions from principles long established ; philosophy endeavours to unravel the unsolved problems of earlier ages. Theology, too, at least within the precincts of the Catholic Church, is engaged in elucidating the truths of faith, and deducing practical consequences in the sphere of morals. Amidst this general activity of intellect, it may not be uninteresting to our readers to consider some of the advantages that are attendant upon the culture of the will.

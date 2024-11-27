@@ -2,6 +2,7 @@
 title: The Biology of Kingship
 author: Bronze Age Pervert
 date: 2021-09-01 01:01:01
+library_page: true
 ---
 
 I used to call myself a monarchist in public. In part I was honest, but it was also for self-protection. My real views were far worse to a normalfag, but no one really takes monarchism seriously: it has steampunk smell. It’s a way to advertise a kind of quaintness and safety, like historical reenactment carnival. So I stopped calling myself this. Spiritual cleanliness should stop you whenever you realize you’re getting “two bird one stone” effects like this or becoming performing clown…it’s a sign something is off. In one move you get to set yourself against modern dysfunction, to carve out a unique social niche in your near circle, to advertise your harmlessness, and to distinguish yourself *from those lowly peasant* middle American types—after all no one would ever associate a monarchist and especially a Traditionalist Monarchist or most of all a Catholic Monarchist with a lowly snakehandling redneck MAGA chauvinist. How convenient! This repulsed me, when I realized why others were doing it. It’s become another pose of the insecure bowtie conservative and reactionary. Well, I guess it was at this point I stopped doing it, when I realized it amounts to showing off a gay hanky code for lavender DC crowd; I didn’t want to know what goes on at integralist cognac and cigar parties behind closed doors.

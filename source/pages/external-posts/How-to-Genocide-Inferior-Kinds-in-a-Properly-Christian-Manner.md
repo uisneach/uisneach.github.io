@@ -2,6 +2,7 @@
 title: How to Genocide Inferior Kinds in a Properly Christian Manner
 author: Jim
 date: 2015-11-30 09:12:00
+library_page: true
 ---
 
 Christianity, or perhaps Churchianity, tends to endorse suicidal collective behaviors. Progressives and Christians eagerly strive to outdo each other in how thoroughly they get cuckolded. Note how Christians and progressives both demonstrate superior holiness by adopting subsaharan blacks – who tend to grow into adult subsaharan blacks, with consequences as disturbing as adopting a baby chimpanzee.

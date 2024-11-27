@@ -4,7 +4,7 @@ author: Anonymous
 translator: J. G. O'Keefe
 date: 1190-01-01 05:01:01
 published: 1913-01-01 05:01:01
-tags: Bilingual, Gaeilge, Source
+library_page: true
 ---
 
 <div>

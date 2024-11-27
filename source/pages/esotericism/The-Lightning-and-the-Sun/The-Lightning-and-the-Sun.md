@@ -1,7 +1,8 @@
 ---
 title: The Lightning and the Sun
 author: Savitri Devi
-date: 1958-01-01 01:01:01
+date: 1958-01-01 05:01:01
+library_page: true
 ---
 
 <div>

@@ -2,6 +2,7 @@
 title: Lebor Gabála Éirinn
 date: 1000-01-01 05:01:01
 author: Anonymous
+library_page: true
 ---
 
 #### Passages from the *Lebor Gabala Eirinn*, [first recension](https://archive.org/details/leborgablare03macauoft/leborgablare03macauoft/page/120/mode/2up).

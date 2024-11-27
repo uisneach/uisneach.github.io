@@ -1,5 +1,6 @@
 ---
 title: Fomorians in the Source Texts
+library_page: true
 ---
 
 ![The Fomorians by John Duncan, 1910](https://www.ancient-origins.net/sites/default/files/field/image/Fomorians.jpg)

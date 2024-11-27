@@ -4,6 +4,7 @@ title: >-
   Theory
 date: 2017-04-01 01:01:01
 author: Felice Vinci
+library_page: true
 ---
 
 <div>

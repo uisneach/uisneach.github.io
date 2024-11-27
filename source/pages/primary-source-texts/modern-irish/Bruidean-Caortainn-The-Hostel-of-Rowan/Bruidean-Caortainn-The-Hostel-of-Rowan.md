@@ -2,6 +2,7 @@
 title: Bruiḋean Ċaorṫainn - The Hostel of Rowan
 author: Anonymous
 date: 1500-01-01 15:15:15
+library_page: true
 ---
 
 *The following story has [many manuscript editions](https://codecs.vanhamel.nl/Bruidhean_chaorthainn_), so the English and Irish versions differ slightly, since Joyce and Piarais were forced to combine three well-preserved manuscripts into one. But wording does match exactly in most places, and the content is the same.*

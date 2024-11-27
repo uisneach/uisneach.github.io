@@ -29,7 +29,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-  - 'PDFjs/'
+  - 'PDFjs/**'
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -97,6 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+plugins: hexo-tag-video
 theme: cactus
 
 # Deployment
@@ -109,3 +110,10 @@ deploy:
       branch: master
 
 emailSubmit: true
+
+toc:
+  maxdepth: 3
+  class: toc
+  slugify: transliteration
+  decodeEntities: false
+  anchor: false

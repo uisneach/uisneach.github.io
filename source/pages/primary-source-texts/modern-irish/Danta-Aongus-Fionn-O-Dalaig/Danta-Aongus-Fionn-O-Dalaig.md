@@ -2,6 +2,7 @@
 title: Dánta Aonġus Fionn O'Dálaiġ
 author: Aonġus Fionn O'Dálaiġ
 date: 1590-01-01 05:01:01
+library_page: true
 ---
 
 <div>

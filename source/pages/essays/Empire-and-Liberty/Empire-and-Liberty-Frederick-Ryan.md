@@ -2,6 +2,7 @@
 title: Empire and Liberty
 author: Frederick Ryan
 date: 1904-01-01 01:01:01
+library_page: true
 ---
 
 ## I

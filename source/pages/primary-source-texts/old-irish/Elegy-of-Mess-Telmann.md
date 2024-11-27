@@ -3,6 +3,7 @@ title: Elegy of Mess-Telmann
 date: 700-01-01 20:19:44
 author: Anonymous
 translator: John Koch
+library_page: true
 ---
 
 #### The following is an elegy written for *Mess-Telmann* around the 7th century AD.
