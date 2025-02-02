@@ -498,6 +498,7 @@ body {
 /* Default margin for all img tags */
 /* No margin for img tags within p tags */
 /* Email Submit Button */
+/* Adding in my image display preferences. -GoF */
 }
 .content p {
   hyphens: auto;
@@ -570,7 +571,7 @@ body {
 }
 .content p:has(img) {
   margin-top: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 .content img {
   margin-top: 14px;
@@ -597,6 +598,12 @@ body {
 }
 .content form {
   min-height: 25px;
+}
+.content img {
+  width: 100%;
+  height: auto;
+  max-height: initial;
+  object-fit: cover;
 }
 @media (min-width: 540px) {
   .image-wrap {
