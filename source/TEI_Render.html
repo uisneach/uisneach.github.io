@@ -102,9 +102,9 @@
             </div>
           `;
 
-          // Extract bilingual stanzas
+          // Extract language data
           let langGroups = {};
-          xmlDoc.querySelectorAll("lg").forEach(lg => {
+          xmlDoc.querySelectorAll("div").forEach(lg => {
             const langCode = lg.getAttribute("xml:lang") || "und";
             const langName = languageMap[langCode] || langCode; // Use full name or fallback
             if (!langGroups[langName]) langGroups[langName] = [];
@@ -152,7 +152,7 @@
                   longestLine = stanza[j].length;
                 htmlOutput += `<p>${stanza[j] || ""}</p>`;
               }
-              totalWidth += longestLine;
+              totalWidth = longestLine;
               console.log(totalWidth);
               htmlOutput += `</td>`;
             });
@@ -166,7 +166,7 @@
           var pageContent = document.getElementById("page-content");
           var originalWidth = pageContent.getBoundingClientRect().width;
           var fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
-          pageContent.style.width = (totalWidth * 0.43 * fontSize) + "px";
+          pageContent.style.width = (2 * totalWidth * 0.43 * fontSize) + "px";
           var translateVal = (pageContent.getBoundingClientRect().width - originalWidth) / -2;
           pageContent.style.translate = "" + translateVal + "px 0px";
         })

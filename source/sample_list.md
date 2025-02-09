@@ -1,3 +1,3 @@
-- [Dark Rosaleen]( TEI_Template.html?file=Dark_Rosaleen&view=both )
-- [Mise Raifteiri An File]( TEI_Template.html?file=Mise_Raifteiri_An_File&view=sidebyside )
-- [Creachta Crich Fodla]( TEI_Template.html?file=Creachta_Crioch_Fodla&view=sidebyside )
+- [Dark Rosaleen]( TEI_Render.html?file=Dark_Rosaleen&view=both )
+- [Mise Raifteiri An File]( TEI_Render.html?file=Mise_Raifteiri_An_File&view=sidebyside )
+- [Creachta Crich Fodla]( TEI_Render.html?file=Creachta_Crioch_Fodla&view=sidebyside )
