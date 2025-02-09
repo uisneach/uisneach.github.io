@@ -1,0 +1,188 @@
+<section>
+  <style>
+    :root {
+      --line-height: 1.725;
+    }
+    #page-header { margin-bottom: 30px; }
+    .posttitle { margin-top: 0px; margin-bottom: 2px; }
+    #page-content { line-height: var(--line-height); position: relative; }
+    .button-container {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .toggle-btn {
+      padding: 8px 12px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    .toggle-btn.active {
+      background-color: #0056b3;
+    }
+    .container {
+      display: flex;
+      justify-content: center; /* Ensures the content is centered */
+      gap: 20px;
+      max-width: 90%; /* Prevents excessive stretching */
+      margin: 0 auto; /* Centers the container itself */
+    }
+    .column {
+      flex: 1;
+      min-width: 250px;
+    }
+    .stanza { margin-bottom: 20px; }
+    #lang-table { width: fit-content; }
+    .table-container {
+      display:flex;
+    }
+  </style>
+
+  <div id="page-header"></div>
+  <div class="button-container" id="language-buttons"></div>
+  <div id="page-content"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      const fileName = new URLSearchParams(window.location.search).get("file");
+      if (!fileName) {
+        window.location.href = "/404.html";
+        return;
+      }
+
+      const teiUrl = `/TEI/${fileName}.xml`;
+      fetch(teiUrl)
+        .then(response => response.ok ? response.text() : Promise.reject("Unable to fetch TEI file."))
+        .then(xmlString => {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+
+          // Map language codes to full names
+          const languageMap = {
+            "en": "English",
+            "ga": "Irish",
+            "fr": "French",
+            "es": "Spanish",
+            "de": "German",
+            "it": "Italian",
+            "la": "Latin",
+            "grc": "Ancient Greek",
+            "ru": "Russian",
+            "zh": "Chinese",
+            "ja": "Japanese",
+            "ar": "Arabic",
+            "he": "Hebrew",
+            "und": "Unknown"
+          };
+
+          // Extract metadata
+          const title = xmlDoc.querySelector("title")?.textContent || "Untitled";
+          const author = xmlDoc.querySelector("author")?.textContent || "Unknown";
+          const dateElem = xmlDoc.querySelector("date");
+          let dateStr = "Unknown Date";
+          if (dateElem) {
+            const year = dateElem.getAttribute("when") || dateElem.textContent.trim();
+            const month = dateElem.getAttribute("month");
+            const day = dateElem.getAttribute("day");
+            dateStr = `${year}${month ? '-' + month.padStart(2, '0') : ''}${day ? '-' + day.padStart(2, '0') : ''}`;
+          }
+
+          document.getElementById("page-header").innerHTML = `
+            <h1 class="posttitle p-name" itemprop="name headline">${title}</h1>
+            <div class="meta" style="display: flex; align-items: center; gap: 20px;">
+              <span class="author p-author h-card">
+                <span class="p-name" itemprop="name">Author: ${author}</span>
+              </span>
+              <div class="postdate">
+                <time datetime="${dateStr}" class="dt-published">${dateStr}</time>
+              </div>
+            </div>
+          `;
+
+          // Extract bilingual stanzas
+          let langGroups = {};
+          xmlDoc.querySelectorAll("lg").forEach(lg => {
+            const langCode = lg.getAttribute("xml:lang") || "und";
+            const langName = languageMap[langCode] || langCode; // Use full name or fallback
+            if (!langGroups[langName]) langGroups[langName] = [];
+            let stanzaLines = Array.from(lg.querySelectorAll("l")).map(l => l.textContent.trim());
+            langGroups[langName].push(stanzaLines);
+          });
+
+          const languages = Object.keys(langGroups);
+          let htmlOutput = "";
+          let buttonOutput = "";
+          
+
+          // Create checkboxes for toggling languages
+          if (languages.length > 1) {
+            buttonOutput = `<label style="font-weight: bold; margin-right: 10px;">Languages:</label>`;
+            languages.forEach(langName => {
+              buttonOutput += `
+                <label>
+                  <input type="checkbox" class="lang-checkbox" data-lang="${langName}" checked onclick="toggleLanguage('${langName}')">
+                  ${langName}
+                </label>
+              `;
+            });
+          }
+
+          // Determine max number of lines in any stanza
+          const maxStanzas = Math.max(...Object.values(langGroups).map(stanzaList => stanzaList.length));
+
+          // Create table for aligned stanzas
+          htmlOutput += `<div class="table-container" style="justify-content: ${(languages.length > 1)? "center" : "left"}"><table id="lang-table"><tbody>`;
+
+          // Use these variables to calculate the content width based on how long the lines of text are, to avoid wrapping.
+          let longestLine = 0;
+          let totalWidth = 0;
+
+          for (let i = 0; i < maxStanzas; i++) {
+            htmlOutput += "<tr>";
+            languages.forEach(langName => {
+              let stanza = langGroups[langName][i] || []; // Get stanza or empty array
+              let maxLines = Math.max(...Object.values(langGroups).map(lg => (lg[i] ? lg[i].length : 0)));
+              
+              htmlOutput += `<td class="lang-column lang-${langName}" data-lang="${langName}">`;
+              for (let j = 0; j < maxLines; j++) {
+                if (stanza[j].length > longestLine)
+                  longestLine = stanza[j].length;
+                htmlOutput += `<p>${stanza[j] || ""}</p>`;
+              }
+              totalWidth += longestLine;
+              console.log(totalWidth);
+              htmlOutput += `</td>`;
+            });
+            htmlOutput += "</tr>";
+          }
+          htmlOutput += `</tbody></table></div>`;
+
+          document.getElementById("language-buttons").innerHTML = buttonOutput;
+          document.getElementById("page-content").innerHTML = htmlOutput;
+
+          var pageContent = document.getElementById("page-content");
+          var originalWidth = pageContent.getBoundingClientRect().width;
+          var fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
+          pageContent.style.width = (totalWidth * 0.43 * fontSize) + "px";
+          var translateVal = (pageContent.getBoundingClientRect().width - originalWidth) / -2;
+          pageContent.style.translate = "" + translateVal + "px 0px";
+        })
+        .catch(error => console.error("TEI load error:", error));
+    });
+
+    // Toggle language display
+    function toggleLanguage(langName) {
+      const columns = document.querySelectorAll(`.lang-${langName}`);
+      const checkbox = document.querySelector(`.lang-checkbox[data-lang="${langName}"]`);
+      
+      if (checkbox.checked) {
+        columns.forEach(col => col.style.display = "table-cell");
+      } else {
+        columns.forEach(col => col.style.display = "none");
+      }
+    }
+  </script>
+</section>

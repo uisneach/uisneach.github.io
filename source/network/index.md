@@ -13,6 +13,10 @@ Soliloquy.bio by Anabology : https://soliloquy.bio/
 
 Archive of Fringe Science : http://www.tuks.nl/pdf/Reference_Material/
 
+The Architecture of Open Source Applications : https://aosabook.org/en/index.html
+
+Based Physics : https://www.basedphysics.com/
+
 
 ## History & Anthropology
 
@@ -70,6 +74,8 @@ Asylum Magazine : https://asylummagazine.ca/
 
 The American Sun : https://theamericansun.com/ and https://theamericansun.substack.com/
 
+Meon : https://meonjournal.com/
+
 
 ## Archives
 
@@ -108,3 +114,13 @@ Abair - Irish Speech-to-Text : https://abair.ie/
 Logaimn.ie - Irish Place Names : https://www.logainm.ie/ga/
 
 Phouka Irish Lessons : http://phouka.com/index_learn.html
+
+Tearma.ie - National Terminology Database : https://www.tearma.ie/
+
+Potafocal Beo - Index of Bilingual Glossaries : http://www.potafocal.com/beo
+
+Fís agus Foġlaim : https://www.youtube.com/watch?v=SElyJ1cV0y8&list=PL7wLVDMegS1RwEu_jnVOPwtl1UVSLdKpH
+
+Foclóir Gaeilge Agus Béarla (PDF) : https://celt.ucc.ie/Dinneen1.pdf
+
+Irish Language Quizzes : https://www.nativedialogs.com
