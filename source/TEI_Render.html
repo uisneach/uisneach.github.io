@@ -44,7 +44,7 @@
   <div id="page-header"></div>
   <div class="button-container" id="language-buttons"></div>
   <div id="page-content"></div>
-
+<script src="https://cdn.jsdelivr.net/npm/xml-beautify@1.2.3/dist/XmlBeautify.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       const fileName = new URLSearchParams(window.location.search).get("file");
@@ -55,120 +55,27 @@
 
       const teiUrl = `/TEI/${fileName}.xml`;
       fetch(teiUrl)
-        .then(response => response.ok ? response.text() : Promise.reject("Unable to fetch TEI file."))
+        .then(response => {
+          if (!response.ok) {
+            window.location.href = "/404.html";
+            throw new Error("Unable to fetch TEI file.");
+          }
+          return response.text();
+        })
         .then(xmlString => {
           const parser = new DOMParser();
           const xmlDoc = parser.parseFromString(xmlString, "text/xml");
 
-          // Map language codes to full names
-          const languageMap = {
-            "en": "English",
-            "ga": "Irish",
-            "fr": "French",
-            "es": "Spanish",
-            "de": "German",
-            "it": "Italian",
-            "la": "Latin",
-            "grc": "Ancient Greek",
-            "ru": "Russian",
-            "zh": "Chinese",
-            "ja": "Japanese",
-            "ar": "Arabic",
-            "he": "Hebrew",
-            "und": "Unknown"
-          };
+          // Convert XML to a string and check for "celt.ucc.ie"
+          const isCELT = xmlString.includes("celt.ucc.ie");
 
-          // Extract metadata
-          const title = xmlDoc.querySelector("title")?.textContent || "Untitled";
-          const author = xmlDoc.querySelector("author")?.textContent || "Unknown";
-          const dateElem = xmlDoc.querySelector("date");
-          let dateStr = "Unknown Date";
-          if (dateElem) {
-            const year = dateElem.getAttribute("when") || dateElem.textContent.trim();
-            const month = dateElem.getAttribute("month");
-            const day = dateElem.getAttribute("day");
-            dateStr = `${year}${month ? '-' + month.padStart(2, '0') : ''}${day ? '-' + day.padStart(2, '0') : ''}`;
+          if (isCELT) {
+            console.log("CELT text detected. Applying CELT-specific processing...");
+            processCELTTEI(xmlDoc);
+          } else {
+            console.log("Standard TEI text detected. Applying normal processing...");
+            processStandardTEI(xmlDoc);
           }
-
-          document.getElementById("page-header").innerHTML = `
-            <h1 class="posttitle p-name" itemprop="name headline">${title}</h1>
-            <div class="meta" style="display: flex; align-items: center; gap: 20px;">
-              <span class="author p-author h-card">
-                <span class="p-name" itemprop="name">Author: ${author}</span>
-              </span>
-              <div class="postdate">
-                <time datetime="${dateStr}" class="dt-published">${dateStr}</time>
-              </div>
-            </div>
-          `;
-
-          // Extract language data
-          let langGroups = {};
-          xmlDoc.querySelectorAll("div").forEach(lg => {
-            const langCode = lg.getAttribute("xml:lang") || "und";
-            const langName = languageMap[langCode] || langCode; // Use full name or fallback
-            if (!langGroups[langName]) langGroups[langName] = [];
-            let stanzaLines = Array.from(lg.querySelectorAll("l")).map(l => l.textContent.trim());
-            langGroups[langName].push(stanzaLines);
-          });
-
-          const languages = Object.keys(langGroups);
-          let htmlOutput = "";
-          let buttonOutput = "";
-          
-
-          // Create checkboxes for toggling languages
-          if (languages.length > 1) {
-            buttonOutput = `<label style="font-weight: bold; margin-right: 10px;">Languages:</label>`;
-            languages.forEach(langName => {
-              buttonOutput += `
-                <label>
-                  <input type="checkbox" class="lang-checkbox" data-lang="${langName}" checked onclick="toggleLanguage('${langName}')">
-                  ${langName}
-                </label>
-              `;
-            });
-          }
-
-          // Determine max number of lines in any stanza
-          const maxStanzas = Math.max(...Object.values(langGroups).map(stanzaList => stanzaList.length));
-
-          // Create table for aligned stanzas
-          htmlOutput += `<div class="table-container" style="justify-content: ${(languages.length > 1)? "center" : "left"}"><table id="lang-table"><tbody>`;
-
-          // Use these variables to calculate the content width based on how long the lines of text are, to avoid wrapping.
-          let longestLine = 0;
-          let totalWidth = 0;
-
-          for (let i = 0; i < maxStanzas; i++) {
-            htmlOutput += "<tr>";
-            languages.forEach(langName => {
-              let stanza = langGroups[langName][i] || []; // Get stanza or empty array
-              let maxLines = Math.max(...Object.values(langGroups).map(lg => (lg[i] ? lg[i].length : 0)));
-              
-              htmlOutput += `<td class="lang-column lang-${langName}" data-lang="${langName}">`;
-              for (let j = 0; j < maxLines; j++) {
-                if (stanza[j].length > longestLine)
-                  longestLine = stanza[j].length;
-                htmlOutput += `<p>${stanza[j] || ""}</p>`;
-              }
-              totalWidth = longestLine;
-              console.log(totalWidth);
-              htmlOutput += `</td>`;
-            });
-            htmlOutput += "</tr>";
-          }
-          htmlOutput += `</tbody></table></div>`;
-
-          document.getElementById("language-buttons").innerHTML = buttonOutput;
-          document.getElementById("page-content").innerHTML = htmlOutput;
-
-          var pageContent = document.getElementById("page-content");
-          var originalWidth = pageContent.getBoundingClientRect().width;
-          var fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
-          pageContent.style.width = (2 * totalWidth * 0.43 * fontSize) + "px";
-          var translateVal = (pageContent.getBoundingClientRect().width - originalWidth) / -2;
-          pageContent.style.translate = "" + translateVal + "px 0px";
         })
         .catch(error => console.error("TEI load error:", error));
     });
@@ -183,6 +90,164 @@
       } else {
         columns.forEach(col => col.style.display = "none");
       }
+    }
+
+    function processStandardTEI(xmlDoc) {
+      // Map language codes to full names
+      const languageMap = {
+        "en": "English",
+        "ga": "Irish",
+        "fr": "French",
+        "es": "Spanish",
+        "de": "German",
+        "it": "Italian",
+        "la": "Latin",
+        "grc": "Ancient Greek",
+        "ru": "Russian",
+        "zh": "Chinese",
+        "ja": "Japanese",
+        "ar": "Arabic",
+        "he": "Hebrew",
+        "und": "Unknown"
+      };
+
+      // Extract metadata
+      const title = xmlDoc.querySelector("title")?.textContent || "Untitled";
+      const author = xmlDoc.querySelector("author")?.textContent || "Unknown";
+      const dateElem = xmlDoc.querySelector("date");
+      let dateStr = "Unknown Date";
+      if (dateElem) {
+        const year = dateElem.getAttribute("when") || dateElem.textContent.trim();
+        const month = dateElem.getAttribute("month");
+        const day = dateElem.getAttribute("day");
+        dateStr = `${year}${month ? '-' + month.padStart(2, '0') : ''}${day ? '-' + day.padStart(2, '0') : ''}`;
+      }
+
+      document.getElementById("page-header").innerHTML = `
+        <h1 class="posttitle p-name" itemprop="name headline">${title}</h1>
+        <div class="meta" style="display: flex; align-items: center; gap: 20px;">
+          <span class="author p-author h-card">
+            <span class="p-name" itemprop="name">Author: ${author}</span>
+          </span>
+          <div class="postdate">
+            <time datetime="${dateStr}" class="dt-published">${dateStr}</time>
+          </div>
+        </div>
+      `;
+
+      // Extract language data
+      let langGroups = {};
+      xmlDoc.querySelectorAll("div").forEach(lg => {
+        const langCode = lg.getAttribute("xml:lang") || "und";
+        const langName = languageMap[langCode] || langCode; // Use full name or fallback
+        if (!langGroups[langName]) langGroups[langName] = [];
+        let stanzaLines = Array.from(lg.querySelectorAll("l")).map(l => l.textContent.trim());
+        langGroups[langName].push(stanzaLines);
+      });
+
+      const languages = Object.keys(langGroups);
+      let htmlOutput = "";
+      let buttonOutput = "";
+      
+
+      // Create checkboxes for toggling languages
+      if (languages.length > 1) {
+        buttonOutput = `<label style="font-weight: bold; margin-right: 10px;">Languages:</label>`;
+        languages.forEach(langName => {
+          buttonOutput += `
+            <label>
+              <input type="checkbox" class="lang-checkbox" data-lang="${langName}" checked onclick="toggleLanguage('${langName}')">
+              ${langName}
+            </label>
+          `;
+        });
+      }
+
+      // Determine max number of lines in any stanza
+      const maxStanzas = Math.max(...Object.values(langGroups).map(stanzaList => stanzaList.length));
+
+      // Create table for aligned stanzas
+      htmlOutput += `<div class="table-container" style="justify-content: ${(languages.length > 1)? "center" : "left"}"><table id="lang-table"><tbody>`;
+
+      // Use these variables to calculate the content width based on how long the lines of text are, to avoid wrapping.
+      let longestLine = 0;
+      let totalWidth = 0;
+
+      for (let i = 0; i < maxStanzas; i++) {
+        htmlOutput += "<tr>";
+        languages.forEach(langName => {
+          let stanza = langGroups[langName][i] || []; // Get stanza or empty array
+          let maxLines = Math.max(...Object.values(langGroups).map(lg => (lg[i] ? lg[i].length : 0)));
+          
+          htmlOutput += `<td class="lang-column lang-${langName}" data-lang="${langName}">`;
+          for (let j = 0; j < maxLines; j++) {
+            if (stanza[j].length > longestLine)
+              longestLine = stanza[j].length;
+            htmlOutput += `<p>${stanza[j] || ""}</p>`;
+          }
+          totalWidth = longestLine;
+          console.log(totalWidth);
+          htmlOutput += `</td>`;
+        });
+        htmlOutput += "</tr>";
+      }
+      htmlOutput += `</tbody></table></div>`;
+
+      document.getElementById("language-buttons").innerHTML = buttonOutput;
+      document.getElementById("page-content").innerHTML = htmlOutput;
+
+      var pageContent = document.getElementById("page-content");
+      var originalWidth = pageContent.getBoundingClientRect().width;
+      var fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
+      pageContent.style.width = (2 * totalWidth * 0.43 * fontSize) + "px";
+      var translateVal = (pageContent.getBoundingClientRect().width - originalWidth) / -2;
+      pageContent.style.translate = "" + translateVal + "px 0px";
+    }
+
+    function processCELTTEI(xmlDoc) {
+      console.log("Processing CELT TEI file...");
+      const parser = new DOMParser();
+
+      // Define replacements for common non-standard entities
+      const charReplacements = {
+          "&auml;": "ä",
+          "&ouml;": "ö",
+          "&iacute;": "í",
+          "&eacute;": "é",
+          "&Eacute;": "É",
+          "&emdash;": "—",
+      };
+
+      let data = xmlDoc.querySelector("body").textContent;
+
+      // Replace multiple spaces with a single space
+      data = data.replace(/\s{2,}/g, ' ');
+      // Remove any whitespace between '<' or '</' and the next non-whitespace character (tag name)
+      data = data.replace(/(<\s*\/?)(\s+)(\S)/g, '$1$3');
+      // Remove newline characters between tags
+      //data = data.replace(/(\s*\n\s*)+/g, '');
+      // Replace all non-standard entities with their corresponding characters
+      Object.keys(charReplacements).forEach(entity => {
+          data = data.replace(new RegExp(entity, 'g'), charReplacements[entity]);
+      });
+      data = data.trim();
+      
+      // Uncomment to trigger a download whenever cleaned XML data is created.
+      const blob = new Blob([data], { type: 'text/plain' });
+      const link = document.createElement('a');
+
+      // Create a download link for the file
+      link.href = URL.createObjectURL(blob);
+      link.download = 'output.txt'; // Set the filename
+
+      // Trigger the download
+      link.click();
+
+      // Convert the string to an XML document
+      const doc = parser.parseFromString(data, 'application/xml');
+
+      // Pass the XML document to processStandardTEI
+      processStandardTEI(doc);
     }
   </script>
 </section>
