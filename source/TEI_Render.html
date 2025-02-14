@@ -1,4 +1,4 @@
-<section>
+<section id="uisneac-tei-document">
   <style>
     :root {
       --line-height: 1.725;
@@ -43,8 +43,10 @@
 
   <div id="page-header"></div>
   <div class="button-container" id="language-buttons"></div>
+  <div id="intro"></div>
   <div id="page-content"></div>
-<script src="https://cdn.jsdelivr.net/npm/xml-beautify@1.2.3/dist/XmlBeautify.js"></script>
+  <div id="page-footnotes"></div>
+
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       const fileName = new URLSearchParams(window.location.search).get("file");
@@ -53,7 +55,7 @@
         return;
       }
 
-      const teiUrl = `/TEI/${fileName}.xml`;
+      const teiUrl = `/library/TEI/${fileName}.xml`;
       fetch(teiUrl)
         .then(response => {
           if (!response.ok) {
@@ -84,6 +86,9 @@
     function toggleLanguage(langName) {
       const columns = document.querySelectorAll(`.lang-${langName}`);
       const checkbox = document.querySelector(`.lang-checkbox[data-lang="${langName}"]`);
+
+      if (!checkbox || !columns)
+        return;
       
       if (checkbox.checked) {
         columns.forEach(col => col.style.display = "table-cell");
@@ -93,23 +98,9 @@
     }
 
     function processStandardTEI(xmlDoc) {
-      // Map language codes to full names
-      const languageMap = {
-        "en": "English",
-        "ga": "Irish",
-        "fr": "French",
-        "es": "Spanish",
-        "de": "German",
-        "it": "Italian",
-        "la": "Latin",
-        "grc": "Ancient Greek",
-        "ru": "Russian",
-        "zh": "Chinese",
-        "ja": "Japanese",
-        "ar": "Arabic",
-        "he": "Hebrew",
-        "und": "Unknown"
-      };
+      const parser = new DOMParser();
+
+      // Step 1. Separate intro and metadata from text body----------------------------------------------------------------------
 
       // Extract metadata
       const title = xmlDoc.querySelector("title")?.textContent || "Untitled";
@@ -125,83 +116,203 @@
 
       document.getElementById("page-header").innerHTML = `
         <h1 class="posttitle p-name" itemprop="name headline">${title}</h1>
-        <div class="meta" style="display: flex; align-items: center; gap: 20px;">
+        <div class="meta" id="page-subtitle-div" style="display: flex; align-items: center; gap: 20px;">
           <span class="author p-author h-card">
             <span class="p-name" itemprop="name">Author: ${author}</span>
           </span>
           <div class="postdate">
             <time datetime="${dateStr}" class="dt-published">${dateStr}</time>
           </div>
-        </div>
-      `;
+        </div>`;
 
-      // Extract language data
-      let langGroups = {};
-      xmlDoc.querySelectorAll("div").forEach(lg => {
-        const langCode = lg.getAttribute("xml:lang") || "und";
-        const langName = languageMap[langCode] || langCode; // Use full name or fallback
-        if (!langGroups[langName]) langGroups[langName] = [];
-        let stanzaLines = Array.from(lg.querySelectorAll("l")).map(l => l.textContent.trim());
-        langGroups[langName].push(stanzaLines);
-      });
 
-      const languages = Object.keys(langGroups);
-      let htmlOutput = "";
-      let buttonOutput = "";
-      
+      // Add intro block if available
+      const intro = xmlDoc.querySelector('div[type="intro"]');
+      if (intro) {
+        let introElem = document.getElementById("intro");
+        let head = intro.querySelector("head");
+        let p = intro.querySelector("p");
 
-      // Create checkboxes for toggling languages
-      if (languages.length > 1) {
-        buttonOutput = `<label style="font-weight: bold; margin-right: 10px;">Languages:</label>`;
-        languages.forEach(langName => {
-          buttonOutput += `
-            <label>
-              <input type="checkbox" class="lang-checkbox" data-lang="${langName}" checked onclick="toggleLanguage('${langName}')">
-              ${langName}
-            </label>
-          `;
-        });
+        if (head && p) {
+
+          // Add "Show Introduction" button to page header.
+          let subtitleDiv = document.querySelector("#page-subtitle-div");
+          if (subtitleDiv)
+            subtitleDiv.appendChild(parser.parseFromString(`<div id="intro-button" onclick="toggleIntroButton()" style="font-weight: bold; text-decoration: underline; cursor: pointer;">Show Introduction</div>`,"text/html").querySelector("div"));
+
+          // Set introduction header and content in page.
+          introElem.innerHTML = `
+            <h2 id="intro-header" style="display: none;">Introduction: ${head.textContent}</h2>
+            <p id="intro-content" style="display: none;">${p.textContent}</p>`;
+          introElem.style.display = "flex";
+          introElem.style.flexDirection = "column";
+        }
       }
 
-      // Determine max number of lines in any stanza
-      const maxStanzas = Math.max(...Object.values(langGroups).map(stanzaList => stanzaList.length));
+      // Step 2. Identify languages used-----------------------------------------------------------------------------------------
 
-      // Create table for aligned stanzas
-      htmlOutput += `<div class="table-container" style="justify-content: ${(languages.length > 1)? "center" : "left"}"><table id="lang-table"><tbody>`;
+      // Map language codes to full names
+      const languageMap = {
+        "ar": "Arabic",
+        "as": "Anglo-Saxon",
+        "cy": "Welsh",
+        "en": "English",
+        "es": "Spanish",
+        "de": "German",
+        "fr": "French",
+        "ga": "Irish",
+        "he": "Hebrew",
+        "it": "Italian",
+        "ja": "Japanese",
+        "la": "Latin",
+        "gr": "Greek",
+        "grc": "Ancient Greek",
+        "on": "Old Norse",
+        "ru": "Russian",
+        "zh": "Chinese",
+        "und": "Unknown"
+      };
 
-      // Use these variables to calculate the content width based on how long the lines of text are, to avoid wrapping.
+      // Extract language data
+      let languages = new Set();
+
+      let body = xmlDoc.querySelector("body");
+      if (!body) {
+        console.error("TEI Render.html: No 'body' tag found in document.");
+        return;
+      }
+
+      // Find all elements in <body> with 'lang' attribute and add their values to an array.
+      body.querySelectorAll("[lang]").forEach(el => {
+      
+        // We want to remove lang tags that don't describe sections, but only words within sections.
+        let tagList = ["div", "div0", "div1", "section"];
+        if (tagList.includes(el.tagName.toLowerCase())) {
+          const langCode = el.getAttribute("lang") || "und";
+          const langName = languageMap[langCode] || langCode; // Use full name or fallback
+          languages.add(langName);
+        }
+      });
+
+      let buttonOutput = "";
+      
+      // Create checkboxes for toggling languages
+      if (languages.size > 1) {
+        buttonOutput = `<label style="font-weight: bold; margin-right: 10px;">Languages:</label>`;
+        languages.forEach(langName => {
+          buttonOutput += `<label>
+              <input type="checkbox" class="lang-checkbox" data-lang="${langName}" checked onclick="toggleLanguage('${langName}')">
+              ${langName}
+            </label>`;
+        });
+        document.getElementById("language-buttons").innerHTML = buttonOutput;
+      }
+
+      // Step 3. Remove all <note> tags and contents and create a footnote out of them.------------------------------------------ 
+
+      let footnoteCount = 1;
+      let footnotesHTML = '<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;">';
+
+      // Process all <notes> and replace them with numbered references
+      body.querySelectorAll("note").forEach(note => {
+        let noteText = note.textContent.trim();
+        let noteRef = `<sup id="fnref:${footnoteCount}"><a href="#fn:${footnoteCount}" rel="footnote">${footnoteCount}</a></sup>`; // Footnote reference number
+
+        let parent = note.parentNode;
+        if (parent) {
+           
+        }
+
+        footnotesHTML += `<li id="fn:` + footnoteCount + `">
+          <span style="display: inline-block; vertical-align: top; padding-right: 10px;">` + footnoteCount + `.</span>
+          <span style="display: inline-block; vertical-align: top;">` + noteText + `</span>
+          <a href="#fnref:` + footnoteCount + ` rev="footnote"> ↩</a></li>`;
+
+        footnoteCount++;
+      });
+      console.log(footnotesHTML);
+
+      document.getElementById("page-footnotes").innerHTML = footnotesHTML;
+
+      // Step 4. Send poems and prose to different processing flows--------------------------------------------------------------
+      
+      // Get first layer of sectioning elements
+      let divElements = Array.from(body.children).filter(el => 
+        el.tagName.toLowerCase() === "div" || 
+        el.tagName.toLowerCase() === "div0" || 
+        el.tagName.toLowerCase() === "div1"
+      );
+
+      let htmlOutput = "";
+      // These variables to calculate the page-content width based on how long the lines of text are, to avoid wrapping.
       let longestLine = 0;
       let totalWidth = 0;
 
-      for (let i = 0; i < maxStanzas; i++) {
-        htmlOutput += "<tr>";
-        languages.forEach(langName => {
-          let stanza = langGroups[langName][i] || []; // Get stanza or empty array
-          let maxLines = Math.max(...Object.values(langGroups).map(lg => (lg[i] ? lg[i].length : 0)));
-          
-          htmlOutput += `<td class="lang-column lang-${langName}" data-lang="${langName}">`;
-          for (let j = 0; j < maxLines; j++) {
-            if (stanza[j].length > longestLine)
-              longestLine = stanza[j].length;
-            htmlOutput += `<p>${stanza[j] || ""}</p>`;
-          }
-          totalWidth = longestLine;
-          console.log(totalWidth);
-          htmlOutput += `</td>`;
-        });
-        htmlOutput += "</tr>";
-      }
-      htmlOutput += `</tbody></table></div>`;
+      // Process the child elements layer by layer
+      divElements.forEach(div => {
+        switch (div.tagName.toLowerCase()) {
+          case "div0":
+            if (languages.size > 1) {
+              if (div.getAttribute("type") === "groupofpoems") { // Case that this is poetry
+                // Create table for aligned stanzas
+                htmlOutput += `<div class="table-container" style="justify-content: center;"><table id="lang-table"><tbody><tr>`;
+                
+                // Go through each <div1> child one by one
+                Array.from(div.children).forEach(div1 => {
+                  let langName = languageMap[div1.getAttribute('lang')];
+                  htmlOutput += `<td class="lang-column lang-${langName}" data-lang="${langName}">`;
 
-      document.getElementById("language-buttons").innerHTML = buttonOutput;
-      document.getElementById("page-content").innerHTML = htmlOutput;
+                  div1.querySelectorAll("l").forEach(line => {
+                    htmlOutput += `<p>${line.textContent || ""}</p>`;
+                    if (line.textContent.length > longestLine)
+                      longestLine = line.textContent.length;
+                  });
+                  totalWidth += longestLine;
+                });
 
-      var pageContent = document.getElementById("page-content");
-      var originalWidth = pageContent.getBoundingClientRect().width;
-      var fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
-      pageContent.style.width = (2 * totalWidth * 0.43 * fontSize) + "px";
-      var translateVal = (pageContent.getBoundingClientRect().width - originalWidth) / -2;
-      pageContent.style.translate = "" + translateVal + "px 0px";
+                htmlOutput += `</tr></tbody></table></div>`;
+              }
+              else if (div.getAttribute("type") === "saga") { // Case that this is prose
+
+              }
+
+              
+            }
+            else
+              document.getElementById("page-content").innerHTML = body.innerHTML;
+            break;
+          case "div1":
+            if (languages.size > 1)
+              Array.from(div.children).forEach(div1 => {
+
+              });
+            else
+              document.getElementById("page-content").innerHTML = body.innerHTML;
+            break;
+          case "div":
+            if (languages.size > 1)
+              Array.from(div.children).forEach(div1 => {
+
+              });
+            else
+              document.getElementById("page-content").innerHTML = body.innerHTML;
+            break;
+          default:
+        }
+      });
+
+      let pageContent = document.getElementById("page-content");
+      pageContent.innerHTML = htmlOutput;
+
+      // Allow for div "page-content" to expand in width beyond bounds of parent div, to accommodate text.
+      let originalWidth = pageContent.getBoundingClientRect().width;
+      let originalCenter = (pageContent.getBoundingClientRect().left + pageContent.getBoundingClientRect().right) / 2;
+      let fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
+      let newWidth = 2 * totalWidth * 0.43 * fontSize;
+      let maxWidth = 1500;
+      pageContent.style.width = (newWidth < maxWidth) ? newWidth + "px" : maxWidth + "px";
+      let translateVal = ((pageContent.getBoundingClientRect().left + pageContent.getBoundingClientRect().right) / 2) - originalCenter; // Move content left equal to the distance between the old center line and the new center line.
+      pageContent.style.translate = "-" + translateVal + "px 0px";
     }
 
     function processCELTTEI(xmlDoc) {
@@ -210,44 +321,139 @@
 
       // Define replacements for common non-standard entities
       const charReplacements = {
-          "&auml;": "ä",
-          "&ouml;": "ö",
-          "&iacute;": "í",
-          "&eacute;": "é",
-          "&Eacute;": "É",
-          "&emdash;": "—",
+        // Umlauts (ä, ö, ü, ë, ï, ÿ) and their uppercase counterparts
+        "&auml;": "ä", "&Auml;": "Ä",
+        "&ouml;": "ö", "&Ouml;": "Ö",
+        "&uuml;": "ü", "&Uuml;": "Ü",
+        "&euml;": "ë", "&Euml;": "Ë",
+        "&iuml;": "ï", "&Iuml;": "Ï",
+        "&yuml;": "ÿ", "&Yuml;": "Ÿ",
+
+        // Acute accents (á, é, í, ó, ú) and uppercase
+        "&aacute;": "á", "&Aacute;": "Á",
+        "&eacute;": "é", "&Eacute;": "É",
+        "&iacute;": "í", "&Iacute;": "Í",
+        "&oacute;": "ó", "&Oacute;": "Ó",
+        "&uacute;": "ú", "&Uacute;": "Ú",
+        "&yacute;": "ý", "&Yacute;": "Ý",
+
+        // Grave accents (à, è, ì, ò, ù) and uppercase
+        "&agrave;": "à", "&Agrave;": "À",
+        "&egrave;": "è", "&Egrave;": "È",
+        "&igrave;": "ì", "&Igrave;": "Ì",
+        "&ograve;": "ò", "&Ograve;": "Ò",
+        "&ugrave;": "ù", "&Ugrave;": "Ù",
+
+        // Circumflex (â, ê, î, ô, û) and uppercase
+        "&acirc;": "â", "&Acirc;": "Â",
+        "&ecirc;": "ê", "&Ecirc;": "Ê",
+        "&icirc;": "î", "&Icirc;": "Î",
+        "&ocirc;": "ô", "&Ocirc;": "Ô",
+        "&ucirc;": "û", "&Ucirc;": "Û",
+
+        // Macron (horizontal line) and uppercase
+        "&amacr;": "ā","&Amacr;": "Ā",
+        "&emacr;": "ē","&Emacr;": "Ē",
+        "&imacr;": "ī","&Imacr;": "Ī",
+        "&omacr;": "ō","&Omacr;": "Ō",
+        "&umacr;": "ū","&Umacr;": "Ū",
+
+        // Caron (š, Š, ž, Ž, č, Č, ř, Ř)
+        "&scaron;": "š", "&Scaron;": "Š",
+        "&zcaron;": "ž", "&Zcaron;": "Ž",
+        "&ccaron;": "č", "&Ccaron;": "Č",
+        "&rcaron;": "ř", "&Rcaron;": "Ř",
+
+        // Ligatures (œ, Œ, æ, Æ)
+        "&oelig;": "œ", "&OElig;": "Œ",
+        "&aelig;": "æ", "&AElig;": "Æ",
+
+        // Cedilla (ç, Ç, ş, Ş)
+        "&ccedil;": "ç", "&Ccedil;": "Ç",
+        "&scedil;": "ş", "&Scedil;": "Ş",
+
+        // Tilde (ñ, Ñ)
+        "&ntilde;": "ñ", "&Ntilde;": "Ñ",
+
+        // Dot letters for Irish orthography
+        "&fdot;": "ḟ", "&Fdot;": "Ḟ",
+        "&sdot;": "ṡ", "&Sdot;": "Ṡ",
+        "&cdot;": "ċ", "&Cdot;": "Ċ",
+        "&ddot;": "ḋ", "&Ddot;": "Ḋ",
+        "&gdot;": "ġ", "&Gdot;": "Ġ",
+        "&tdot;": "ṫ", "&Tdot;": "Ṫ",
+
+        // Greek characters
+        "&agr;": "α", "&bgr;": "β", "&ggr;": "γ", "&dgr;": "δ",
+        "&egr;": "ε", "&zgr;": "ζ", "&eta;": "η", "&thgr;": "θ",
+        "&igr;": "ι", "&kgr;": "κ", "&lgr;": "λ", "&mgr;": "μ",
+        "&ngr;": "ν", "&xgr;": "ξ", "&ogr;": "ο", "&pgr;": "π",
+        "&rgr;": "ρ", "&sgr;": "σ", "&sfgr;": "ς", "&tgr;": "τ",
+        "&ugr;": "υ", "&phgr;": "φ", "&chgr;": "χ", "&psgr;": "ψ",
+        "&ohgr;": "ω",
+
+        // Ampersand-related symbols
+        "&ampersir;": "⅋",  // Turned ampersand
+        "&amp;": "&",       // Standard ampersand
+        "&et;": "⁊",        // Tironian et (Irish and Latin shorthand for "and")
+
+        // Dashes
+        "&mdash;": "—",
+        "&ndash;": "–"
       };
 
-      let data = xmlDoc.querySelector("body").textContent;
+      let bodyText = xmlDoc.querySelector("body").textContent;
 
       // Replace multiple spaces with a single space
-      data = data.replace(/\s{2,}/g, ' ');
+      bodyText = bodyText.replace(/\s+/g, ' ');
       // Remove any whitespace between '<' or '</' and the next non-whitespace character (tag name)
-      data = data.replace(/(<\s*\/?)(\s+)(\S)/g, '$1$3');
-      // Remove newline characters between tags
-      //data = data.replace(/(\s*\n\s*)+/g, '');
-      // Replace all non-standard entities with their corresponding characters
+      bodyText = bodyText.replace(/(<\s*\/?)(\s+)(\S)/g, '$1$3');
+      // Remove space after double quote mark
+      bodyText = bodyText.replace(/(=\s*")\s*([^"]*?)\s*("\s*)/g, '$1$2$3');
+
+      // Replace all non-standard entities with their corresponding characters, removing surrounding whitespace
       Object.keys(charReplacements).forEach(entity => {
-          data = data.replace(new RegExp(entity, 'g'), charReplacements[entity]);
+          bodyText = bodyText.replace(new RegExp(`\\s*${entity}\\s*`, 'g'), charReplacements[entity]);
       });
-      data = data.trim();
+      bodyText = bodyText.trim();
       
-      // Uncomment to trigger a download whenever cleaned XML data is created.
-      const blob = new Blob([data], { type: 'text/plain' });
+      /*// Uncomment to trigger a download whenever cleaned XML data is created.
+      const blob = new Blob([bodyText], { type: 'text/plain' });
       const link = document.createElement('a');
 
       // Create a download link for the file
       link.href = URL.createObjectURL(blob);
-      link.download = 'output.txt'; // Set the filename
+      link.download = 'output.xml'; // Set the filename
 
       // Trigger the download
-      link.click();
+      link.click();*/
 
-      // Convert the string to an XML document
-      const doc = parser.parseFromString(data, 'application/xml');
+      processStandardTEI(parser.parseFromString(bodyText, "text/xml"));
+    }
 
-      // Pass the XML document to processStandardTEI
-      processStandardTEI(doc);
+    function toggleIntroButton() {
+      // Get the h2 and p elements
+      const h2 = document.getElementById('intro-header');
+      const p = document.getElementById('intro-content');
+      const buttonText = document.getElementById('intro-button');
+
+      if (!h2 || !p || !buttonText)
+        return;
+            
+      // Check if the elements are currently hidden
+      if (h2.style.display === 'none' && p.style.display === 'none') {
+        // Show the elements
+        h2.style.display = 'block';
+        p.style.display = 'block';
+        // Change the text of the toggle button
+        buttonText.textContent = 'Hide Introduction';
+      } else {
+        // Hide the elements
+        h2.style.display = 'none';
+        p.style.display = 'none';
+        // Change the text of the toggle button back
+        buttonText.textContent = 'Show Introduction';
+      }
     }
   </script>
 </section>
