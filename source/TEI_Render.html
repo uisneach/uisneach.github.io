@@ -30,17 +30,14 @@
       max-width: 90%; /* Prevents excessive stretching */
       margin: 0 auto; /* Centers the container itself */
     }
-    .column {
-      flex: 1;
-      min-width: 250px;
-    }
     .stanza { margin-bottom: 20px; }
-    #lang-table { width: fit-content; }
-    .table-container {
-      display:flex;
+    #lang-table { 
+      width: max-content;
     }
-    tr {
-      vertical-align: top;
+    td {
+      display: table-cell;
+      overflow: hidden;
+      /* border: 1px solid red; */
     }
   </style>
 
@@ -98,6 +95,7 @@
       } else {
         columns.forEach(col => col.style.display = "none");
       }
+      centerElement(document.getElementById("page-content").firstChild);
     }
 
     function processStandardTEI(xmlDoc) {
@@ -214,12 +212,12 @@
       // Step 3. Remove all <note> tags and contents and create a footnote out of them.------------------------------------------ 
 
       let footnoteCount = 1;
-      let footnotesHTML = '<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;">';
+      let footnotesHTML = '<div id="footnotes"><hr><h2>Footnotes:—</h2><div id="footnotelist"><ol style="list-style:none; padding-left: 0;">';
 
       // Process all <notes> and replace them with numbered references
       body.querySelectorAll("note").forEach(note => {
         let noteText = note.textContent.trim();
-        let noteRef = `<sup id="fnref:${footnoteCount}"><a href="#fn:${footnoteCount}" rel="footnote">${footnoteCount}</a></sup>`; // Footnote reference number
+        let noteRef = `<sup id="fnref:${footnoteCount}" style="cursor: pointer;"><a href="#fn:${footnoteCount}" rel="footnote">${footnoteCount}</a></sup>`; // Footnote reference number
 
         let parent = note.parentNode;
         if (parent) {
@@ -247,49 +245,62 @@
       let htmlOutput = "";
       // These variables to calculate the page-content width based on how long the lines of text are, to avoid wrapping.
       let longestLine = 0;
-      let totalWidth = 0;
       let pageContent = document.getElementById("page-content");
 
       // Process the child elements layer by layer
       divElements.forEach(div => {
-        console.log(div.children);
         switch (div.tagName.toLowerCase()) {
           case "div0":
-            console.log(languages.size);
             if (languages.size > 1) {
-              // Create table for aligned stanzas/paragraphs
-              htmlOutput += `<div class="table-container" style="justify-content: center;"><table id="lang-table"><tbody><tr style="vertical-align: top;">`;
+              
+              // Extract language content into an array of arrays
               if (div.getAttribute("type") === "groupofpoems") { // Case that this is poetry
-                // Go through each <div1> child one by one
+                let langLines = {};
+                let maxLines = 0;
+
+                // Go through each <div1> child (each language block)
                 Array.from(div.children).forEach(div1 => {
                   let langName = languageMap[div1.getAttribute('lang')];
-                  htmlOutput += `<td class="lang-column lang-${langName}" data-lang="${langName}">`;
-
-                  div1.querySelectorAll("l").forEach(line => {
-                    htmlOutput += `<p>${line.innerHTML || ""}</p>`;
-                    if (line.textContent.length > longestLine)
-                      longestLine = line.textContent.length;
-                  });
-                  totalWidth += longestLine;
+                  let lines = Array.from(div1.querySelectorAll("l")).map(line => line.innerHTML || "");
+                  
+                  langLines[langName] = lines;
+                  if (lines.length > maxLines)
+                    maxLines = lines.length; // Track longest set of lines
                 });
-                htmlOutput += `</tr></tbody></table></div>`;
+
+                // Start the table
+                htmlOutput += `<table id="lang-table"><tbody>`;
+
+                // Build table row by row
+                for (let i = 0; i < maxLines; i++) {
+                  htmlOutput += `<tr>`;
+                  Object.keys(langLines).forEach(lang => {
+                    htmlOutput += `<td class="lang-column lang-${lang}" data-lang="${lang}">`;
+                    htmlOutput += langLines[lang][i] || ""; // Fill with content or empty string if no line exists
+                    htmlOutput += `</td>`;
+                  });
+                  htmlOutput += `</tr>`;
+                }
+
+                // Close the table
+                htmlOutput += `</tbody></table></div>`;
               }
               else if (div.getAttribute("type") === "saga") { // Case that this is prose
-
+                console.log("Detected prose text in div0.");
               }   
             }
             else {
-              console.log(body.innerHTML);
-              htmlOutput = body.innerHTML;
+              console.log("Detected monolingual text in div0.");
+              pageContent.innerHTML = body.innerHTML;
             }
             break;
           case "div1":
             if (languages.size > 1)
-              Array.from(div.children).forEach(div1 => {
-
-              });
-            else
-              document.getElementById("page-content").innerHTML = body.innerHTML;
+              console.log("Detected multilingual text in div1.");
+            else {
+              console.log("Detected monolingual text in div1.");
+              pageContent.innerHTML = body.innerHTML;
+            }
             break;
           case "div":
             if (languages.size > 1)
@@ -303,20 +314,13 @@
         }
       });
 
-      console.log(parser.parseFromString("<div>" + htmlOutput + "</div>", "text/xml"));
-      pageContent.appendChild(parser.parseFromString(htmlOutput, "text/xml").firstChild);
-      console.log(pageContent);
+      pageContent.appendChild(parser.parseFromString(htmlOutput, "text/html").querySelector("body").firstChild);
 
       // Allow for div "page-content" to expand in width beyond bounds of parent div, to accommodate text.
-      if (language.size > 1) {
-        let originalWidth = pageContent.getBoundingClientRect().width;
-        let originalCenter = (pageContent.getBoundingClientRect().left + pageContent.getBoundingClientRect().right) / 2;
-        let fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
-        let newWidth = 2 * totalWidth * 0.43 * fontSize;
-        let maxWidth = 1500;
-        pageContent.style.width = (newWidth < maxWidth) ? newWidth + "px" : maxWidth + "px";
-        let translateVal = ((pageContent.getBoundingClientRect().left + pageContent.getBoundingClientRect().right) / 2) - originalCenter; // Move content left equal to the distance between the old center line and the new center line.
-        pageContent.style.translate = "-" + translateVal + "px 0px";
+      let contentWidth = pageContent.firstChild.getBoundingClientRect().width;
+      if (languages.size > 1 && contentWidth > pageContent.getBoundingClientRect().width) {
+        console.log("Adjusting width and centering...");
+        centerElement(pageContent.firstChild);
       }
     }
 
@@ -459,6 +463,12 @@
         // Change the text of the toggle button back
         buttonText.textContent = 'Show Introduction';
       }
+    }
+
+    function centerElement(el) {
+      el.style.position = "relative";  // Ensure it's positioned relative to the nearest positioned ancestor
+      el.style.left = "50%";
+      el.style.transform = "translateX(-50%)";
     }
   </script>
 </section>
