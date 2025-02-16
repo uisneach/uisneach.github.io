@@ -27,44 +27,46 @@
     </teiHeader>
     <text>
         <body>
-            <div1 type="poem">
-                <head>Dark Rosaleen</head>
-                <lg type="stanza">
-                    <l>O my Dark Rosaleen,</l>
-                    <l>Do not sigh, do not weep!</l>
-                    <l>The priests are on the ocean green,</l>
-                    <l>They march along the deep.</l>
-                    <l>There’s wine from the royal Pope,</l>
-                    <l>Upon the ocean green;</l>
-                    <l>And Spanish ale shall give you hope,</l>
-                    <l>My Dark Rosaleen!</l>
-                    <l>My own Rosaleen!</l>
-                    <l>Shall glad your heart, shall give you hope,</l>
-                    <l>Shall give you health and help and hope,</l>
-                    <l>My Dark Rosaleen!</l>
-                </lg>
-                <lg type="stanza">
-                    <l>Over hills and through dales,</l>
-                    <l>Have I roamed for your sake;</l>
-                    <l>All yesterday I sailed with sails</l>
-                    <l>On river and on lake.</l>
-                    <l>The Erne, at its highest flood,</l>
-                    <l>I dashed across unseen,</l>
-                    <l>For there was lightning in my blood,</l>
-                    <l>My Dark Rosaleen!</l>
-                    <l>My own Rosaleen!</l>
-                    <l>O, there was lightning in my blood,</l>
-                    <l>Red lightning lightened through my blood,</l>
-                    <l>My Dark Rosaleen!</l>
-                </lg>
-                <lg type="stanza">
-                    <l>All the Erne and its flood</l>
-                    <l>For your sake shall be red</l>
-                    <l>With the blood of us both, my love,</l>
-                    <l>With the blood of us both, my love,</l>
-                    <l>My Dark Rosaleen!</l>
-                </lg>
-            </div1>
+            <div0>
+                <div1 type="poem">
+                    <head>Dark Rosaleen</head>
+                    <lg type="stanza">
+                        <l>O my Dark Rosaleen,</l>
+                        <l>Do not sigh, do not weep!</l>
+                        <l>The priests are on the ocean green,</l>
+                        <l>They march along the deep.</l>
+                        <l>There’s wine from the royal Pope,</l>
+                        <l>Upon the ocean green;</l>
+                        <l>And Spanish ale shall give you hope,</l>
+                        <l>My Dark Rosaleen!</l>
+                        <l>My own Rosaleen!</l>
+                        <l>Shall glad your heart, shall give you hope,</l>
+                        <l>Shall give you health and help and hope,</l>
+                        <l>My Dark Rosaleen!</l>
+                    </lg>
+                    <lg type="stanza">
+                        <l>Over hills and through dales,</l>
+                        <l>Have I roamed for your sake;</l>
+                        <l>All yesterday I sailed with sails</l>
+                        <l>On river and on lake.</l>
+                        <l>The Erne, at its highest flood,</l>
+                        <l>I dashed across unseen,</l>
+                        <l>For there was lightning in my blood,</l>
+                        <l>My Dark Rosaleen!</l>
+                        <l>My own Rosaleen!</l>
+                        <l>O, there was lightning in my blood,</l>
+                        <l>Red lightning lightened through my blood,</l>
+                        <l>My Dark Rosaleen!</l>
+                    </lg>
+                    <lg type="stanza">
+                        <l>All the Erne and its flood</l>
+                        <l>For your sake shall be red</l>
+                        <l>With the blood of us both, my love,</l>
+                        <l>With the blood of us both, my love,</l>
+                        <l>My Dark Rosaleen!</l>
+                    </lg>
+                </div1>
+            </div0>
         </body>
     </text>
 </TEI>
