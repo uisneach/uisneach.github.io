@@ -27,7 +27,7 @@
     </teiHeader>
     <text>
         <body>
-            <div type="poem">
+            <div1 type="poem">
                 <head>Dark Rosaleen</head>
                 <lg type="stanza">
                     <l>O my Dark Rosaleen,</l>
@@ -64,7 +64,7 @@
                     <l>With the blood of us both, my love,</l>
                     <l>My Dark Rosaleen!</l>
                 </lg>
-            </div>
+            </div1>
         </body>
     </text>
 </TEI>

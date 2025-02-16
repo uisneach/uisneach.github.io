@@ -39,11 +39,14 @@
     .table-container {
       display:flex;
     }
+    tr {
+      vertical-align: top;
+    }
   </style>
 
   <div id="page-header"></div>
-  <div class="button-container" id="language-buttons"></div>
   <div id="intro"></div>
+  <div class="button-container" id="language-buttons"></div>
   <div id="page-content"></div>
   <div id="page-footnotes"></div>
 
@@ -142,8 +145,8 @@
 
           // Set introduction header and content in page.
           introElem.innerHTML = `
-            <h2 id="intro-header" style="display: none;">Introduction: ${head.textContent}</h2>
-            <p id="intro-content" style="display: none;">${p.textContent}</p>`;
+            <h2 id="intro-header" style="display: none; margin-top: 0px;">Introduction: ${head.textContent}</h2>
+            <p id="intro-content" style="display: none; margin-bottom: 5rem;">${p.textContent}</p>`;
           introElem.style.display = "flex";
           introElem.style.flexDirection = "column";
         }
@@ -220,17 +223,15 @@
 
         let parent = note.parentNode;
         if (parent) {
-           
+          let refSpan = parser.parseFromString(noteRef, "text/xml").querySelector("sup");
+          parent.replaceChild(refSpan, note);
         }
 
-        footnotesHTML += `<li id="fn:` + footnoteCount + `">
-          <span style="display: inline-block; vertical-align: top; padding-right: 10px;">` + footnoteCount + `.</span>
-          <span style="display: inline-block; vertical-align: top;">` + noteText + `</span>
-          <a href="#fnref:` + footnoteCount + ` rev="footnote"> ↩</a></li>`;
+        footnotesHTML += `<li id="fn:` + footnoteCount + `"><span style="display: inline-block; vertical-align: top;">
+        <span style="display: inline-block; vertical-align: top; padding-right: 10px;">` + footnoteCount + `.</span>` + noteText + `<a href="#fnref:` + footnoteCount + `" rev="footnote"> ↩</a></li></span>`;
 
         footnoteCount++;
       });
-      console.log(footnotesHTML);
 
       document.getElementById("page-footnotes").innerHTML = footnotesHTML;
 
@@ -247,39 +248,40 @@
       // These variables to calculate the page-content width based on how long the lines of text are, to avoid wrapping.
       let longestLine = 0;
       let totalWidth = 0;
+      let pageContent = document.getElementById("page-content");
 
       // Process the child elements layer by layer
       divElements.forEach(div => {
+        console.log(div.children);
         switch (div.tagName.toLowerCase()) {
           case "div0":
+            console.log(languages.size);
             if (languages.size > 1) {
+              // Create table for aligned stanzas/paragraphs
+              htmlOutput += `<div class="table-container" style="justify-content: center;"><table id="lang-table"><tbody><tr style="vertical-align: top;">`;
               if (div.getAttribute("type") === "groupofpoems") { // Case that this is poetry
-                // Create table for aligned stanzas
-                htmlOutput += `<div class="table-container" style="justify-content: center;"><table id="lang-table"><tbody><tr>`;
-                
                 // Go through each <div1> child one by one
                 Array.from(div.children).forEach(div1 => {
                   let langName = languageMap[div1.getAttribute('lang')];
                   htmlOutput += `<td class="lang-column lang-${langName}" data-lang="${langName}">`;
 
                   div1.querySelectorAll("l").forEach(line => {
-                    htmlOutput += `<p>${line.textContent || ""}</p>`;
+                    htmlOutput += `<p>${line.innerHTML || ""}</p>`;
                     if (line.textContent.length > longestLine)
                       longestLine = line.textContent.length;
                   });
                   totalWidth += longestLine;
                 });
-
                 htmlOutput += `</tr></tbody></table></div>`;
               }
               else if (div.getAttribute("type") === "saga") { // Case that this is prose
 
-              }
-
-              
+              }   
             }
-            else
-              document.getElementById("page-content").innerHTML = body.innerHTML;
+            else {
+              console.log(body.innerHTML);
+              htmlOutput = body.innerHTML;
+            }
             break;
           case "div1":
             if (languages.size > 1)
@@ -301,18 +303,21 @@
         }
       });
 
-      let pageContent = document.getElementById("page-content");
-      pageContent.innerHTML = htmlOutput;
+      console.log(parser.parseFromString("<div>" + htmlOutput + "</div>", "text/xml"));
+      pageContent.appendChild(parser.parseFromString(htmlOutput, "text/xml").firstChild);
+      console.log(pageContent);
 
       // Allow for div "page-content" to expand in width beyond bounds of parent div, to accommodate text.
-      let originalWidth = pageContent.getBoundingClientRect().width;
-      let originalCenter = (pageContent.getBoundingClientRect().left + pageContent.getBoundingClientRect().right) / 2;
-      let fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
-      let newWidth = 2 * totalWidth * 0.43 * fontSize;
-      let maxWidth = 1500;
-      pageContent.style.width = (newWidth < maxWidth) ? newWidth + "px" : maxWidth + "px";
-      let translateVal = ((pageContent.getBoundingClientRect().left + pageContent.getBoundingClientRect().right) / 2) - originalCenter; // Move content left equal to the distance between the old center line and the new center line.
-      pageContent.style.translate = "-" + translateVal + "px 0px";
+      if (language.size > 1) {
+        let originalWidth = pageContent.getBoundingClientRect().width;
+        let originalCenter = (pageContent.getBoundingClientRect().left + pageContent.getBoundingClientRect().right) / 2;
+        let fontSize = parseFloat(window.getComputedStyle(pageContent, null).getPropertyValue('font-size'));
+        let newWidth = 2 * totalWidth * 0.43 * fontSize;
+        let maxWidth = 1500;
+        pageContent.style.width = (newWidth < maxWidth) ? newWidth + "px" : maxWidth + "px";
+        let translateVal = ((pageContent.getBoundingClientRect().left + pageContent.getBoundingClientRect().right) / 2) - originalCenter; // Move content left equal to the distance between the old center line and the new center line.
+        pageContent.style.translate = "-" + translateVal + "px 0px";
+      }
     }
 
     function processCELTTEI(xmlDoc) {
