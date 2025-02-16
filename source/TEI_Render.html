@@ -5,7 +5,7 @@
     }
     #page-header { margin-bottom: 30px; }
     .posttitle { margin-top: 0px; margin-bottom: 2px; }
-    #page-content { line-height: var(--line-height); position: relative; }
+    #page-content { line-height: var(--line-height); }
     .button-container {
       text-align: center;
       margin-bottom: 15px;
@@ -38,6 +38,9 @@
       display: table-cell;
       overflow: hidden;
       /* border: 1px solid red; */
+    }
+    l {
+      display: block;
     }
   </style>
 
@@ -231,6 +234,10 @@
         footnoteCount++;
       });
 
+      // If there are no footnotes, remove footnote section entirely.
+      if (footnoteCount === 1)
+        footnotesHTML = "<hr>";
+
       document.getElementById("page-footnotes").innerHTML = footnotesHTML;
 
       // Step 4. Send poems and prose to different processing flows--------------------------------------------------------------
@@ -314,11 +321,11 @@
         }
       });
 
-      pageContent.appendChild(parser.parseFromString(htmlOutput, "text/html").querySelector("body").firstChild);
+      if (htmlOutput.length > 2)
+        pageContent.appendChild(parser.parseFromString(htmlOutput, "text/html").querySelector("body").firstChild);
 
       // Allow for div "page-content" to expand in width beyond bounds of parent div, to accommodate text.
-      let contentWidth = pageContent.firstChild.getBoundingClientRect().width;
-      if (languages.size > 1 && contentWidth > pageContent.getBoundingClientRect().width) {
+      if (languages.size > 1) {
         console.log("Adjusting width and centering...");
         centerElement(pageContent.firstChild);
       }
