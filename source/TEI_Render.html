@@ -8,7 +8,7 @@
     #page-content { line-height: var(--line-height); }
     .button-container {
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 50px;
     }
     .toggle-btn {
       padding: 8px 12px;
@@ -58,7 +58,7 @@
         return;
       }
 
-      const teiUrl = `/library/TEI/${fileName}.xml`;
+      const teiUrl = `/library/TEI/${fileName}`;
       fetch(teiUrl)
         .then(response => {
           if (!response.ok) {
@@ -69,7 +69,12 @@
         })
         .then(xmlString => {
           const parser = new DOMParser();
+          console.log(xmlString);
+          xmlString = namedToUnicode(xmlString);
+
+          console.log(xmlString);
           const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+          console.log(xmlDoc);
 
           // Convert XML to a string and check for "celt.ucc.ie"
           const isCELT = xmlString.includes("celt.ucc.ie");
@@ -188,7 +193,6 @@
 
       // Find all elements in <body> with 'lang' attribute and add their values to an array.
       body.querySelectorAll("[lang]").forEach(el => {
-      
         // We want to remove lang tags that don't describe sections, but only words within sections.
         let tagList = ["div", "div0", "div1", "section"];
         if (tagList.includes(el.tagName.toLowerCase())) {
@@ -239,6 +243,12 @@
         footnotesHTML = "<hr>";
 
       document.getElementById("page-footnotes").innerHTML = footnotesHTML;
+
+      // Replace any <q> tags with <blockquote><p> tags
+      let bodyText = body.innerHTML;
+      bodyText = bodyText.replace(/<q>/g, '<blockquote><p>').replace(/<\/q>/g, '</p></blockquote>');
+      body.innerHTML = bodyText;
+
 
       // Step 4. Send poems and prose to different processing flows--------------------------------------------------------------
       
@@ -335,6 +345,67 @@
       console.log("Processing CELT TEI file...");
       const parser = new DOMParser();
 
+      let bodyText = xmlDoc.querySelector("body").textContent;
+
+      // Replace multiple spaces with a single space
+      bodyText = bodyText.replace(/\s+/g, ' ');
+      // Remove any whitespace between '<' or '</' and the next non-whitespace character (tag name)
+      bodyText = bodyText.replace(/(<\s*\/?)(\s+)(\S)/g, '$1$3');
+      // Remove space after double quote mark
+      bodyText = bodyText.replace(/(=\s*")\s*([^"]*?)\s*("\s*)/g, '$1$2$3');
+
+      bodyText = namedToUnicode(bodyText);
+      
+      bodyText = bodyText.trim();
+      
+      /*// Uncomment to trigger a download whenever cleaned XML data is created.
+      const blob = new Blob([bodyText], { type: 'text/plain' });
+      const link = document.createElement('a');
+
+      // Create a download link for the file
+      link.href = URL.createObjectURL(blob);
+      link.download = 'output.xml'; // Set the filename
+
+      // Trigger the download
+      link.click();*/
+
+      processStandardTEI(parser.parseFromString(bodyText, "text/xml"));
+    }
+
+    function toggleIntroButton() {
+      // Get the h2 and p elements
+      const h2 = document.getElementById('intro-header');
+      const p = document.getElementById('intro-content');
+      const buttonText = document.getElementById('intro-button');
+
+      if (!h2 || !p || !buttonText)
+        return;
+            
+      // Check if the elements are currently hidden
+      if (h2.style.display === 'none' && p.style.display === 'none') {
+        // Show the elements
+        h2.style.display = 'block';
+        p.style.display = 'block';
+        // Change the text of the toggle button
+        buttonText.textContent = 'Hide Introduction';
+      } else {
+        // Hide the elements
+        h2.style.display = 'none';
+        p.style.display = 'none';
+        // Change the text of the toggle button back
+        buttonText.textContent = 'Show Introduction';
+      }
+    }
+
+    function centerElement(el) {
+      el.style.position = "relative";  // Ensure it's positioned relative to the nearest positioned ancestor
+      el.style.left = "50%";
+      el.style.transform = "translateX(-50%)";
+    }
+
+    // This function will replace any embedded named characters with their unicode representations.
+    // E.g. an "o" with a forward accent, represented as &oacute;, will become 
+    function namedToUnicode(text) {
       // Define replacements for common non-standard entities
       const charReplacements = {
         // Umlauts (ä, ö, ü, ë, ï, ÿ) and their uppercase counterparts
@@ -399,6 +470,11 @@
         "&gdot;": "ġ", "&Gdot;": "Ġ",
         "&tdot;": "ṫ", "&Tdot;": "Ṫ",
 
+        // Anglo-Saxon and German characters
+        "&Thorn;": "Þ", "&thorn;": "þ",
+        "&Eth;": "Ð", "&eth;": "ð",
+        "&szlig;": "ß", // Sharp S (Eszett)
+
         // Greek characters
         "&agr;": "α", "&bgr;": "β", "&ggr;": "γ", "&dgr;": "δ",
         "&egr;": "ε", "&zgr;": "ζ", "&eta;": "η", "&thgr;": "θ",
@@ -410,7 +486,7 @@
 
         // Ampersand-related symbols
         "&ampersir;": "⅋",  // Turned ampersand
-        "&amp;": "&",       // Standard ampersand
+        //"&amp;": "&",       // Standard ampersand
         "&et;": "⁊",        // Tironian et (Irish and Latin shorthand for "and")
 
         // Dashes
@@ -418,64 +494,12 @@
         "&ndash;": "–"
       };
 
-      let bodyText = xmlDoc.querySelector("body").textContent;
-
-      // Replace multiple spaces with a single space
-      bodyText = bodyText.replace(/\s+/g, ' ');
-      // Remove any whitespace between '<' or '</' and the next non-whitespace character (tag name)
-      bodyText = bodyText.replace(/(<\s*\/?)(\s+)(\S)/g, '$1$3');
-      // Remove space after double quote mark
-      bodyText = bodyText.replace(/(=\s*")\s*([^"]*?)\s*("\s*)/g, '$1$2$3');
-
       // Replace all non-standard entities with their corresponding characters, removing surrounding whitespace
       Object.keys(charReplacements).forEach(entity => {
-          bodyText = bodyText.replace(new RegExp(`\\s*${entity}\\s*`, 'g'), charReplacements[entity]);
+          text = text.replace(new RegExp(`\\s*${entity}\\s*`, 'g'), charReplacements[entity]);
       });
-      bodyText = bodyText.trim();
-      
-      /*// Uncomment to trigger a download whenever cleaned XML data is created.
-      const blob = new Blob([bodyText], { type: 'text/plain' });
-      const link = document.createElement('a');
 
-      // Create a download link for the file
-      link.href = URL.createObjectURL(blob);
-      link.download = 'output.xml'; // Set the filename
-
-      // Trigger the download
-      link.click();*/
-
-      processStandardTEI(parser.parseFromString(bodyText, "text/xml"));
-    }
-
-    function toggleIntroButton() {
-      // Get the h2 and p elements
-      const h2 = document.getElementById('intro-header');
-      const p = document.getElementById('intro-content');
-      const buttonText = document.getElementById('intro-button');
-
-      if (!h2 || !p || !buttonText)
-        return;
-            
-      // Check if the elements are currently hidden
-      if (h2.style.display === 'none' && p.style.display === 'none') {
-        // Show the elements
-        h2.style.display = 'block';
-        p.style.display = 'block';
-        // Change the text of the toggle button
-        buttonText.textContent = 'Hide Introduction';
-      } else {
-        // Hide the elements
-        h2.style.display = 'none';
-        p.style.display = 'none';
-        // Change the text of the toggle button back
-        buttonText.textContent = 'Show Introduction';
-      }
-    }
-
-    function centerElement(el) {
-      el.style.position = "relative";  // Ensure it's positioned relative to the nearest positioned ancestor
-      el.style.left = "50%";
-      el.style.transform = "translateX(-50%)";
+      return text;
     }
   </script>
 </section>

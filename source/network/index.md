@@ -124,3 +124,5 @@ Fís agus Foġlaim : https://www.youtube.com/watch?v=SElyJ1cV0y8&list=PL7wLVDMeg
 Foclóir Gaeilge Agus Béarla (PDF) : https://celt.ucc.ie/Dinneen1.pdf
 
 Irish Language Quizzes : https://www.nativedialogs.com
+
+Irish Language Pronunciation Dictionary : https://forvo.com/languages/ga/
