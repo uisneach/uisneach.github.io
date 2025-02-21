@@ -69,12 +69,9 @@
         })
         .then(xmlString => {
           const parser = new DOMParser();
-          console.log(xmlString);
           xmlString = namedToUnicode(xmlString);
 
-          console.log(xmlString);
           const xmlDoc = parser.parseFromString(xmlString, "text/xml");
-          console.log(xmlDoc);
 
           // Convert XML to a string and check for "celt.ucc.ie"
           const isCELT = xmlString.includes("celt.ucc.ie");
@@ -244,11 +241,26 @@
 
       document.getElementById("page-footnotes").innerHTML = footnotesHTML;
 
-      // Replace any <q> tags with <blockquote><p> tags
       let bodyText = body.innerHTML;
-      bodyText = bodyText.replace(/<q>/g, '<blockquote><p>').replace(/<\/q>/g, '</p></blockquote>');
-      body.innerHTML = bodyText;
+      console.log(bodyText);
+      // Remove the <head> tag, which usually contains the title
+      //bodyText = bodyText.replace(/<head>.*<\/head>/, "");
+      // Replace any <q> tags with quotation marks
+      bodyText = bodyText.replace(/<q>/g, '"').replace(/<\/q>/g, '"');
+      // Replace any <text> tags with a <blockquote> tag, to indent things like poems nested inside prose.
+      //bodyText = bodyText.replace(/<text.*>/g, '<blockquote><p>').replace(/<\/text>/g, '</p></blockquote>');
+      // Remove weird superscripts apparently inserted by Whitley Stokes in some CELT texts.
+      bodyText = bodyText.replace(/(<sup resp="WS">\s*([^"<>]+?)\s*<\/sup>)/g, (match, fullTag, innerText, offset, fullString) => {
+        //This nested function looks before and after the <sup> tags for quotation marks, and if found, does not add in an extra whitespace to the beginnign or end of the tag's contents. If not found, it does.
+        let before = fullString[offset - 1] || '';
+        let after = fullString[offset + match.length] || '';
 
+        let prefix = before === '"' ? '' : ' ';
+        let suffix = after === '"' ? '' : ' ';
+
+        return `${prefix}${innerText.trim()}${suffix}`;
+      });
+      body.innerHTML = bodyText;
 
       // Step 4. Send poems and prose to different processing flows--------------------------------------------------------------
       
