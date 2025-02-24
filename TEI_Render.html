@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="Uisneaċ">
 <meta property="og:description" content=":root {       --line-height: 1.725;     }     #page-header { margin-bottom: 30px; }     .posttitle { margin-top: 0px; margin-bottom: 2px; }     #page-content { line-height: var(--line-height);">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-02-16T07:59:18.056Z">
-<meta property="article:modified_time" content="2025-02-16T07:59:18.056Z">
+<meta property="article:published_time" content="2025-02-22T16:00:44.390Z">
+<meta property="article:modified_time" content="2025-02-22T16:00:44.390Z">
 <meta property="article:author" content="GoF">
 <meta name="twitter:card" content="summary">
     
@@ -102,7 +102,7 @@
     #page-content { line-height: var(--line-height); }
     .button-container {
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 50px;
     }
     .toggle-btn {
       padding: 8px 12px;
@@ -152,7 +152,7 @@
         return;
       }
 
-      const teiUrl = `/library/TEI/${fileName}.xml`;
+      const teiUrl = `/library/TEI/${fileName}`;
       fetch(teiUrl)
         .then(response => {
           if (!response.ok) {
@@ -163,6 +163,8 @@
         })
         .then(xmlString => {
           const parser = new DOMParser();
+          xmlString = namedToUnicode(xmlString);
+
           const xmlDoc = parser.parseFromString(xmlString, "text/xml");
 
           // Convert XML to a string and check for "celt.ucc.ie"
@@ -282,7 +284,6 @@
 
       // Find all elements in <body> with 'lang' attribute and add their values to an array.
       body.querySelectorAll("[lang]").forEach(el => {
-      
         // We want to remove lang tags that don't describe sections, but only words within sections.
         let tagList = ["div", "div0", "div1", "section"];
         if (tagList.includes(el.tagName.toLowerCase())) {
@@ -333,6 +334,33 @@
         footnotesHTML = "<hr>";
 
       document.getElementById("page-footnotes").innerHTML = footnotesHTML;
+
+      let bodyText = body.innerHTML;
+      console.log(bodyText);
+      // Remove the <head> tag, which usually contains the title
+      //bodyText = bodyText.replace(/<head>.*<\/head>/, "");
+      // Replace any <q> tags with quotation marks
+      console.log("Quotation Marks");
+      //bodyText = bodyText.replace(/<q>/g, '"').replace(/<\/q>/g, '"');
+      // Replace any <text> tags with a <blockquote> tag, to indent things like poems nested inside prose.
+      console.log("Blockquotes");
+      //bodyText = bodyText.replace(/<text[^>]*>/g, '<blockquote><p>').replace(/<\/text>/g, '</p></blockquote>');
+      console.log(bodyText);
+      // Remove weird superscripts apparently inserted by Whitley Stokes in some CELT texts.
+      console.log("Superscripts");
+      /*bodyText = bodyText.replace(/(<sup resp="WS">\s*([^"<>]+?)\s*<\/sup>)/g, (match, fullTag, innerText, offset, fullString) => {
+        //This nested function looks before and after the <sup> tags for quotation marks, and if found, does not add in an extra whitespace to the beginnign or end of the tag's contents. If not found, it does.
+        let before = fullString[offset - 1] || '';
+        let after = fullString[offset + match.length] || '';
+
+        let prefix = before === '"' ? '' : ' ';
+        let suffix = after === '"' ? '' : ' ';
+
+        return `${prefix}${innerText.trim()}${suffix}`;
+      });*/
+      console.log(bodyText);
+      body.innerHTML = bodyText;
+      console.log(body.innerHTML);
 
       // Step 4. Send poems and prose to different processing flows--------------------------------------------------------------
       
@@ -429,6 +457,67 @@
       console.log("Processing CELT TEI file...");
       const parser = new DOMParser();
 
+      let bodyText = xmlDoc.querySelector("body").textContent;
+
+      // Replace multiple spaces with a single space
+      bodyText = bodyText.replace(/\s+/g, ' ');
+      // Remove any whitespace between '<' or '</' and the next non-whitespace character (tag name)
+      bodyText = bodyText.replace(/(<\s*\/?)(\s+)(\S)/g, '$1$3');
+      // Remove space after double quote mark
+      bodyText = bodyText.replace(/(=\s*")\s*([^"]*?)\s*("\s*)/g, '$1$2$3');
+
+      bodyText = namedToUnicode(bodyText);
+      
+      bodyText = bodyText.trim();
+      
+      /*// Uncomment to trigger a download whenever cleaned XML data is created.
+      const blob = new Blob([bodyText], { type: 'text/plain' });
+      const link = document.createElement('a');
+
+      // Create a download link for the file
+      link.href = URL.createObjectURL(blob);
+      link.download = 'output.xml'; // Set the filename
+
+      // Trigger the download
+      link.click();*/
+
+      processStandardTEI(parser.parseFromString(bodyText, "text/xml"));
+    }
+
+    function toggleIntroButton() {
+      // Get the h2 and p elements
+      const h2 = document.getElementById('intro-header');
+      const p = document.getElementById('intro-content');
+      const buttonText = document.getElementById('intro-button');
+
+      if (!h2 || !p || !buttonText)
+        return;
+            
+      // Check if the elements are currently hidden
+      if (h2.style.display === 'none' && p.style.display === 'none') {
+        // Show the elements
+        h2.style.display = 'block';
+        p.style.display = 'block';
+        // Change the text of the toggle button
+        buttonText.textContent = 'Hide Introduction';
+      } else {
+        // Hide the elements
+        h2.style.display = 'none';
+        p.style.display = 'none';
+        // Change the text of the toggle button back
+        buttonText.textContent = 'Show Introduction';
+      }
+    }
+
+    function centerElement(el) {
+      el.style.position = "relative";  // Ensure it's positioned relative to the nearest positioned ancestor
+      el.style.left = "50%";
+      el.style.transform = "translateX(-50%)";
+    }
+
+    // This function will replace any embedded named characters with their unicode representations.
+    // E.g. an "o" with a forward accent, represented as &oacute;, will become 
+    function namedToUnicode(text) {
       // Define replacements for common non-standard entities
       const charReplacements = {
         // Umlauts (ä, ö, ü, ë, ï, ÿ) and their uppercase counterparts
@@ -493,6 +582,11 @@
         "&gdot;": "ġ", "&Gdot;": "Ġ",
         "&tdot;": "ṫ", "&Tdot;": "Ṫ",
 
+        // Anglo-Saxon and German characters
+        "&Thorn;": "Þ", "&thorn;": "þ",
+        "&Eth;": "Ð", "&eth;": "ð",
+        "&szlig;": "ß", // Sharp S (Eszett)
+
         // Greek characters
         "&agr;": "α", "&bgr;": "β", "&ggr;": "γ", "&dgr;": "δ",
         "&egr;": "ε", "&zgr;": "ζ", "&eta;": "η", "&thgr;": "θ",
@@ -504,7 +598,7 @@
 
         // Ampersand-related symbols
         "&ampersir;": "⅋",  // Turned ampersand
-        "&amp;": "&",       // Standard ampersand
+        //"&amp;": "&",       // Standard ampersand
         "&et;": "⁊",        // Tironian et (Irish and Latin shorthand for "and")
 
         // Dashes
@@ -512,64 +606,12 @@
         "&ndash;": "–"
       };
 
-      let bodyText = xmlDoc.querySelector("body").textContent;
-
-      // Replace multiple spaces with a single space
-      bodyText = bodyText.replace(/\s+/g, ' ');
-      // Remove any whitespace between '<' or '</' and the next non-whitespace character (tag name)
-      bodyText = bodyText.replace(/(<\s*\/?)(\s+)(\S)/g, '$1$3');
-      // Remove space after double quote mark
-      bodyText = bodyText.replace(/(=\s*")\s*([^"]*?)\s*("\s*)/g, '$1$2$3');
-
       // Replace all non-standard entities with their corresponding characters, removing surrounding whitespace
       Object.keys(charReplacements).forEach(entity => {
-          bodyText = bodyText.replace(new RegExp(`\\s*${entity}\\s*`, 'g'), charReplacements[entity]);
+          text = text.replace(new RegExp(`\\s*${entity}\\s*`, 'g'), charReplacements[entity]);
       });
-      bodyText = bodyText.trim();
-      
-      /*// Uncomment to trigger a download whenever cleaned XML data is created.
-      const blob = new Blob([bodyText], { type: 'text/plain' });
-      const link = document.createElement('a');
 
-      // Create a download link for the file
-      link.href = URL.createObjectURL(blob);
-      link.download = 'output.xml'; // Set the filename
-
-      // Trigger the download
-      link.click();*/
-
-      processStandardTEI(parser.parseFromString(bodyText, "text/xml"));
-    }
-
-    function toggleIntroButton() {
-      // Get the h2 and p elements
-      const h2 = document.getElementById('intro-header');
-      const p = document.getElementById('intro-content');
-      const buttonText = document.getElementById('intro-button');
-
-      if (!h2 || !p || !buttonText)
-        return;
-            
-      // Check if the elements are currently hidden
-      if (h2.style.display === 'none' && p.style.display === 'none') {
-        // Show the elements
-        h2.style.display = 'block';
-        p.style.display = 'block';
-        // Change the text of the toggle button
-        buttonText.textContent = 'Hide Introduction';
-      } else {
-        // Hide the elements
-        h2.style.display = 'none';
-        p.style.display = 'none';
-        // Change the text of the toggle button back
-        buttonText.textContent = 'Show Introduction';
-      }
-    }
-
-    function centerElement(el) {
-      el.style.position = "relative";  // Ensure it's positioned relative to the nearest positioned ancestor
-      el.style.left = "50%";
-      el.style.transform = "translateX(-50%)";
+      return text;
     }
   </script>
 </section>
