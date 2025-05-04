@@ -8,5 +8,4 @@ TEI Renderer:
 - Add mobile styling.
 - Add a metadata tab to see all TEI metadata displayed, similar to the intro tab.
 - Create a way to store many more external articles on site, and show in a library page with a button to show and hide based on category.
-- Formalize the rules for handling <q>uotation blocks, and nested quotations.
-- Restyle quotation blocks
+- Formalize the rules for handling <q>uotation blocks, especially for newlines when two characters are conversing.

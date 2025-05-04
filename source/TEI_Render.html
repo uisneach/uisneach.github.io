@@ -246,11 +246,15 @@
       // Remove the <head> tag, which usually contains the title
       //bodyText = bodyText.replace(/<head>.*<\/head>/, "");
       // Replace any <q> tags with quotation marks
-      bodyText = bodyText.replace(/<q>/g, '"').replace(/<\/q>/g, '"');
+      console.log("Quotation Marks");
+      //bodyText = bodyText.replace(/<q>/g, '"').replace(/<\/q>/g, '"');
       // Replace any <text> tags with a <blockquote> tag, to indent things like poems nested inside prose.
-      //bodyText = bodyText.replace(/<text.*>/g, '<blockquote><p>').replace(/<\/text>/g, '</p></blockquote>');
+      console.log("Blockquotes");
+      //bodyText = bodyText.replace(/<text[^>]*>/g, '<blockquote><p>').replace(/<\/text>/g, '</p></blockquote>');
+      console.log(bodyText);
       // Remove weird superscripts apparently inserted by Whitley Stokes in some CELT texts.
-      bodyText = bodyText.replace(/(<sup resp="WS">\s*([^"<>]+?)\s*<\/sup>)/g, (match, fullTag, innerText, offset, fullString) => {
+      console.log("Superscripts");
+      /*bodyText = bodyText.replace(/(<sup resp="WS">\s*([^"<>]+?)\s*<\/sup>)/g, (match, fullTag, innerText, offset, fullString) => {
         //This nested function looks before and after the <sup> tags for quotation marks, and if found, does not add in an extra whitespace to the beginnign or end of the tag's contents. If not found, it does.
         let before = fullString[offset - 1] || '';
         let after = fullString[offset + match.length] || '';
@@ -259,8 +263,10 @@
         let suffix = after === '"' ? '' : ' ';
 
         return `${prefix}${innerText.trim()}${suffix}`;
-      });
+      });*/
+      console.log(bodyText);
       body.innerHTML = bodyText;
+      console.log(body.innerHTML);
 
       // Step 4. Send poems and prose to different processing flows--------------------------------------------------------------
       

@@ -1,5 +1,6 @@
 ---
 title: Civitas
+subtitle: "Chinese have always lived in houses, yes, if that's all you mean by 'civilization'... Everything for oneself, everything for personal utility: a pleasure in cruelty toward the weak and toward animals."
 date: 2022-06-28 17:46:00
 author: GoF
 categories: 

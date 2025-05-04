@@ -126,3 +126,9 @@ Foclóir Gaeilge Agus Béarla (PDF) : https://celt.ucc.ie/Dinneen1.pdf
 Irish Language Quizzes : https://www.nativedialogs.com
 
 Irish Language Pronunciation Dictionary : https://forvo.com/languages/ga/
+
+Primary School Irish Resources : https://leighleat.com
+
+Software for Learning Irish : https://cadhan.com
+
+The Doegen Records - Monolingual Irish Speakers : https://doegen.ie/
