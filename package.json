@@ -33,6 +33,7 @@
     "hexo-tag-video": "^0.0.2",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-toc": "^1.1.0",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "rss-parser": "^3.13.0"
   }
 }

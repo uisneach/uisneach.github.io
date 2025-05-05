@@ -101,6 +101,15 @@ ignore:
 plugins: hexo-tag-video
 theme: cactus
 
+# RSS by GoF
+## This is the generator called fetch-feed.js, which embeds an RSS feed onto a webpage.
+## List here all the RSS feeds you want displayed on the /public/feed/index.html page
+external_feeds:
+  - https://uisneac.com/rss.xml
+  - https://thedorianinvasion.substack.com/feed
+  - https://amphora.substack.com/feed
+  - https://www.arthwys.com/feed
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
