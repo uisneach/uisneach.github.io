@@ -73,8 +73,6 @@
    --><!--
      --><li><a href="/feed/">Read</a></li><!--
    --><!--
-     --><li><a href="/library/">Library</a></li><!--
-   --><!--
      --><li><a href="/network/">Network</a></li><!--
    -->
     </ul>
@@ -239,7 +237,7 @@
   </div>
   
       <!-- modify this form HTML and place wherever you want your form -->
-  <form action="https://formspree.io/f/movadoor" onsubmit="this.submit(); this.reset(); return false;" method="POST" style="align-content:center;">
+  <form action="https://formspree.io/f/movadoor" onsubmit="this.submit(); this.reset(); return false;" method="POST" style="align-content:center;" id="form">
     <label>
       <input type="email" name="email" required="true" placeholder="Enter Your Email..." style="background-color: rgb(29, 31, 33);border: 1px #999 solid;color:white;font-family: 'Menlo', 'Meslo LG';font-size: 12px;">
     </label>
@@ -248,7 +246,7 @@
 
 <script>
   //This script will clear the contents of the input field after the data is submitted.
-  document.getElementById('myForm').addEventListener('submit', function(event) {
+  document.getElementById('form').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent the default form submission
       var form = this;
 
@@ -286,8 +284,6 @@
        --><li><a href="/about/">About</a></li><!--
      --><!--
        --><li><a href="/feed/">Read</a></li><!--
-     --><!--
-       --><li><a href="/library/">Library</a></li><!--
      --><!--
        --><li><a href="/network/">Network</a></li><!--
      -->
