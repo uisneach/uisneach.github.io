@@ -27,7 +27,8 @@ async function fetchFeeds() {
     'https://www.theburkean.ie/feed',
     'https://mansworldmag.online/feed/',
     'https://putonthemask.substack.com/feed',
-    'https://montanaclassicalcollege.substack.com/feed'
+    'https://montanaclassicalcollege.substack.com/feed',
+    'https://scythianbro.substack.com/feed'
   ];
 
   let allItems = [];
