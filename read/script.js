@@ -1,34 +1,13 @@
-const bannerExtractors = {
-  'mansworldmag.online': item => {
-    const $ = cheerio.load(item.contentEncoded);
-    // Remove promo lines
-    item.contentSnippet = item.contentSnippet
-      .replace(/(The|This) post .*?https?:\/\/\S+\.*$/i, '')
-      .trim();
-    // Extract author
-    const authorMatch = item.contentSnippet.match(/^(Essay|Fiction) by ([^|]+)\s*\|/i);
-    if (authorMatch) item.creator = authorMatch[2].trim();
-    // Extract banner image
-    const img = $('img[src*="mansworldmag.online/wp-content/uploads/"]').first();
-    item.bannerImage = img.attr('src') || item.channelImageURL;
-    return item;
-  },
-  'theburkean.ie': item => {
-    const $ = cheerio.load(item.contentEncoded);
-    const bg = $('div.site-header-bg').attr('style') || '';
-    const m = bg.match(/url\((.*?)\)/);
-    item.bannerImage = (m && m[1].replace(/&amp;/g, '&')) || item.channelImageURL;
-    return item;
-  }
-  // …add more domains here
-};
+const fs = require('fs');
+const path = require('path');
+const Parser = require('rss-parser');
+const yaml = require('js-yaml');
 
-function isImageUrl(url) {
-  return /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(url);
-}
+const parser = new Parser();
 
-(async () => {
-  const feedUrls = [
+async function fetchFeeds() {
+  const feedsYaml = fs.readFileSync('feeds.yaml', 'utf8');
+  const feedList = [
     'https://uisneac.com/rss.xml',
     'https://thedorianinvasion.substack.com/feed',
     'https://amphora.substack.com/feed',
@@ -51,69 +30,40 @@ function isImageUrl(url) {
     'https://montanaclassicalcollege.substack.com/feed'
   ];
 
-  console.log(feedUrls);
-
   let allItems = [];
 
-  for (let feedUrl of feedUrls) {
+  for (const feedUrl of feedList) {
     try {
-      // 3) Fetch via rss2json API
-      const apiUrl = 'https://api.rss2json.com/v1/api.json'
-                    + '?rss_url=' + encodeURIComponent(feedUrl);
-      const resp = await fetch(apiUrl);
-      const json = await resp.json();
-      if (json.status !== 'ok') throw new Error(json.message);
-
-      const direct = await fetch('https://thedorianinvasion.substack.com/feed');
-      console.log("Direct");
-      console.log(direct);
-
-      const chanImg = json.feed.image || '';
-
-      const items = json.items.map(raw => ({
-        title:           raw.title,
-        link:            raw.link,
-        pubDate:         raw.pubDate,
-        contentSnippet:  raw.contentSnippet,
-        contentEncoded:  raw.content,
-        enclosureUrl:    raw.enclosure?.link || '',
-        creator:         raw.creator || '',
-        channelImageURL: chanImg
+      const feed = await parser.parseURL(feedUrl);
+      const items = feed.items.map(item => ({
+        title: item.title,
+        link: item.link,
+        pubDate: item.pubDate,
+        content: item.content,
+        contentSnippet: item.contentSnippet,
+        isoDate: item.isoDate,
+        source: feed.title
       }));
-
-      for (let item of items) {
-        if (item.enclosureUrl && isImageUrl(item.enclosureUrl)) {
-          item.bannerImage = item.enclosureUrl;
-        } else {
-          const domain = new URL(item.link).hostname.replace(/^www\./, '');
-          if (bannerExtractors[domain]) {
-            item = bannerExtractors[domain](item);
-          } else {
-            item.bannerImage = chanImg;
-          }
-        }
-      }
-
       allItems = allItems.concat(items);
-    } catch (err) {
-      console.error('Error loading feed', feedUrl, err);
+    } catch (error) {
+      console.error(`Error fetching ${feedUrl}:`, error);
     }
   }
 
+  // Sort items by publication date (descending)
   allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-    const container = document.getElementById('rss-reader');
-    for (let item of allItems) {
-      const card = document.createElement('div');
-      card.className = 'rss-card';
-      card.innerHTML = `
-        <img class="rss-image" src="${item.bannerImage}" alt="">
-        <div class="rss-content">
-          <a href="${item.link}" class="rss-title">${item.title}</a>
-          <div class="rss-meta">${item.creator} | ${new Date(item.pubDate).toLocaleDateString()}</div>
-          <p class="rss-snippet">${item.contentSnippet}</p>
-        </div>
-      `;
-      container.appendChild(card);
-    }
-})();
+  // Ensure the feeds directory exists
+  const outputDir = path.join(__dirname, '..', 'feeds');
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir);
+  }
+
+  // Write the aggregated feed to a JSON file
+  fs.writeFileSync(
+    path.join(outputDir, 'combined.json'),
+    JSON.stringify(allItems, null, 2)
+  );
+}
+
+fetchFeeds();
