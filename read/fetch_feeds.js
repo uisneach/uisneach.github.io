@@ -55,7 +55,7 @@ async function fetchFeeds() {
   allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
   // Ensure the feeds directory exists
-  const outputDir = path.join(__dirname, '..', 'feeds');
+  const outputDir = path.join(__dirname, '');
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
   }
