@@ -32,6 +32,7 @@
     "hexo-theme-landscape": "^1.0.0",
     "hexo-toc": "^1.1.0",
     "js-yaml": "^4.1.0",
+    "node-fetch": "^3.3.2",
     "rss-parser": "^3.13.0",
     "sync-request": "^6.1.0"
   }
