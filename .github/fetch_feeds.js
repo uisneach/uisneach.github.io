@@ -4,22 +4,40 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-console.log("✅ GitHub Action executed: fetch_feeds.js is running!");
+console.log("✅ GitHub Action executed: fetch_feeds.js v3 is running!");
 
-try {
-  // Construct the path to the feeds.yml file
-  const feedsPath = path.join(__dirname, 'feeds.yml');
+(async () => {
+  try {
+    // Construct the path to feeds.yml
+    const feedsPath = path.join(__dirname, 'feeds.yml');
 
-  // Read the YAML file
-  const fileContents = fs.readFileSync(feedsPath, 'utf8');
+    // Read and parse feeds.yml
+    const fileContents = fs.readFileSync(feedsPath, 'utf8');
+    const data = yaml.load(fileContents);
 
-  // Parse the YAML content
-  const data = yaml.load(fileContents);
+    // Validate the feeds array
+    if (!data || !Array.isArray(data.feeds) || data.feeds.length === 0) {
+      console.error("❌ feeds.yml does not contain a valid 'feeds' array.");
+      process.exit(1);
+    }
 
-  // Output the parsed data to the console
-  console.log("📄 Contents of feeds.yml:");
-  console.dir(data, { depth: null });
-} catch (error) {
-  console.error("❌ Error reading feeds.yml:", error.message);
-  process.exit(1);
-}
+    const firstUrl = data.feeds[0];
+    console.log(`🌐 Fetching: ${firstUrl}`);
+
+    // Perform HTTP GET request
+    const response = await fetch(firstUrl);
+
+    // Check if the response is OK (status code 200-299)
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    // Read and print the response body as text
+    const body = await response.text();
+    console.log("📄 Response body:");
+    console.log(body);
+  } catch (error) {
+    console.error("❌ Error:", error.message);
+    process.exit(1);
+  }
+})();
