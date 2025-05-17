@@ -10,18 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
+      contents: write        # keep it so you can read/write code
+      pages: write           # allow Pages API publishing
+      id-token: write        # needed for OIDC context in Pages deploy
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Fetch all history for accurate git info
+          fetch-depth: 0
 
       - name: Build and Deploy
         uses: theme-keep/hexo-deploy-github-pages-action@master
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           PUBLISH_REPOSITORY: ${{ github.repository }}
-          BRANCH: gh-pages  # Target branch for deployment
-          PUBLISH_DIR: ./public  # Directory to deploy
+          BRANCH: gh-pages
+          PUBLISH_DIR: ./public
