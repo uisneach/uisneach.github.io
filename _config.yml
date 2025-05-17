@@ -125,6 +125,7 @@ external_feeds:
   - https://mansworldmag.online/feed/
   - https://putonthemask.substack.com/feed
   - https://montanaclassicalcollege.substack.com/feed
+  - https://scythianbro.substack.com/feed
 
 
 # Deployment
@@ -134,7 +135,7 @@ deploy:
   repo: 
     github:
       url: https://github.com/uisneach/uisneach.github.io
-      branch: master
+      branch: gh-pages
 
 emailSubmit: true
 
