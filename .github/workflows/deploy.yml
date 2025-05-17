@@ -22,7 +22,7 @@ jobs:
       - name: Build and Deploy
         uses: theme-keep/hexo-deploy-github-pages-action@master
         env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN_GENERAL }}
           PUBLISH_REPOSITORY: ${{ github.repository }}
           BRANCH: gh-pages
           PUBLISH_DIR: ./public
