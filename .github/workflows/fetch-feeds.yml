@@ -15,13 +15,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout default branch
         uses: actions/checkout@v4
+        with:
+          path: default
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Run fetch_feeds.js
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run feed fetcher
+        working-directory: default
         run: node .github/fetch_feeds.js
+
+      - name: Commit & push gh-pages updates
+        working-directory: gh-pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add read/rss.json
+          git commit -m "Update RSS feeds" || echo "No changes to commit"
+          git push origin gh-pages
