@@ -1,0 +1,18 @@
+<section id="writing">
+  <center><span class="h1">Browse the Library</span></center>
+  <% if (theme.tags_overview && site.tags.length) { %>
+    <span class="h2"><%= __('index.topics') %></span>
+    <span class="widget tagcloud">
+      <%- tagcloud(theme.tags_overview) %>
+    </span>
+    <span class="h2"><%= __('index.most_recent') %></span>
+  <% } %>
+
+  <%- partial('_partial/post/page_list') %>
+
+  <%- partial('_partial/tei_page_list') %>
+
+  <% if (theme.posts_overview.show_all_posts) { %>
+    <%- partial('_partial/pagination') %>
+  <% } %>
+</section>

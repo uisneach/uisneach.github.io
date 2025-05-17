@@ -1,0 +1,21 @@
+<footer id="footer">
+  <div class="footer-left">
+    <%= __('footer.copyright') %> &copy;
+    <% var endYear = (theme.copyright && theme.copyright.end_year) ? theme.copyright.end_year : new Date().getFullYear() %>
+    <% var startYear = (theme.copyright && theme.copyright.start_year) ? theme.copyright.start_year : new Date().getFullYear() %>
+    <%= endYear %>
+    <%= config.author || config.title %>
+  </div>
+  <% if (config.emailSubmit && (page.path && page.path === 'index.html')) { %>
+      <%- partial('_partial/email_submit'); %> <!-- GoF Email submission form for Substack functionality.-->
+    <% } %>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <% for (var i in theme.nav) { %><!--
+       --><li><a href="<%- url_for(theme.nav[i]) %>"><%= __('nav.'+i).replace("nav.", "") %></a></li><!--
+     --><% } %>
+      </ul>
+    </nav>
+  </div>
+</footer>

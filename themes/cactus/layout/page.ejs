@@ -1,0 +1,55 @@
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <% if (page.library_page) { %>
+    <%- partial('_partial/post/page_title', { post: page, index: false, class_name: 'posttitle' }) %>
+    <div class="meta" style="display: flex; align-items: center; gap: 20px;">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name"><% if (page.author) { %>Author: <%- page.author %><% } %></span>
+      </span>
+      <%- partial('_partial/post/written_date', { post: page, class_name: 'postdate' }) %>
+    </div>
+    <div class="meta" style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+      <span class="translator p-translator h-card" itemprop="translator" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name"><% if (page.translator) { %>Translator: <%- page.translator %><% } %></span>
+      </span>
+      <%- partial('_partial/post/published_date', { post: page, class_name: 'postdate' }) %>
+    </div>
+    <% } %>
+  <%- partial('_partial/post/gallery') %>
+  <div class="content" itemprop="articleBody">
+    <% if (page.search || page.type === "search") { %>
+    <%- partial('_partial/search') %>
+    <% } else if (page.type === "tags") { %>
+    <div id="tag-cloud">
+      <div class="tag-cloud-title">
+        <% var visibleTags = 0 %>
+        <% site.tags.each(function(tag){ %>
+        <% if (tag.length) { %>
+        <% visibleTags += 1 %>
+        <% } %>
+        <% }) %>
+        <%- _p('counter.tag_cloud', visibleTags) %>
+      </div>
+      <div class="tag-cloud-tags">
+        <%- tagcloud({min_font: 12, max_font: 30, amount: 300}) %>
+      </div>
+    </div>
+    <% } else if (page.type === 'categories') { %>
+    <div id="categories">
+      <div class="category-list-title">
+        <% var visibleCategories = 0 %>
+        <% site.categories.each(function(cat){ %>
+        <% if (cat.length) { %>
+        <% visibleCategories += 1 %>
+        <% } %>
+        <% }) %>
+        <%- _p('counter.categories', visibleCategories) %>
+      </div>
+      <div class="category-list">
+        <%- list_categories() %>
+      </div>
+    </div>
+    <% } else { %>
+    <%- page.content %>
+    <% } %>
+  </div>
+</article>
