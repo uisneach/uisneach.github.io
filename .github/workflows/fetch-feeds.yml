@@ -2,10 +2,14 @@
 name: Fetch RSS Feeds
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '0 * * * *'  # Runs at the top of every hour (UTC)
+  workflow_dispatch:
 
+    
 jobs:
   fetch:
     runs-on: ubuntu-latest
