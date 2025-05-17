@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-console.log("✅ GitHub Action executed: fetch_feeds.js v3 is running!");
+console.log("✅ GitHub Action executed: fetch_feeds.js v4 is running!");
 
 (async () => {
   try {
@@ -21,7 +21,7 @@ console.log("✅ GitHub Action executed: fetch_feeds.js v3 is running!");
       process.exit(1);
     }
 
-    const firstUrl = data.feeds[0];
+    const firstUrl = data.feeds[3];
     console.log(`🌐 Fetching: ${firstUrl}`);
 
     // Perform HTTP GET request
