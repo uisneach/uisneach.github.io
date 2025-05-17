@@ -22,7 +22,6 @@ console.log("✅ GitHub Action executed: fetch_feeds.js is running!");
     }
 
     // Fetch the contents of all URLs
-    const fetch = require('node-fetch'); // Ensure node-fetch is installed
     const results = await Promise.all(
       data.feeds.map(async (url) => {
         try {
