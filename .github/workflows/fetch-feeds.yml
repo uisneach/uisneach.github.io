@@ -32,8 +32,8 @@ jobs:
           node-version: '18'
 
       - name: Run feed fetcher
-        working-directory: default
-        run: 
+        shell: bash
+        run: |
           cd "${GITHUB_WORKSPACE}/default"
           node .github/fetch_feeds.js
 
