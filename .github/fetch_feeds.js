@@ -4,10 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 (async () => {
   try {
     // Construct the path to feeds.yml
@@ -27,11 +23,15 @@ function sleep(ms) {
     const results = await Promise.all(
       data.feeds.map(async (url) => {
         try {
-          const response = await fetch(url);
+          const response = await fetch(url, {
+			  headers: {
+			    'User-Agent': 'MyRSSFetcher/1.0 (+https://github.com/myorg)'
+			  }
+			});
           if (!response.ok) {
+          	console.log({ status: response.status, headers: [...response.headers] });
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
-          await sleep(1000);
           const body = await response.text();
           return { url, content: body };
         } catch (error) {
