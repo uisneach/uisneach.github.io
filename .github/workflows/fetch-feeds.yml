@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - master
-  schedule:
-    - cron: '0 * * * *'  # Runs at the top of every hour (UTC)
+  #schedule:
+  #  - cron: '0 * * * *'  # Runs at the top of every hour (UTC)
   workflow_dispatch:
 
 
@@ -45,7 +45,8 @@ jobs:
       - name: Write feeds JSON to gh-pages
         run: |
           mkdir -p gh-pages/read
-          echo "${{ env.FEEDS_JSON }}" > gh-pages/read/rss.json
+          printf '%s\n' "${{ env.FEEDS_JSON }}" > gh-pages/read/rss.json
+
 
       - name: Commit & push gh-pages updates
         working-directory: gh-pages
