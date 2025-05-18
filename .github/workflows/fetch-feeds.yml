@@ -1,15 +1,3 @@
-# .github/workflows/fetch-feeds.yml
-name: Fetch RSS Feeds
-
-on:
-  push:
-    branches:
-      - master
-  schedule:
-    - cron: '0 * * * *'  # Runs at the top of every hour (UTC)
-  workflow_dispatch:
-
-
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -18,29 +6,63 @@ jobs:
       - name: Checkout default branch
         uses: actions/checkout@v4
         with:
-          path: default
+          path: default               # → $GITHUB_WORKSPACE/default
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-          path: gh-pages
+          path: gh-pages             # → $GITHUB_WORKSPACE/gh-pages
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Run feed fetcher
+      - name: Install dependencies
         working-directory: default
-        run: node .github/fetch_feeds.js
+        run: npm install js-yaml
 
+      # Run fetch script from workspace root
+      - name: Run feed fetcher
+        shell: bash
+        run: |
+          cd "${GITHUB_WORKSPACE}/default"
+          node .github/fetch_feeds.js
+
+      # Inspect gh-pages folder before committing
+      - name: Debug gh-pages contents
+        run: |
+          echo "Workspace root: $GITHUB_WORKSPACE"
+          echo "--- gh-pages tree ---"
+          ls -R "$GITHUB_WORKSPACE/gh-pages"
+          echo --- end tree ---
+      
+      # Commit & push only if rss.json changed
       - name: Commit & push gh-pages updates
         working-directory: gh-pages
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git status
-          git add *
-          git commit -m "Update RSS feeds" || echo "No changes to commit"
-          git push origin gh-pages
+          
+          # show exactly what's changed
+          echo "--- Status before add ---"
+          git status --untracked-files=all      # what git *sees* here :contentReference[oaicite:7]{index=7}
+          echo "--- Diff (unstaged) ---"
+          git diff || echo "(no unstaged changes)"
+          
+          # stage the target file
+          git add read/rss.json
+          
+          echo "--- Diff (staged) ---"
+          git diff --cached || echo "(nothing staged)"
+          
+          # commit only if staged changes exist
+          if git diff --cached --quiet; then
+            echo "▶️  No changes to commit (rss.json unchanged)"
+          else
+            git commit -m "Update RSS feeds"
+            echo "✔️  Committed:"
+            git log -1 --oneline
+            git push origin gh-pages
+          fi
