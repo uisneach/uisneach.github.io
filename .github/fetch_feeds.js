@@ -83,7 +83,7 @@ const yaml = require('js-yaml');
 	    const body = await response.text();
 	    results.push({ url, content: body });
 	  } catch (error) {
-	    results.push({ url, error: error.message });
+	    await delay(500);
 	  }
 	}
 
