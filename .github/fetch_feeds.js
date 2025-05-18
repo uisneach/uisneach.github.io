@@ -44,15 +44,15 @@ const yaml = require('js-yaml');
 
 	    if (!response.ok) {
 	      // Log detailed response information for debugging
-	      console.log({
+	      /*console.log({
 	        url,
 	        status: response.status,
 	        headers: Object.fromEntries(response.headers.entries()),
-	      });
+	      });*/
 
 	      // Retry once after a short delay if a 403 Forbidden response is received
 	      if (response.status === 403) {
-	        console.log(`Retrying ${url} after 2 seconds due to 403 response`);
+	        //console.log(`Retrying ${url} after 2 seconds due to 403 response`);
 	        await delay(2000);
 	        const retryResponse = await fetch(url, {
 	          headers: {
