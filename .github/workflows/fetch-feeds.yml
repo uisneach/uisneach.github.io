@@ -1,3 +1,15 @@
+# .github/workflows/fetch-feeds.yml
+name: Fetch RSS Feeds
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 * * * *'  # Runs at the top of every hour (UTC)
+  workflow_dispatch:
+
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -6,41 +18,27 @@ jobs:
       - name: Checkout default branch
         uses: actions/checkout@v4
         with:
-          path: default               # → $GITHUB_WORKSPACE/default
+          path: default
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-          path: gh-pages             # → $GITHUB_WORKSPACE/gh-pages
+          path: gh-pages
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Install dependencies
-        working-directory: default
-        run: npm install js-yaml
-
-      # Run fetch script from workspace root
       - name: Run feed fetcher
-        shell: bash
-        run: |
+        working-directory: default
+        run: 
           cd "${GITHUB_WORKSPACE}/default"
           node .github/fetch_feeds.js
 
-      # Inspect gh-pages folder before committing
-      - name: Debug gh-pages contents
-        run: |
-          echo "Workspace root: $GITHUB_WORKSPACE"
-          echo "--- gh-pages tree ---"
-          ls -R "$GITHUB_WORKSPACE/gh-pages"
-          echo --- end tree ---
-      
-      # Commit & push only if rss.json changed
       - name: Commit & push gh-pages updates
-        working-directory: gh-pages
+        working-directory: gh-pages   # now cd into the real gh-pages branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
