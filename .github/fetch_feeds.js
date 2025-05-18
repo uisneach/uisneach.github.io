@@ -3,6 +3,24 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
+const puppeteer = require('puppeteer');
+
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  // Spoof a common browser user agent to avoid trivial blocks
+  await page.setUserAgent(
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0'
+  );
+  // Navigate to the feed; wait for network idle to ensure JS has run
+  const response = await page.goto('https://bronzeagepervert.substack.com/feed', { waitUntil: 'networkidle2' });
+  if (!response.ok)
+  	console.log(response);
+  const xml = await response.text();
+  console.log("Result of Puppeteer: ");
+  console.log(xml);  // the RSS content
+  await browser.close();
+})();
 
 (async () => {
   try {
@@ -15,7 +33,7 @@ const yaml = require('js-yaml');
 
     // Validate the feeds array
     if (!data || !Array.isArray(data.feeds) || data.feeds.length === 0) {
-      console.error("❌ feeds.yml does not contain a valid 'feeds' array.");
+      console.error("Feeds.yml does not contain a valid 'feeds' array.");
       process.exit(1);
     }
 
