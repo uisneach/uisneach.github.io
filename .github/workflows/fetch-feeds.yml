@@ -26,7 +26,10 @@ jobs:
           node-version: '18'
 
       - name: Install Puppeteer
-        run: npm install puppeteer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libatk-bridge2.0-0 libxss1 libasound2 libxcomposite1 libxrandr2 libgtk-3-0 libgbm-dev
+          npm install
 
       - name: Run fetch_feeds.js and export to env
         working-directory: default
