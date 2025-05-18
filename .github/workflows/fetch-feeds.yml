@@ -15,70 +15,58 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out both branches side by side
       - name: Checkout default branch
         uses: actions/checkout@v4
         with:
-          path: default               # → $GITHUB_WORKSPACE/default :contentReference[oaicite:4]{index=4}
+          path: default
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      #- name: Run feed fetcher
+      #  working-directory: default
+      #  run: node .github/fetch_feeds.js
+
+      - name: Run fetch_feeds.js and export to env
+        id: fetch
+        run: |
+          # run your script and capture its stdout
+          OUTPUT=$(node .github/fetch_feeds.js)
+
+          # write it into GITHUB_ENV so it becomes an env var
+          echo "FEEDS_JSON<<EOF" >> $GITHUB_ENV
+          echo "$OUTPUT"         >> $GITHUB_ENV
+          echo "EOF"             >> $GITHUB_ENV
+
+      - name: Show the env var
+        run: |
+          echo "Here is the JSON from fetch_feeds.js:"
+          echo "$FEEDS_JSON"
+
+      - name: Debug ENV file
+        run: |
+          echo "---- GITHUB_ENV contents ----"
+          cat $GITHUB_ENV
+          echo "-----------------------------"
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-          path: gh-pages             # → $GITHUB_WORKSPACE/gh-pages :contentReference[oaicite:5]{index=5}
+          path: gh-pages
 
-      # 2. Setup Node (with built-in fetch API)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'         # native fetch available :contentReference[oaicite:6]{index=6}
-
-      # 3. Install YAML parser
-      - name: Install dependencies
-        working-directory: default   # script lives in default
-        run: npm install js-yaml
-
-      # 4. Run fetch script from workspace root
-      - name: Run feed fetcher
-        shell: bash
+      - name: Write file to target branch
         run: |
-          # ensure we're at workspace root so 'gh-pages' is a sibling
-          cd "${GITHUB_WORKSPACE}/default"
-          node .github/fetch_feeds.js
+          mkdir -p "$(dirname read/rss.json)"
+          echo "${{ env.FILE_CONTENT }}" > read/rss.json
 
-      # 5. Inspect gh-pages folder before committing
-      - name: Debug gh-pages contents
-        run: |
-          echo "Workspace root: $GITHUB_WORKSPACE"
-          echo "--- gh-pages tree ---"
-          ls -R "$GITHUB_WORKSPACE/gh-pages"
-          echo --- end tree ---
-      
-      # 6. Commit & push only if rss.json changed
       - name: Commit & push gh-pages updates
-        working-directory: gh-pages   # now cd into the real gh-pages branch
+        working-directory: gh-pages
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # show exactly what's changed
-          echo "--- Status before add ---"
-          git status --untracked-files=all      # what git *sees* here :contentReference[oaicite:7]{index=7}
-          echo "--- Diff (unstaged) ---"
-          git diff || echo "(no unstaged changes)"
-          
-          # stage the target file
-          git add read/rss.json
-          
-          echo "--- Diff (staged) ---"
-          git diff --cached || echo "(nothing staged)"
-          
-          # commit only if staged changes exist
-          if git diff --cached --quiet; then
-            echo "▶️  No changes to commit (rss.json unchanged)"
-          else
-            git commit -m "Update RSS feeds"
-            echo "✔️  Committed:"
-            git log -1 --oneline
-            git push origin gh-pages
-          fi
+          git add *
+          git commit -m "Update RSS feeds" || echo "No changes to commit"
+          git push origin gh-pages
