@@ -4,8 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-console.log("✅ GitHub Action executed: fetch_feeds.js is running!");
-
 (async () => {
   try {
     // Construct the path to feeds.yml
@@ -37,16 +35,7 @@ console.log("✅ GitHub Action executed: fetch_feeds.js is running!");
       })
     );
 
-    // Prepare the output directory and file path
-    const outputDir = path.join(process.cwd(), 'gh-pages', 'read');
-    const outputPath = path.join(outputDir, 'rss.json');
-
-    // Create the directory if it doesn't exist
-    fs.mkdirSync(outputDir, { recursive: true });
-
-    // Write the results to rss.json
-    fs.writeFileSync(outputPath, JSON.stringify(results, null, 2), 'utf8');
-    console.log(`📄 rss.json has been created at ${outputPath}`);
+    console.log(results);
   } catch (error) {
     console.error("❌ Error:", error.message);
     process.exit(1);
