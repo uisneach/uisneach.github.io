@@ -20,8 +20,11 @@ jobs:
         with:
           path: default
 
-      - name: Display GitHub context branch
-        run: echo "Branch from GitHub context: ${{ github.ref_name }}"
+      - name: Display checked-out branch
+        working-directory: default
+        run: |
+          echo "Current branch:"
+          git branch --show-current
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
