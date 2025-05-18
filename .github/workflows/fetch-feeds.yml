@@ -20,16 +20,15 @@ jobs:
         with:
           path: default
 
-      - name: Display checked-out branch
-        working-directory: default
-        run: |
-          echo "Current branch:"
-          git branch --show-current
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+
+      - name: List contents of .github directory
+          run: |
+            echo "Contents of the .github directory:"
+            ls -la default/.github
 
       - name: Run feed fetcher
         working-directory: default
