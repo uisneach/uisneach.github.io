@@ -27,7 +27,7 @@ jobs:
 
       - name: Run feed fetcher
         working-directory: default
-        run: node .github/fetch_feeds.js
+        run: node default/.github/fetch_feeds.js
 
       - name: Run fetch_feeds.js and export to env
         id: fetch
