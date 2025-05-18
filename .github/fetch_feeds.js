@@ -4,6 +4,10 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 (async () => {
   try {
     // Construct the path to feeds.yml
@@ -27,6 +31,7 @@ const yaml = require('js-yaml');
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
+          await sleep(1000);
           const body = await response.text();
           return { url, content: body };
         } catch (error) {
