@@ -25,42 +25,21 @@ jobs:
         with:
           node-version: '18'
 
-      #- name: Run feed fetcher
-      #  working-directory: default
-      #  run: node .github/fetch_feeds.js
+      - name: Run feed fetcher
+        working-directory: default
+        run: node .github/fetch_feeds.js
 
       - name: Run fetch_feeds.js and export to env
         id: fetch
         run: |
-          # run your script and capture its stdout
           OUTPUT=$(node .github/fetch_feeds.js)
-
-          # write it into GITHUB_ENV so it becomes an env var
-          echo "FEEDS_JSON<<EOF" >> $GITHUB_ENV
-          echo "$OUTPUT"         >> $GITHUB_ENV
-          echo "EOF"             >> $GITHUB_ENV
-
-      - name: Show the env var
-        run: |
-          echo "Here is the JSON from fetch_feeds.js:"
-          echo "$FEEDS_JSON"
-
-      - name: Debug ENV file
-        run: |
-          echo "---- GITHUB_ENV contents ----"
-          cat $GITHUB_ENV
-          echo "-----------------------------"
+          echo "$OUTPUT"
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
-
-      - name: Write file to target branch
-        run: |
-          mkdir -p "$(dirname read/rss.json)"
-          echo "${{ env.FILE_CONTENT }}" > read/rss.json
 
       - name: Commit & push gh-pages updates
         working-directory: gh-pages
