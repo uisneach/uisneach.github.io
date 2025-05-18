@@ -45,7 +45,7 @@ jobs:
       - name: Write feeds JSON to gh-pages
         run: |
           mkdir -p gh-pages/read
-          printf '%s\n' "${{ env.FEEDS_JSON }}" > gh-pages/read/rss.json
+          printf '%s\n' "{}" > gh-pages/read/rss.json
 
 
       - name: Commit & push gh-pages updates
