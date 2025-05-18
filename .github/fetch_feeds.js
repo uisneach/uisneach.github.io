@@ -38,15 +38,11 @@ console.log("✅ GitHub Action executed: fetch_feeds.js is running!");
     );
 
     // Prepare the output directory and file path
-    console.log("1");
     const outputDir = path.join(process.cwd(), 'gh-pages', 'read');
-    console.log("2");
     const outputPath = path.join(outputDir, 'rss.json');
-    console.log("3");
 
     // Create the directory if it doesn't exist
     fs.mkdirSync(outputDir, { recursive: true });
-    console.log("4");
 
     // Write the results to rss.json
     fs.writeFileSync(outputPath, JSON.stringify(results, null, 2), 'utf8');
