@@ -30,13 +30,22 @@ jobs:
         id: fetch
         run: |
           OUTPUT=$(node .github/fetch_feeds.js)
-          echo "$OUTPUT"
+          # store into GITHUB_ENV for reuse
+          echo "FEEDS_JSON<<EOF" >> $GITHUB_ENV
+          echo "$OUTPUT"          >> $GITHUB_ENV
+          echo "EOF"              >> $GITHUB_ENV
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
+
+      # Write the captured JSON into the target file
+      - name: Write feeds JSON to gh-pages
+        run: |
+          mkdir -p gh-pages/read
+          echo "${{ env.FEEDS_JSON }}" > gh-pages/read/rss.json
 
       - name: Commit & push gh-pages updates
         working-directory: gh-pages
