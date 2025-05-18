@@ -15,28 +15,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Check out both branches side by side
       - name: Checkout default branch
         uses: actions/checkout@v4
         with:
-          path: default
+          path: default               # → $GITHUB_WORKSPACE/default :contentReference[oaicite:4]{index=4}
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-          path: gh-pages
+          path: gh-pages             # → $GITHUB_WORKSPACE/gh-pages :contentReference[oaicite:5]{index=5}
 
+      # 2. Setup Node (with built-in fetch API)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '18'         # native fetch available :contentReference[oaicite:6]{index=6}
 
+      # 3. Install YAML parser
+      - name: Install dependencies
+        working-directory: default   # script lives in default
+        run: npm install js-yaml
+
+      # 4. Run fetch script from workspace root
       - name: Run feed fetcher
         shell: bash
         run: |
+          # ensure we're at workspace root so 'gh-pages' is a sibling
           cd "${GITHUB_WORKSPACE}/default"
           node .github/fetch_feeds.js
 
+      # 5. Inspect gh-pages folder before committing
+      - name: Debug gh-pages contents
+        run: |
+          echo "Workspace root: $GITHUB_WORKSPACE"
+          echo "--- gh-pages tree ---"
+          ls -R "$GITHUB_WORKSPACE/gh-pages"
+          echo --- end tree ---
+      
+      # 6. Commit & push only if rss.json changed
       - name: Commit & push gh-pages updates
         working-directory: gh-pages   # now cd into the real gh-pages branch
         run: |
