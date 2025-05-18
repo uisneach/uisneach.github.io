@@ -25,11 +25,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: List contents of .github directory
-        run: |
-          echo "Contents of the .github directory:"
-          ls -la default/.github
-
       - name: Run feed fetcher
         working-directory: default
         run: node .github/fetch_feeds.js
