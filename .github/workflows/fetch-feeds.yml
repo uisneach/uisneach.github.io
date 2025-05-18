@@ -30,7 +30,7 @@ jobs:
         run: node .github/fetch_feeds.js
 
       - name: Run fetch_feeds.js and export to env
-      working-directory: default
+        working-directory: default
         id: fetch
         run: |
           OUTPUT=$(node .github/fetch_feeds.js)
