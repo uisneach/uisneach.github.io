@@ -12,6 +12,10 @@ tags:
 
 {% asset_img Boones-First-View-of-Kentucky-William-Renney.jpg %}
 
+## TLDR
+
+***The average modern American has an admixture that is roughly 40% British/English, 20% Irish, 25% broadly West European (N French and W German), and 10% Scandinavian. There are many ethnic enclaves throughout the country who break from this pattern, including Amish, Irish, Mennonite, Mormon, Arcadian/Cajun, Nuevos Mexicanos, and Appalachians. White Americans, on average, have almost no non-White admixture, including Jewish, African, or Asian sources.***
+
 ## Background
 
 Yes, “American” is a race, or rather, a family of smaller races which find their origins among Enagland and Wales, Scotland, Ireland, France, Germany, Denmark, and Norway. There are other populations in the United States today, but I will be focusing on the American race.
