@@ -1,35 +1,29 @@
-<%
-  var isImage = function(url) {
-    return /\.(jpg|jpeg|png|gif|webp|bmp|svg)$/i.test(url);
-  };
-%>
-
 <section class="rss-feed">
   <h1 class="h1">Read What I Read</h1>
   <style>
   	h2 {
   		align: center;
   	}
-
-    .rss-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    
+    .rss-columns {
+      display: flex;
       gap: 1.5rem;
-      padding: 1rem 0;
     }
-
-    .rss-card {
+    .rss-column {
+      flex: 1;
       display: flex;
       flex-direction: column;
+      gap: 1.5rem;
+      height: fit-content;
+    }
+    .rss-card {
       background: #151515;
       border: 1px solid #FCC200;
       border-radius: 10px;
       padding: 20px;
-      overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       transition: transform 0.2s ease;
     }
-
     .rss-card:hover {
       transform: translateY(-4px);
     }
@@ -73,24 +67,47 @@
       margin-top: 10px;
     }
   </style>
-  <div class="rss-grid">
-    <% page.externalFeeds.forEach(function(item) { %>
-      <div class="rss-card">
-		  <img class="rss-image" src="<%= item.bannerImage %>" alt="Preview image">
+  <div class="rss-columns">
+    <div id="col-left"  class="rss-column"></div>
+    <div id="col-right" class="rss-column"></div>
+  </div>
+  <!-- data injection for JS to consume: -->
+  <script type="application/json" id="feed-data">
+    <%- JSON.stringify(page.externalFeeds) %>
+  </script>
+  <script>
+    (function() {
+      // Parse the injected JSON
+      const feeds = JSON.parse(document.getElementById('feed-data').textContent);
 
-		  <div class="rss-content">
-		    <a href="<%= item.link %>" class="rss-title" target="_blank" rel="noopener noreferrer">
-		      <%= item.title %>
-		    </a>
-		    <div class="rss-meta">
-		      <%= item.creator || item.author || 'Unknown author' %> |
-		      <%= new Date(item.pubDate).toLocaleDateString() %>
-		    </div>
-		    <div class="rss-snippet">
-		      <%= item.contentSnippet || '' %>
-		    </div>
-		    <a href="<%= item.channelLink %>" target="_blank" class="blog-link"><%= item.channelTitle %></a>
-		  </div>
-		</div>
-    <% }); %>
+      const leftCol  = document.getElementById('col-left');
+      const rightCol = document.getElementById('col-right');
+
+      // Helper to choose the shorter column
+      function shorterColumn() {
+        return (leftCol.getBoundingClientRect().height <= rightCol.getBoundingClientRect().height) ? leftCol : rightCol;
+      }
+
+      // Create and append each card
+      feeds.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'rss-card';
+
+        card.innerHTML = `
+          <img class="rss-image" src="${item.bannerImage}" alt="">
+          <div class="rss-content">
+            <a href="${item.link}" class="rss-title">${item.title}</a>
+            <div class="rss-meta">
+              ${item.creator || item.author || 'Unknown'} |
+              ${new Date(item.pubDate).toLocaleDateString()}
+            </div>
+            <div class="rss-snippet">${item.contentSnippet || ''}</div>
+            <a href="${item.channelLink}" class="blog-link">${item.channelTitle}</a>
+          </div>`;
+
+        // Append to the currently shorter column
+        shorterColumn().appendChild(card);
+      });
+    })();
+  </script>
 </section>

@@ -60,6 +60,8 @@ hexo.extend.generator.register('rss-feed', async function () {
   const RSSfeeds = hexo.config.external_feeds || [];
   const allItems = [];
 
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
   // Fetch and aggregate feed items
   for (const url of RSSfeeds) {
     try {
@@ -94,6 +96,9 @@ hexo.extend.generator.register('rss-feed', async function () {
     } catch (err) {
       console.error(`Failed to fetch RSS feed from ${url}:`, err);
     }
+
+    // Introduce a 0.5-second delay between each fetch
+    await delay(500);
   }
 
   // Sort items by publication date (most recent first)
