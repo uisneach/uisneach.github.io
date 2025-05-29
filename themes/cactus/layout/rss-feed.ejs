@@ -9,6 +9,16 @@
       display: flex;
       gap: 1.5rem;
     }
+    
+    @media (max-width: 480px) {
+      .rss-columns {
+        flex-direction: column;
+        max-width: 90%;
+        margin: auto;
+        margin-top: 25px;
+      }
+    }
+
     .rss-column {
       flex: 1;
       display: flex;
@@ -16,6 +26,7 @@
       gap: 1.5rem;
       height: fit-content;
     }
+
     .rss-card {
       background: #151515;
       border: 1px solid #FCC200;
