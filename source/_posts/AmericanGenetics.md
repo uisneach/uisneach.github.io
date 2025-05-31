@@ -14,7 +14,7 @@ tags:
 
 ## TLDR
 
-***The average modern American has an admixture that is roughly 40% British/English, 20% Irish, 25% broadly West European (N French and W German), and 10% Scandinavian. There are many ethnic enclaves throughout the country who break from this pattern, including Amish, Irish, Mennonite, Mormon, Arcadian/Cajun, Nuevos Mexicanos, and Appalachians. White Americans, on average, have almost no non-White admixture, including Jewish, African, or Asian sources.***
+***The average modern American has an admixture that is roughly 40% British/English, 20% Irish, 25% broadly West European (N French and W German), and 10% Scandinavian. There are many ethnic enclaves throughout the country who break from this pattern, including Amish, Irish, Mennonite, Mormon, Arcadian/Cajun, Nuevos Mexicanos, and Appalachians. White Americans, on average, have almost no non-White admixture, including from Jewish, African, or Asian sources.***
 
 ## Background
 

@@ -98,8 +98,8 @@ hexo.extend.generator.register('rss-feed', async function () {
       console.error(`Failed to fetch RSS feed from ${url}:`, err);
     }
 
-    // Introduce a 0.5-second delay between each fetch
-    await delay(500);
+    // Introduce a delay between each fetch
+    await delay(300);
   }
 
   // Sort items by publication date (most recent first)
