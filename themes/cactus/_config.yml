@@ -16,7 +16,7 @@ direction: ltr
 nav:
   Home: /
   About: /about/
-  Read: /feed/
+  Read: /read/
 #  Library: /library/
   Network: /network/
 #  projects: http://github.com/probberechts
@@ -172,28 +172,6 @@ utterances:
   label: Comment
   theme: github-dark
 
-# Fill in your Google Analytics tracking ID to enable Google Analytics.
-google_analytics:
-  enabled: false
-  id: UA-86660611-1
-
-# Fill in your Baidu Analytics tracking ID to enable Baidu Analytics.
-baidu_analytics:
-  enabled: false
-  id: 2e6da3c375c8a87f5b664cea6d4cb29c
-
-# Fill in your Cloudflare Analytics tracking ID to enable Cloudflare Analytics.
-cloudflare_analytics:
-  enabled: false
-  id: 0dabb6e21848405483a237e6a7b6ed04
-
-# Fill in your Umami Analytics tracking ID to enable Umami Analytics.
-umami_analytics:
-  enabled: false
-  id: e77e68be-f6e4-4br3-9365-2b76b57cd571
-  host: https://analytics.domain.com
-  script_name: umami.js
-
 # Fill in you Gravatar email or hash if you want to use your gravatar as the
 # logo and/or favicons of you website.
 # To generate hash: `$ echo -n "name@email.com" | md5`.
@@ -209,27 +187,3 @@ cdn:
   font_awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
   justified_gallery_css: https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css
   justified_gallery_js: https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js
-
-# Broken links checker
-broken_links_checker:
-  enable: true
-  head: true
-  frontmatter:
-      - links
-  exclude:
-      - https://website1.com/page1.html
-      - https://website2.com/page2.html
-  timeout: 1000
-  useragent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
-  parallel: 10
-  tags:
-      a: true
-      img: true
-      source: true
-      iframe: true
-      script: true
-      link: true
-  cache:
-      enable: true
-      lifetime: 1440
-      path: 'link-checker.json'
