@@ -56,6 +56,12 @@ const bannerExtractors = {
 };
 
 hexo.extend.generator.register('rss-feed', async function () {
+  // If we’re on GitHub Actions, don’t register the RSS generator at all:
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    hexo.log.info('Skipping fetch_feed generator on GitHub Actions');
+    return;
+  }
+
   // List of RSS feed URLs
   const RSSfeeds = hexo.config.external_feeds || [];
   const allItems = [];
