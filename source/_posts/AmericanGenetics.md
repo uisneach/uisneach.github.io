@@ -1,10 +1,10 @@
 ---
 title: American Genetics
 author: GoF
+description: Summary of a study that breaks down the genetics of modern American populations.
 date: 2022-04-30 11:11:00
 categories: 
 	- [Genetics]
-	- [Original]
 tags:
 ---
 

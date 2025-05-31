@@ -91,6 +91,7 @@ hexo.extend.generator.register('rss-feed', async function () {
         item.channelLink = feed.link;
       });
 
+      console.log("Successfully fetched RSS feed from " + feed.title);
 
       allItems.push(...feed.items);
     } catch (err) {
@@ -110,7 +111,7 @@ hexo.extend.generator.register('rss-feed', async function () {
 
   // Return the page data with specified layout
   return {
-    path: 'feed/index.html',
+    path: 'read/index.html',
     layout: ['rss-feed', 'page', 'index'], // Fallback to 'page' or 'index' if 'rss-feed' doesn't exist
     data: {
       title: 'Latest Posts',

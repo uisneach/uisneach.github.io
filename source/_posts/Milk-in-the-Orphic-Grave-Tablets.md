@@ -1,5 +1,6 @@
 ---
 title: Milk in the Orphic Grave Tablets
+author: GoF
 date: 2024-05-18 09:47:00
 tags:
 	- Religion

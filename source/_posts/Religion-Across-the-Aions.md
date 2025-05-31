@@ -1,6 +1,7 @@
 ---
 title: Religion Across the Aions
 author: GoF
+description: The turning of the stars guides our civilization at the highest level.
 date: 2021-10-02 11:41:00
 tags:
 ---

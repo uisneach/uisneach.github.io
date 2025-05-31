@@ -112,7 +112,7 @@
               ${item.creator || item.author || 'Unknown'} |
               ${new Date(item.pubDate).toLocaleDateString()}
             </div>
-            <div class="rss-snippet">${item.contentSnippet || ''}</div>
+            <div class="rss-snippet">${item.contentSnippet || item.description || ''}</div>
             <a href="${item.channelLink}" class="blog-link">${item.channelTitle}</a>
           </div>`;
 
