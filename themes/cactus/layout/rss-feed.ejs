@@ -82,15 +82,8 @@
     <div id="col-left"  class="rss-column"></div>
     <div id="col-right" class="rss-column"></div>
   </div>
-  <!-- data injection for JS to consume: -->
-  <script type="application/json" id="feed-data">
-    <%- JSON.stringify(page.externalFeeds) %>
-  </script>
   <script>
-    (function() {
-      // Parse the injected JSON
-      const feeds = JSON.parse(document.getElementById('feed-data').textContent);
-
+    (async function() {
       const leftCol  = document.getElementById('col-left');
       const rightCol = document.getElementById('col-right');
 
@@ -99,26 +92,56 @@
         return (leftCol.getBoundingClientRect().height <= rightCol.getBoundingClientRect().height) ? leftCol : rightCol;
       }
 
-      // Create and append each card
-      feeds.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'rss-card';
+      try {
+        const resp = await fetch('feeds_db.json');
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
 
-        card.innerHTML = `
-          <img class="rss-image" src="${item.bannerImage}" alt="">
-          <div class="rss-content">
-            <a href="${item.link}" class="rss-title">${item.title}</a>
-            <div class="rss-meta">
-              ${item.creator || item.author || 'Unknown'} |
-              ${new Date(item.pubDate).toLocaleDateString()}
-            </div>
-            <div class="rss-snippet">${item.contentSnippet || item.description || ''}</div>
-            <a href="${item.channelLink}" class="blog-link">${item.channelTitle}</a>
-          </div>`;
+        const channels = await resp.json(); // array of channel objects
 
-        // Append to the currently shorter column
-        shorterColumn().appendChild(card);
-      });
+        // Collect all items from all channels into a single array
+        let allItems = [];
+        channels.forEach(channel => {
+          if (Array.isArray(channel.item)) {
+            channel.item.forEach(item => {
+              item.channelTitle = channel.title;
+              allItems.push(item);
+            });
+          }
+        });
+
+        // Sort posts by date
+        allItems.sort((a, b) => {
+          const dateA = new Date(a.pubDate || a.isoDate || 0);
+          const dateB = new Date(b.pubDate || b.isoDate || 0);
+          return dateB - dateA;
+        });
+
+        // Create and append each card
+        allItems.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'rss-card';
+
+          card.innerHTML = `
+            <img class="rss-image" src="${item.bannerImage}" alt="">
+            <div class="rss-content">
+              <a href="${item.link}" class="rss-title">${item.title}</a>
+              <div class="rss-meta">
+                ${item.creator || item['dc:creator'] || item.author || 'Unknown'} |
+                ${new Date(item.pubDate).toLocaleDateString()}
+              </div>
+              <div class="rss-snippet">${item.contentSnippet || item.description || ''}</div>
+              <a href="${item.link}" class="blog-link">${item.channelTitle}</a>
+            </div>`;
+
+          // Append to the currently shorter column
+          shorterColumn().appendChild(card);
+        });
+      } catch (err) {
+        console.error('Failed to load or parse feeds_db.json:', err);
+        const errorMsg = document.createElement('p');
+        errorMsg.textContent = 'Unable to load RSS feed data at this time.';
+        document.querySelector('.rss-feed').appendChild(errorMsg);
+      }      
     })();
   </script>
 </section>

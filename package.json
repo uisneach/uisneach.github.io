@@ -34,7 +34,9 @@
     "hexo-toc": "^1.1.0",
     "js-yaml": "^4.1.0",
     "rss-parser": "^3.13.0",
-    "sync-request": "^6.1.0"
+    "sync-request": "^6.1.0",
+    "xml2js": "^0.6.2",
+    "xmldom": "^0.6.0"
   },
   "devDependencies": {
     "patch-package": "^8.0.0"
