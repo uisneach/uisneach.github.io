@@ -22,20 +22,26 @@ const bannerExtractors = {
 
     const $ = cheerio.load(item['content:encoded']);
 
-    // Extract author from "Essay by Author Name | ..." in description
-    const authorMatch = item.contentSnippet?.match(/^(Essay|Fiction|Poem)\s+by\s+([^|]+)(?:\s*\|)?/i);
+    // Extract author from "Essay by Author Name | ..." or "Essay by Author Name &#124; ..."
+    const authorMatch = item.description?.match(/(Essay|Fiction|Poem)\s+by\s+(.+?)\s*(?:\||&#124;)/i);
     if (authorMatch) {
-      item.creator = authorMatch[2].trim();
-      item.author = authorMatch[2].trim();
-      item['dc:creator'] = authorMatch[2].trim();
+      // authorMatch[2] is the non‐greedy capture of "Author Name"
+      const authorName = authorMatch[2].trim();
 
-      // Remove "Essay by Author Name | ..." from the article snippet.
-      item.contentSnippet = item.contentSnippet.replace(authorMatch[0], '').trim();
+      item.creator      = authorName;
+      item.author       = authorName;
+      item["dc:creator"] = authorName;
+
+      // Remove the entire prefix "Essay by Author Name |" (or "...&#124;") from contentSnippet
+      item.contentSnippet = item.description.replace(authorMatch[0], "").trim();
     }
 
     // Clean up "The post ... appeared first on ..." from contentSnippet
     if (item.contentSnippet) {
       item.contentSnippet = item.contentSnippet.replace(/(The|This) post .*?https?:\/\/\S+\.*$/i, '').trim();
+    }
+    if (item.description) {
+      item.description = item.description.replace(/(The|This) post .*?https?:\/\/\S+\.*$/i, '').trim();
     }
 
     // Set banner image
@@ -52,6 +58,20 @@ const bannerExtractors = {
 
       const bgStyle = $('div.site-header-bg').attr('style') || '';
       const match = bgStyle.match(/url\((.*?)\)/);
+
+      // Clean up "<p>The post … appeared first on …</p>" from contentSnippet
+      if (item.contentSnippet) {
+        item.contentSnippet = item.contentSnippet
+          .replace(/<p>\s*(?:The|This) post[\s\S]*?<\/p>/gi, '')
+          .trim();
+      }
+
+      // Clean up "<p>The post … appeared first on …</p>" from description
+      if (item.description) {
+        item.description = item.description
+          .replace(/<p>\s*(?:The|This) post[\s\S]*?<\/p>/gi, '')
+          .trim();
+      }
 
       item.bannerImage = match ? match[1].replace(/&amp;/g, '&') : '';
     } catch (err) {
@@ -112,12 +132,6 @@ function postExists(db, channelLink, postKey) {
 }
 
 hexo.extend.generator.register('rss-feed', async function () {
-  // Hexo sets hexo.env.command to 'server' or 'generate', etc.
-  if (hexo.env.command === 'server') {
-    hexo.log.info('[rss_feed] Skipping feed fetch in server mode');
-    return;
-  }
-
   // List of RSS feed URLs
   const RSSfeeds = hexo.config.external_feeds || [];
 
@@ -163,6 +177,7 @@ hexo.extend.generator.register('rss-feed', async function () {
 
           // All checks passed
           dbData = parsed;
+          hexo.log.info("[rss_feed] feeds_db.json data retrieved successfully.");
         }
       }
     } catch (err) {
@@ -205,38 +220,61 @@ hexo.extend.generator.register('rss-feed', async function () {
       // Deduplicate
       if (!channelExists(dbData, channel.link)) {
         // Channel does not exist in database
+        hexo.log.info("[rss_feed] Adding channel data");
+
+        // First check if channel must be passed through the banner extractor.
+        const postDomain = (new URL(channel.link)).hostname.replace(/^www\./, '');
+        if (Object.prototype.hasOwnProperty.call(bannerExtractors, postDomain)) {
+          const extractor = bannerExtractors[postDomain];
+          posts.forEach(post => {
+            post = extractor(post);
+          });
+        } else {
+          posts.forEach(post => {
+            // Add banner image
+            const enclosureUrl = post.enclosure?.url;
+            if (!post.bannerImage) {
+              if (enclosureUrl && isImageUrl(enclosureUrl)) {
+                post.bannerImage = enclosureUrl;
+              } else {
+                post.bannerImage = channel.image?.url || '';;
+              }
+            }
+          });
+        }
+
         dbData.push(channel);
         hexo.log.info(`  ↳ Added: ${channel.title}`);
       } else {
         // Channel exists, now we must deduplicate each post.
+        hexo.log.info("[rss_feed] Adding post data to channel.");
+        const dbChannel = findChannel(channel.link);
+        const dbPosts = dbChannel.item;
         posts.forEach(fetchedPost => {
-          const dbPosts = findChannel(channel.link).item;
           const postExists = dbPosts.some(dbPost => (((fetchedPost.guid && dbPost.guid) && fetchedPost.guid === dbPost.guid) || (fetchedPost.link === dbPost.link)));
           if (!postExists) {
             // If post doesn't exist, add it.
+
+            const postDomain = (new URL(fetchedPost.link)).hostname.replace(/^www\./, '');
+            if (Object.prototype.hasOwnProperty.call(bannerExtractors, postDomain)) {
+              const extractor = bannerExtractors[postDomain];
+              fetchedPost = extractor(fetchedPost);
+            } else {
+              const enclosureUrl = fetchedPost.enclosure?.url;
+              if (!fetchedPost.bannerImage) {
+                if (enclosureUrl && isImageUrl(enclosureUrl)) {
+                  fetchedPost.bannerImage = enclosureUrl;
+                } else {
+                  post.bannerImage = channel.image?.url || '';;
+                }
+              }
+            }
+
             dbPosts.push(fetchedPost);
             hexo.log.info(`  ↳ Added: ${fetchedPost.title} to ${dbChannel.title}`);
           }
         });
       }
-
-      // Extract a banner image for each post.
-      findChannel(channel.link).item.forEach(post => {
-        if (!post.bannerImage) {
-          const postDomain = (new URL(post.link)).hostname.replace(/^www\./, '');
-          if (Object.prototype.hasOwnProperty.call(bannerExtractors, postDomain)) {
-            const extractor = bannerExtractors[postDomain];
-            post = extractor(post);
-          }
-
-          const enclosureUrl = post.enclosure?.url;
-          if (enclosureUrl && isImageUrl(enclosureUrl)) {
-            post.bannerImage = enclosureUrl;
-          } else {
-            post.bannerImage = channel.image?.url;
-          }
-        }
-      });
 
       hexo.log.info("[rss_feed] Successfully fetched RSS feed from " + channel.title);
     } catch (err) {
@@ -244,7 +282,7 @@ hexo.extend.generator.register('rss-feed', async function () {
     }
 
     // Introduce a delay between each fetch
-    await delay(300);
+    await delay(1000);
   }
 
   // Write updated database back to feeds_db.json if any changes were made
