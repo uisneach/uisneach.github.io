@@ -1,0 +1,11 @@
+TODO:
+
+TEI Renderer:
+- Trim whitespace before and after inline tags
+- Add support for multilingual Intros
+- Finish support for multilingual prose texts
+- Create tree folder structure in HTML representation of TEI files.
+- Add mobile styling.
+- Add a metadata tab to see all TEI metadata displayed, similar to the intro tab.
+- Create a way to store many more external articles on site, and show in a library page with a button to show and hide based on category.
+- Formalize the rules for handling <q>uotation blocks, especially for newlines when two characters are conversing.
