@@ -7,7 +7,7 @@ date: 2024-07-26 21:14:51
 
 ## Science
 
-Exo Science by N'golo Tesla : [https://exo-science.com/](exoscience.com)
+Exo Science by N'golo Tesla : [https://exo-science.com/](https://exo-science.com)
 
 Soliloquy.bio by Anabology : https://soliloquy.bio/
 
