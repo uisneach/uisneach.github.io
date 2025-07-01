@@ -26,3 +26,14 @@ jobs:
           PUBLISH_REPOSITORY: ${{ github.repository }}
           BRANCH: gh-pages
           PUBLISH_DIR: ./public
+
+      # Add .nojekyll file and push it manually
+      - name: Ensure .nojekyll in gh‑pages branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout gh-pages
+          touch .nojekyll
+          git add .nojekyll
+          git commit -m "Add .nojekyll to disable Jekyll"
+          git push origin gh-pages
