@@ -265,7 +265,7 @@ hexo.extend.generator.register('rss-feed', async function () {
                 if (enclosureUrl && isImageUrl(enclosureUrl)) {
                   fetchedPost.bannerImage = enclosureUrl;
                 } else {
-                  post.bannerImage = channel.image?.url || '';;
+                  fetchedPost.bannerImage = channel.image?.url || '';;
                 }
               }
             }
