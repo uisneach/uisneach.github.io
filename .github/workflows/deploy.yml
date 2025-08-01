@@ -2,39 +2,62 @@ name: Hexo Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - master  # Trigger the workflow on pushes to the 'master' branch
+    branches: [ master ]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write        # keep it so you can read/write code
-      pages: write           # allow Pages API publishing
-      id-token: write        # needed for OIDC context in Pages deploy
+      contents: write       # for checkout + push
+      pages: write          # for GitHub Pages API (optional)
+      id-token: write       # for OIDC / Pages deploy (optional)
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout master
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0     # we’ll need full history for branch-switching
 
-      - name: Build and Deploy
-        uses: theme-keep/hexo-deploy-github-pages-action@master
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Clean Hexo
+        run: npx hexo clean
+
+      - name: Generate site
+        run: npx hexo generate
+
+      - name: Deploy to gh-pages
         env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN_GENERAL }}
-          PUBLISH_REPOSITORY: ${{ github.repository }}
-          BRANCH: gh-pages
-          PUBLISH_DIR: ./public
-
-      # Add .nojekyll file and push it manually
-      - name: Ensure .nojekyll in gh‑pages branch
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN_GENERAL }}
         run: |
+          # configure Git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout gh-pages
-          git pull --rebase origin gh-pages
+
+          # create or reset an orphan gh-pages branch
+          git checkout --orphan gh-pages
+
+          # remove any old files
+          git rm -rf .
+
+          # copy over freshly-built site
+          cp -R public/* .
+
+          # ensure .nojekyll so GitHub Pages doesn’t ignore files/dirs starting with _
           touch .nojekyll
-          git add .nojekyll
-          git commit -m "Add .nojekyll" || echo "No changes"
-          git push origin gh-pages
+
+          # commit & push
+          git add --all
+          git commit -m "Deploy site at ${{ github.sha }}" || echo "No changes to commit"
+          
+          # push with your PAT (force is OK since it's auto-generated)
+          git push \
+            https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }} \
+            gh-pages --force
