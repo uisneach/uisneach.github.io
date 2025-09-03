@@ -1,7 +1,15 @@
 <footer id="footer">
+  <% 
+    var endYear = (theme && theme.copyright && theme.copyright.end_year) ? theme.copyright.end_year : new Date().getFullYear();
+    var startYear = (theme && theme.copyright && theme.copyright.start_year) ? theme.copyright.start_year : new Date().getFullYear();
+    var authorOrTitle = config.author || config.title;
+  %>
+
   <style>
+    /* Embedded footer styling (minimal and self-contained) */
     #footer {
       padding: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
@@ -79,7 +87,7 @@
         </div>
       <% } %>
     </div>
-    <% if (page && page.path !== "index.html") { %>
+
     <div class="footer-right">
       <nav aria-label="Footer navigation">
         <ul class="footer-nav">
@@ -91,9 +99,9 @@
         </ul>
       </nav>
     </div>
-    <% } %>
   </div>
 
+  <% if (page && page.path !== "index.html") { %>
   <div class="footer-bottom" role="contentinfo">
     <small class="copyright">
       <%= __('footer.copyright') %> &copy;
@@ -105,4 +113,5 @@
       <%= authorOrTitle %>
     </small>
   </div>
+  <% } %>
 </footer>
