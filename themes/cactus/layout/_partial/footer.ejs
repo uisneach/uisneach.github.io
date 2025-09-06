@@ -6,7 +6,6 @@
   %>
 
   <style>
-    /* Embedded footer styling (minimal and self-contained) */
     #footer {
       padding: 1rem;
       border-top: 1px solid rgba(0,0,0,0.08);
@@ -14,7 +13,6 @@
       flex-direction: column;
       gap: 0.5rem;
       background: transparent;
-      font-size: 0.95rem;
     }
 
     .footer-top {
@@ -56,7 +54,7 @@
       margin-top: 0.25rem;
     }
     .footer-bottom .copyright {
-      font-size: 0.875rem;
+      font-size: 0.7rem;
       color: #908d8d;
     }
 
@@ -77,10 +75,10 @@
     }
   </style>
 
+  <hr style="width: 100%;">
+
   <div class="footer-top">
     <div class="footer-left">
-      <span class="site-title"><%= authorOrTitle %></span>
-
       <% if (config.emailSubmit && page && page.path === 'index.html') { %>
         <div class="footer-email">
           <%- partial('_partial/email_submit'); %>
@@ -88,6 +86,7 @@
       <% } %>
     </div>
 
+    <% if (page && page.path !== "index.html") { %>
     <div class="footer-right">
       <nav aria-label="Footer navigation">
         <ul class="footer-nav">
@@ -99,9 +98,9 @@
         </ul>
       </nav>
     </div>
+    <% } %>
   </div>
 
-  <% if (page && page.path !== "index.html") { %>
   <div class="footer-bottom" role="contentinfo">
     <small class="copyright">
       <%= __('footer.copyright') %> &copy;
@@ -113,5 +112,4 @@
       <%= authorOrTitle %>
     </small>
   </div>
-  <% } %>
 </footer>
