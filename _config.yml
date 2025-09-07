@@ -129,6 +129,7 @@ external_feeds:
   - https://polytrop0s.substack.com/feed
   - https://thuletide.wordpress.com/feed/
   - https://borealbaron.substack.com/feed/
+  - https://milbel.substack.com/feed/
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
