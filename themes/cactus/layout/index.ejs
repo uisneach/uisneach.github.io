@@ -44,9 +44,9 @@
   <ul class="post-list">
     <% var field_sort = theme.posts_overview.sort_updated ? 'updated' : 'date' %>
     <% if (theme.posts_overview.show_all_posts) { %>
-      <% var show_posts = page.posts.sort(field_sort, 'desc') %> <!-- I modified these lines to filter out "Library" posts. Now they show only original writing. Revert these to original by deleting the .filter() function call. GoF -->
+      <% var show_posts = page.posts.sort(field_sort, 'desc') %>
     <% } else { %>
-      <% var show_posts = site.posts.filter(post => !post.categories.some(category => category.name === 'Library')).sort(field_sort, 'desc').limit(theme.posts_overview.post_count || 15) %>
+      <% var show_posts = site.posts.sort(field_sort, 'desc').limit(theme.posts_overview.post_count || 15) %>
     <% } %>
     <% show_posts.each(function(post, i){ %>
       <li class="post-item">
