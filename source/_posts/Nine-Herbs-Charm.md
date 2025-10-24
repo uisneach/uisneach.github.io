@@ -99,7 +99,8 @@ Of farm stock of mine.
 
 Note: the word 'wihta' is here translated by Cockayne as 'farm-stock', but truly just means '[thing, creature](https://en.wiktionary.org/wiki/wiht#Old_English)'.
 
-![The Barrow-Wight and Hobbit](Nine-Herbs-Charm/Demon.jpg)
+![Saint John the Evangelist on Patmos by Master of the Rotterdam Saint John on Patmos](Nine-Herbs-Charm/Demon.jpg)
+<figcaption>Saint John the Evangelist on Patmos, c. 1475</figcaption>
 
 ---
 
