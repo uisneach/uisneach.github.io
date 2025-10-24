@@ -4,6 +4,9 @@ author: Ogmios
 date: 2024-07-19 01:27:00
 twitter_link: 'https://x.com/ogmios/status/1803479667833209234'
 tags:
+	- Religion
+	- Anglo-Saxon
+	- Magic
 ---
 
 ![Anglo-Saxon Warrior](Nine-Herbs-Charm/Anglo-SaxonWarrior.jpg)
