@@ -10,7 +10,11 @@ categories:
 
 ![Gondolin by spartank42 on DevianArt](Civitas/Gondolin.jpg)
 
-"Chinese have always lived in houses, yes, if that's all you mean by 'civilization'... Everything for oneself, everything for personal utility: a pleasure in cruelty toward the weak and toward animals." -BAP
+{% blockquote Bronze Age Pervert %}
+
+Chinese have always lived in houses, yes, if that's all you mean by 'civilization'... Everything for oneself, everything for personal utility: a pleasure in cruelty toward the weak and toward animals.
+
+{% endblockquote %}
 
 People argue over civilization without first understanding what they speak of. I wonder if some modern nations have ever truly had civilization, but it might be better to ask if we have it presently. Our word "civilization" descends from the Latin "civitas", and its meaning hasn't drifted far. The common understanding is that a "civilized" society is non-hostile to its neighbors or to strangers, it is productive, introspective, and cohesive among its members. It produces and enjoys culture.
 
