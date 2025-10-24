@@ -2,6 +2,7 @@
 title: Milk in the Orphic Grave Tablets
 author: GoF
 date: 2024-05-18 09:47:00
+twitter_link: 'https://x.com/ogmios/status/1791827998733214118'
 tags:
 	- Religion
 	- Orphism
@@ -144,6 +145,5 @@ The connection between milk and the white galaxy overhead is strong, as is the c
 So, the milk formulae in these tablets appear to be synthemata meant to remind the initiate of the culmination of his Orphic training, and simultaneously of the immense pleasures of Heaven and the gods after death, just as we take pleasure from drinking fresh milk on Earth.
 
 That's my broad, surface level theory, anyway.
-Fin.
 
-Originally posted to [X](https://x.com/ogmios/status/1791827998733214118).
+Fin.

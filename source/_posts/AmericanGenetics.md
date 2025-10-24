@@ -3,6 +3,7 @@ title: American Genetics
 author: GoF
 description: Summary of a study that breaks down the genetics of modern American populations.
 date: 2022-04-30 11:11:00
+twitter_link: 'https://x.com/ogmios/status/1520420553189957632'
 categories: 
 	- [Genetics]
 tags:
@@ -288,7 +289,3 @@ I truly recommend coming back to the three charts above to prove or disprove any
 Fin
 
 ![Tweet Image](https://pbs.twimg.com/media/FRmkx8lXwAEo9KR.jpg)
-
-<hr>
-
-Originally Posted to [Twitter](https://x.com/ogmios/status/1520420553189957632).

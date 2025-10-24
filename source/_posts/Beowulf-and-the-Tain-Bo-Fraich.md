@@ -6,6 +6,7 @@ description: The Anglo-Saxon Hero and his Irish Cognates
 categories:
 twitter_link: 'https://x.com/ogmios/status/1703868566171222437'
 tags:
+	- Irish Myth
 ---
 
 ![Beowulf and the Dragon by John Howe](Beowulf-and-the-Tain-Bo-Fraich/Beowulf-and-the-Dragon-John-Howe.jpg)

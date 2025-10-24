@@ -2,6 +2,7 @@
 title: Gardens
 author: GoF
 date: 2022-07-07 05:41:00
+twitter_link: 'https://x.com/ogmios/status/1545161171107545088'
 tags:
 ---
 
@@ -61,7 +62,3 @@ A demonstration of the different tastes of the Italian, French, and English nati
 ![Chiltern Estate](Gardens/English-Example.jpg)
 
 Fin.
-
----
-
-Originally posted on [X](https://x.com/ogmios/status/1545161171107545088).

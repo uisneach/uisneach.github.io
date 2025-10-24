@@ -3,6 +3,7 @@ title: You Have Become a Wolf
 author: GoF
 description: A description of the Aryan Koryos in a Hittite law tract.
 date: 2023-08-26 11:42:00
+twitter_link: 'https://x.com/ogmios/status/1695461840564650206'
 tags: 
 	- Hittite
 ---
@@ -34,5 +35,3 @@ And in the Frankish Salic Law, banishment is expressed with the phrase "wargus s
 Fin
 
 ![A scene from prehistoric Europe, by Andre Houot](You-Have-Become-a-Wolf/Hittite-Scenery.jpg)
-
-Originally posted to [X](https://x.com/ogmios/status/1695461840564650206).

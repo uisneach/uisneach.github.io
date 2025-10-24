@@ -3,7 +3,10 @@ title: Religion Across the Aions
 author: GoF
 description: The turning of the stars guides our civilization at the highest level.
 date: 2021-10-02 11:41:00
+twitter_link: 'https://x.com/ogmios/status/1444326559263903745'
 tags:
+	- Religion
+	- Astrology
 ---
 
 ![](Religion-Across-the-Aions/Menhir.jpg)
@@ -60,7 +63,3 @@ Taking this astrological view allows us to understand the triumph of Christianit
 Fin
 
 ![Aquarian Aion Art](Religion-Across-the-Aions/Aquarius.jpg)
-
-<hr>
-
-Originally posted on [X](https://x.com/ogmios/status/1444326559263903745).
