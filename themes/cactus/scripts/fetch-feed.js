@@ -132,6 +132,14 @@ function postExists(db, channelLink, postKey) {
 }
 
 hexo.extend.generator.register('rss-feed', async function () {
+
+  // only run this registration if the process was started with "hexo generate" (or -g)
+  const isGenerate = process.argv.includes('generate') || process.argv.includes('-g') || process.argv.includes('g');
+  if (!isGenerate) {
+    hexo.log.info('[rss-fetch] skipped. Run `hexo generate` to build RSS feed.');
+    return;
+  }
+
   // List of RSS feed URLs
   const RSSfeeds = hexo.config.external_feeds || [];
 

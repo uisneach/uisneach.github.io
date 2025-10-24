@@ -14,6 +14,11 @@
   </div>
 </article>
 <hr>
+<% if (page.twitter_link) { %>
+<div id="twitter-link">
+  <p>Originally posted on <a href="<%- page.twitter_link %>">X</a>.</p>
+</div>
+<% } %>
 <%- partial('_partial/post/category') %>
 <%- partial('_partial/post/tag') %>
 <%- partial('_partial/comments') %>

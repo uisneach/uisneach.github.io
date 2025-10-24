@@ -4,6 +4,7 @@ date: 2023-09-18 4:18:00
 author: GoF
 description: The Anglo-Saxon Hero and his Irish Cognates
 categories:
+twitter_link: 'https://x.com/ogmios/status/1703868566171222437'
 tags:
 ---
 
@@ -40,7 +41,3 @@ The stories have many differences, but we still cannot deny that many images and
 I don't believe this monastic theory. Academics debate it because there's positive evidence from this period, and academics hate speculation. There is equal evidence in support of an North European dragon slaying hero myth, represented in Beowulf, Fraech, Siegfried, and ultimately Apollo. We could easily say that Fraech and Beowulf are relfexes of popular gods, like Apollo slaying Python. Aillil and Medb are quite clearly the solar and lunar deities of the Irish pantheon. But Beowulf is tied to non-mythical history. The characters and clans named there are real. The characters in Beowulf tie him to 6th century Scandinavia. Now we must ask, how much of Beowulf is myth? Was Beowulf a real person who had a myth applied over his life story? Was Grendel real? Or was this originally a myth that was laid on top of the local geography? Many Irish stories which purport to be historical share extreme similarities with the myths of other cultures. Likely among Northern Europeans, myth and history were united. After all, the post-Classical idea of a "myth" as something separate from history is certainly not native. But these are questions which neither I nor scholars can answer. If any of you have ideas on this, please share, and if any of you do some reading and find some detail which sheds light on our ancient stories, share that as well.
 
 Fin.
-
----
-
-Originally posted on [X](https://x.com/ogmios/status/1703868566171222437).
