@@ -61,6 +61,7 @@ body
   flex-direction: column
   min-height: 100%
   overflow-wrap: break-word
+  align-items: center
 
   p 
     hyphens(auto)
@@ -291,3 +292,12 @@ code
 
 #header-post #actions
   direction: ltr !important
+
+/* Ogmios' styling */
+
+.content > p, i, h1, h2
+  align-self: flex-start
+
+.spacer { height: 1rem; }           /* fixed spacing */
+.spacer-lg { height: 2.5rem; }      /* larger spacer */
+.spacer-responsive { height: 2vh; } /* responsive to viewport */

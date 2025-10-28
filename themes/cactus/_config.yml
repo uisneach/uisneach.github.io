@@ -19,7 +19,6 @@ nav:
   Read: /read/
   Leabharlann: /leabharlann/
   Archive: https://files.uisneac.com/
-#  Library: /library/
   Network: /network/
 #  projects: http://github.com/probberechts
 
@@ -87,7 +86,7 @@ error_404:
 # Look and Feel
 ##############################################################################
 
-# Customize the logo (i.e., the cactus) in the header.
+# Customize the logo in the header.
 # Options:
 #   - enabled: whether to show (true) or hide (false) the logo.
 #   - width: width of the logo in pixel units
