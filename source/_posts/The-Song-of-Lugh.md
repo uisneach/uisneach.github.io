@@ -477,7 +477,6 @@ This also appears to be a poem composed in an Old Irish fashion, but modernized 
 
 So, my version in English:
 
-<div>
 
 Arise! Mutual battle
 in war-fury overthrows
@@ -523,7 +522,6 @@ are born between two bodies
 which attack 
 in battle of mutual slaughter. Arise!
 
-</div>
 
 ## An Instance of *Corrguinecht*
 

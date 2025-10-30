@@ -5,7 +5,7 @@ date: 2024-07-28 20:19:44
 
 <center><h1>Uisneaċ?</h1></center>
 
-![Uisneach, Ireland](about/Uisneach.jpg)
+![Uisneach, Ireland](Uisneach.jpg)
 
 {% blockquote Metrical Dindshenchas %}
 
