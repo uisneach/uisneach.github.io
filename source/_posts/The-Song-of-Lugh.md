@@ -13,6 +13,7 @@ article .content img.same-size { width: 150px; height: 150px; object-fit: fill; 
 article .content img.wide-image { width: 100%; height: auto; object-fit: fill; margin: 15px 0 0 0; }
 article .content img.half-image { width: 50%; height: auto; object-fit: fill; margin: 15px 0 0 0; }
 article .content img.free-image { width: auto; height: auto; max-width: 100%; max-height: none; margin: 15px 0 0 0; }
+img { align-self: center; }
 </style>
 
 ![](The-Song-of-Lugh/TuathaDeDanann.jpg)
