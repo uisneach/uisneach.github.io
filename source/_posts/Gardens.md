@@ -1,6 +1,6 @@
 ---
 title: Gardens
-author: GoF
+author: Ogmios
 date: 2022-07-07 05:41:00
 twitter_link: 'https://x.com/ogmios/status/1545161171107545088'
 tags:

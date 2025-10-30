@@ -1,7 +1,7 @@
 ---
 title: Religion Across the Aions
-author: GoF
-description: The turning of the stars guides our civilization at the highest level.
+author: Ogmios
+description: The turning of the stars guides our civilizations at the highest level.
 date: 2021-10-02 11:41:00
 twitter_link: 'https://x.com/ogmios/status/1444326559263903745'
 tags:
@@ -11,7 +11,7 @@ tags:
 
 ![](Religion-Across-the-Aions/Menhir.jpg)
 
-Let's remember the concept of Aions. An Aion is very similar to a Yuga, but derived from Hellennic and IE astrology and the procession of the equinox rather than a division of the eternal cycle into four descending sections. The movement of the Earth's axis over time causes the constellations to drift slowly with respect to the Earth, specifically the spring horizon. When Hipparchus discovered this c. 150 BC, the spring equinox sun sat in front of Aries; by 1000 AD, it sat well in front of Pisces. And so the very stars themselves change precedence over us. Choosing the spring equinox was somewhat arbitrary, but choose any astronomical point and the stars behind it will drift. Since the stars hold gentle influence over our lives, our minds, and our stories, the changing of the stars also changes the nature of the world itself. See [this book](https://x.com/ogmios/status/1392592990393229317) for a breakdown of ancient star-wisdom.
+Let's remember the concept of Aions. An Aion is very similar to a Yuga, but derived from Hellennic and Indo-European astrology and the procession of the equinox rather than a division of the eternal cycle into four descending sections. The movement of the Earth's axis over time causes the constellations to drift slowly with respect to the Earth, specifically the spring horizon. When Hipparchus discovered this c. 150 BC, the spring equinox sun sat in front of Aries; by 1000 AD, it sat well in front of Pisces. And so the very stars themselves change precedence over us. Choosing the spring equinox was somewhat arbitrary, but choose any astronomical point and the stars behind it will drift. Since the stars hold gentle influence over our lives, our minds, and our stories, the changing of the stars also changes the nature of the world itself. See [this book](https://x.com/ogmios/status/1392592990393229317) for a breakdown of ancient star-wisdom.
 
 This point cannot be overstated: different aions have different rulers, just as the stars do. One aion will not be the same as any other. What is Right and Good in one, will be Boring, Tired, Ineffective in another. We can even say that they have different rules. Another point about the astronomy of this: many people divide the sky into twelve *equal* sections, instead of dividing then based on where the constellations end. Any Astrology based on math rather than naked-eye observations is inferior, speaking anthropologically. Research Tropical vs Sidereal systems.
 

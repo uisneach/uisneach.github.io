@@ -1,8 +1,11 @@
 ---
 title: The Song of Lugh
+description: "A Translation of Lugh's Magical Speech in the Cath Maige Tuired"
 author: Ogmios
 date: 2025-10-27 00:55:39
 tags:
+	- Magic
+	- Old Irish
 ---
 
 <style>
@@ -12,18 +15,20 @@ article .content img.half-image { width: 50%; height: auto; object-fit: fill; ma
 article .content img.free-image { width: auto; height: auto; max-width: 100%; max-height: none; margin: 15px 0 0 0; }
 </style>
 
-On page 98 of [Revue Celtique Vol. XII](https://archive.org/details/revueceltique12pari/page/n5/mode/2up), Whitley Stokes' translation of the *Cath Maige Tuired* cuts off, leaving a speech given by Lugh to the *Tuatha Dé Danann* untranslated due to the difficulty of the language. As far as I can tell, only [Isolde Carmody](https://storyarchaeology.com/about_us/) has tried to [translate this poem](https://storyarchaeology.com/lug-taunts-the-enemy/), as well as Bernard Mees in his [*Celtic Curses*](https://www.cambridge.org/core/books/celtic-curses/1C98E6A5F9E316AC729361BC9D245890). Carmody's translation is, in my view, amateurish, and Mees' is only partial, leaving out a difficult portion in the middle. So in the interest of the freedom of all knowledge, I will translate it myself, open to everyone.
+![](The-Song-of-Lugh/TuathaDeDanann.jpg)
 
-The manuscript, MS 5280 in the Harleian collection, was transcribed by Stokes, but he neglected the "Song of Lugh" which I am interested in here. Rudolf Thurneysen, thankfully, finished the transcription in [*Zeitschrift fur Celtische Philologie* Vol. XII pg. 403](https://archive.org/details/zeitschriftfrc12meyeuoft/page/402/mode/2up), along with the other portions of the Harleian 5280 which Stokes left untranslated, but did not offer a translation of his own. This transcription was apparently used by Elizabeth Gray in her 1982 translation of the *Cath*, though she too left this song untranslated. There are many words which are abbreviated by a 'macron' (see [below](#abbreviations)) which leaves ambiguity at many parts of the text and which make translation of an already-ambiguous poetic text extremely difficult. But modern dictionaries and the online availability of pretty much all Old Irish texts gives a modern translator an equal advantage.
+On page 98 of [Revue Celtique Vol. XII](https://archive.org/details/revueceltique12pari/page/n5/mode/2up), Whitley Stokes' translation of the *Cath Maige Tuired* cuts off, leaving a speech given by Lugh to the *Tuatha Dé Danann* untranslated due to the difficulty of the language. As far as I can tell, there are three authors who have tried to tackle this passage, being [Isolde Carmody](https://storyarchaeology.com/about_us/) in [this post](https://storyarchaeology.com/lug-taunts-the-enemy/), as well as Bernard Mees in his [*Celtic Curses*](https://www.cambridge.org/core/books/celtic-curses/1C98E6A5F9E316AC729361BC9D245890), and one by [Morgan Daimler](https://www.goodreads.com/book/show/55859901-cath-maige-tuired) (*they/them*), though Daimler calls herself 'not a professional translator... a self-taught amateur' in the book's foreword. Carmody's translation is, in my view, also amateurish, and Mees' is only partial, leaving out a difficult portion in the middle; Daimler's is somewhat better than Carmody's but still falls into too many traps. So in the interest of the freedom of all knowledge, I will translate it myself, open to everyone.
 
-Lugh chants this chant before the assembled army of the *Tuatha Dé Danann* before the Fomorian troop, of which it is said "to attack the Fomorian host on that day was 'striking a head against a cliff,' was 'a hand in a serpent's nest,' was 'a face up to lire.'" He uses only one leg, one arm, and one eye while circling the *Tuatha Dé*, demonstrating an instance of *glám dícenn*, the Old Irish magical method of poetry.
+The manuscript, MS 5280 in the Harleian collection, was written in the 16th century by Giolla Riabhach Ó Cleirigh, a member of the famous Ó Cléirigh family of scribes and intellecutals (*Cléirigh* or *cléirech* is ultimately from Latin *clericus* or clerk). The *Cath* story from folio 63r-69v was transcribed by Stokes, but he neglected the "Song of Lugh" which I am interested in here. Rudolf Thurneysen, thankfully, finished the transcription in [*Zeitschrift fur Celtische Philologie* Vol. XII pg. 403](https://archive.org/details/zeitschriftfrc12meyeuoft/page/402/mode/2up), along with the other portions of the Harleian 5280 which Stokes left untranslated, but did not offer a translation of his own. This transcription was apparently used by Elizabeth Gray in her 1982 translation of the *Cath*, though she too left this song untranslated. There are many words which are abbreviated by a 'macron' (see [below](#Abbreviations)) which leaves ambiguity at many parts of the text and which make translation of an already-ambiguous poetic text extremely difficult. But modern dictionaries and the online availability of pretty much all Old Irish texts as references give a modern translator an equal advantage.
 
-This endeavor must, then, begin with a transcription of the [manuscript](https://iiif.bl.uk/uv/#?manifest=https://bl.digirati.io/iiif/ark:/81055/vdc_100123802477.0x000001), which I will give here.
+Lugh chants this chant before the assembled army of the *Tuatha Dé Danann* standing before the Fomorian troops, of which it is said "to attack the Fomorian host on that day was 'striking a head against a cliff,' was 'a hand in a serpent's nest,' was 'a face up to lire.'" He stands on one leg, with one arm, and one eye while circling the *Tuatha Dé*, demonstrating an instance of *corrguinecht*, the Old Irish magical stance often paired with *glám dícenn*, magical poetry.
+
+This endeavor must, then, begin from first principles with a transcription of the [manuscript](https://iiif.bl.uk/uv/#?manifest=https://bl.digirati.io/iiif/ark:/81055/vdc_100123802477.0x000001), which I will give here.
 
 ---
 ## The Scribe's Hand
 
-We must begin transcription by analyzing the scribe's handwriting, including the common letters as well as common abbreviations, ligatures, and lenitions. Note that the Old, Middle, and Modern Irish alphabets do not consist of all the letters of the English alphabet: letters such as J, K, W, or X are absent.
+We must begin transcription by analyzing the scribe's handwriting, including the common letters and abbreviations, ligatures, and lenitions. Note that the Old, Middle, and Modern Irish alphabets do not share all of the English alphabet's letters, such as J, K, W, or X, which are absent.
 
 | English Letter | Scribe's Letter |     | English Letter | Scribe's Letter |
 | -------------- | --------------- | --- | -------------- | --------------- |
@@ -37,9 +42,9 @@ We must begin transcription by analyzing the scribe's handwriting, including the
 | H              | <img src="H.png" alt="" class="same-size" />      |     | T     | <img src="T.png" alt="" class="same-size" /> |
 | I              | <img src="I.png" alt="" class="same-size" />      |     | U     | <img src="U.png" alt="" class="same-size" /> |
 
-Most letters follow a consistent script, a form of insular script, but a non-initiate may notice some aberrant symbols. The scribe, to save space, will often combine two letters into one glyph, a process called "ligature". A table of some of these occurrences is presented:
-
 ### Ligatures
+
+Most letters follow a consistent script, a form of insular script, but a close reader may notice some aberrant symbols. The scribe, to save space, will often combine two letters into one glyph in a process called "ligature". A table of some of these occurrences is presented:
 
 | English Letters | Scribe's Glyph | English Letters | Scribe's Glyph |
 | --------------- | -------------- | --------------- | -------------- |
@@ -54,7 +59,7 @@ Most letters follow a consistent script, a form of insular script, but a non-ini
 
 See how in D ligatures, the D glyph, which usually has a nearly-horizontal leftward stroke on top, is rotated so that it's top stroke points upwards, making it appear more similar to an A. Also note how in R ligatures, the downstroke that forms the spine of the R glyph can be completely omitted, and only the arm of the glyph left remaining.
 
-It should be said that such a stroke only represents an R if the lower portion moves to the right as it does in a regular R character: moving to the left means something utterly different. See this abbreviation which uses a similar falling arm, but which has a bottom stroke curving leftward, looking similar to a modern semicolon (;) or a [yogh](https://guides.loc.gov/manuscript-facsimiles/deciphering-scribal-abbreviations#s-lib-ctab-24229924-3) symbol (ȝ). This word ultimately is "AMNUS", meaning "cruel", with the final arm representing the "-US".
+It should be said that such a stroke only represents an R if the lower portion moves to the right as it does in a regular R character: moving to the left means something utterly different. See this abbreviation which uses a similar falling arm, but which has a bottom stroke curving leftward, looking similar to a modern semicolon (;) or a [yogh](https://guides.loc.gov/manuscript-facsimiles/deciphering-scribal-abbreviations#s-lib-ctab-24229924-3) symbol (ȝ) of Old English. This word ultimately is "AMNUS", meaning "cruel", with the final arm representing the "-US".
 
 <img src="AMNUS.png" alt="" class="half-image" style="margin-bottom: 20px;" />
 
@@ -72,11 +77,11 @@ The use of ligature rests wholly on the scribe's preference at the time of writi
 
 ### Abbreviations
 
-Many words are shortened by means of abbreviation, and most of those by a *macron* or bar above the letter. The reader is meant to understand that the word being abbreviated is so common, or so easily derived from context, that writing the full word out is not necessary. We can see at the top of the folio that the scribe abbreviates "*Tuatha Dé Danann*" as ".t.d.d.", it is understood that the reader, if he has been reading along, will naturally assume TDD stands for *Tuatha Dé Danann* from context.
+Many words are shortened by means of abbreviation, and most of those by a *macron* or bar above the letter. The reader is meant to understand that the word ending which has been abbreviated is so common, or so easily derived from context, that writing out the full word is not necessary. We can see at the top of the folio that the scribe abbreviates "*Tuatha Dé Danann*" as ".t.d.d."; it is understood that the reader, if he has been reading along, will naturally assume TDD stands for *Tuatha Dé Danann* from context.
 
 <img src="TDD.png" alt="" class="wide-image" />
 
-Most abbreviations, though, use a *macron*. In this phrase below, we have only the letters "FER NER̄" to read from, but one who has been reading the entire story will recall that the conflict is between the *fer fomoire* (men of the Fomorians) and the *fer nErenn* (men of Ireland), so it is not necessary to finish writing the word *Erenn*, one can simply assume.
+Most abbreviations, though, use a *macron*. In this phrase below, we have only the letters "FER NER̄" to read from, but one who has been reading the entire story will recall that the conflict is between the *fer fomoire* (men of the Fomorians) and the *fer nErenn* (men of Ireland), so it is not necessary to finish writing the word *nErenn*, one can simply assume.
 
 <img src="FER NERENN.png" alt="" class="half-image" />
 
@@ -92,23 +97,23 @@ A word can be expressed entirely through ligature and abbreviation, such as this
 
 <img src="DIDIU.png" alt="" class="same-size" />
 
-One must be an Old Irish scholar to correctly fill in these gaps with the appropriate words, which is why I will be studying Stokes' methods used in previous sections of this text.
+One must be an Old Irish scholar to correctly fill in these gaps with the appropriate words, which is why I resolve my uncertainties through Stokes' methods used in previous sections of this text.
 
 ### Reading Letters
 
-A reader should also note that in this script, a letter may consist on many strokes, but the initial stroke of a letter is designated by a wedge or triangular stroke: if a downward stroke does not have this wedge, it is not a new letter. See how we can differentiate between the M and N in this word "FOMNAI":
+A reader should also note that in this script, a letter may consist on many strokes, but the initial stroke of a letter is designated by a wedge or triangular stroke (a serif): if a downward stroke does not have this serif, it is not a new letter. See how we can differentiate between the M and N in this word "FOMNAI":
 
 <img src="FOMNAI.png" alt="" class="free-image" />
 
-Despite there being five near-identical downward strokes in the middle of this word, the upper wedges differentiate letter-initial strokes from strokes that continue a letter.
+Despite there being five near-identical downward strokes in the middle of this word, the upper serifs differentiate letter-initial strokes from strokes that continue a letter.
 
 <img src="FOMNAI_CIRCLED.png" alt="" class="free-image" />
 
-The one exception is the letter U, in which both downstrokes contain a wedge marker. See here the word "LUG", in which the L and U collectively have three wedges:
+The one exception is the letter U, in which both downstrokes contain a serif. See here the word "LUG", in which the L and U collectively have three wedges:
 
 <img src="LUG.png" alt="" class="half-image" />
 
-But sometimes the scribe writes too fast and his Us slide across the folio appearing like a different glyph. Here is the word "TUATH" with a speedily-written U and a lenited T marked with a dot.
+But sometimes the scribe writes too quickly and his U's slide across the folio appearing like a different glyph. Here is the word "TUATH" with a speedily-written U and a lenited T marked with a dot.
 
 <img src="TUATH.png" alt="" class="half-image" />
 
@@ -133,7 +138,7 @@ The entire "Song of Lugh" is preceded by this strange double stroke symbol which
 
 <img src="SYMBOL.png" alt="" class="same-size" />
 
-Thurneysen uses this symbol to demarcate a kind of 'overflow line' for words that should appear elsewhere in the text. So in his transcription he moves the words after this symbol (but on the same line) to after the line that begins "Arotroi cath comartan...". Presumably the scribe wanted the 'A' in "Arotroi" to be larger and to sit on the margin, but he didn't want to waste precious vellum with empty space, so he filled the previous line out with text that was meant to go after the "Arotroi..." line. Therefore, Thurneysen moved the "silsit- ..." line to after the "Arotroi..." line.
+Thurneysen uses this symbol to demarcate a kind of 'overflow line' for words that should appear elsewhere in the text. In his transcription he moves the words which come after this strange symbol (but are still on the same line) to after the line that begins "Arotroi cath comartan...". Presumably the scribe wanted the 'A' in "Arotroi" to be larger and to sit on the margin, but didn't want to waste precious vellum with empty space, so he finished out the previous line with text that was meant to go after the "Arotroi..." line. Therefore, Thurneysen moved the "silsit- ..." line to after the "Arotroi..." line.
 
 Here is an example of Stokes doing the same thing for this symbol on folio 67v. He moves the "ol Corpri..." line to after the "Os tusai..." line. The scribe then, again, wanted the first letter of this new paragraph to be larger in the margin. So in my transcription, the "silsit- ..." line will also follow after the "Arotroi..." line.
 
@@ -148,28 +153,28 @@ The untranslated poem appears on the page as follows:
 
 <img src="POEM.png" alt="" class="wide-image" />
 
-I will go line by line and merely relocate the letters from insular minuscule.
+I will go line by line and merely relocate the letters from insular into Roman script. Note that a dash '-' indicates a macron over the preceding letter, a double parenthesis '()' indicates a curved stroke above the previous letter, and a plus '+' indicates a downstroke with a crossbar.
 
 <img src="LINE2.png" alt="" class="wide-image" />
 <i>Arotroi cat comartan isin cath irgal robris comlondo f-slecht- slu-</i>
 
 <img src="LINE1.png" alt="" class="wide-image" />
-<i>silsit- riaslu- sioabrai iath fer fomnai, cuife</i>
+<i>silsit- riaslu- sioabrai iath fer fomnai cuife</i>
 
 <img src="LINE3.png" alt="" class="wide-image" />
-<i>cithai fir genrogain lentor gala, fordomaisit fordomcloisid f-an</i>
+<i>cithai fir genrogain lentor gala fordomaisit fordomcloisid f-an</i>
 
 <img src="LINE4.png" alt="" class="wide-image" />
-<i>dechraiged fir duib becc find nomtain-, fó fó fé fé cléamainsi no</i>
+<i>dechraiged fir duib becc find nomtain- fó fó fé fé cléamainsi no</i>
 
 <img src="LINE5.png" alt="" class="wide-image" />
-<i>efit- maim- iernelscoth- trietrenc-daib druag, Nimcredbod catha f()c()cha</i>
+<i>efit- maim- iernelscoth- trietrenc-daib druag Nimcredbod catha f()c()cha</i>
 
 <img src="LINE6.png" alt="" class="wide-image" />
 <i>nesit- mede midege fornemairces f-luachoir loisces ma+tal- tshuides</i>
 
 <img src="LINE7.png" alt="" class="wide-image" />
-<i>ma+torain- trogais, ni comairsid f()cechnaie go comair ogma sachu go</i>
+<i>ma+torain- trogais ni comairsid f()cechnaie go comair ogma sachu go</i>
 
 <img src="LINE8.png" alt="" class="wide-image" />
 <i>comair ne- agus talom go comair g()oa- agus esa+u. Drem madh mo dremsie duib</i>
@@ -178,17 +183,18 @@ I will go line by line and merely relocate the letters from insular minuscule.
 <i>Moslu-so slu- mor murnech mochtsailech bruithe nt-oirech rogeno+</i>
 
 <img src="LINE10.png" alt="" class="wide-image" />
-<p><i>et- dacri ataf-roi cath comortai, Arot''i</i> (Stokes' translation resumes here)</p>
+<p><i>et- dacri ataf-roi cath comortai. Arot''i</i> (Stokes' translation resumes here)</p>
 
 ### Thurneysen's Transcription
 
 Well before my undertaking of this work, Rudolf Thurneysen completed a transcription of this passage in [*Zeitschrift fur Celtische Philologie* Vol. XII pg. 403](https://archive.org/details/zeitschriftfrc12meyeuoft/page/402/mode/2up), which I will provide now for comparison with my own. Note that a dash once again indicates a *macron* above the preceding letter, and text in italics has been filled in by Thurneysen in the place of *macrons* which are sufficiently obvious.
 
-Atroroi cat comartan isincathirgal robris comlondo f*or*slecht- slu- silsit- riaslu- sioa- brai iath fer fomnai . cuifecithai fir genrogain lentor gala. fordomaisit fordomcloisid f*or*andechraiged fir duib becc find nomtam . fó fó fé fé clé amainsi noefit- mann iernelscoth- trietrenc*er*daib druag. Nimcredbod catha fricricha nesit- mede midege fornemairces f*or*luachoir loisces martal- tṡuides martorai*n*n trogais . incomairsid fricechnaie gocomair ogma sachu gocomair nem 7 talom gocomair grioan 7 esqu Drem níadh modremsie duib Moslu-so slu- mor murnech mochtsailech bruithe n*er*toirech rogenoir et- dacri ataf*or*roi cath comortai. arot*ra*i.
+>Atroroi cat comartan isincathirgal robris comlondo f*or*slecht- slu- silsit- riaslu- sioa- brai iath fer fomnai . cuifecithai fir genrogain lentor gala. fordomaisit fordomcloisid f*or*andechraiged fir duib becc find nomtam . fó fó fé fé clé amainsi noefit- mann iernelscoth- trietrenc*er*daib druag. Nimcredbod catha fricricha nesit- mede midege fornemairces f*or*luachoir loisces martal- tṡuides martorai*n*n trogais . incomairsid fricechnaie gocomair ogma sachu gocomair nem 7 talom gocomair grioan 7 esqu Drem níadh modremsie duib Moslu-so slu- mor murnech mochtsailech bruithe n*er*toirech rogenoir et- dacri ataf*or*roi cath comortai. arot*ra*i.
 
-You may notice, like I did, two errors in this transcription, either due to Thurneysen or, more likely, to his printer. The first word *Arotroi* on the manuscript is here rendered "Atroroi", meaning ["to fail"](https://dil.ie/4923); and the word *nicomairsid* is rendered as *incomairsid*. The former error I attribute to the printer, because the *arotrai* which ends the poem is correct, the latter I attribute to Thurneysen, since the three downstrokes which make up both *in-* and *ni-* can be easily confused, and I am only more confident in my own interpretation because of high-quality digital imagery that isn't obscured by light and shadow or by tired eyes.
+You may notice, like I did, two errors in this transcription, either due to Thurneysen or, more likely, his printer. The first word *Arotroi* on the manuscript is here rendered "Atroroi", meaning ["to fail"](https://dil.ie/4923); and the word *nicomairsid* is rendered as *incomairsid*. The former error I attribute to the printer, because the *arotrai* which ends the poem is printed correctly; the latter I attribute to Thurneysen, since the three downstrokes which make up both *in-* and *ni-* can be easily confused, and I am only more confident in my own interpretation because of high-quality digital imagery that isn't obscured by light and shadow or by tired eyes.
 
 ---
+
 ## Word Analysis
 
 The words are divided here based on how they appear to me to be separated on the folio.
@@ -310,13 +316,13 @@ The words are divided here based on how they appear to me to be separated on the
 
 7\. This word usually means "breaks, smashes" according to eDIL, but when combined with *cath* or *irgal*, etc, which it is here, then means "overthrows, defeats, routs".
 
-8\. In the same way as *comlann* is given as *com* + *lán*, "equally + full", I take this word as *com* + *lond*, "equally + fierce, angry". Mees renders this word as "with fury", which I essentially agree with. The word-final 'o' is an adjectival suffix. In trying to figure out this sentence, I also take this adjective *comlondo* to be attached to the verb *robris*, acting as an adverbial modifier giving a meaning of "breaks fiercely" or "overthrows furiously", which again essentially agrees with Mees' translation.
+8\. In the same way as *comlann* is given as *com* + *lán*, "equally + full", I take this word as *com* + *lond*, "equally + fierce, angry". Mees renders this word as "with fury", which I essentially agree with. The word-final 'o' can be an adjectival suffix. In trying to figure out this sentence, I also take this adjective *comlondo* to be attached to the verb *robris*, acting as an adverbial modifier giving a meaning of "breaks fiercely" or "overthrows furiously", which again essentially agrees with Mees' translation.
 
 9\. The first part is obviously *for*. The second part could be [slecht](https://dil.ie/37871), a noun, meaning a division or the act of hewing, or [sligid](https://dil.ie/37939), a verb, meaning similarly to cut, hew, or throw down (i.e. an army). Both words, and both constructions (i.e. noun or verb) essentially describe the army in question as one that hews habitually, so we can give the English translation of "hewing host" or "over-slaughtering army", once again in agreement with Mees' translation. The word-final macron can be assumed as a conjugational ending or declension, and likely monosyllabic, probably *slechta* or even *slechtaib*. It can go either way, but I take this word to be the verbal noun of *sligid*, giving us "upon/on the hewing hosts".
 
-10\. Following the discussion in Note 9, I take *slu-* here to be *slúaig*, being "slúag" in the genitive, since for the noun "forslecht" to describe the *slúag* we must have *forslecht slúaig* "the hewing of the host", or perhaps merely *forslecht slúag* "the hewing of the hosts".
+10\. Following the discussion in Note 9, I take *slu-* here to be *slúaig*, that is "slúag" in the genitive, since for the noun "forslecht" to describe the *slúag* we must have *forslecht slúaig* "the hewing of the host", or perhaps it is merely *forslecht slúag* "the hewing of the hosts".
 
-13\. This word is derived either from [síabraid](https://dil.ie/37365) or [síabair](https://dil.ie/37359), with the latter pertaining to supernatural beings, phantoms, specters, etc., according to eDIL, and which agrees with Mees' and Carmody's translations of this word as "phantom", and with the former meaning "enchanted, aroused, whipped into a fury, even to a supernatural fury". I take the former derivation to be superior on the grounds of meaning, since there is no indication of a "phantom host" otherwise, but Lugh is engaging in the act of bewitching his army through incantation, so this is the army before which is the destruction.
+13\. This word is derived either from [síabraid](https://dil.ie/37365) or [síabair](https://dil.ie/37359), with the latter pertaining to supernatural beings, phantoms, specters, etc. according to eDIL, and which agrees with Mees' and Carmody's translations of this word as "phantom", and with the former meaning "enchanted, aroused, whipped into a fury, even to a supernatural fury". I take the former derivation to be superior on the grounds of meaning, since there is no indication of a "phantom host" otherwise, but Lugh is engaging in the act of bewitching and arousing his army through incantation, so this is the army before which is the destruction.
 
 17\. See also this word referenced in [daire](https://dil.ie/14268), taken to mean an animal den or thicket.
 
@@ -328,11 +334,11 @@ The words are divided here based on how they appear to me to be separated on the
 
 27\. See the note in eDIL for [for](https://dil.ie/23272), which explains the use of *fora* + *n-* in a relative clause which allows for the word to take the form of *fora*.
 
-28\. In the [eDIL listing](https://dil.ie/14925) for *dechraigidir*, we see an identical form in *fria ndechraiged*, a preterite subjunctive 3rd person singular. So it is tempting to break with pattern and interpret the macron over the 'f' which begins this word as *friandechraiged* instead of *forandechraiged*, but I find it more likely that the same structure can hold for *for*. This is exactly what we have here, and the word should be taken as *fora n-dechraiged*. As for meaning, this would indicate that the 'fir' mentioned subsequently distinguish themselves; we can translate this as "greatly distinguished".
+28\. In the [eDIL listing](https://dil.ie/14925) for *dechraigidir*, we see an identical form in *fria ndechraiged*, a preterite subjunctive 3rd person singular. So it is tempting to break with pattern and interpret the macron over the 'f' which begins this word as *friandechraiged* instead of *forandechraiged*, but I find it more likely that this word continues the series of *for* words. The word should be taken as *fora n-dechraiged*. As for meaning, this would indicate that the 'fir' subsequently mentioned distinguish themselves; we can translate this as "greatly distinguished".
 
-30\. *duib* or *dub* has the meaning of "black", but also of "great, mighty" or "dire," and is used later interchangeably or with *mór*. However here I will take it to mean "black" or "dark".
+30\. *duib* or *dub* has the meaning of "black", but also of "great, mighty" or "dire," and is used later interchangeably or with *mór*. However here I will take it to mean "black" or "dark". Mees and Daimler use this word when it appears later to mean "to you", with the modern Irish meaning of *daoibh*, but I find a form of *dub* "black" to be far more likely on grounds of grammar and meaning.
 
-33\. An alternate reading is *nomtam-*, an ambiguity which Thurneysen notes, but I view *nomtain-* as the far more likely reading due to the subtle serif on the middle downstroke of the supposed '-m', indicating that this is actually an *-in*. This also allows us to accurately evaluate the macron over the 'n', as being a common double 'n' ending, whereas an 'm' ending leaves us with no clear option for the macron. I would like for this word to be a form of something like *nomtaid*, but there is no such word in any dictionary, so I must interpret this as a compound of *noíb* + *táinn*, with a meaning of "sacred, holy + raid, driving-off", essentially describing what the Tuatha Dé intends to enact upon the Fomorians. The word then is a verb meaning "drives off, raids". eDIL attests that in Middle Irish the former word is more often written as *noem*, or similar forms, over *noíb*. The latter word is well known, but does not appear listed with a double *-nn* ending; this may be a scribal variation, but may also indicate that the second word is truly a form of [tain](https://dil.ie/40004), meaning "time, while, occurrence". This meaning is linguistically safer, however on grounds of meaning alone I find this alternative less likely, since "sacred time, holy time" would seemingly be disconnected from any established meaning in this line. However, I am ultimately not very confident in this translation because of the unaccounted-for *-nn* ending and the leap required to make this a verb.
+33\. An alternate reading is *nomtam-*, an ambiguity which Thurneysen notes, but I view *nomtain-* as the far more likely reading due to the subtle serif on the middle downstroke of the supposed '-m', indicating that this is actually an *-in*. This also allows us to accurately evaluate the macron over the 'n', as being a common double 'n' ending, whereas an 'm' ending leaves us with no clear option for the macron. I would like for this word to be a form of something like *nomtaid*, but there is no such word in any dictionary, so I must interpret this as a compound of *noíb* + *táinn*, with a meaning of "sacred, holy + raid, driving-off", essentially describing what the Tuatha Dé intends to enact upon the Fomorians. The word then is a verb meaning "drives off, raids". eDIL attests that in Middle Irish the former word is more often written as *noem*, or similar forms, over *noíb*. The latter word is well known, but does not appear listed with a double *-nn* ending; this may be a scribal variation, but may also indicate that the second word is truly a form of [tain](https://dil.ie/40004), meaning "time, while, occurrence". This meaning is linguistically safer, however on grounds of meaning alone I find this alternative less likely, since "sacred time, holy time" would seemingly be disconnected from any established meaning in this line. However, I am ultimately not very confident in this translation because of the unaccounted-for *-nn* ending and the leap required to make this a verb. It is also possible that the initial word *noem* is the final afjective in the list and not connected to *tainn*.
 
 34\. This word has a more literal meaning of "good", but I translate it as "joy", to better contrast with the following "woe!" It may be simply a feature of English that woe is thing that is felt, so to keep the pairing consistent, *fo .i. maith* must likewise become a "goodness that is felt" i.e. joy.
 
@@ -340,13 +346,13 @@ The words are divided here based on how they appear to me to be separated on the
 
 41\. This word is truly hard to read. The manuscript shows four downstrokes for the final letter(s), which could be, most likely, either an "-im" or an "-nn". To me there seems to be a slightly larger serif on the second downstroke, implying an "-im" ending and giving this word as "maim-", with a macron still to be accounted for. The word is ultimately thus a form of the word *mám* such as *máime* (gen. s.). A genitive form is given in eDIL to show a unit of measure, e.g. *lán máime* "full of a fist" or "a fist full", and we could have a unit of measurement for the supposed *fit* "food" in the previous word.
 
-42\. *scoth-* I take to mean [scothach](https://dil.ie/36595), meaning "flowery, bushy, tufted", a good descriptor of the cloud that precedes it. The final letter 'h' with a macron is unusual, since most lenition in this manuscript is indicated by a *fada* over the letter. Yet a few lines earlier, right before the poem's beginning, there is another h-with-macron at the end of the word which Stokes renders as *timchell*. So the h-with-macron is used to show lenition as well as a common ending that could be multiple letters in length. Therefore, we can select the most reasonable ending from eDIL and apply it, which to me is *scothach*, giving us "fluffy clouds".
+42\. *scoth-* I resolve as [scothach](https://dil.ie/36595), meaning "flowery, bushy, tufted", a good descriptor of the cloud *nel* that precedes it. The final letter 'h' with a macron is unusual, since most lenition in this manuscript is indicated by a *fada* over the letter instead. Yet a few lines earlier, right before the poem's beginning, there is another h-with-macron at the end of the word which Stokes renders as *timchell*. So the h-with-macron is used to show lenition as well as a common ending that could be multiple letters in length. Therefore, we can select the most reasonable ending from eDIL and apply it, which to me is *scothach*, giving us "fluffy clouds".
 
-43\. The first element is clearly [tre](https://dil.ie/41608), "through", followed by [tren](https://dil.ie/41798), "strong", but then we find a 'c', a macron, and a suffix *-daib*. Thurneysen renders this as *cerdaib*, meaning "arts", which I am not opposed to. The macron allows for an arbitrary letter or string of letters to fill in, but whatever is there should be something monosyllabic, as this seems to be the acceptable use of other macrons. eDIL offers some examples of words that fit this description: "chladaib", "chlandaib", "cruadaib", "cerdaib", "cendaib", etc. But the meaning of "cerdaib" fits well in Lugh's oration, giving us *trie trén cerdaib druag* "through strong druid arts". See [2 día](https://dil.ie/15847) for occurrences of the phrase *cerdaib dé druidechtai*, which seems to be a common phrase that is echoed here.
+43\. The first element is clearly [tre](https://dil.ie/41608), "through", followed by [tren](https://dil.ie/41798), "strong", but then we find a 'c', a macron, and a suffix *-daib*. Thurneysen renders this as *cerdaib*, meaning "arts", which I am not opposed to. The macron allows for an arbitrary letter or string of letters to fill in, but whatever is there should be something monosyllabic, as this seems to be the typical use of other macrons. eDIL offers some examples of words that fit this description: "chladaib", "chlandaib", "cruadaib", "cerdaib", "cendaib", etc. But the meaning of "cerdaib" fits well in Lugh's oration, giving us *trie trén cerdaib druag* "through strong druid arts". See [2 día](https://dil.ie/15847) for occurrences of the phrase *cerdaib dé druidechtai*, which seems to be a common phrase that is echoed here.
 
 45\. This compound word, *nimcredbod*, is likely *ni + me +* (a form of) *credbaid*. The passage in this poem is cited directly in the eDIL entry for [credbaid](https://dil.ie/12821). Also, a nearly identical formation appears in the *Cath Airtig* text presented in [Ériu 8, pg. 172](https://archive.org/details/eriu_1916_8/page/172/mode/1up), which gives a similar magical song; there it appears as *nom credbad*. *credbod* is the verbal noun of *credbaid*, and when combined with the next word *catha*, gives the meaning of "battle does not wither/weary/corrode me".
 
-47\. This word is much compacted, using two superscript marks to abbreviate. Previously when the scribe had used a mark over an 'f', Stokes took it to mean 'fr' or even 'fri', so I will defer to his interpretation. He transcribes the mark below as *friu* a few pages previously: <img src="FRIU.png" alt="" class="same-size" />
+47\. This word is much compacted, using two superscript marks to abbreviate. Previously when the scribe had used a mark over an 'f', Stokes took it to mean 'fr' or even 'fri', so I will defer to his interpretation. He transcribes the mark below as *friu* a few pages previously: <div><img src="FRIU.png" alt="" class="same-size" style="width: 225px;"/></div>
 
 48\. I take this as a verbal form of [3 ness](https://dil.ie/33129), which in the eDIL entry references O'Davoren's Glossary which equates *nes .i. crecht*. [Crecht](https://dil.ie/12800) has an established meaning of "wound", and the verb [nesaigid](https://dil.ie/33134) means the same. Or the form *nesit* may be the 3rd. person singular of a verb *nesaid* or *nessa* which is unlisted in eDIL, but which the scribe may have neologized from the listed word *ness*, which is common in Old Irish (see Thurneysen's *A Grammar of Old Irish* section 524, on adjectives turning into verbs). But as regards the macron over the final 't', I suspect this is a final '-he' or '-ha' which would present us with an imperfect passive form of *nesaigid*, being *nesithe* or *nesitha*, "were wounded". The more proper form, however, would be *nestae* or *nestha*, so I am not utterly convinced of this reasoning.
 
@@ -378,7 +384,7 @@ The words are divided here based on how they appear to me to be separated on the
 
 86\. Examples of the o-form of *aire*/*airech* can be seen in the entry for [3 aire](https://dil.ie/1885). eDIL also specifies that [nert](https://dil.ie/33116) can become adjectival when used as the primary element in a compound, with some examples, *co nertbáig* "with strong fight", *nertbla* "mighty fame", etc. Thus we have "mighty lords".
 
-87\. See [díth](https://dil.ie/16842) for *rogenair [Isu] ó Muire*, "Jesus born of Mary", and under [gainithir](https://dil.ie/25186), *is hé Crist rogenir*, "Christ is born"; *Rí rogenair imBetheil*, "King born in Bethlehem"; etc.
+87\. See [díth](https://dil.ie/16842) for *rogenair [Isu] ó Muire*, "Jesus born of Mary", and under [gainithir](https://dil.ie/25186), *is hé Crist rogenir*, "Christ is born"; *Rí rogenair imBetheil*, "King born in Bethlehem"; etc.
 
 89\. The meaning of *da-* as "two" is supported by *etir*: "between" implies two things.
 
@@ -406,13 +412,13 @@ The words are divided here based on how they appear to me to be separated on the
 6. Valiant corpses were wounded reaching heaven, burning to brilliance, as the earth sits
 7. As the thunder comes forth. Do not cry out to each one before wise Ogma,
 8. Before heaven and earth, before sun and moon. My dark troop is a troop of warriors.
-9. My army is a great army, uproarious, steadfast, boiling, mighty lords are born
+9. My army is a great army, uproarious, steadfast, boiling, mighty as lords, born
 10. Between two bodies which attack in battle of mutual slaughter. Arise!
 
 ---
 ## Meter, or Arranging the Lines
 
-This incantation is a *rosc* poem, which typically in the Old Irish period consist of four-line stanzas with seven or five syllables in each line, with alliteration within each line and each line rhyming with one other within the stanza. As such, we can attempt to fit the text into the *rosc* pattern and see if it fits.
+This incantation is a *rosc* poem, which typically in the Old Irish period consist of four-line stanzas with any number, but most often seven, syllables in each line, with alliteration within each line and each line rhyming within the stanza. As such, we can attempt to fit the text into the *rosc* pattern and see if it fits.
 
 If the curious reader wants a primer on Old Irish poetry, he should seek out Lesson 58 in David Stifter's [*Sengoídelc: Old Irish for Beginners*](https://archive.org/details/SengodelcOldIrishForBeginn), which goes over meter, rhyme, stanzas, syllable count, cadence, etc. One point I'd like to lift from that text to this one is the following: "Whereas in \[English or German\] the rhyming portions of words must be absolutely identical, there is much more freedom is Irish poetry... Rhyme starts with the stressed vowel... the two vowels must both be either short or long; a short vowel does not rhyme with a long one." He offers a footnote: "In Middle Irish, after unstressed vowels had become /ə/, all finals vowels, whatever their origin, rhyme with each other." Since this *rosc* shows clear signs of composition in Middle Irish, we can keep this rhyme qualification in mind. I should also note that in Old and Middle Irish, stress mot often falls on the first syllable of the word, unless that syllable is a common preposition that is not the root. For example, COMartan, MURNech, MIDege, SILsiter, but also foraNDECHraiged, nimCREDbod, genROGain.
 
@@ -462,9 +468,11 @@ If the curious reader wants a primer on Old Irish poetry, he should seek out Les
 | ataforroi                    | 4         |
 | cath comortai. arotrai.      | 7         |
 
-The stanza starting with *Nicomairsid* is an anchor point in the incantation: it cleanly contains four perfect lines of seven syllables, similar to the first stanza *Arotroi*. All other lines can be fit between these two. It seems that in this *rosc*, syllable count is not so strict. The rhyme indicates that the syllable count switches between 7, 4, and 5 per line throughout the poem, with certain lines breaking the pattern (*forandechraiged*, *fornemairces*, and *nomtainn*), along with the final three(?) lines which don't seem to rhyme or fit. It is possible that these aberrant words underwent elision on weak letters to shorten them or hiatus to extend them, e.g. *forandechrai**g**ed* (5) -> *forandechrai**gh**ed* (5) -> *forandechraied* (4). But these aberrant lines are the exception to an otherwise regular meter.
+The stanza starting with *Nicomairsid* is an anchor point in the incantation: it cleanly contains four perfect lines of seven syllables each, similar to the first stanza *Arotroi*. All other lines can be fit between these two. It seems that in this *rosc*, syllable count is not so strict. Arranging lines by rhyme, we see that the syllable count switches between 4, 5, 6, and 7 per line throughout the poem, with certain lines breaking the pattern (*forandechraiged*, *fornemairces*, and *nomtainn*), along with the final three(?) lines which don't seem to rhyme or fit. It is possible that these aberrant words underwent elision on weak letters to shorten them or hiatus to extend them, e.g. *forandechrai**g**ed* (5) -> *forandechrai**gh**ed* (5) -> *forandechraied* (4). But these aberrant lines are the exception to an otherwise regular meter.
 
-It is also possible to arrange the poem into stanzas of seven syllable lines, though it is less satisfactory, however the lines I've proposed are also quite unsatisfactory. It appears that this poem is simply not regularly composed in rhyme or syllable count. Mees calls the middle section 'garbled... copied... from a much earlier manuscript'; I was struck with the impression that the scribe may have had this poem read aloud to him by another person. Either way, this is a difficult poem which remains open to amendation.
+It is also possible to ignore rhyme and arrange the poem into stanzas of perfect seven syllable lines, though it is less satisfactory, however the lines I've proposed are also quite unsatisfactory. It appears that this poem is simply not regularly composed in rhyme or syllable count. Mees calls the middle section 'garbled... copied... from a much earlier manuscript'; I was struck with the impression that the scribe may have had this poem read aloud to him by another person. Either way, this is a difficult poem which remains open to amendation.
+
+This also appears to be a poem composed in an Old Irish fashion, but modernized to Middle Irish through the use of new words, new forms of words, new uses for old words, etc.
 
 So, my version in English:
 
@@ -516,19 +524,50 @@ in battle of mutual slaughter. Arise!
 
 </div>
 
-## An Instance of *Glám Dícenn*
+## An Instance of *Corrguinecht*
 
-The *glám dícenn* ritual will be treated in a later post. The magic is invoked by the stance Lugh takes while singing this incantation: one-eyed, one-armed, one-legged, circling the *Tuatha Dé* army. 
+This chant is more prominent than the others in the *Cath* due to the unusual stance which Lugh takes while reciting it: one-eyed, one-legged, and one-armed, circling the *Tuatha Dé* army.
 
-This appears to be a poem composed in an Old Irish fashion, but modernized to Middle Irish through the use of new words, new forms of words, new uses for old words, etc.
+{% blockquote Cath Maige Tuired 129, Stokes %}
+
+Wherefore then Lugh sang this chant below, as he went round the men of Erin, on one foot and with one eye (closed):
+
+{% endblockquote %}
+
+This posture is known in the scholarship as *corrguinecht*, and is translated in the non-academic space as "crane pose", drawing similarities between standing on one leg and a crane's resting pose, drawn from the word *corr* "crane, heron", and *guin* "wounding, harming". See [this post](https://www.interesly.com/medieval-irish-cursing/) for this etymology. A more academic etymology uses the alternate meaning of [*corr*](https://dil.ie/12513), "point, peak, sharp object", reminiscent of a crane's beak but also of needles or weapons. The song itself is identified as *glám dícenn*, or "satire of two points", which is also used by Coipre mac Etaín [earlier](https://archive.org/details/revueceltique12pari/page/70/mode/2up) in the story against Bres of the Fomorians. These two magical rituals, one of speech and the other of posture, are purportedly related here and elsewhere but seem not to be the same thing: they can be performed separately and serve separate functions. The stance then, I suspect, is an amplifier of the incantation, and the incantation is used to raise the spirits of the *Tuatha Dé*. The *glám dícenn* is typically used as a curse, in fact Coipre mac Etaín lists is [here in 115.](https://archive.org/details/revueceltique12pari/page/90/mode/2up) as a weapon to be used against the Fomorians, but Lugh uses it for the benefit of his own army thus implying that the ritual is neutral, and the speech itself makes it a blessing or a curse.
+
+Despite the better etymology for *corrguinecht* as "wounding with points", we still must account for Lugh's mysterious stance here, which I am inclined to believe still relates to the crane or heron and its role as a bird which traverses land, heaven, and sea (i.e. the underworld). A singer invoking the crane or contorting his spirit to become a crane-spirit during a ritual would thus be taking on this cosmological quality for the amplification of his magic.
+
+The *corrguinecht* and the *glám dícenn* will be treated in a later post.
+
+![](The-Song-of-Lugh/Crane.jpg)
+
+Fin.
 
 ---
 
-## Notes
+## Further Reading
 
+On Medieval Manuscripts:
 
 [Deciphering Scribal Abbreviations](https://guides.loc.gov/manuscript-facsimiles/deciphering-scribal-abbreviations#s-lib-ctab-24229924-8)
 
 [Manuscript Studies - Punctuation and Other Symbols](https://sites.ualberta.ca/~sreimer/ms-course/course/punc.htm)
 
-[Signes-de-Renvoi](https://drc.usask.ca/projects/archbook/signes_de_renvoi.php)
+[Insular Script](https://spotlight.vatlib.it/latin-paleography/feature/10-1-insular-majuscule-or-round-insular)
+
+On Old Irish:
+
+[A Grammar of Old Irish](https://archive.org/details/thurneysen-a-grammar-of-old-irish) by Rudolf Thurneysen
+
+[A Concise Old Irish Grammar and Reader](https://archive.org/details/conciseoldirishg01pokouoft) by Julius Pokorny
+
+On the *Cath Maige Tuired*:
+
+[Elizabeth Gray's Translation](https://people.umass.edu/sharris/in/handouts/Cath_Maige_Tuired.pdf)
+
+On Irish Magic:
+
+[Celtic Curses](https://www.cambridge.org/core/books/celtic-curses/1C98E6A5F9E316AC729361BC9D245890) by Bernard Mees
+
+[Irish Cursing and the Art of Magic, 1750–2018](https://academic.oup.com/past/article/247/1/113/5721469) by Thomas Waters

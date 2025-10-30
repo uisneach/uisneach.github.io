@@ -1,6 +1,6 @@
 ---
 title: You Have Become a Wolf
-author: GoF
+author: Ogmios
 description: A description of the Aryan Koryos in a Hittite law tract.
 date: 2023-08-26 11:42:00
 twitter_link: 'https://x.com/ogmios/status/1695461840564650206'
