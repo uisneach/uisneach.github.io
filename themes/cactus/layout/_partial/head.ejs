@@ -11,6 +11,7 @@
         twitter_id:     theme.open_graph.twitter_id,
         google_plus:    theme.open_graph.google_plus,
     }) %>
+    <meta name="twitter:card" content="summary_large_image"> <!-- Manually add better twitter card. -ogmios -->
     <%- meta(page) %>
     <% if (theme.favicon) { %>
       <% if (theme.favicon.desktop) { %>
