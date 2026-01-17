@@ -1,0 +1,41 @@
+{% extends "layouts/page.njk" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="/css/post.css">
+{% endblock %}
+
+{% block body %}
+{% include "components/header.njk" %}
+<article id="post-wrapper" class="flex-column">
+	<div class="post-header">
+		<h1 class="post-title">{{ title }}</h1>
+		<div class="metadata">
+			<span class="author"><a href="{{ site.twitter_link }}">{{ site.author }}</a></span>
+			<time datetime="2026-01-01" class="published-date">{{ date | formatDate }}</time>
+		</div>
+	</div>
+	
+	<div class="post-content">
+		{{ content | safe }}
+	</div>
+
+	{% if twitter_link or tags %}
+	<hr>
+	<div id="post-footer" class="flex-row">
+		{% if twitter_link %}
+	    <div id="twitter-link">
+	    	<p><a href="{{ twitter_link }}">Originally posted on X.</a></p>
+		</div>
+		{% endif %}
+		{% if tags %}
+		<ul class="tags flex-row">
+			{% for tag in tags %}
+			<li>{{ tag }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div>
+	{% endif %}
+</article>
+{% include "components/footer.njk" %}
+{% endblock %}

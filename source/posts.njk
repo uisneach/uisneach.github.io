@@ -1,0 +1,109 @@
+{% extends "layouts/post.njk" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="/css/network.css">
+<link rel="stylesheet" href="/css/posts.css">
+{% endblock %}
+
+{% block body %}
+{% include "components/header.njk" %}
+
+<main>
+  <h1>All Posts</h1>
+
+  {# ── Tag filter buttons ── #}
+  <div class="tag-filters">
+    {% set allTags = [] %}
+
+    {% for post in collections.posts %}
+      {% if post.data.tags %}
+        {% for tag in post.data.tags %}
+          {% if tag != "all" and tag != "posts" and tag != "post" and tag != "nav" %}
+            {% if tag not in allTags %}
+              {% set _ = allTags.push(tag) %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+    {% for tag in allTags | sort %}
+      <button class="tag-btn" data-tag="{{ tag }}" aria-pressed="false">
+        {{ tag }}
+      </button>
+    {% endfor %}
+  </div>
+
+  {# ── Posts list ── #}
+  <ul class="post-list" id="postList">
+    {% for post in collections.posts %}
+      <li class="post-item" data-tags="{% if post.data.tags %}{{ post.data.tags | join(',') }}{% endif %}">
+		  <div class="reading-card">
+		    {% set firstImage = post.templateContent | extractFirstImageUrl %}
+		    {% if firstImage %}
+		      <div class="reading-image-wrapper">
+		        <img src="{{ firstImage | url }}" alt="{{ post.data.title or post.fileSlug }} preview" class="reading-preview" loading="lazy" style="object-position: center {{ post.data.imgPosition }}%;">
+		        <div class="reading-overlay">
+		          <h3 class="reading-title">
+		            <a href="{{ post.url | url }}">{{ post.data.title or post.fileSlug }}</a>
+		          </h3>
+		          {% if post.data.description %}
+		            <span class="reading-description">{{ post.data.description }}</span>
+		          {% endif %}
+		        </div>
+		      </div>
+		    {% endif %}
+		  </div>
+		</li>
+    {% endfor %}
+  </ul>
+</main>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.tag-btn');
+    const postItems = document.querySelectorAll('.post-item');
+    const noResults = document.getElementById('noResults');
+
+    function updatePosts() {
+      // Get currently active tags
+      const activeTags = Array.from(buttons)
+        .filter(btn => btn.classList.contains('active'))
+        .map(btn => btn.dataset.tag);
+
+      let visibleCount = 0;
+
+      postItems.forEach(item => {
+        if (activeTags.length === 0) {
+          // No filters → show everything
+          item.style.display = '';
+          visibleCount++;
+        } else {
+          const itemTags = item.dataset.tags ? item.dataset.tags.split(',') : [];
+          // Show only if item has ALL active tags (AND logic)
+          const matchesAll = activeTags.every(tag => itemTags.includes(tag));
+          item.style.display = matchesAll ? '' : 'none';
+          if (matchesAll) visibleCount++;
+        }
+      });
+
+      // Show "no results" message if needed
+      if (noResults)
+      	noResults.style.display = (visibleCount === 0 && activeTags.length > 0) ? 'block' : 'none';
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
+        updatePosts();
+      });
+    });
+
+    // Initial state: no filters → all visible
+    updatePosts();
+  });
+</script>
+
+{% include "components/footer.njk" %}
+{% endblock %}

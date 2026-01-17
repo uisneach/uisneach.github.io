@@ -1,0 +1,158 @@
+:root {
+	--background-color: #1d1f21;
+	--text-color: #c9cacc;
+	--dark-grey: #908d8d;
+
+	--uisneac-green: #2bbc8a;
+	--uisneac-light-green: #a7e68b;
+	--uisneac-gold: #fcc200;
+
+	--article-page-width: 50rem;
+}
+
+* {
+    scrollbar-color: #999 transparent;
+}
+*:focus {
+	outline: none;
+}
+
+html {
+	color: var(--text-color);
+	background-color: var(--background-color);
+
+	max-width: 100vw;
+}
+
+body {
+	margin: 0;
+	width: 100%;
+
+	line-height: 1.725;
+	font-family: "Menlo", "Meslo LG", monospace;
+}
+
+main {
+	margin: 0 2.5rem;
+}
+
+/* --- UTILITY CLASSES --- */
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	color: var(--text-color);
+}
+
+a:hover, a:active, a:focus {
+	text-decoration: underline;
+}
+
+h1 {
+	display: block;
+    font-size: 2em;
+    margin: 0;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h2 {
+	position: relative;
+	display: block;
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
+	color: #eee;
+	text-transform: none;
+	letter-spacing: normal;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+hr {
+	border: 0.5px dashed #ccc;
+    opacity: 0.5;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+th {
+	border-bottom: 1px dashed var(--dark-grey);
+	padding: 8px;
+	text-align: center;
+}
+
+img {
+	display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+	font-style: inherit;
+	font-family: inherit;
+}
+
+blockquote {
+	margin: 0;
+ 	padding: 0 1rem;
+	color: var(--uisneac-light-green);
+	border-left: 4px solid var(--uisneac-light-green);
+	font-style: italic;
+}
+
+blockquote p {
+	margin: 0;
+	padding: 0;
+}
+
+.blockquote-content {
+	align-items: flex-start;
+	margin: 1rem 0;
+}
+
+.blockquote-attribution {
+	padding-left: 3rem;
+ 	display: block;
+  	font-size: smaller;
+  	text-align: left;
+  	color: var(--dark-grey);
+}
+
+.blockquote-attribution::before {
+	content: "— ";
+}
+
+/* --- IMAGES --- */
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  padding: 0;
+}
+
+figcaption {
+  font-style: italic;
+  color: var(--dark-grey);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}

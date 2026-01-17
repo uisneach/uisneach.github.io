@@ -1,0 +1,146 @@
+<footer>
+  <style>
+    footer {
+    	display: block;
+    	margin: 0 auto 2.5rem;
+    	padding: 0 2rem;
+			font-size: 0.7rem;
+    	color: var(--dark-grey);
+    	overflow: hidden;
+    }
+
+    footer a {
+    	color: var(--dark-grey);
+    }
+
+    .footer-top {
+    	display: flex;
+    	flex-direction: column;
+    	align-items: center;
+    	margin-top: 1rem;
+    	margin-bottom: 1.5rem;
+    }
+    .footer-top .footer-nav {
+    	margin: 0 auto;
+    }
+
+    .footer-nav {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		gap: 0.75rem;
+		align-items: center;
+		flex-wrap: wrap;
+    }
+    .footer-nav li {
+	    display: inline-block;
+	    padding-right: 0.75rem;
+	    border-right: 1px solid;
+	    border-color: #908d8d;
+	    vertical-align: middle;
+    }
+    .footer-nav li:last-child {
+  		border-right: none;
+  	}
+    .footer-nav li a {
+    	text-decoration: underline;
+    	font-size: 12px;
+    }
+
+	.footer-bottom {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+		margin-top: 0.25rem;
+	}
+	.footer-bottom > * {
+		width: 33%;
+	}
+  .copyright {
+		margin: auto 0;
+  }
+  .footer-links {
+   	list-style: none;
+   	gap: 1em;
+   	margin: 0;
+   	padding: 0;
+  }
+  .footer-links li:not(:first-child)::before {
+		content: "•";
+		margin-right: 0.6em;
+	}
+
+  .email-button, .email-button:hover {
+  	background-color: rgb(29, 31, 33);
+	  color: rgb(144, 141, 141);
+	  border: none;
+	  border-radius: 4px;
+	  text-decoration: none;
+	  padding: 2px 6px;
+	  font-size: 0.8rem;
+  }
+
+    /* Small screens: stack top row */
+    @media (max-width: 670px) {
+		.footer-top {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.footer-bottom {
+			flex-direction: column;
+			gap: 15px;
+		}
+
+		.footer-links li {
+			overflow-wrap: break-wrap;
+		}
+    	.footer-links li:not(:first-child)::before {
+			content: "";
+		}
+    }
+
+    @media (max-width: 400px) {
+		.footer-bottom {
+			flex-direction: column;
+			align-items: center;
+			gap: 5px;
+		}
+
+		.footer-bottom > * {
+			width: 100%;
+		}
+    }
+  </style>
+
+	<hr>
+	<div class="footer-top">
+		{% if page.url !== "/" and page.url !== "/index.html" %}
+	      <ul class="footer-nav" style="margin: 0 auto;">
+	        {% for link in site.navLinks %}
+	          <li>
+	            <a href="{{ link.url }}">{{ link.text }}</a>
+	          </li>
+	        {% endfor %}
+	      </ul>
+		{% endif %}
+	</div>
+
+	<div class="footer-bottom">
+		<div>
+			<a class="email-button" type="submit" onmouseover="this.style.backgroundColor='#FCC200';this.style.color='rgb(29,31,33)';" onmouseout="this.style.backgroundColor='rgb(29,31,33)';this.style.color='#908d8d';" href="https://uisneac.substack.com">Subscribe</a>
+		</div>
+		<p class="copyright">Copyright © 2024-{{ site.currentYear }} {{ site.author }}</p>
+
+		<ul class="footer-links flex-row">
+			{% for link in site.footerLinks %}
+			<li>
+				<a href="{{ link.url }}" target="_blank">{{ link.text }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</footer>

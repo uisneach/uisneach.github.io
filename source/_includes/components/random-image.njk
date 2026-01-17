@@ -1,0 +1,23 @@
+<img id="home-page-image" src="">
+
+<script>
+  const images = [
+    { src: "/assets/star.png",     scale: 1.0 },
+    { src: "/assets/taurus.png",   scale: 1.2 },
+    { src: "/assets/sun-stone.png", scale: 1.2 },
+    { src: "/assets/troy-town.png", scale: 1.0 },
+    { src: "/assets/torslunda-dancer.png", scale: 0.85 },
+    { src: "/assets/uisneach-plan.png", scale: 1.0 },
+    //{ src: "/assets/mask.png", scale: 0.8 }, Agememnon's Death Mask
+    { src: "/assets/ogham-stone.png", scale: 1.4 },
+    { src: "/assets/ogham-stone-2.png", scale: 1.4 },
+    // Dowth/Knowth star symbols
+    // Boa Island Figures
+  ];
+
+  const randomItem = images[Math.floor(Math.random() * images.length)];
+
+  const img = document.getElementById("home-page-image");
+  img.src = randomItem.src;
+  img.style.transform = `scale(${randomItem.scale})`;
+</script>
