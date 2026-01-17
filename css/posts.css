@@ -1,0 +1,128 @@
+.tag-filters {
+  margin: 1.5rem 0 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tag-btn {
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--uisneac-green);
+  background-color: transparent;
+  color: var(--text-color);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tag-btn.active {
+  color: black;
+  background-color: var(--uisneac-green);
+}
+
+.tag-btn:hover:not(.active) {
+  border-color: #adb5bd;
+}
+
+.reading-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 1.5rem;
+}
+
+.reading-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.reading-image-wrapper {
+  position: relative;
+}
+
+.reading-preview {
+  width: 100%;
+  height: 180px;          /* or auto, object-fit: cover; */
+  object-fit: cover;
+  display: block;
+}
+
+.reading-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.7) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  color: white;
+}
+
+.reading-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.reading-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.reading-title a:hover {
+  text-decoration: underline;
+}
+
+.reading-author {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+.reading-card > h3 {
+  margin: 1.25rem 1.25rem 0.5rem;
+  font-size: 1.4rem;
+}
+
+.reading-card > h3 a {
+  color: #222;
+  text-decoration: none;
+}
+
+.reading-card > h3 a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.reading-card img {
+  margin: 0;
+  padding: 0;
+}
+
+.reading-card > span {
+  display: block;
+  margin: 0 1.25rem 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Meta below card */
+.post-meta {
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.post-meta time {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.post-excerpt {
+  margin: 0.75rem 0 0;
+  line-height: 1.45;
+}

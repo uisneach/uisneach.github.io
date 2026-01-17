@@ -1,0 +1,165 @@
+h2 {
+  text-align: center;
+  color: var(--uisneac-green);
+}
+
+h2 a {
+  color: inherit;
+}
+
+#content-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin: 0 1rem;
+}
+
+#home-left-wrapper {
+	width: 33%;
+}
+
+#home-visual-wrapper {
+	width: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+#home-visual-wrapper img {
+  max-height: 50vh;
+  width: auto;
+}
+
+#home-right-wrapper {
+	width: 33%;
+}
+
+.post-list {
+  margin: 0;
+  padding: 0;
+}
+
+.post-list li {
+	display: flex;
+	flex-direction: row;
+}
+
+.post-date {
+	margin-right: 1rem;
+	color: var(--dark-grey);
+	flex-shrink: 0;
+}
+
+.post-title {
+	flex-grow: 1;
+}
+
+/* --- READING LIST --- */
+.reading-list {
+  list-style: none;
+  padding: 0;
+}
+
+.reading-item {
+  margin-bottom: 1.5rem;
+}
+
+.reading-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.reading-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.reading-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.reading-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.reading-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+}
+
+.reading-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.reading-title a:hover {
+  text-decoration: underline;
+}
+
+.reading-author {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.reading-description {
+  padding: 1rem;
+  margin: 0;
+}
+
+.reading-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Text-only card (smaller, simpler) */
+.reading-card--text-only {
+  padding: 1.25rem;
+  text-align: center;
+  min-height: 120px; /* Keeps consistent height with image cards if desired */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reading-card--text-only .reading-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.reading-card--text-only .reading-author {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Optional: Make no-image items visually distinct */
+.reading-item.no-image .reading-card {
+  border: 1px solid #e0e0e0;
+}
+
+.reading-list-container {
+  max-height: 400px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reading-list-container::-webkit-scrollbar {
+  display: none;
+}

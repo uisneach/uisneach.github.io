@@ -1,0 +1,153 @@
+article {
+	max-width: var(--article-page-width);
+	margin: 0 auto;
+	padding: 0 2rem;
+	text-align: justify;
+}
+
+h1 {
+	font-size: 1.75em;
+}
+
+h2:before {
+	position: absolute;
+	top: -4px;
+	left: -1rem;
+	color: #2bbc8a;
+	content: "#";
+	font-weight: bold;
+	font-size: 1.4rem;
+}
+
+h3 {
+	color: var(--text-color);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.post-content h3 {
+	align-self: center;
+	margin-top: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+img {
+	padding-bottom: 1rem;
+}
+
+img.same-size {
+	width: 150px;
+	height: 150px;
+	object-fit: fill;
+	margin: 15px auto 0 auto;
+}
+
+img.wide-image {
+	width: 100%;
+	height: auto;
+	object-fit: fill;
+	margin: 15px 0 0 0;
+}
+
+li {
+	list-style: none;
+}
+
+table {
+	margin: auto;
+}
+
+td {
+	padding: 0 0.8rem;
+}
+
+footer {
+    max-width: var(--article-page-width);
+}
+
+.post-header {
+	align-self: flex-start;
+}
+
+.post-title {
+	color: var(--uisneac-green);
+	line-height: normal;
+}
+
+.post-content {
+	overflow-wrap: break-word;
+	text-rendering: geometricPrecision;
+	display: flex;
+	flex-direction: column;
+}
+
+.post-content a {
+	text-decoration: underline;
+}
+
+.post-content p {
+	margin: 0;
+}
+
+.author {
+	text-transform: uppercase;
+	margin-right: 1em;
+	transform: scaleY(1.15);
+}
+
+.metadata {
+	font-size: 0.85rem;
+	font-weight: 700;
+}
+
+#post-footer {
+	width: 100%;
+	justify-content: space-between;
+}
+
+.tags {
+	gap: 10px;
+}
+
+.tags li:not(:last-child)::after {
+	content: ",";
+}
+
+/* --- FOOTNOTES --- */
+.footnotes {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+}
+
+.footnotes-sep {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1rem 0;
+}
+
+.footnotes-list {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.footnote-item {
+  list-style-type: decimal;
+  margin-bottom: 0.75rem;
+}
+
+.footnote-item p {
+  margin: 0;
+}
+.footnote-item a {
+  text-decoration: underline;
+}
+
+.footnote-ref {
+  vertical-align: super;
+  font-size: 0.75em;
+}
+
+.footnote-backref {
+  text-decoration: none;
+  margin-left: 0.5rem;
+}

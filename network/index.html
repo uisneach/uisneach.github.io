@@ -1,309 +1,653 @@
 <!DOCTYPE html>
-<html lang=en>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="Explore the Network  Science Exo Science by N’golo Tesla : https:&#x2F;&#x2F;exo-science.com&#x2F; Soliloquy.bio by Anabology : https:&#x2F;&#x2F;soliloquy.bio&#x2F; Archive of Fringe Science : http:&#x2F;&#x2F;www.tuks.nl&#x2F;pdf&#x2F;Reference_Ma">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Network">
-<meta property="og:url" content="https://uisneac.com/network/">
-<meta property="og:site_name" content="Uisneaċ">
-<meta property="og:description" content="Explore the Network  Science Exo Science by N’golo Tesla : https:&#x2F;&#x2F;exo-science.com&#x2F; Soliloquy.bio by Anabology : https:&#x2F;&#x2F;soliloquy.bio&#x2F; Archive of Fringe Science : http:&#x2F;&#x2F;www.tuks.nl&#x2F;pdf&#x2F;Reference_Ma">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-26T21:14:51.000Z">
-<meta property="article:modified_time" content="2025-12-25T19:45:50.014Z">
-<meta property="article:author" content="ogmios">
-<meta name="twitter:card" content="summary">
-    <meta name="twitter:card" content="summary_large_image"> <!-- Manually add better twitter card. -ogmios -->
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/Gold-Celtic-Design.png">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/Gold-Celtic-Design.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/Gold-Celtic-Design.png">
-        
-      
-    
-    <!-- title -->
-    <title>Network</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Uisneaċ</title>
+		<link rel="stylesheet" href="/css/page.css">
+		<link rel="icon" type="image/x-icon" href="/assets/Gold-Celtic-Design.png">
+		<meta name="author" content="Ogmios" />
+		
+<link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="/css/network.css">
 
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-	<!-- mathjax -->
-	
-<meta name="generator" content="Hexo 7.3.0"></head>
+	</head>
+	<body>
+		
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 2rem 2rem;
+    width: 100wv;
+  }
 
-<body class="max-width mx-auto px3 ltr">
-    
-    <div class="content index py4 ">
-        
-          <header id="header">
-  <a class="u-url u-uid" href="/">
-  
-    
-      <img id="logo" alt class="u-logo" src="/images/Gold-Celtic-Design.png" />
-    
-  
-    <div id="title">
-      <h1 class="p-name">Uisneaċ</h1>
-    </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-2x"></i></a>
-      </li>
-      <!--
-     --><li><a href="/">Home</a></li><!--
-   --><!--
-     --><li><a href="/about/">About</a></li><!--
-   --><!--
-     --><li><a href="/read/">Read</a></li><!--
-   --><!--
-     --><li><a href="/leabharlann/">Leabharlann</a></li><!--
-   --><!--
-     --><li><a target="_blank" rel="noopener" href="https://files.uisneac.com/">Archive</a></li><!--
-   --><!--
-     --><li><a href="/network/">Network</a></li><!--
-   -->
-    </ul>
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-left a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 1em;
+  }
+
+  .header-logo {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .header-title {
+    margin: 0;
+    color: #c9cacc;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.5rem;
+    transform: scaleY(1.15);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header-nav {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.01em;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 0.95rem;
+  }
+
+  .header-nav li {
+    margin-left: 1.5rem;
+  }
+
+  .header-nav a {
+    color: var(--uisneac-green);
+    text-decoration: none;
+  }
+
+  .header-nav a:hover, a:active, a:focus {
+  	text-decoration: underline;
+  }
+</style>
+
+<header class="header">
+  <div class="header-left">
+    <a href="/">
+      <img src="/assets/Gold-Celtic-Design.png" alt="Logo" class="header-logo">
+      <h1 class="header-title">Uisneaċ</h1>
+    </a>
   </div>
+  <nav>
+    <ul class="header-nav">
+      
+        <li>
+          <a href="/about/">About</a>
+        </li>
+      
+        <li>
+          <a href="/posts/">Posts</a>
+        </li>
+      
+        <li>
+          <a href="/leabharlann/">Leabharlann</a>
+        </li>
+      
+        <li>
+          <a href="https://files.uisneac.com">Archive</a>
+        </li>
+      
+        <li>
+          <a href="/network/">Network</a>
+        </li>
+      
+    </ul>
+  </nav>
 </header>
 
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  
 
-  <div class="content" itemprop="articleBody">
-    
-    <center><h1> Explore the Network </h1></center>
-<h2 id="Science">Science</h2>
-<p>Exo Science by N’golo Tesla : <a target="_blank" rel="noopener" href="https://exo-science.com">https://exo-science.com/</a></p>
-<p>Soliloquy.bio by Anabology : <a target="_blank" rel="noopener" href="https://soliloquy.bio/">https://soliloquy.bio/</a></p>
-<p>Archive of Fringe Science : <a target="_blank" rel="noopener" href="http://www.tuks.nl/pdf/Reference_Material/">http://www.tuks.nl/pdf/Reference_Material/</a></p>
-<p>The Architecture of Open Source Applications : <a target="_blank" rel="noopener" href="https://aosabook.org/en/index.html">https://aosabook.org/en/index.html</a></p>
-<p>Based Physics : <a target="_blank" rel="noopener" href="https://www.basedphysics.com/">https://www.basedphysics.com/</a></p>
-<h2 id="History-Anthropology">History &amp; Anthropology</h2>
-<p>Thuletide’s Blog : <a target="_blank" rel="noopener" href="https://thuletide.wordpress.com/">https://thuletide.wordpress.com/</a></p>
-<p>Grey Goose Chronicles by Stone Age Herbalist : <a target="_blank" rel="noopener" href="https://www.stoneageherbalist.com/">https://www.stoneageherbalist.com/</a></p>
-<p>Aryan Anthropology : <a target="_blank" rel="noopener" href="https://aryan-anthropology.blogspot.com/?m=0">https://aryan-anthropology.blogspot.com/?m=0</a></p>
-<p>Dan Davis on Youtube : <a target="_blank" rel="noopener" href="https://www.youtube.com/@dandavishistory">https://www.youtube.com/@dandavishistory</a></p>
-<p>Irish and Breton Carolingian Texts - Manuscript Source : <a target="_blank" rel="noopener" href="https://ircabritt.nuigalway.ie/">https://ircabritt.nuigalway.ie/</a></p>
-<p>Linear A Inscription Archive : <a target="_blank" rel="noopener" href="https://lineara.xyz/">https://lineara.xyz/</a></p>
-<p>Luwian Studies : <a target="_blank" rel="noopener" href="https://luwianstudies.org/">https://luwianstudies.org/</a></p>
-<h2 id="Esotericism">Esotericism</h2>
-<p><a target="_blank" rel="noopener" href="http://Soma.cx">Soma.cx</a> : <a target="_blank" rel="noopener" href="https://soma.cx/">https://soma.cx/</a></p>
-<p>Somachat - Hyper-Realtime Chat : <a target="_blank" rel="noopener" href="https://chat.soma.cx/general">https://chat.soma.cx/general</a></p>
-<p>Geocities : <a target="_blank" rel="noopener" href="https://geocities.restorativland.org/">https://geocities.restorativland.org/</a>, a project of <a target="_blank" rel="noopener" href="https://restorativland.org/">https://restorativland.org/</a></p>
-<p>Don’s Directory : <a target="_blank" rel="noopener" href="https://dons.directory/">https://dons.directory/</a></p>
-<p>Zygote : <a target="_blank" rel="noopener" href="https://zyg.edith.reisen/">https://zyg.edith.reisen/</a></p>
-<h2 id="Spiritualism">Spiritualism</h2>
-<p>Esoteric Traditionalism : <a target="_blank" rel="noopener" href="https://esoterictraditionalism.wordpress.com/">https://esoterictraditionalism.wordpress.com/</a></p>
-<p>Germanic Christianity : <a target="_blank" rel="noopener" href="https://healend.org/">https://healend.org/</a></p>
-<h2 id="Translators">Translators</h2>
-<p>Ormulus : <a target="_blank" rel="noopener" href="https://ormulus.substack.com/">https://ormulus.substack.com/</a></p>
-<p>Amphora by Leo Caesaris : <a target="_blank" rel="noopener" href="https://amphora.substack.com/">https://amphora.substack.com/</a></p>
-<p>The Oswald Spengler Project by Spergler Acolyte : <a target="_blank" rel="noopener" href="https://spergler.substack.com/">https://spergler.substack.com/</a></p>
-<p>Flesh, Then Soil by 1147x1147 : <a target="_blank" rel="noopener" href="https://elevenfortyseven.substack.com/">https://elevenfortyseven.substack.com/</a></p>
-<p>Ystorfa by Brenin Cymru : <a target="_blank" rel="noopener" href="https://ystorfa.wordpress.com/">https://ystorfa.wordpress.com/</a></p>
-<h2 id="Magazines-and-Journals">Magazines and Journals</h2>
-<p>Asylum Magazine : <a target="_blank" rel="noopener" href="https://asylummagazine.ca/">https://asylummagazine.ca/</a></p>
-<p>The American Sun : <a target="_blank" rel="noopener" href="https://theamericansun.com/">https://theamericansun.com/</a> and <a target="_blank" rel="noopener" href="https://theamericansun.substack.com/">https://theamericansun.substack.com/</a></p>
-<p>Meon : <a target="_blank" rel="noopener" href="https://meonjournal.com/">https://meonjournal.com/</a></p>
-<h2 id="Archives">Archives</h2>
-<p>Chadnet : <a target="_blank" rel="noopener" href="https://chadnet.org/">https://chadnet.org/</a></p>
-<p>Old English Poetry in Fascimile : <a target="_blank" rel="noopener" href="https://oepoetryfacsimile.org/">https://oepoetryfacsimile.org/</a></p>
-<p>Irish Books on Telegram : <a target="_blank" rel="noopener" href="https://t.me/IrishBooks">https://t.me/IrishBooks</a></p>
-<h2 id="Friendly-Vendors">Friendly Vendors</h2>
-<p>Antelope Hill : <a target="_blank" rel="noopener" href="https://antelopehillpublishing.com/">https://antelopehillpublishing.com/</a></p>
-<p>Legio Gloria : <a target="_blank" rel="noopener" href="https://www.legiogloria.com/">https://www.legiogloria.com/</a></p>
-<p>Dissident Soaps : <a target="_blank" rel="noopener" href="https://dissidentsoaps.com/">https://dissidentsoaps.com/</a></p>
-<p>Europa Apparel : <a target="_blank" rel="noopener" href="https://europaproud.com/">https://europaproud.com/</a></p>
-<h2 id="Irish-Language">Irish Language</h2>
-<p>Discover Irish : <a target="_blank" rel="noopener" href="http://raymondhickey.com/index_(DI).html">http://raymondhickey.com/index_(DI).html</a></p>
-<p>An Cartlann : <a target="_blank" rel="noopener" href="https://cartlann.org/">https://cartlann.org/</a></p>
-<p>Historical Irish Corpus : <a target="_blank" rel="noopener" href="http://corpas.ria.ie/index.php?fsg_function=1">http://corpas.ria.ie/index.php?fsg_function=1</a></p>
-<p>Doegen - Spoken Irish Records : <a target="_blank" rel="noopener" href="https://doegen.ie/">https://doegen.ie/</a></p>
-<p>Léaṁ - Learn Early Modern Irish : <a target="_blank" rel="noopener" href="https://xn--lamh-bpa.org/">https://léamh.org/</a></p>
-<p>Abair - Irish Speech-to-Text : <a target="_blank" rel="noopener" href="https://abair.ie/">https://abair.ie/</a></p>
-<p><a target="_blank" rel="noopener" href="http://Logaimn.ie">Logaimn.ie</a> - Irish Place Names : <a target="_blank" rel="noopener" href="https://www.logainm.ie/ga/">https://www.logainm.ie/ga/</a></p>
-<p>Phouka Irish Lessons : <a target="_blank" rel="noopener" href="http://phouka.com/index_learn.html">http://phouka.com/index_learn.html</a></p>
-<p><a target="_blank" rel="noopener" href="http://Tearma.ie">Tearma.ie</a> - National Terminology Database : <a target="_blank" rel="noopener" href="https://www.tearma.ie/">https://www.tearma.ie/</a></p>
-<p>Potafocal Beo - Index of Bilingual Glossaries : <a target="_blank" rel="noopener" href="http://www.potafocal.com/beo">http://www.potafocal.com/beo</a></p>
-<p>Fís agus Foġlaim : <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SElyJ1cV0y8&amp;list=PL7wLVDMegS1RwEu_jnVOPwtl1UVSLdKpH">https://www.youtube.com/watch?v=SElyJ1cV0y8&amp;list=PL7wLVDMegS1RwEu_jnVOPwtl1UVSLdKpH</a></p>
-<p>Foclóir Gaeilge Agus Béarla (PDF) : <a target="_blank" rel="noopener" href="https://celt.ucc.ie/Dinneen1.pdf">https://celt.ucc.ie/Dinneen1.pdf</a></p>
-<p>Irish Language Quizzes : <a target="_blank" rel="noopener" href="https://www.nativedialogs.com">https://www.nativedialogs.com</a></p>
-<p>Irish Language Pronunciation Dictionary : <a target="_blank" rel="noopener" href="https://forvo.com/languages/ga/">https://forvo.com/languages/ga/</a></p>
-<p>Primary School Irish Resources : <a target="_blank" rel="noopener" href="https://leighleat.com">https://leighleat.com</a></p>
-<p>Software for Learning Irish : <a target="_blank" rel="noopener" href="https://cadhan.com">https://cadhan.com</a></p>
-<p>The Doegen Records - Monolingual Irish Speakers : <a target="_blank" rel="noopener" href="https://doegen.ie/">https://doegen.ie/</a></p>
+<main>
+	<h1>Explore the Network</h1>
 
-    
-  </div>
-</article>
-        
-        <footer id="footer">
-  
+	
+	<nav class="toc" aria-label="Table of Contents">
+		<h3>Contents</h3>
+		<ul class="staircase-toc">
+		  
+		    <li style="padding-left: 0rem;">
+		      
+		      <a href="#science">
+		        Science
+		      </a>
+		    </li>
+		  
+		    <li style="padding-left: 1.5rem;">
+		      
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      
+		      <a href="#history-and-anthropology">
+		        History &amp; Anthropology
+		      </a>
+		    </li>
+		  
+		    <li style="padding-left: 3rem;">
+		      
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      
+		      <a href="#esotericism">
+		        Esotericism
+		      </a>
+		    </li>
+		  
+		    <li style="padding-left: 4.5rem;">
+		      
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      
+		      <a href="#spiritualism">
+		        Spiritualism
+		      </a>
+		    </li>
+		  
+		    <li style="padding-left: 6rem;">
+		      
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      
+		      <a href="#translators">
+		        Translators
+		      </a>
+		    </li>
+		  
+		    <li style="padding-left: 7.5rem;">
+		      
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      
+		      <a href="#magazines-and-journals">
+		        Magazines and Journals
+		      </a>
+		    </li>
+		  
+		    <li style="padding-left: 9rem;">
+		      
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      
+		      <a href="#archives">
+		        Archives
+		      </a>
+		    </li>
+		  
+		    <li style="padding-left: 10.5rem;">
+		      
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      
+		      <a href="#friendly-vendors">
+		        Friendly Vendors
+		      </a>
+		    </li>
+		  
+		    <li style="padding-left: 12rem;">
+		      
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      
+		      <a href="#irish-language">
+		        Irish Language
+		      </a>
+		    </li>
+		  
+		</ul>
+	</nav>
 
+	
+	<section id="science">
+		<h2>Science</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="https://exo-science.com">Exo Science by N&#39;golo Tesla</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://soliloquy.bio/">Soliloquy.bio by Anabology</a>
+	      </li>
+	    
+	      <li>
+	        <a href="http://www.tuks.nl/pdf/Reference_Material/">Archive of Fringe Science</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://aosabook.org/en/index.html">The Architecture of Open Source Applications</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://www.basedphysics.com/">Based Physics</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+	<section id="history-and-anthropology">
+		<h2>History &amp; Anthropology</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="https://thuletide.wordpress.com/">Thuletide&#39;s Blog</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://www.stoneageherbalist.com/">Grey Goose Chronicles by Stone Age Herbalist</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://aryan-anthropology.blogspot.com/?m=0">Aryan Anthropology</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://www.youtube.com/@dandavishistory">Dan Davis on Youtube</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://ircabritt.nuigalway.ie/">Irish and Breton Carolingian Texts - Manuscript Source</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://lineara.xyz/">Linear A Inscription Archive</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://luwianstudies.org/">Luwian Studies</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+	<section id="esotericism">
+		<h2>Esotericism</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="https://soma.cx/">Soma.cx</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://chat.soma.cx/general">Somachat - Hyper-Realtime Chat</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://geocities.restorativland.org/">Geocities</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://dons.directory/">Don&#39;s Directory</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://zyg.edith.reisen/">Zygote</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+	<section id="spiritualism">
+		<h2>Spiritualism</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="https://esoterictraditionalism.wordpress.com/">Esoteric Traditionalism</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://healend.org/">Germanic Christianity</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+	<section id="translators">
+		<h2>Translators</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="https://ormulus.substack.com/">Ormulus</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://amphora.substack.com/">Amphora by Leo Caesaris</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://spergler.substack.com/">The Oswald Spengler Project by Spergler Acolyte</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://elevenfortyseven.substack.com/">Flesh, Then Soil by 1147x1147</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://ystorfa.wordpress.com/">Ystorfa by Brenin Cymru</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+	<section id="magazines-and-journals">
+		<h2>Magazines and Journals</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="https://asylummagazine.ca/">Asylum Magazine</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://theamericansun.com/">The American Sun</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://meonjournal.com/">Meon</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+	<section id="archives">
+		<h2>Archives</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="https://chadnet.org/">Chadnet</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://oepoetryfacsimile.org/">Old English Poetry in Fascimile</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://t.me/IrishBooks">Irish Books on Telegram</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+	<section id="friendly-vendors">
+		<h2>Friendly Vendors</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="https://antelopehillpublishing.com/">Antelope Hill</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://www.legiogloria.com/">Legio Gloria</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://dissidentsoaps.com/">Dissident Soaps</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://europaproud.com/">Europa Apparel</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+	<section id="irish-language">
+		<h2>Irish Language</h2>
+		<ul class="two-column-grid">
+	    
+	      <li>
+	        <a href="http://raymondhickey.com/index_(DI).html">Discover Irish</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://cartlann.org/">An Cartlann</a>
+	      </li>
+	    
+	      <li>
+	        <a href="http://corpas.ria.ie/index.php?fsg_function=1">Historical Irish Corpus</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://doegen.ie/">Doegen - Spoken Irish Records</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://léamh.org/">Léaṁ - Learn Early Modern Irish</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://abair.ie/">Abair - Irish Speech-to-Text</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://www.logainm.ie/ga/">Logaimn.ie - Irish Place Names</a>
+	      </li>
+	    
+	      <li>
+	        <a href="http://phouka.com/index_learn.html">Phouka Irish Lessons</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://www.tearma.ie/">Tearma.ie - National Terminology Database</a>
+	      </li>
+	    
+	      <li>
+	        <a href="http://www.potafocal.com/beo">Potafocal Beo - Index of Bilingual Glossaries</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://www.youtube.com/watch?v=SElyJ1cV0y8&amp;list=PL7wLVDMegS1RwEu_jnVOPwtl1UVSLdKpH">Fís agus Foġlaim</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://celt.ucc.ie/Dinneen1.pdf">Foclóir Gaeilge Agus Béarla (PDF)</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://www.nativedialogs.com">Irish Language Quizzes</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://forvo.com/languages/ga/">Irish Language Pronunciation Dictionary</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://leighleat.com">Primary School Irish Resources</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://cadhan.com">Software for Learning Irish</a>
+	      </li>
+	    
+	      <li>
+	        <a href="https://doegen.ie/">The Doegen Records - Monolingual Irish Speakers</a>
+	      </li>
+	    
+	  </ul>
+	</section>
+	
+</main>
+<footer>
   <style>
-    #footer {
-      border-top: 1px solid rgba(0,0,0,0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      background: transparent;
+    footer {
+    	display: block;
+    	margin: 0 auto 2.5rem;
+    	padding: 0 2rem;
+			font-size: 0.7rem;
+    	color: var(--dark-grey);
+    	overflow: hidden;
+    }
+
+    footer a {
+    	color: var(--dark-grey);
     }
 
     .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+    	display: flex;
+    	flex-direction: column;
+    	align-items: center;
+    	margin-top: 1rem;
+    	margin-bottom: 1.5rem;
+    }
+    .footer-top .footer-nav {
+    	margin: 0 auto;
     }
 
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      min-width: 0;
+    .footer-nav {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		gap: 0.75rem;
+		align-items: center;
+		flex-wrap: wrap;
     }
-    .footer-left .site-title {
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .footer-nav li {
+	    display: inline-block;
+	    padding-right: 0.75rem;
+	    border-right: 1px solid;
+	    border-color: #908d8d;
+	    vertical-align: middle;
     }
-
-    .footer-right nav { 
-      margin: 0;
-    }
-    .footer-right .footer-nav {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .footer-right .footer-nav li {
-      white-space: nowrap;
+    .footer-nav li:last-child {
+  		border-right: none;
+  	}
+    .footer-nav li a {
+    	text-decoration: underline;
+    	font-size: 12px;
     }
 
-    .footer-bottom {
-      text-align: center;
-      margin-top: 0.25rem;
-    }
-    .footer-bottom .copyright {
-      font-size: 0.7rem;
-      color: #908d8d;
-    }
+	.footer-bottom {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+		margin-top: 0.25rem;
+	}
+	.footer-bottom > * {
+		width: 33%;
+	}
+  .copyright {
+		margin: auto 0;
+  }
+  .footer-links {
+   	list-style: none;
+   	gap: 1em;
+   	margin: 0;
+   	padding: 0;
+  }
+  .footer-links li:not(:first-child)::before {
+		content: "•";
+		margin-right: 0.6em;
+	}
+
+  .email-button, .email-button:hover {
+  	background-color: rgb(29, 31, 33);
+	  color: rgb(144, 141, 141);
+	  border: none;
+	  border-radius: 4px;
+	  text-decoration: none;
+	  padding: 2px 6px;
+	  font-size: 0.8rem;
+  }
 
     /* Small screens: stack top row */
-    @media (max-width: 640px) {
-      .footer-top {
-        flex-direction: column;
-        align-items: center;
-      }
-      .footer-left,
-      .footer-right {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-      .footer-left { order: 1; }
-      .footer-right { order: 2; margin-top: 0.25rem; }
+    @media (max-width: 670px) {
+		.footer-top {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.footer-bottom {
+			flex-direction: column;
+			gap: 15px;
+		}
+
+		.footer-links li {
+			overflow-wrap: break-wrap;
+		}
+    	.footer-links li:not(:first-child)::before {
+			content: "";
+		}
+    }
+
+    @media (max-width: 400px) {
+		.footer-bottom {
+			flex-direction: column;
+			align-items: center;
+			gap: 5px;
+		}
+
+		.footer-bottom > * {
+			width: 100%;
+		}
     }
   </style>
 
-  <hr style="width: 100%;">
+	<hr>
+	<div class="footer-top">
+		
+	      <ul class="footer-nav" style="margin: 0 auto;">
+	        
+	          <li>
+	            <a href="/about/">About</a>
+	          </li>
+	        
+	          <li>
+	            <a href="/posts/">Posts</a>
+	          </li>
+	        
+	          <li>
+	            <a href="/leabharlann/">Leabharlann</a>
+	          </li>
+	        
+	          <li>
+	            <a href="https://files.uisneac.com">Archive</a>
+	          </li>
+	        
+	          <li>
+	            <a href="/network/">Network</a>
+	          </li>
+	        
+	      </ul>
+		
+	</div>
 
-  <div class="footer-top">
-    <div class="footer-left">
-      
-    </div>
+	<div class="footer-bottom">
+		<div>
+			<a class="email-button" type="submit" onmouseover="this.style.backgroundColor='#FCC200';this.style.color='rgb(29,31,33)';" onmouseout="this.style.backgroundColor='rgb(29,31,33)';this.style.color='#908d8d';" href="https://uisneac.substack.com">Subscribe</a>
+		</div>
+		<p class="copyright">Copyright © 2024-2026 Ogmios</p>
 
-    
-    <div class="footer-right">
-      <nav aria-label="Footer navigation">
-        <ul class="footer-nav">
-          
-            
-              <li><a href="/">Home</a></li>
-            
-              <li><a href="/about/">About</a></li>
-            
-              <li><a href="/read/">Read</a></li>
-            
-              <li><a href="/leabharlann/">Leabharlann</a></li>
-            
-              <li><a target="_blank" rel="noopener" href="https://files.uisneac.com/">Archive</a></li>
-            
-              <li><a href="/network/">Network</a></li>
-            
-          
-        </ul>
-      </nav>
-    </div>
-    
-  </div>
-
-  <div class="footer-bottom" role="contentinfo">
-    <small class="copyright">
-      Copyright &copy;
-      
-        2024-2025
-      
-      ogmios
-    </small>
-  </div>
+		<ul class="footer-links flex-row">
+			
+			<li>
+				<a href="https://x.com/ogmios" target="_blank">Twitter / X</a>
+			</li>
+			
+			<li>
+				<a href="https://github.com/uisneach" target="_blank">Github</a>
+			</li>
+			
+			<li>
+				<a href="https://primal.net/p/nprofile1qqs93m8c65569ea9mx3nqykym7pwz0hkx354yj8s9jfp6w3t7mazvkqu4z4ld" target="_blank">Nostr</a>
+			</li>
+			
+		</ul>
+	</div>
 </footer>
 
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-
-
-
-
-<!-- clipboard -->
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Disqus Comments -->
-
-<!-- utterances Comments -->
-
-</body>
+		
+	</body>
 </html>
