@@ -1,0 +1,21 @@
+{
+  "title": "Uisneaċ",
+  "description": "Exploring philosophy, archives, and networks.",
+  "author": "Ogmios",
+  "language": "en",
+  "twitter_link": "https://x.com/ogmios",
+  "baseUrl": "https://uisneac.com",
+  "navLinks": [
+    { "text": "About", "url": "/about/" },
+    { "text": "Posts", "url": "/posts/" },
+    { "text": "Leabharlann", "url": "/leabharlann/" },
+    { "text": "Archive", "url": "https://files.uisneac.com" },
+    { "text": "Network", "url": "/network/" }
+  ],
+  "footerLinks": [
+    { "text": "Twitter / X", "url": "https://x.com/ogmios" },
+    { "text": "Github", "url": "https://github.com/uisneach" },
+    { "text": "Nostr", "url": "https://primal.net/p/nprofile1qqs93m8c65569ea9mx3nqykym7pwz0hkx354yj8s9jfp6w3t7mazvkqu4z4ld" }
+  ],
+  "currentYear": 2026
+}

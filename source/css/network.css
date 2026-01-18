@@ -1,0 +1,47 @@
+main {
+	margin: auto;
+	max-width: var(--article-page-width);
+}
+
+main > * {
+  margin: 0 1em;
+}
+
+h1 {
+	display: block;
+	margin: 3rem auto 1rem;
+    color: #2bbc8a;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+h3 {
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+}
+
+.two-column-grid {
+  display: grid;
+  column-gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.two-column-grid li {
+	border-radius: 4px;
+}
+
+/* Responsive fallback: On very small screens, stack to one column */
+@media (max-width: 600px) {
+  .two-column-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,46 @@
+name: Build & Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [eleventy, master]
+  workflow_dispatch:
+env:
+  ELEVENTY_ENV: 'production'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json found - running npm ci in repo root"
+            npm ci --prefer-offline --no-audit --progress-false
+          elif [ -f package.json ]; then
+            echo "package.json found (no lock file) - running npm install in repo root"
+            npm install --prefer-offline --no-audit --progress=false
+          else
+            echo "No package.json in repo root - skipping dependency install"
+          fi
+
+      - name: Eleventy Build
+        run: npx @11ty/eleventy --input=source --output=public
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: public
+          branch: gh-pages
+          clean: true

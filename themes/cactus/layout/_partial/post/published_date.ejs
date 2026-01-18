@@ -1,5 +1,0 @@
-<% if (post.published) { %>
-    <div class="<%= class_name %>">
-      <time datetime="<%= date_xml(post.published) %>" class="dt-published" itemprop="datePublished">Published: <%= date(post.published, config.date_format) %></time>
-    </div>
-<% } %>

@@ -1,0 +1,100 @@
+<header class="header">
+  <style>
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1.5rem 2rem 2rem;
+      width: 100wv;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      margin-left: 1em;
+    }
+
+    .header-logo {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      margin-right: 20px;
+      margin-top: 0;
+      padding: 0;
+    }
+
+    .header-title {
+      margin: 0;
+      color: #c9cacc;
+      letter-spacing: 0.01em;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 1.5rem;
+      transform: scaleY(1.15);
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header-nav {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      letter-spacing: 0.01em;
+      font-weight: 200;
+      font-style: normal;
+      font-size: 0.95rem;
+    }
+
+    .header-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .header-nav a {
+      color: var(--uisneac-green);
+      text-decoration: none;
+    }
+
+    .header-nav a:hover, a:active, a:focus {
+    	text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .header {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1em;
+        margin: 0;
+      }
+
+      .header-nav, nav {
+        justify-content: space-evenly;
+        width: 100%;
+      }
+    }
+  </style>
+  <div class="header-left">
+    <a href="/">
+      <img src="/assets/Gold-Celtic-Design.png" alt="Logo" class="header-logo">
+      <h1 class="header-title">Uisneaċ</h1>
+    </a>
+  </div>
+  <nav>
+    <ul class="header-nav">
+      {% for link in site.navLinks %}
+        <li>
+          <a href="{{ link.url }}">{{ link.text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
+

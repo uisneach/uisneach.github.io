@@ -1,0 +1,32 @@
+{% extends "layouts/page.njk" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="/css/home.css">
+{% endblock %}
+
+{% block body %}
+{% include "components/header.njk" %}
+<main id="content-wrapper">
+	<div id="home-left-wrapper">
+		<h2><a href="/posts/">Writing</a></h2>
+		<ul class="post-list">
+		{% for post in collections.posts %}
+			<li>
+				<div class="post-date">
+					<time>{{ post.date | formatDate("YYYY-MM-DD") }}</time>
+				</div>
+				<a class="post-title" href="{{ post.url }}">{{ post.data.title }}</a>
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+	<div id="home-visual-wrapper">
+		{% include "components/random-image.njk" %}
+	</div>
+	<div id="home-right-wrapper">
+		<h2><a href="/reading/">Reading</a></h2>
+		{% reading_list %}
+	</div>
+</main>
+{% include "components/footer.njk" %}
+{% endblock %}

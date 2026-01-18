@@ -1,0 +1,44 @@
+{% extends "layouts/page.njk" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="/css/network.css">
+{% endblock %}
+
+{% block body %}
+{% include "components/header.njk" %}
+<main>
+	<h1>Explore the Network</h1>
+
+	{# Table of Contents #}
+	<nav class="toc" aria-label="Table of Contents">
+		<h3>Contents</h3>
+		<ul class="staircase-toc">
+		  {% for category, resources in network %}
+		    <li style="padding-left: {{ loop.index0 * 1.5 }}rem;">
+		      {% if loop.index0 > 0 %}
+		        <span class="connector" aria-hidden="true">└─ </span>
+		      {% endif %}
+		      <a href="#{{ category | slugify | lower | replace(' ', '-') }}">
+		        {{ category }}
+		      </a>
+		    </li>
+		  {% endfor %}
+		</ul>
+	</nav>
+
+	{% for category, resources in network %}
+	<section id="{{ category | slugify | lower | replace(' ', '-') }}">
+		<h2>{{ category }}</h2>
+		<ul class="two-column-grid">
+	    {% for name, url in resources %}
+	      <li>
+	        <a href="{{ url }}">{{ name }}</a>
+	      </li>
+	    {% endfor %}
+	  </ul>
+	</section>
+	{% endfor %}
+</main>
+{% include "components/footer.njk" %}
+{% endblock %}

@@ -1,0 +1,22 @@
+<img id="home-page-image" src="">
+
+<script>
+  const images = [
+    "/assets/star.png",
+    "/assets/taurus.png",
+    "/assets/sun-stone.png",
+    "/assets/troy-town.png",
+    "/assets/torslunda-dancer.png",
+    "/assets/uisneach-plan.png",
+    "/assets/ogham-stone.png",
+    "/assets/ogham-stone-2.png",
+    // "/assets/mask.png", // Agamemnon's Death Mask
+    // Dowth/Knowth star symbols
+    // Boa Island Figures
+  ];
+
+  const randomItem = images[Math.floor(Math.random() * images.length)];
+
+  const img = document.getElementById("home-page-image");
+  img.src = randomItem;
+</script>
