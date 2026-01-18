@@ -178,30 +178,17 @@ module.exports = function (eleventyConfig) {
   // circuitous route: 1) get post URL, 2) extract publication name (i.e. publication.substack.com),
   // 3) query the publicly-exposed RSS feed for this publication, 4) match the desired post URL with the
   // corresponding RSS feed item, and 5) extract post metadata from the RSS feed. Return metadata.
-  async function getSubstackMetadata(url) {
+  async function getSubstackMetadataByRSS(url) {
     // Extract publication name
     // E.g. 'uisneac.substack.com' -> 'uisneac'
-    let pub;
+    let feedUrl;
     try {
       const parsedUrl = new URL(url);
-      if (parsedUrl.hostname.endsWith('.substack.com')) {
-        pub = parsedUrl.hostname.split('.')[0];
-      } else {
-        return {
-          url,
-          title: "Invalid URL",
-          author: "Unknown Author",
-          imageUrl: null,
-          date: null,
-          error: 'Invalid Substack URL'
-        };
-      }
+      feedUrl = `https://${parsedUrl.origin}/feed`;
     } catch (error) {
       console.error(`Error parsing URL ${url}: ${error.message}`);
       return null;
     }
-
-    const feedUrl = `https://${pub}.substack.com/feed`;
 
     try {
       // Use RSS parser to query publication RSS feed
@@ -214,14 +201,8 @@ module.exports = function (eleventyConfig) {
       if (!item) item = items.find(i => i.link?.replace(/\/$/, '') === url.replace(/\/$/, ''));
 
       if (!item) {
-        return {
-          url,
-          title: "Post not found",
-          author: "Unknown Author",
-          imageUrl: null,
-          date: null,
-          error: 'Post not found in RSS feed (may be old, paywalled, or draft)'
-        };
+        console.error(`Post ${url} not found in RSS feed (may be old, paywalled, or draft)`);
+        return null;
       }
 
       // Extract / clean values
@@ -253,15 +234,131 @@ module.exports = function (eleventyConfig) {
         date: new Date(date),
       };
     } catch (error) {
-      return {
-        url,
-        title: "Error fetching post",
-        author: "Unknown Author",
-        imageUrl: null,
-        date: null,
-        error: `Failed to fetch/parse feed: ${error.message}`
-      };
+      console.error(`Failed to fetch/parse feed for ${feedUrl}: ${error.message}`);
+      return null;
     }
+  }
+
+  function getPageMetadata(pageContent, $) {
+    // Extract metadata manually
+    const fetched = {
+      title: $("title").text() || $('meta[property="og:title"]').attr("content") || "No title",
+      author: $('meta[name="author"]').attr("content") ||
+              $('meta[property="article:author"]').attr("content") ||
+              $('meta[property="og:article:author"]').attr("content") ||
+              "Anonymous",
+      imageUrl: $('meta[property="og:image"]').attr("content"),
+      date: $('meta[property="og:article:published_time"]').attr("content") ||
+            $('meta[name="publish_date"]').attr("content") ||
+            $('meta[name="date"]').attr("content") ||
+            $('meta[property="article:published_time"]').attr("content") ||
+            $('meta[name="publication-date"]').attr("content") ||
+            $('div.dated').first().text().trim() ||
+            null,
+    };
+
+    // Convert date to Date object for sorting
+    fetched.date = fetched.date ? new Date(fetched.date) : new Date(0); // Distant past if no date
+
+    return fetched;
+  }
+
+  // Note: the $ here represents the cheerio instance
+  function getSubstackMetadataByHTML(pageContent, $) {
+    const fetched = {
+      title: null,
+      author: null,
+      imageUrl: null,
+      date: null,
+    };
+
+    // ───────────────────────────────────────────────
+    // 1. Try standard Open Graph / meta tags first
+    //    (works on most sites, including Substack)
+    // ───────────────────────────────────────────────
+    fetched.title =
+      $("title").text()?.trim() ||
+      $('meta[property="og:title"]').attr("content")?.trim() ||
+      null;
+
+    fetched.author =
+      $('meta[name="author"]').attr("content")?.trim() ||
+      $('meta[property="article:author"]').attr("content")?.trim() ||
+      $('meta[property="og:article:author"]').attr("content")?.trim() ||
+      null;
+
+    fetched.imageUrl =
+      $('meta[property="og:image"]').attr("content")?.trim() ||
+      null;
+
+    fetched.date =
+      $('meta[property="og:article:published_time"]').attr("content") ||
+      $('meta[property="article:published_time"]').attr("content") ||
+      $('meta[name="publish_date"]').attr("content") ||
+      $('meta[name="date"]').attr("content") ||
+      $('meta[name="publication-date"]').attr("content") ||
+      null;
+
+    // ───────────────────────────────────────────────
+    // 2. Substack-specific extraction (higher priority when present)
+    // ───────────────────────────────────────────────
+
+    // Substack often puts author name in the byline element
+    if (!fetched.author) {
+      const linkText = $('.post-header')
+        .find('.post-label')
+        .find('a')
+        .first()
+        .text()
+        .trim() || null;
+
+      if (!linkText) {
+        console.log("Could not find the link text");
+      } else {
+        fetched.author = linkText;
+      }
+    }
+
+    if (!fetched.title) {
+      const h1Title = $('h1.post-title, .post-title h1, .post-title, [data-component-name="PostTitle"]').first()?.text()?.trim();
+      if (h1Title) fetched.title = h1Title;
+    }
+
+    if (!fetched.imageUrl) {
+      const heroImg = $('img.hero-image, .post-hero img, [data-component-name="PostHeroImage"] img').first()?.attr('src');
+      if (heroImg) {
+        // Resolve relative URLs
+        if (heroImg.startsWith('/')) {
+          const baseUrl = new URL(pageContent.request?.uri?.href || 'https://example.substack.com').origin;
+          fetched.imageUrl = new URL(heroImg, baseUrl).href;
+        } else {
+          fetched.imageUrl = heroImg;
+        }
+      }
+    }
+
+    if (!fetched.date) {
+      // Look for <time> with datetime attribute (most reliable)
+      const timeEl = $('time.post-date, time.dt-published, .post-meta time').first();
+      fetched.date = timeEl?.attr('datetime') || timeEl?.text()?.trim() || null;
+
+      // Fallback: text-based date in post meta
+      if (!fetched.date) {
+        const dateText = $('.post-meta time, .post-date, .published-at').first()?.text()?.trim();
+        if (dateText) fetched.date = dateText;
+      }
+    }
+
+    // Final clean-up
+    if (fetched.date) {
+      // Try to normalize to ISO if it's a human-readable string
+      const parsedDate = new Date(fetched.date);
+      if (!isNaN(parsedDate)) {
+        fetched.date = parsedDate.toISOString();
+      }
+    }
+
+    return fetched;
   }
   
   eleventyConfig.addAsyncShortcode("reading_list", async function () {
@@ -299,40 +396,39 @@ module.exports = function (eleventyConfig) {
           continue;
         }
 
-        if (url.toLowerCase().includes('substack') && url.toLowerCase().includes('/p/')) { // Post is a substack post
-          processedItems.push(await getSubstackMetadata(url));
+        // Fetch page content with caching
+        const pageContent = await EleventyFetch(url, {
+          duration: "5m",
+          type: "text",
+          verbose: true,
+        });
+
+        // Parse HTML with cheerio
+        const $ = cheerio.load(pageContent);
+
+        const isSubstack = url.toLowerCase().includes('/p/') && (
+          url.toLowerCase().includes('substack') ||
+          // Look for substackcdn.com anywhere in the HTML (scripts, links, etc.)
+          pageContent.includes('substackcdn.com')
+        );
+
+        if (isSubstack) {
+          // First, try to query substack metadata by comparing against the publciation's
+          // RSS feed.
+          const RSSMetadata = await getSubstackMetadataByRSS(url);
+          if (RSSMetadata)
+            processedItems.push(RSSMetadata);
+          else {
+            // RSS query failed, resort to parsing the HTML DOM.
+            const HTMLMetadata = getSubstackMetadataByHTML(pageContent, $);
+            if (HTMLMetadata) 
+              processedItems.push(HTMLMetadata);
+            // If HTML parsing fails, push nothing at all.
+          }
         } else {
+          // NOT a Substack post
           try {
-            // Fetch page content with caching
-            const pageContent = await EleventyFetch(url, {
-              duration: "5m",
-              type: "text",
-              verbose: true,
-            });
-
-            // Parse HTML with cheerio
-            const $ = cheerio.load(pageContent);
-
-            // Extract metadata (fetched)
-            const fetched = {
-              title: $("title").text() || $('meta[property="og:title"]').attr("content") || "No title",
-              author: $('meta[name="author"]').attr("content") ||
-                      $('meta[property="article:author"]').attr("content") ||
-                      $('meta[property="og:article:author"]').attr("content") ||
-                      "Unknown Author",
-              imageUrl: $('meta[property="og:image"]').attr("content"),
-              date: null,
-            };
-
-            // Extract date: standard meta tags first
-            fetched.date = $('meta[property="og:article:published_time"]').attr("content") ||
-                           $('meta[name="publish_date"]').attr("content") ||
-                           $('meta[name="date"]').attr("content") ||
-                           $('meta[property="article:published_time"]').attr("content") ||
-                           $('meta[name="publication-date"]').attr("content");
-
-            // Convert date to Date object for sorting
-            fetched.date = fetched.date ? new Date(fetched.date) : new Date(0); // Distant past if no date
+            const fetched = getPageMetadata(pageContent, $);
 
             // Special handling for Substack: if author is "Substack", extract from title
             if (url.toLowerCase().includes('substack')) {
@@ -343,6 +439,7 @@ module.exports = function (eleventyConfig) {
                 fetched.title = titleParts.join(' - ').trim();
               }
             }
+
             // Override with manual if provided
             const title = manual.title || fetched.title;
             const author = manual.author || fetched.author;

@@ -10,7 +10,6 @@
     "markdown-it-footnote": "^4.0.0",
     "node-fetch": "^2.7.0",
     "path": "^0.12.7",
-    "rss-parser": "^3.13.0",
-    "substack-api": "^2.2.1"
+    "rss-parser": "^3.13.0"
   }
 }
