@@ -1,0 +1,15 @@
+{% extends "layouts/page.njk" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="/css/network.css">
+<link rel="stylesheet" href="/css/reading.css">
+{% endblock %}
+
+{% block body %}
+{% include "components/header.njk" %}
+<main>
+  <h1>Read What I Read</h1>
+  {% reading_list %}
+</main>
+{% include "components/footer.njk" %}
+{% endblock %}
