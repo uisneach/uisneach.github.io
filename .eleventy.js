@@ -480,6 +480,30 @@ module.exports = function (eleventyConfig) {
           console.warn("[reading_list] Cache file is not an array — returning empty");
           processedItems = [];
         }
+
+        processedItems.sort((a, b) => {
+          // Get dates — normalize missing/invalid values to null
+          const dateA = a.date ? new Date(a.date) : null;
+          const dateB = b.date ? new Date(b.date) : null;
+
+          // Both invalid → keep original relative order (stable)
+          if (dateA === null && dateB === null) {
+            return 0;
+          }
+
+          // A invalid → B comes first (A should go later)
+          if (dateA === null) {
+            return 1;
+          }
+
+          // B invalid → A comes first
+          if (dateB === null) {
+            return -1;
+          }
+
+          // Both valid → descending (newer first)
+          return dateB - dateA;
+        });
       } catch (err) {
         console.error(`[reading_list] Cannot read cache file ${CACHE_FILE}: ${err.message}`);
         // You can decide: fail build / return empty / fallback to fetch anyway
