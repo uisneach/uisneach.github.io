@@ -1,5 +1,3 @@
-# .github/workflows/deploy-gh-pages.yml
-
 name: Build & Deploy to GitHub Pages
 
 on:
@@ -12,45 +10,37 @@ permissions:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      # ────────────────────────────────────────────────
-      # Install Node.js + cache dependencies
-      # ────────────────────────────────────────────────
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install Dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json found - running npm ci in repo root"
+            npm ci --prefer-offline --no-audit --progress-false
+          elif [ -f package.json ]; then
+            echo "package.json found (no lock file) - running npm install in repo root"
+            npm install --prefer-offline --no-audit --progress=false
+          else
+            echo "No package.json in repo root - skipping dependency install"
+          fi
 
-      # ────────────────────────────────────────────────
-      # Build Eleventy site
-      # ────────────────────────────────────────────────
-      - name: Build with Eleventy
-        run: npm eleventy
+      - name: Eleventy Build
+        run: npx @11ty/eleventy --input=source --output=public
         env:
-          # Optional: add any build-time environment variables your site needs
-          # ELEVENTY_ENV: production
-          # MY_API_KEY: ${{ secrets.MY_API_KEY }}
+          ELEVENTY_ENV=production
 
-      # ────────────────────────────────────────────────
-      # Deploy to gh-pages branch
-      # ────────────────────────────────────────────────
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: public
           branch: gh-pages
           clean: true
-
-          # If you want to keep .nojekyll file (recommended for Eleventy):
-          # git-config-name: github-actions[bot]
-          # git-config-email: 41898282+github-actions[bot]@users.noreply.github.com

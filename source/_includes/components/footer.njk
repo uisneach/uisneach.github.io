@@ -117,17 +117,17 @@
   </style>
 
 	<hr>
+	{% if page.url !== "/" and page.url !== "/index.html" %}
 	<div class="footer-top">
-		{% if page.url !== "/" and page.url !== "/index.html" %}
-	      <ul class="footer-nav" style="margin: 0 auto;">
-	        {% for link in site.navLinks %}
-	          <li>
-	            <a href="{{ link.url }}">{{ link.text }}</a>
-	          </li>
-	        {% endfor %}
-	      </ul>
-		{% endif %}
+    <ul class="footer-nav" style="margin: 0 auto;">
+      {% for link in site.navLinks %}
+        <li>
+          <a href="{{ link.url }}">{{ link.text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
 	</div>
+	{% endif %}
 
 	<div class="footer-bottom">
 		<div>

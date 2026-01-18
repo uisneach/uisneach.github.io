@@ -3,7 +3,6 @@ const cheerio = require("cheerio");
 const fetch = require("node-fetch");
 const fs = require("fs-extra");
 const path = require("path");
-const { exec } = require('child_process');
 const footnote = require("markdown-it-footnote");
 const markdownIt = require("markdown-it");
 const md = markdownIt({
@@ -13,13 +12,18 @@ const md = markdownIt({
   breaks: true
 });
 
+// For Substack RSS parsing
+const Parser = require('rss-parser');
+const parser = new Parser();
+require('dotenv').config();
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "source/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "source/css": "css" });
   eleventyConfig.addPassthroughCopy({ "source/scripts": "scripts" });
   eleventyConfig.addPassthroughCopy({ "source/.well-known": ".well-known" });
 
-    // Ignore folders
+  // Ignore folders
   eleventyConfig.ignores.add("source/_drafts");
 
   // Modify markdown engine to allow regular md footnotes
@@ -55,10 +59,6 @@ module.exports = function (eleventyConfig) {
   // Filters to render any text as markdown
   eleventyConfig.addFilter("markdown", function (content) {
     return md.render(content);
-  });
-  // Optional: make it "safe" so Nunjucks doesn't escape the HTML output
-  eleventyConfig.addFilter("markdownSafe", function (content) {
-    return eleventyConfig.getFilter("safe")(md.render(content));
   });
 
   // Collect posts together
@@ -173,117 +173,231 @@ module.exports = function (eleventyConfig) {
     return `<table class="bilingual-table" style="color:${color};">${table}</table>`;
   });
 
-  // Inside your .eleventy.js (or eleventy.config.js)
+  // Subst*ck processing function
+  // Take in a URL to a substack post. Because S*bstack doesn't expose their API, we have to follow this
+  // circuitous route: 1) get post URL, 2) extract publication name (i.e. publication.substack.com),
+  // 3) query the publicly-exposed RSS feed for this publication, 4) match the desired post URL with the
+  // corresponding RSS feed item, and 5) extract post metadata from the RSS feed. Return metadata.
+  async function getSubstackMetadata(url) {
+    // Extract publication name
+    // E.g. 'uisneac.substack.com' -> 'uisneac'
+    let pub;
+    try {
+      const parsedUrl = new URL(url);
+      if (parsedUrl.hostname.endsWith('.substack.com')) {
+        pub = parsedUrl.hostname.split('.')[0];
+      } else {
+        return {
+          url,
+          title: "Invalid URL",
+          author: "Unknown Author",
+          imageUrl: null,
+          date: null,
+          error: 'Invalid Substack URL'
+        };
+      }
+    } catch (error) {
+      console.error(`Error parsing URL ${url}: ${error.message}`);
+      return null;
+    }
+
+    const feedUrl = `https://${pub}.substack.com/feed`;
+
+    try {
+      // Use RSS parser to query publication RSS feed
+      const feed = await parser.parseURL(feedUrl);
+      const items = feed.items || [];
+
+      // Try to match by link (with and without trailing slash)
+      let item = items.find(i => i.link === url);
+      if (!item) item = items.find(i => i.link === url + '/');
+      if (!item) item = items.find(i => i.link?.replace(/\/$/, '') === url.replace(/\/$/, ''));
+
+      if (!item) {
+        return {
+          url,
+          title: "Post not found",
+          author: "Unknown Author",
+          imageUrl: null,
+          date: null,
+          error: 'Post not found in RSS feed (may be old, paywalled, or draft)'
+        };
+      }
+
+      // Extract / clean values
+      const title = item.title || "No title";
+
+      // Author: prefer creator → author → fallback to publication name
+      const author =
+        item.creator ||
+        item.author ||
+        feed.title ||
+        "Unknown Author";
+
+      // Date: use pubDate if available
+      const date = item.pubDate || item.isoDate || null;
+
+      // Image: look in content:encoded / description for first <img> src (common pattern in Substack RSS)
+      let imageUrl = null;
+      const content = item['content:encoded'] || item.content || item.description || '';
+      const imgMatch = content.match(/<img[^>]+src=["'](.*?)["']/i);
+      if (imgMatch && imgMatch[1]) {
+        imageUrl = imgMatch[1].trim();
+      }
+
+      return {
+        url,
+        title,
+        author,
+        imageUrl,
+        date: new Date(date),
+      };
+    } catch (error) {
+      return {
+        url,
+        title: "Error fetching post",
+        author: "Unknown Author",
+        imageUrl: null,
+        date: null,
+        error: `Failed to fetch/parse feed: ${error.message}`
+      };
+    }
+  }
+  
   eleventyConfig.addAsyncShortcode("reading_list", async function () {
-    // Pull static reading list data from file
-    const items = require("./source/_data/reading_list.json");
-    if (!items || !Array.isArray(items)) {
+    // Array to hold processed items with metadata
+    const processedItems = [];
+
+    const CACHE_FILE = path.join(__dirname, "source", "_data", "substack_data.json");
+
+    if (process.env.ELEVENTY_ENV === "development") {
+      // ────────────────────────────────────────────────
+      // DEV: fetch + process + save to cache file
+      // ────────────────────────────────────────────────
+      console.log("[reading_list] Development mode → fetching fresh data…");
+
+      // Pull static reading list data from file
+      const items = require("./source/_data/reading_list.json");
+      if (!items || !Array.isArray(items)) {
+        return "";
+      }
+
+      const assetDir = path.join("public/assets", "reading_list");
+      await fs.ensureDir(assetDir); // Create folder if not exists
+
+      // Loop through items (can be strings or objects)
+      for (const item of items) {
+        let manual = {};
+        let url;
+        if (typeof item === 'object' && item.url) {
+          manual = item;
+          url = manual.url;
+        } else if (typeof item === 'string') {
+          url = item;
+        } else {
+          console.warn(`Invalid item in reading_list: ${JSON.stringify(item)}`);
+          continue;
+        }
+
+        if (url.toLowerCase().includes('substack') && url.toLowerCase().includes('/p/')) { // Post is a substack post
+          processedItems.push(await getSubstackMetadata(url));
+        } else {
+          try {
+            // Fetch page content with caching
+            const pageContent = await EleventyFetch(url, {
+              duration: "5m",
+              type: "text",
+              verbose: true,
+            });
+
+            // Parse HTML with cheerio
+            const $ = cheerio.load(pageContent);
+
+            // Extract metadata (fetched)
+            const fetched = {
+              title: $("title").text() || $('meta[property="og:title"]').attr("content") || "No title",
+              author: $('meta[name="author"]').attr("content") ||
+                      $('meta[property="article:author"]').attr("content") ||
+                      $('meta[property="og:article:author"]').attr("content") ||
+                      "Unknown Author",
+              imageUrl: $('meta[property="og:image"]').attr("content"),
+              date: null,
+            };
+
+            // Extract date: standard meta tags first
+            fetched.date = $('meta[property="og:article:published_time"]').attr("content") ||
+                           $('meta[name="publish_date"]').attr("content") ||
+                           $('meta[name="date"]').attr("content") ||
+                           $('meta[property="article:published_time"]').attr("content") ||
+                           $('meta[name="publication-date"]').attr("content");
+
+            // Convert date to Date object for sorting
+            fetched.date = fetched.date ? new Date(fetched.date) : new Date(0); // Distant past if no date
+
+            // Special handling for Substack: if author is "Substack", extract from title
+            if (url.toLowerCase().includes('substack')) {
+              // Assume format like "Article Name - Author Name"
+              const titleParts = fetched.title.split(' - ');
+              if (titleParts.length > 1) {
+                fetched.author = titleParts.pop().trim();
+                fetched.title = titleParts.join(' - ').trim();
+              }
+            }
+            // Override with manual if provided
+            const title = manual.title || fetched.title;
+            const author = manual.author || fetched.author;
+            const imageUrl = manual.imageUrl || fetched.imageUrl;
+            const date = manual.date || fetched.date;
+
+            // Store processed item with all data
+            processedItems.push({
+              url,
+              title,
+              author,
+              imageUrl,
+              date,
+            });
+          } catch (error) {
+            console.error(`Error processing ${url}: ${error.message}`);
+          }
+        }
+      }
+
+      // Sort by date descending (most recent first)
+      processedItems.sort((a, b) => b.date - a.date);
+
+      // Save processed data so production can use it
+      await fs.writeFile(CACHE_FILE, JSON.stringify(processedItems, null, 2));
+      console.log(`[reading_list] Wrote processed data to ${CACHE_FILE}`);
+    } else {
+      // ────────────────────────────────────────────────
+      // PRODUCTION: read from cache (fail gracefully)
+      // ────────────────────────────────────────────────
+      console.log("[reading_list] Production mode → reading from cache");
+
+      try {
+        const raw = await fs.readFile(CACHE_FILE, "utf-8");
+        processedItems = JSON.parse(raw);
+
+        if (!Array.isArray(processedItems)) {
+          console.warn("[reading_list] Cache file is not an array — returning empty");
+          processedItems = [];
+        }
+      } catch (err) {
+        console.error(`[reading_list] Cannot read cache file ${CACHE_FILE}: ${err.message}`);
+        // You can decide: fail build / return empty / fallback to fetch anyway
+        return "<!-- reading list cache missing in production -->";
+      }
+    }
+
+    // ────────────────────────────────────────────────
+    // Common rendering logic (dev + prod)
+    // ────────────────────────────────────────────────
+    if (processedItems.length === 0) {
       return "";
     }
 
     let htmlOutput = '<div class="reading-list-container"><ul class="reading-list">';
-    const assetDir = path.join("public/assets", "reading_list");
-    await fs.ensureDir(assetDir); // Create folder if not exists
-
-    // Array to hold processed items with metadata (including date)
-    const processedItems = [];
-
-    // Loop through items (can be strings or objects)
-    for (const item of items) {
-      let manual = {};
-      let url;
-      if (typeof item === 'object' && item.url) {
-        manual = item;
-        url = manual.url;
-      } else if (typeof item === 'string') {
-        url = item;
-      } else {
-        console.warn(`Invalid item in reading_list: ${JSON.stringify(item)}`);
-        continue;
-      }
-
-      try {
-        // Fetch page content with caching
-        const pageContent = await EleventyFetch(url, {
-          duration: "5m",
-          type: "text",
-          verbose: true,
-        });
-
-        // Parse HTML with cheerio
-        const $ = cheerio.load(pageContent);
-
-        // Extract metadata (fetched)
-        const fetched = {
-          title: $("title").text() || $('meta[property="og:title"]').attr("content") || "No title",
-          author: $('meta[name="author"]').attr("content") ||
-                  $('meta[property="article:author"]').attr("content") ||
-                  $('meta[property="og:article:author"]').attr("content") ||
-                  "Unknown Author",
-          imageUrl: $('meta[property="og:image"]').attr("content"),
-          date: null,
-        };
-
-        // Extract date: standard meta tags first
-        fetched.date = $('meta[property="og:article:published_time"]').attr("content") ||
-                       $('meta[name="publish_date"]').attr("content") ||
-                       $('meta[name="date"]').attr("content") ||
-                       $('meta[property="article:published_time"]').attr("content") ||
-                       $('meta[name="publication-date"]').attr("content");
-
-        if ((!fetched.date || isNaN(new Date(fetched.date).getTime())) && url) {
-          exec(`python3 get_substack_date.py "${url}"`, (error, stdout, stderr) => {
-            if (error) {
-              console.error(`Python exec error: ${error}`);
-              return;
-            }
-            try {
-              const result = JSON.parse(stdout);
-              if (result.date) {
-                fetched.date = result.date;
-              } else if (result.error) {
-                console.warn(`Python error: ${result.error}`);
-              }
-            } catch (parseErr) {
-              console.error(`Parse error: ${parseErr}`);
-            }
-          });
-        }
-
-        // Convert date to Date object for sorting (fallback to now if invalid/missing)
-        fetched.date = fetched.date ? new Date(fetched.date) : new Date(0); // Distant past if no date
-
-        // Special handling for Substack: if author is "Substack", extract from title
-        if (url.toLowerCase().includes('substack')) {
-          // Assume format like "Article Name - Author Name"
-          const titleParts = fetched.title.split(' - ');
-          if (titleParts.length > 1) {
-            fetched.author = titleParts.pop().trim();
-            fetched.title = titleParts.join(' - ').trim();
-          }
-        }
-
-        // Override with manual if provided
-        const title = manual.title || fetched.title;
-        const author = manual.author || fetched.author;
-        const imageUrl = manual.imageUrl || fetched.imageUrl;
-        const date = manual.date || fetched.date;
-
-        // Store processed item with all data
-        processedItems.push({
-          url,
-          title,
-          author,
-          imageUrl,
-          date,
-        });
-      } catch (error) {
-        console.error(`Error processing ${url}: ${error.message}`);
-      }
-    }
-
-    // Sort by date descending (most recent first)
-    processedItems.sort((a, b) => b.date - a.date);
 
     // Now build HTML from sorted items
     for (const item of processedItems) {
