@@ -127,7 +127,7 @@ h2 a {
 .reading-card--text-only {
   padding: 1.25rem;
   text-align: center;
-  min-height: 120px; /* Keeps consistent height with image cards if desired */
+  min-height: 120px; /* Keeps consistent height with image cards */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -149,7 +149,7 @@ h2 a {
 }
 
 .reading-list-container {
-  max-height: 500px;
+  max-height: 380px;
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -184,5 +184,11 @@ h2 a {
   .reading-list-container {
     max-height: none;
     overflow-y: scroll;
+  }
+}
+
+@media (min-width: 1400px) {
+  .reading-list-container {
+    max-height: 500px;
   }
 }
