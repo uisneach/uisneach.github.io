@@ -149,7 +149,7 @@ h2 a {
 }
 
 .reading-list-container {
-  max-height: 400px;
+  max-height: 500px;
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
