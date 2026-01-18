@@ -8,6 +8,7 @@
 	--uisneac-gold: #fcc200;
 
 	--article-page-width: 50rem;
+	--mobile-threshold: 800px;
 }
 
 * {

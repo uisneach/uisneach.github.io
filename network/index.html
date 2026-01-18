@@ -14,76 +14,89 @@
 	</head>
 	<body>
 		
-<style>
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1.5rem 2rem 2rem;
-    width: 100wv;
-  }
-
-  .header-left {
-    display: flex;
-    align-items: center;
-  }
-
-  .header-left a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    margin-left: 1em;
-  }
-
-  .header-logo {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    margin-right: 20px;
-    margin-top: 0;
-    padding: 0;
-  }
-
-  .header-title {
-    margin: 0;
-    color: #c9cacc;
-    letter-spacing: 0.01em;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 1.5rem;
-    transform: scaleY(1.15);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .header-nav {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    letter-spacing: 0.01em;
-    font-weight: 200;
-    font-style: normal;
-    font-size: 0.95rem;
-  }
-
-  .header-nav li {
-    margin-left: 1.5rem;
-  }
-
-  .header-nav a {
-    color: var(--uisneac-green);
-    text-decoration: none;
-  }
-
-  .header-nav a:hover, a:active, a:focus {
-  	text-decoration: underline;
-  }
-</style>
-
 <header class="header">
+  <style>
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1.5rem 2rem 2rem;
+      width: 100wv;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      margin-left: 1em;
+    }
+
+    .header-logo {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      margin-right: 20px;
+      margin-top: 0;
+      padding: 0;
+    }
+
+    .header-title {
+      margin: 0;
+      color: #c9cacc;
+      letter-spacing: 0.01em;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 1.5rem;
+      transform: scaleY(1.15);
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header-nav {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      letter-spacing: 0.01em;
+      font-weight: 200;
+      font-style: normal;
+      font-size: 0.95rem;
+    }
+
+    .header-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .header-nav a {
+      color: var(--uisneac-green);
+      text-decoration: none;
+    }
+
+    .header-nav a:hover, a:active, a:focus {
+    	text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .header {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1em;
+        margin: 0;
+      }
+
+      .header-nav, nav {
+        justify-content: space-evenly;
+        width: 100%;
+      }
+    }
+  </style>
   <div class="header-left">
     <a href="/">
       <img src="/assets/Gold-Celtic-Design.png" alt="Logo" class="header-logo">
@@ -504,14 +517,15 @@
     }
 
     .footer-nav {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		gap: 0.75rem;
-		align-items: center;
-		flex-wrap: wrap;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			gap: 0.75rem;
+			align-items: center;
+			flex-wrap: wrap;
     }
+
     .footer-nav li {
 	    display: inline-block;
 	    padding-right: 0.75rem;
@@ -519,80 +533,87 @@
 	    border-color: #908d8d;
 	    vertical-align: middle;
     }
+
     .footer-nav li:last-child {
   		border-right: none;
   	}
+
     .footer-nav li a {
     	text-decoration: underline;
     	font-size: 12px;
     }
 
-	.footer-bottom {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		text-align: center;
-		margin-top: 0.25rem;
-	}
-	.footer-bottom > * {
-		width: 33%;
-	}
-  .copyright {
-		margin: auto 0;
-  }
-  .footer-links {
-   	list-style: none;
-   	gap: 1em;
-   	margin: 0;
-   	padding: 0;
-  }
-  .footer-links li:not(:first-child)::before {
-		content: "•";
-		margin-right: 0.6em;
-	}
-
-  .email-button, .email-button:hover {
-  	background-color: rgb(29, 31, 33);
-	  color: rgb(144, 141, 141);
-	  border: none;
-	  border-radius: 4px;
-	  text-decoration: none;
-	  padding: 2px 6px;
-	  font-size: 0.8rem;
-  }
-
-    /* Small screens: stack top row */
-    @media (max-width: 670px) {
-		.footer-top {
-			flex-direction: column;
-			align-items: center;
-		}
-
 		.footer-bottom {
-			flex-direction: column;
-			gap: 15px;
-		}
-
-		.footer-links li {
-			overflow-wrap: break-wrap;
-		}
-    	.footer-links li:not(:first-child)::before {
-			content: "";
-		}
-    }
-
-    @media (max-width: 400px) {
-		.footer-bottom {
-			flex-direction: column;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
 			align-items: center;
-			gap: 5px;
+			text-align: center;
+			margin-top: 0.25rem;
 		}
 
 		.footer-bottom > * {
-			width: 100%;
+			width: 33%;
 		}
+
+	  .copyright {
+			margin: auto 0;
+	  }
+
+	  .footer-links {
+	   	list-style: none;
+	   	gap: 1em;
+	   	margin: 0;
+	   	padding: 0;
+	  }
+
+	  .footer-links li:not(:first-child)::before {
+			content: "•";
+			margin-right: 0.6em;
+		}
+
+	  .email-button, .email-button:hover {
+	  	background-color: rgb(29, 31, 33);
+		  color: rgb(144, 141, 141);
+		  border: none;
+		  border-radius: 4px;
+		  text-decoration: none;
+		  padding: 2px 6px;
+		  font-size: 0.8rem;
+	  }
+
+    /* Small screens: stack top row */
+    @media (max-width: 670px) {
+			.footer-top {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.footer-bottom {
+				flex-direction: column;
+				gap: 15px;
+			}
+
+			.footer-bottom > * {
+				width: 100%;
+			}
+
+			.footer-links li {
+				overflow-wrap: break-wrap;
+			}
+
+	    .footer-links li:not(:first-child)::before {
+				content: "";
+			}
     }
+
+    @media (max-width: 600px) {
+			.footer-bottom {
+				flex-direction: column;
+				align-items: center;
+				gap: 5px;
+			}
+	  }
   </style>
 
 	<hr>
