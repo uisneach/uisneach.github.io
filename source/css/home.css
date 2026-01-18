@@ -19,7 +19,6 @@ h2 a {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   overflow: hidden;
   padding: 0 1rem;
 }
@@ -158,4 +157,32 @@ h2 a {
 
 .reading-list-container::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 800px) {
+  #content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 1rem;
+  }
+
+  #home-visual-wrapper {
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  #home-visual-wrapper img {
+    height: auto;
+  }
+
+  #home-right-wrapper {
+    width: 100%;
+  }
+
+  .reading-list-container {
+    max-height: none;
+    overflow-y: scroll;
+  }
 }

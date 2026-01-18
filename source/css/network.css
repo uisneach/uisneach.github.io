@@ -3,6 +3,10 @@ main {
 	max-width: var(--article-page-width);
 }
 
+main > * {
+  margin: 0 1em;
+}
+
 h1 {
 	display: block;
 	margin: 3rem auto 1rem;

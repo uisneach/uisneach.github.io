@@ -2,15 +2,15 @@
 
 <script>
   const images = [
-    { src: "/assets/star.png",     scale: 1.0 },
-    { src: "/assets/taurus.png",   scale: 1.2 },
-    { src: "/assets/sun-stone.png", scale: 1.2 },
-    { src: "/assets/troy-town.png", scale: 1.0 },
-    { src: "/assets/torslunda-dancer.png", scale: 0.85 },
-    { src: "/assets/uisneach-plan.png", scale: 1.0 },
-    //{ src: "/assets/mask.png", scale: 0.8 }, Agememnon's Death Mask
-    { src: "/assets/ogham-stone.png", scale: 1.4 },
-    { src: "/assets/ogham-stone-2.png", scale: 1.4 },
+    "/assets/star.png",
+    "/assets/taurus.png",
+    "/assets/sun-stone.png",
+    "/assets/troy-town.png",
+    "/assets/torslunda-dancer.png",
+    "/assets/uisneach-plan.png",
+    "/assets/ogham-stone.png",
+    "/assets/ogham-stone-2.png",
+    // "/assets/mask.png", // Agamemnon's Death Mask
     // Dowth/Knowth star symbols
     // Boa Island Figures
   ];
@@ -18,6 +18,5 @@
   const randomItem = images[Math.floor(Math.random() * images.length)];
 
   const img = document.getElementById("home-page-image");
-  img.src = randomItem.src;
-  img.style.transform = `scale(${randomItem.scale})`;
+  img.src = randomItem;
 </script>
