@@ -266,7 +266,7 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addAsyncShortcode("reading_list", async function () {
     // Array to hold processed items with metadata
-    const processedItems = [];
+    let processedItems = [];
 
     const CACHE_FILE = path.join(__dirname, "source", "_data", "substack_data.json");
 
