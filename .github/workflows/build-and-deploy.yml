@@ -4,6 +4,8 @@ on:
   push:
     branches: [eleventy, master]
   workflow_dispatch:
+env:
+  ELEVENTY_ENV: 'production'
 
 permissions:
   contents: write
@@ -35,8 +37,6 @@ jobs:
 
       - name: Eleventy Build
         run: npx @11ty/eleventy --input=source --output=public
-        env:
-          ELEVENTY_ENV=production
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
