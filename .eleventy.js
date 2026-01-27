@@ -184,7 +184,7 @@ module.exports = function (eleventyConfig) {
     let feedUrl;
     try {
       const parsedUrl = new URL(url);
-      feedUrl = `https://${parsedUrl.origin}/feed`;
+      feedUrl = `${parsedUrl.origin}/feed`;
     } catch (error) {
       console.error(`Error parsing URL ${url}: ${error.message}`);
       return null;
@@ -256,6 +256,17 @@ module.exports = function (eleventyConfig) {
             $('div.dated').first().text().trim() ||
             null,
     };
+
+    // Special handling for Substack note: if author is "Substack",
+    // extract true author name from title
+    if (fetched.author.toLowerCase().includes('substack')) {
+      // Assume format like "Article Name - Author Name"
+      const titleParts = fetched.title.split(' - ');
+      if (titleParts.length > 1) {
+        fetched.author = titleParts.pop().trim();
+        fetched.title = titleParts.join(' - ').trim();
+      }
+    }
 
     // Convert date to Date object for sorting
     fetched.date = fetched.date ? new Date(fetched.date) : new Date(0); // Distant past if no date
@@ -421,24 +432,16 @@ module.exports = function (eleventyConfig) {
           else {
             // RSS query failed, resort to parsing the HTML DOM.
             const HTMLMetadata = getSubstackMetadataByHTML(pageContent, $);
-            if (HTMLMetadata) 
+            if (HTMLMetadata) {
+              HTMLMetadata.url = url;
               processedItems.push(HTMLMetadata);
+            }
             // If HTML parsing fails, push nothing at all.
           }
         } else {
           // NOT a Substack post
           try {
             const fetched = getPageMetadata(pageContent, $);
-
-            // Special handling for Substack: if author is "Substack", extract from title
-            if (url.toLowerCase().includes('substack')) {
-              // Assume format like "Article Name - Author Name"
-              const titleParts = fetched.title.split(' - ');
-              if (titleParts.length > 1) {
-                fetched.author = titleParts.pop().trim();
-                fetched.title = titleParts.join(' - ').trim();
-              }
-            }
 
             // Override with manual if provided
             const title = manual.title || fetched.title;
@@ -461,7 +464,29 @@ module.exports = function (eleventyConfig) {
       }
 
       // Sort by date descending (most recent first)
-      processedItems.sort((a, b) => b.date - a.date);
+      processedItems.sort((a, b) => {
+        // Get dates — normalize missing/invalid values to null
+        const dateA = a.date ? new Date(a.date) : null;
+        const dateB = b.date ? new Date(b.date) : null;
+
+        // Both invalid → keep original relative order (stable)
+        if (dateA === null && dateB === null) {
+          return 0;
+        }
+
+        // A invalid → B comes first (A should go later)
+        if (dateA === null) {
+          return 1;
+        }
+
+        // B invalid → A comes first
+        if (dateB === null) {
+          return -1;
+        }
+
+        // Both valid → descending (newer first)
+        return dateB - dateA;
+      });
 
       // Save processed data so production can use it
       await fs.writeFile(CACHE_FILE, JSON.stringify(processedItems, null, 2));

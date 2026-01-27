@@ -1,16 +1,10 @@
 [
   {
-    "url": "https://baazaa.github.io/2024/12/27/labour.html",
-    "title": "H-1Bs | A Monitor Darkly",
-    "author": "@baazaa9",
-    "date": "2024-12-27T23:00:00.000Z"
-  },
-  {
-    "url": "https://substack.com/@oconarain/p-165373368",
-    "title": "Fenian on the Pampas",
-    "author": "Luke Ó Conaráin",
-    "imageUrl": "https://substackcdn.com/image/fetch/$s_!KwMV!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff10e512e-122f-40d5-923d-2e02c311e95b_640x480.jpeg",
-    "date": "2025-06-06T20:51:21.734Z"
+    "url": "https://borealbaron.substack.com/p/the-doric-world",
+    "title": "The Doric World by Gottfried Benn",
+    "author": "Barón Boreal",
+    "imageUrl": "https://substackcdn.com/image/fetch/$s_!0rfV!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4359758f-f6f5-4475-8927-a56bb0a3330f_1125x1594.png",
+    "date": "2025-09-05T02:17:57.000Z"
   },
   {
     "url": "https://plzcallmechrist.substack.com/p/a-sojourn-into-gastronomic-despair",
@@ -18,6 +12,13 @@
     "author": "p.c.m. christ",
     "imageUrl": "https://substackcdn.com/image/fetch/$s_!4pfA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fec89de85-b747-458b-ad34-fbc93568f4b1_736x706.jpeg",
     "date": "2025-08-10T17:25:11.000Z"
+  },
+  {
+    "url": "https://substack.com/@oconarain/p-165373368",
+    "title": "Fenian on the Pampas",
+    "author": "Luke Ó Conaráin",
+    "imageUrl": "https://substackcdn.com/image/fetch/$s_!KwMV!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff10e512e-122f-40d5-923d-2e02c311e95b_640x480.jpeg",
+    "date": "2025-06-06T20:51:21.734Z"
   },
   {
     "url": "https://scythianbro.substack.com/p/scythianistics-i",
@@ -39,6 +40,12 @@
     "author": "Unsinn",
     "imageUrl": null,
     "date": "2025-01-05T21:59:09.000Z"
+  },
+  {
+    "url": "https://baazaa.github.io/2024/12/27/labour.html",
+    "title": "H-1Bs | A Monitor Darkly",
+    "author": "@baazaa9",
+    "date": "2024-12-27T23:00:00.000Z"
   },
   {
     "url": "https://thedimkingdom.substack.com/p/ex-libris-a-sensitive-young-man",
@@ -71,12 +78,14 @@
     "title": "A Three-Step Plan for the Sensitive Young Man",
     "author": "Russell Walter",
     "imageUrl": "https://substackcdn.com/image/fetch/$s_!6Cbb!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbcd6db2f-43d7-4138-8343-c3fcdd35e33e_1920x2454.jpeg",
-    "date": null
+    "date": null,
+    "url": "https://russellwalter.substack.com/p/a-three-step-plan-for-the-sensitive"
   },
   {
     "title": "The Five Stages of Western Fertility - Aporia",
     "author": "Aporia",
     "imageUrl": "https://substackcdn.com/image/fetch/$s_!QLmI!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81b07877-8554-49b3-9c76-68c8ff2f6c54_1344x896.png",
-    "date": null
+    "date": null,
+    "url": "https://www.aporiamagazine.com/p/the-five-stages-of-western-fertility"
   }
 ]
