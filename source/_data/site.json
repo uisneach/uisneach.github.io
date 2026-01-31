@@ -1,9 +1,10 @@
 {
   "title": "Uisneaċ",
-  "description": "Exploring philosophy, archives, and networks.",
+  "description": "Essays on Celtic literature, history, religion, and ancient European culture.",
   "author": "Ogmios",
   "language": "en",
   "twitter_link": "https://x.com/ogmios",
+  "twitter_handle": "@ogmios",
   "baseUrl": "https://uisneac.com",
   "navLinks": [
     { "text": "About", "url": "/about/" },

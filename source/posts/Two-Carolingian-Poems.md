@@ -1,13 +1,12 @@
 ---
 title: Two Carolingian Poems by Hibernicus Exul
-author: Ogmios
 date: 2025-12-25
 tags: [Medieval, Christianity, Poetry]
 ---
 
 {% image "Two-Carolingian-Poems/Carolingian.webp" %}
 
-An anonymous Irish poet calling himself Hibernicus Exul, or the Irish Exile, wrote a number of poems in Latin for his lord, Charlemagne, during the 8th century AD. Some (most?) of these poems are captured in a work called Poetae Latinae Aevi Carolini, [published](https://archive.org/details/poetaelatiniaevi00dm/page/392/mode/2up) by Ernst Dümmler in 1881, which prints them in Latin and which, as far as I can tell, have not yet been translated to English except for a handful published in Poetry of the Carolingian Renaissance by Peter Godman in 1981.
+An anonymous Irish poet calling himself Hibernicus Exul, or the Irish Exile, wrote a number of poems in Latin for his lord, Charlemagne, during the 8th century AD. Some (most?) of these poems are captured in a work called *Poetae Latinae Aevi Carolini*, [published](https://archive.org/details/poetaelatiniaevi00dm/page/392/mode/2up) by Ernst Dümmler in 1881, which prints them in Latin and which, as far as I can tell, have not yet been translated to English except for a handful published in Poetry of the Carolingian Renaissance by Peter Godman in 1981.
 
 This poet is anonymous, and identified himself only with this pseudonym. Historians have tried, through mere conjecture, to identify him with the other Irish scholars known to have been in the Carolingian court, such as [Dungal](https://en.wikipedia.org/wiki/Dungal) or [Dicuil](https://en.wikipedia.org/wiki/Dicuil), who certainly qualify as educated Irishmen far from home. But nothing can be known for sure. These two poems specifically are panegyrics for Charlemagne, and offer a glimpse into the scholastic Christianity of the 8th century AD.
 

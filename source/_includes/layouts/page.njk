@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<!-- Site-generic Head Data -->
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>Uisneaċ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ site.title }}</title>
 		<link rel="stylesheet" href="/css/page.css">
 		<link rel="icon" type="image/x-icon" href="/assets/Gold-Celtic-Design.png">
 		<meta name="author" content="{{ site.author }}" />
+		<link rel="canonical" href="https://uisneac.com">
+
+		<meta property="og:title" content="{{ site.title }}">
+		<meta property="og:site_name" content="{{ site.title }}">
+		<meta property="og:description" content="{{ site.description }}">
+		<meta property="og:image" content="https://uisneac.com/assets/Uisneac.webp">
+		<meta property="og:url" content="{{ site.baseUrl }}">
+		<meta property="og:type" content="website">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="{{ site.twitter_handle }}">
+		<meta name="twitter:title" content="{{ site.title }}">
+		<meta name="twitter:creator" content="{{ site.author }}">
+		<meta name="twitter:description" content="{{ site.description }}">
+		<meta name="twitter:image" content="https://uisneac.com/assets/Uisneac.webp">
 		{% block extra_head %}{% endblock %}
 	</head>
 	<body>

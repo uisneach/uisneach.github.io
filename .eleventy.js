@@ -67,7 +67,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Helper filter for the posts.njk page
-  eleventyConfig.addFilter('extractFirstImageUrl', function (content) {
+  eleventyConfig.addFilter('extractFirstImageUrl', function (content, absolute = false) {
     if (!content) return null;
 
     const $ = cheerio.load(content, { xmlMode: true });
@@ -75,11 +75,24 @@ module.exports = function (eleventyConfig) {
 
     if (firstImg.length) {
       let src = firstImg.attr('src');
-      // Handle relative paths (common in Eleventy)
-      if (src && !src.startsWith('http') && !src.startsWith('//') && !src.startsWith('data:')) {
-        // You can prepend your image base path if needed, e.g.:
-        // src = '/images/' + src.replace(/^\//, '');
-        // But usually Eleventy's | url filter handles it later
+      if (absolute && src && !src.startsWith('http')) {
+        // Must check if path is relative, and if so, convert to absolute
+        src = src.startsWith('/') ? src : '/' + src; // Ensure src starts with /
+        return 'https://uisneac.com' + src;
+      } else if (!absolute && src && !src.startsWith('/')) {
+        // Must check if path is absolute, and if so, convert to relative
+        try {
+          const url = new URL(src);
+          // Only convert if it's from my domain
+          if (url.hostname === 'uisneac.com' || url.hostname === 'www.uisneac.com') {
+            return url.pathname;
+          }
+          // If it's an external URL, return as-is since we can't make it relative
+          return src;
+        } catch (e) {
+          // If URL parsing fails, return original
+          return src;
+        }
       }
       return src;
     }
@@ -384,7 +397,6 @@ module.exports = function (eleventyConfig) {
         if (postUFI.length > 0) {
           const text = postUFI.text();
           const match = text.match(datePattern);
-          console.log(match);
           if (match) {
             fetched.date = match[0];
           }

@@ -1,7 +1,26 @@
 {% extends "layouts/page.njk" %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="/css/post.css">
+		<!-- Post-Specific Head Data -->
+		<link rel="stylesheet" href="/css/post.css">
+		{% set postImage = (content | extractFirstImageUrl(true)) or 'https://uisneac.com/assets/Uisneac.webp' %}
+		<meta property="og:title" content="{{ title }} - {{ site.title }}">
+		<meta property="og:site_name" content="{{ site.title }}">
+		<meta property="og:description" content="{{ site.description }}">
+		<meta property="og:image" content="{{ postImage }}">
+		<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+		<meta property="og:type" content="article">
+		<meta property="article:published_time" content="{{ date | formatDate }}">
+		<meta property="article:author" content="{{ author or site.author }}">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="{{ site.twitter_handle }}">
+		<meta name="twitter:title" content="{{ title }}">
+		<meta name="twitter:creator" content="{{ site.twitter_handle }}">
+		<meta name="twitter:description" content="{{ description or site.description }}">
+		<meta name="twitter:image" content="{{ postImage }}">
+
+		<link rel="canonical" href="{{ site.url }}{{ page.url }}">
 {% endblock %}
 
 {% block body %}
@@ -10,7 +29,7 @@
 	<div class="post-header">
 		<h1 class="post-title">{{ title }}</h1>
 		<div class="metadata">
-			<span class="author"><a href="{{ site.twitter_link }}">{{ site.author }}</a></span>
+			<span class="author"><a href="{{ site.twitter_link }}">{{ author or site.author }}</a></span>
 			<time datetime="2026-01-01" class="published-date">{{ date | formatDate }}</time>
 		</div>
 	</div>
