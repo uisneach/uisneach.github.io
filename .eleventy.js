@@ -252,10 +252,20 @@ module.exports = function (eleventyConfig) {
             $('meta[name="publish_date"]').attr("content") ||
             $('meta[name="date"]').attr("content") ||
             $('meta[property="article:published_time"]').attr("content") ||
+            $('meta[property="article:modified_time"]').attr("content") ||
             $('meta[name="publication-date"]').attr("content") ||
             $('div.dated').first().text().trim() ||
             null,
     };
+
+    // Special handling for Wordpress author names
+    if (fetched.author === "Anonymous") {
+      const titleParts = fetched.title.split(' | ');
+      if (titleParts.length > 1) {
+        fetched.author = titleParts.pop().trim();
+        fetched.title = titleParts.join(' | ').trim();
+      }
+    }
 
     // Special handling for Substack note: if author is "Substack",
     // extract true author name from title
@@ -313,6 +323,18 @@ module.exports = function (eleventyConfig) {
     // ───────────────────────────────────────────────
     // 2. Substack-specific extraction (higher priority when present)
     // ───────────────────────────────────────────────
+    if (!fetched.author) {
+      $('a[href*="https://substack.com/@"]').each(function() {
+        const href = $(this).attr('href');
+        if (href && href.includes('https://substack.com/@')) {
+          const authorName = $(this).text()?.trim();
+          if (authorName) {
+            fetched.author = authorName;
+            return false;
+          }
+        }
+      });
+    }
 
     // Substack often puts author name in the byline element
     if (!fetched.author) {
@@ -352,6 +374,22 @@ module.exports = function (eleventyConfig) {
       // Look for <time> with datetime attribute (most reliable)
       const timeEl = $('time.post-date, time.dt-published, .post-meta time').first();
       fetched.date = timeEl?.attr('datetime') || timeEl?.text()?.trim() || null;
+
+      if (!fetched.date) {
+        // Susbtack dates appear on page in the format "Jan 30, 2025"
+        const datePattern = /(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s*\d{1,2}\s*,?\s*\d{4}|\d{4}-\d{2}-\d{2}|\d{1,2}\/\d{1,2}\/\d{4}/i;
+        
+        // Search in the Post UFI section for a date literal
+        const postUFI = $('[aria-label="Post UFI"]');
+        if (postUFI.length > 0) {
+          const text = postUFI.text();
+          const match = text.match(datePattern);
+          console.log(match);
+          if (match) {
+            fetched.date = match[0];
+          }
+        }
+      }
 
       // Fallback: text-based date in post meta
       if (!fetched.date) {
