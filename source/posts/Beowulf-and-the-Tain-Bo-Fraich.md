@@ -1,9 +1,7 @@
 ---
 title: Beowulf and the Táin Bó Fraích
 date: 2023-09-18 4:18:00
-author: GoF
 description: The Anglo-Saxon Hero and his Irish Cognates
-categories:
 twitter_link: 'https://x.com/ogmios/status/1703868566171222437'
 imgPosition: 30
 tags: [Irish Myth, Anglo-Saxon]

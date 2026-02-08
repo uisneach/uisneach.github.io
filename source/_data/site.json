@@ -9,7 +9,7 @@
   "navLinks": [
     { "text": "About", "url": "/about/" },
     { "text": "Posts", "url": "/posts/" },
-    { "text": "Leabharlann", "url": "/leabharlann/" },
+    { "text": "Leabharlann", "url": "https://leabharlann.uisneac.com" },
     { "text": "Archive", "url": "https://files.uisneac.com" },
     { "text": "Network", "url": "/network/" }
   ],
