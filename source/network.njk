@@ -15,7 +15,7 @@
 		<h3>Contents</h3>
 		<ul class="staircase-toc">
 		  {% for category, resources in network %}
-		    <li style="padding-left: {{ loop.index0 * 1.5 }}rem;">
+		    <li class="toc-item" style="--toc-level: {{ loop.index0 }};">
 		      {% if loop.index0 > 0 %}
 		        <span class="connector" aria-hidden="true">└─ </span>
 		      {% endif %}

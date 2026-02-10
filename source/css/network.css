@@ -26,6 +26,10 @@ ul {
 	margin: 0;
 }
 
+.toc-item {
+  padding-left: calc(var(--toc-level) * 1.5rem); /* This defines the cascading effect in the table of contents. */
+}
+
 .two-column-grid {
   display: grid;
   column-gap: 0.5rem;
@@ -43,5 +47,9 @@ ul {
 @media (max-width: 600px) {
   .two-column-grid {
     grid-template-columns: 1fr;
+  }
+
+  .toc-item {
+    padding-left: calc(var(--toc-level) * 0.35rem); /* Less cascading on mobile for TOC */
   }
 }
