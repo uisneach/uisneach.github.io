@@ -423,7 +423,6 @@ module.exports = function (eleventyConfig) {
   }
   
   eleventyConfig.addAsyncShortcode("reading_list", async function () {
-    return null;
     // Array to hold processed items with metadata
     let processedItems = [];
 
