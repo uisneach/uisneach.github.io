@@ -423,6 +423,7 @@ module.exports = function (eleventyConfig) {
   }
   
   eleventyConfig.addAsyncShortcode("reading_list", async function () {
+    return null;
     // Array to hold processed items with metadata
     let processedItems = [];
 
@@ -668,6 +669,40 @@ module.exports = function (eleventyConfig) {
     };
 
     return format.replace(/YYYY|MMMM|MMM|Do|YY|DD|MM|M|D/g, match => tokens[match] || match);
+  });
+
+  // Clean HTML filter - removes empty tags
+  eleventyConfig.addFilter('cleanHTML', function(content) {
+    if (!content) return '';
+    
+    let html = String(content);
+    
+    // First, remove <p> tags that wrap block-level elements
+    const blockElements = ['figure', 'div', 'blockquote', 'pre', 'table', 'ul', 'ol', 
+                           'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'form'];
+    
+    blockElements.forEach(tag => {
+      // Match <p>optional whitespace<blockelement>...</blockelement>optional whitespace</p>
+      const regex = new RegExp(`<p>\\s*(<${tag}[^>]*>.*?<\\/${tag}>)\\s*<\\/p>`, 'gis');
+      html = html.replace(regex, '$1');
+    });
+    
+    // Then remove empty tags
+    const voidElements = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 
+                          'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'];
+    
+    let previousHtml = '';
+    let iterations = 0;
+    
+    while (previousHtml !== html && iterations < 10) {
+      previousHtml = html;
+      html = html.replace(/<(\w+)([^>]*)>\s*<\/\1>/g, (match, tagName) => {
+        return voidElements.includes(tagName.toLowerCase()) ? match : '';
+      });
+      iterations++;
+    }
+    
+    return html;
   });
 
   return {

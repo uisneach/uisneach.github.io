@@ -31,11 +31,14 @@
 		<div class="metadata">
 			<span class="author"><a href="{{ site.twitter_link }}">{{ author or site.author }}</a></span>
 			<time datetime="2026-01-01" class="published-date">{{ date | formatDate }}</time>
+			{% if date_modified %}
+			<time datetime="2026-01-01" class="modified-date">|   Modified: {{ date_modified | formatDate }}</time>
+			{% endif %}
 		</div>
 	</div>
 	
 	<div class="post-content">
-		{{ content | safe }}
+		{{ content | cleanHTML | safe }}
 	</div>
 
 	{% if twitter_link or tags %}
