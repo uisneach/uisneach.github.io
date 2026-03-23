@@ -1,10 +1,11 @@
 {
   "Science": {
-  	"Exo Science by N'golo Tesla": "https://exo-science.com",
-	"Soliloquy.bio by Anabology": "https://soliloquy.bio/",
+    "Exo Science by N'golo Tesla": "https://exo-science.com",
+    "Soliloquy.bio by Anabology": "https://soliloquy.bio/",
     "Archive of Fringe Science": "http://www.tuks.nl/pdf/Reference_Material/",
     "The Architecture of Open Source Applications": "https://aosabook.org/en/index.html",
-    "Based Physics": "https://www.basedphysics.com/"
+    "Based Physics": "https://www.basedphysics.com/",
+    "Health Literature": "https://literature.bio/"
   },
   "History & Anthropology": {
   	"Thuletide's Blog": "https://thuletide.wordpress.com/",

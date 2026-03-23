@@ -418,6 +418,9 @@ module.exports = function (eleventyConfig) {
         fetched.date = parsedDate.toISOString();
       }
     }
+    if (fetched.title) {
+      fetched.title = fetched.title.split(" - ")[0].trim();
+    }
 
     return fetched;
   }
